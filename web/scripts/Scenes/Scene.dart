@@ -23,6 +23,9 @@ abstract class Scene {
     bool triggered();
 
     //by default just puts background, doll and text in places.
+    //most scenes should do what they need to to change vars and set text, then call super.
+    //some scenes could add another div after super is called if they need something fancy, but
+    //image with caption underneath should be standard.
     Future<Null> renderContent(Element element) async {
         DivElement container = new DivElement();
         //as long as i get this appended soon, it goes on screen then we async
