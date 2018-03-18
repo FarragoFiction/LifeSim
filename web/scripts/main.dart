@@ -1,5 +1,10 @@
 import 'dart:html';
+import "LifeSimLib.dart";
+
+
+World world;
 
 void main() {
-  querySelector('#output').text = 'Your Dart app is running.';
+  Entity protagonist = new Entity("Jimbo","Herst", new SuperbSuckDoll());
+  world = new World(protagonist, querySelector("#output"));
 }
