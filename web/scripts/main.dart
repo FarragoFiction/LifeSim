@@ -10,7 +10,8 @@ void main() {
 }
 
 void start() {
-  Entity protagonist = new Entity("Jimbo","Herst", new SuperbSuckDoll(), sceneCards);
-  world = new World(protagonist, querySelector("#output"));
+  Random rand = new Random();
+  Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), sceneCards);
+  world = new World(rand, protagonist, querySelector("#output"));
   world.tick();
 }

@@ -15,7 +15,7 @@ class DieOfOldAge extends Scene {
   @override
   Future<Null> renderContent(Element element, World w) async {
       print("seriously, make their tombstone dynamic and a canvas");
-      text = "The ${owner.name} has finally died of old age. Their tombstone reads: DIDN'T ACOMPLISH MUCH OF ANYTHING.";
+      text = "{owner.name} has finally died of old age. Their tombstone reads: DIDN'T ACOMPLISH MUCH OF ANYTHING.";
       w.ended = true;
       owner.canvasDirty = true;
       owner.doll.orientation = Doll.TURNWAYS;

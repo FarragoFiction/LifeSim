@@ -4,6 +4,7 @@ import "LifeSimLib.dart";
     ONLY the protagonist can do everything. Everyone else is supporting chars, thought they still age, too.
  */
 class World {
+    Random rand;
     bool ended = false;
     int renderingSpeed = 1000;
 
@@ -15,7 +16,7 @@ class World {
     List<Entity> sideChars = new List<Entity>();
     bool loadedManifest = false;
 
-    World(Entity this.protagonist, Element this.div);
+    World(Random this.rand, Entity this.protagonist, Element this.div);
 
     Future<Null> preloadManifest() async {
         await Loader.preloadManifest();
