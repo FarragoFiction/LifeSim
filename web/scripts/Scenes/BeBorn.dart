@@ -2,7 +2,7 @@ import "../LifeSimLib.dart";
 
 
 class BeBorn extends Scene {
-    String backgroundName = "City.png";
+    String backgroundName = "Hospital.png";
   BeBorn(owner) : super(owner);
 
 

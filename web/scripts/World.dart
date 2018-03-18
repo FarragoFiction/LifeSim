@@ -8,7 +8,7 @@ class World {
     int renderingSpeed = 1000;
 
     int age = 0;
-    int maxAge = 1000;
+    int maxAge = 10;
     Entity protagonist;
     //where do i draw to?
     Element div;
@@ -24,7 +24,6 @@ class World {
 
     Future<Null> tick() async {
         if(!loadedManifest) await preloadManifest();
-
         print("tick!");
         if(!ended && age < maxAge) {
             await protagonist.tick(div, this);

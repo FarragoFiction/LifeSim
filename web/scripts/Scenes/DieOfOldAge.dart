@@ -2,7 +2,7 @@ import "../LifeSimLib.dart";
 
 
 class DieOfOldAge extends Scene {
-    String backgroundName = "City.png";
+    String backgroundName = "SomeoneFuckinDied.png";
     DieOfOldAge(owner) : super(owner);
 
 

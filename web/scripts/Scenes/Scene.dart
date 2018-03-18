@@ -12,6 +12,9 @@ abstract class Scene {
     //will be set on creation.
     Entity owner;
 
+    //put things on the ground yo, if it exists
+    int groundPos = 300;
+
     Scene(Entity this.owner);
 
     //all scenes are the same size
@@ -38,14 +41,18 @@ abstract class Scene {
         narration.setInnerHtml(text);
         container.append(canvas);
         container.append(narration);
-
-        //and now we async
-        Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
-
-        //TODO check trading card sim to see how to render this on the 'ground' instead of upper left
-        CanvasElement ownerCanvas = await owner.canvas;
-        canvas.context2D.drawImage(ownerCanvas,0,0);
+        //don't await it
+        canvasWork(canvas,w);
 
     }
 
-}
+    Future<Null> canvasWork(CanvasElement canvas, World w) async {
+        //and now we async
+        await Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
+
+        //TODO check trading card sim to see how to render this on the 'ground' instead of upper left
+        CanvasElement ownerCanvas = await owner.canvas;
+        await canvas.context2D.drawImage(ownerCanvas,0,height-groundPos);
+    }
+
+    }

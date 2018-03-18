@@ -4,7 +4,7 @@ import "../LifeSimLib.dart";
 class Entity {
 
     //TODO put this on the stat itself
-    static int maxValue = 100;
+    static int maxValue =5;
 
     List<Scene> scenes = new List<Scene>();
 
