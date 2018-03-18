@@ -40,11 +40,11 @@ abstract class Scene {
         container.append(narration);
 
         //and now we async
-        await Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
+        Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
 
         //TODO check trading card sim to see how to render this on the 'ground' instead of upper left
         CanvasElement ownerCanvas = await owner.canvas;
-        await canvas.context2D.drawImage(ownerCanvas,0,0);
+        canvas.context2D.drawImage(ownerCanvas,0,0);
 
     }
 

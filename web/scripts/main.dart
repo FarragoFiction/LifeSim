@@ -3,8 +3,14 @@ import "LifeSimLib.dart";
 
 
 World world;
+List<Scene> sceneCards = new List<Scene>();
 
 void main() {
-  Entity protagonist = new Entity("Jimbo","Herst", new SuperbSuckDoll());
+
+}
+
+void start() {
+  Entity protagonist = new Entity("Jimbo","Herst", new SuperbSuckDoll(), sceneCards);
   world = new World(protagonist, querySelector("#output"));
+  world.tick();
 }

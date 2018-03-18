@@ -5,7 +5,7 @@ import "LifeSimLib.dart";
  */
 class World {
     bool ended = false;
-    int renderingSpeed = 60;
+    int renderingSpeed = 1000;
 
     int age = 0;
     int maxAge = 1000;
@@ -16,9 +16,10 @@ class World {
 
     World(Entity this.protagonist, Element div);
 
-    void tick() {
+    Future<Null> tick() async {
+        print("tick!");
         if(!ended && age < maxAge) {
-            protagonist.tick(div, this);
+            await protagonist.tick(div, this);
             timePasses();
             new Timer(new Duration(milliseconds: renderingSpeed), () => tick());
         }

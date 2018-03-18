@@ -8,7 +8,7 @@ class DieOfOldAge extends Scene {
 
   @override
   bool triggered() {
-    if(owner.age > owner.naturalDeathAge) return true;
+    if(owner.age > Entity.maxValue) return true;
     return false;
   }
 
