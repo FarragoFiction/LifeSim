@@ -35,10 +35,7 @@ class World {
 
     void timePasses() {
         age ++;
-        protagonist.age ++;
-        for(Entity sideChar in sideChars) {
-            sideChar.age ++;
-        }
+        StatFactory.LIFESAUCE.value += -1;
     }
 
 

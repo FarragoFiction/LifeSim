@@ -3,9 +3,6 @@ import "../LifeSimLib.dart";
 
 class Entity {
 
-    //TODO put this on the stat itself
-    static int maxValue =5;
-
     List<Scene> scenes = new List<Scene>();
 
     //tend to have only one but that's not guaranteed.
@@ -14,14 +11,7 @@ class Entity {
     List<Entity> children;
 
     bool dead = false;
-    //TODO have a dynamic map of stats made from a stat factory.
-    //start out with just age and money, but different scenes can assign new and more stupid stats to me.
-    //if it tries to modify a stat i don't have, that stat gets added.
-    //imagination, pulchritude, gruffness, etc.
-
-    //assume max 100 and min 0, don't fall into SBURBSim's trap.
-    int age = 0;
-    int money = 0;
+    List<Stat> _stats = new List<Stat>();
 
     Doll doll;
     String firstName;
@@ -37,6 +27,8 @@ class Entity {
         scenes.add(new DieOfOldAge(this));
         scenes.add(new DickAround(this));
         addAllHighPriorityScenes(nonDefaultScenes);
+        addStat(StatFactory.LIFESAUCE,10);
+        addStat(StatFactory.GRADITUDE,0);
     }
 
     static String randomFirstName(Random rand) {
@@ -56,6 +48,18 @@ class Entity {
 
     void addAllHighPriorityScenes(List<Scene>priorityScenes) {
         scenes.insertAll(0, priorityScenes);
+    }
+
+    bool hasStat(Stat s) {
+        return _stats.contains(s);
+    }
+
+    void addStat(Stat s, int value) {
+        s.value += value;
+        if(!hasStat(s)){
+            _stats.add(s);
+        }else{
+        }
     }
 
     void addHighPriorityScene(Scene scene) {

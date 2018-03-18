@@ -8,7 +8,10 @@ class DieOfOldAge extends Scene {
 
   @override
   bool triggered() {
-    if(owner.age > Entity.maxValue) return true;
+      if(owner.hasStat(StatFactory.LIFESAUCE)){
+          if(StatFactory.LIFESAUCE.value <= 0) return true;
+      }
+      //literally immortal, somehow.
     return false;
   }
 

@@ -8,8 +8,8 @@ class BeBorn extends Scene {
 
   @override
   bool triggered() {
-    if(owner.age == 0) return true;
-    return false;
+      if(owner.hasStat(StatFactory.LIFESAUCE) && StatFactory.LIFESAUCE.value == StatFactory.LIFESAUCE.maxValue) return true;
+      return false;
   }
 
   @override

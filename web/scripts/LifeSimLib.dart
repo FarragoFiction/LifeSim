@@ -7,3 +7,4 @@ export "dart:async";
 export "package:RenderingLib/RendereringLib.dart";
 export "package:DollLibCorrect/DollRenderer.dart";
 export "World.dart";
+export "Stats/StatLib.dart";
