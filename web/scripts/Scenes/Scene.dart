@@ -12,7 +12,7 @@ abstract class Scene {
     //will be set on creation.
     Entity owner;
 
-    Scene(owner);
+    Scene(Entity this.owner);
 
     //all scenes are the same size
     static int width = 800;

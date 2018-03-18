@@ -14,7 +14,7 @@ class BeBorn extends Scene {
 
   @override
   Future<Null> renderContent(Element element, World w) async {
-      text = "The ${owner.name} is born. This has made a lot of people very angry and been widely regarded as a bad move.";
+      text = "${owner.name} is born. This has made a lot of people very angry and been widely regarded as a bad move.";
       super.renderContent(element, w);
   }
 

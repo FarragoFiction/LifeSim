@@ -13,10 +13,18 @@ class World {
     //where do i draw to?
     Element div;
     List<Entity> sideChars = new List<Entity>();
+    bool loadedManifest = false;
 
-    World(Entity this.protagonist, Element div);
+    World(Entity this.protagonist, Element this.div);
+
+    Future<Null> preloadManifest() async {
+        await Loader.preloadManifest();
+        loadedManifest = true;
+    }
 
     Future<Null> tick() async {
+        if(!loadedManifest) await preloadManifest();
+
         print("tick!");
         if(!ended && age < maxAge) {
             await protagonist.tick(div, this);

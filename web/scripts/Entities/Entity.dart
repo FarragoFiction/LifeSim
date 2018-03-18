@@ -53,7 +53,7 @@ class Entity {
 
     Future<Null> tick(Element div, World w) async {
         if(dead) return;
-        print("tick for $name");
+        print("tick for $name div is $div");
         //only one scene per tick.
         for(Scene s in scenes) {
             if(s.triggered()) {

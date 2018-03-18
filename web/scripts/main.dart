@@ -6,7 +6,7 @@ World world;
 List<Scene> sceneCards = new List<Scene>();
 
 void main() {
-
+  start();
 }
 
 void start() {
