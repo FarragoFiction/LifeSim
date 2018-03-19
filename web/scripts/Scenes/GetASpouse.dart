@@ -14,7 +14,9 @@ class GetASpouse extends Scene {
   @override
   Future<Null> renderContent(Element element, World w) async {
       Entity spouse = new Entity(Entity.randomSpouseName(owner.rand), owner.lastName, new SuperbSuckDoll(), owner.rand, <Scene>[]);
-      spouse.doll.orientation = Doll.TURNWAYS;
+      //for some reason turnways makes them invisible???
+      //spouse.doll.orientation = Doll.TURNWAYS;
+      spouse.turnways = true;
       text = "${owner.name} finds true love in ${spouse.name}.";
       owner.addStat(StatFactory.ROMCOMMERY, 1);
       owner.spouses.add(spouse);

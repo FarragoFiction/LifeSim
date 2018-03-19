@@ -3,6 +3,8 @@ import "../LifeSimLib.dart";
 
 class Entity {
 
+    bool turnways = false;
+
     //take from world
     Random rand;
     List<Scene> scenes = new List<Scene>();
@@ -110,7 +112,25 @@ class Entity {
     Future<CanvasElement> get canvas  async{
         if(canvasDirty || cachedCanvas == null) {
             cachedCanvas = new CanvasElement(width: doll.width, height: doll.height);
+            //cachedCanvas.context2D.rotate(rotation);
+
+
+
+            cachedCanvas.context2D.scale(1, 1);
             await DollRenderer.drawDoll(cachedCanvas, doll);
+
+            if(turnways) {
+                CanvasElement ret  = new CanvasElement(width: doll.width, height: doll.height);
+
+                cachedCanvas.context2D.scale(-1*1, 1);
+                cachedCanvas.context2D.translate(cachedCanvas.width/2, cachedCanvas.height/2);
+                ret.context2D.drawImage(cachedCanvas, -ret.width/2, -ret.height/2);
+                ret.context2D.drawImage(cachedCanvas, -ret.width, -ret.height);
+
+                cachedCanvas = ret;
+                return ret;
+            }
+            //cachedCanvas.context2D.drawImage(cachedCanvas, -cachedCanvas.width/2, -cachedCanvas.height/2);
         }
         return cachedCanvas;
     }

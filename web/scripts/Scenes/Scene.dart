@@ -48,21 +48,31 @@ abstract class Scene {
         //don't await it
         canvasWork(canvas,w);
         statWork(container,w);
+    }
 
+
+    void initOthers() {
+        others.clear();
+        addSpouseToOthers();
+    }
+
+    void addSpouseToOthers() {
+        others.addAll(owner.spouses);
     }
 
     Future<Null> canvasWork(CanvasElement canvas, World w) async {
         //and now we async
         await Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
 
-        //TODO check trading card sim to see how to render this on the 'ground' instead of upper left
         CanvasElement ownerCanvas = await owner.canvas;
         await canvas.context2D.drawImage(ownerCanvas,0,height-groundPos);
-        int x = 0;
+        int x = width-150;
         for(Entity e in others) {
+            print("rendering other $e");
             CanvasElement otherCanvas = await e.canvas;
-           // x += 50;
+            x += -150;
             await canvas.context2D.drawImage(otherCanvas,x,height-groundPos);
+            print("drew image");
         }
     }
 

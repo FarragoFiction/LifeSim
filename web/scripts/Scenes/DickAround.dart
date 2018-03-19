@@ -14,6 +14,7 @@ class DickAround extends Scene {
 
   @override
   Future<Null> renderContent(Element element, World w) async {
+      initOthers();
       text = "${owner.name} completely wastes their time in this life.";
       super.renderContent(element, w);
 
