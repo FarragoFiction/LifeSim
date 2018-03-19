@@ -18,12 +18,21 @@ class GenericScene extends Scene {
 
   @override
   bool triggered() {
-      //NEEDED BE CAUSE I DON'T HAVE AN OWNER AT CREATION TIME
       if(owner.rand.nextDouble() > triggerChance) return false;
-      //TODO DO FOR LOOP ON SVP AND SEE IF THEY ARE ALL OKAY
-      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/2) return true;
-      return false;
+      for(SVP svp in triggerStats) {
+          if(!svp.triggered()) return false;
+      }
+      //made it through gauntlet of negativity
+      return true;
   }
+
+    @override
+    Future<Null> renderContent(Element element, World w) async {
+        for(SVP svp in triggerStats) {
+            svp.apply(owner);
+        }
+        super.renderContent(element, w);
+    }
 
 }
 
@@ -36,4 +45,12 @@ class SVP
     //what threshold does it need to be at or how much do i add to it
     int value;
     SVP(Stat this.stat, int this.value);
+
+    bool triggered() {
+        return stat.value >= value;
+    }
+
+    void apply(Entity owner) {
+        owner.addStat(stat, value);
+    }
 }
