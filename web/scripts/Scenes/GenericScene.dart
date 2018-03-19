@@ -11,9 +11,17 @@ class GenericScene extends Scene {
     List<SVP> resultStats;
     @override
     String text;
-    static String OWNERNAME = 'ownerenamer';
 
-    GenericScene(List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner) : super(owner);
+    @override
+    double triggerChance;
+
+    //will you die in this scene?
+    bool die;
+
+    static String OWNERNAME = 'ownerenamer';
+    List<Scene> scenesToUnlock;
+
+    GenericScene(List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5, bool die = false]) : super(owner);
 
 
   @override
@@ -31,6 +39,14 @@ class GenericScene extends Scene {
         for(SVP svp in triggerStats) {
             svp.apply(owner);
         }
+        if(scenesToUnlock.isNotEmpty) {
+            for(Scene s in scenesToUnlock) {
+                if(!owner.scenes.contains(s)) {
+                    owner.addHighPriorityScene(s);
+                }
+            }
+        }
+        if(die) owner.dead = true;
         super.renderContent(element, w);
     }
 

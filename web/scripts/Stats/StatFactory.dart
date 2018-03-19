@@ -11,6 +11,7 @@ abstract class StatFactory {
     //JOB FLAKES is how well their job is going
     //COMMERCE is their money power
 
+    static Stat ESTEEM = new Stat("ESTEEM","They were a valued member of the community.",0,new Colour.fromStyleString("#ffff00"),3); //almost white, you ass
     static Stat GNOSIS = new Stat("GNOSIS","They were kind of a dick.",0,new Colour.fromStyleString("#eeeeee"),3); //almost white, you ass
     static Stat GRADEMOXY = new Stat("GRADE MOXY","They had good grades.",0,new Colour.fromStyleString("#0000ff"),3);
     static Stat SPOOK = new Stat("SPOOK","They were always afraid.",0,new Colour.fromStyleString("#aa94b0"));
