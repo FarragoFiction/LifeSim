@@ -12,7 +12,7 @@ void main() {
 void start() {
   Random rand = new Random();
   sceneCards.add(new GoToSchool(null));
-  //sceneCards.add(new GetASpouse(null));
+  sceneCards.add(new GetASpouse(null));
   sceneCards.add(new BecomeAWaste(null));
   sceneCards.add(new BreakTheGame(null));
   sceneCards.add(new GetTrappedInAAttic(null));
