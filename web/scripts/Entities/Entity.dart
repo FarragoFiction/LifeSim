@@ -3,12 +3,15 @@ import "../LifeSimLib.dart";
 
 class Entity {
 
+    //take from world
+    Random rand;
     List<Scene> scenes = new List<Scene>();
+    bool born = false;
 
     //tend to have only one but that's not guaranteed.
-    List<Entity>  spouses;
-    List<Entity>  pets;
-    List<Entity> children;
+    List<Entity>  spouses = new List<Entity>();
+    List<Entity>  pets = new List<Entity>();
+    List<Entity> children = new List<Entity>();
 
     bool dead = false;
     List<Stat> _stats = new List<Stat>();
@@ -21,14 +24,26 @@ class Entity {
     bool canvasDirty = false;
     CanvasElement cachedCanvas;
 
-    Entity(String this.firstName, String this.lastName, Doll this.doll, List<Scene> nonDefaultScenes) {
+    Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, List<Scene> nonDefaultScenes) {
         //all entities have these three scenes no matter what
-        scenes.add(new BeBorn(this));
         scenes.add(new DieOfOldAge(this));
         scenes.add(new DickAround(this));
+        for(Scene s in nonDefaultScenes) {
+            s.owner = this; //couldn't own it before i existed, now could i
+        }
         addAllHighPriorityScenes(nonDefaultScenes);
         addStat(StatFactory.LIFESAUCE,0);
         addStat(StatFactory.AGE,0);
+    }
+
+    static String randomSpouseName( Random rand) {
+        List<String> firstNames = <String>["Wife","Husband","Hubby","Wifey","Spouse","Lover","Mistress","Master","Mrs.","Mr."];
+        return rand.pickFrom(firstNames);
+    }
+
+    static String randomChildName( Random rand) {
+        List<String> firstNames = <String>["Son","Daughter","Junior","Progeny","Child","Offspring"];
+        return rand.pickFrom(firstNames);
     }
 
     static String randomFirstName(Random rand) {
@@ -75,6 +90,13 @@ class Entity {
 
     Future<Null> tick(Element div, World w) async {
         if(dead) return;
+        //be born first asshole
+        if(!born) {
+           Scene s = new BeBorn(this);
+           await s.renderContent(div, w);
+           born = true;
+           return;
+        }
         print("tick for $name div is $div");
         //only one scene per tick.
         for(Scene s in scenes) {

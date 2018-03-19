@@ -5,12 +5,16 @@ import "../LifeSimLib.dart";
 
 abstract class Scene {
 
+    //for scenes with random in them. they can override this if they want
+    //higher the chance, more likely it is to happen
+    double triggerChance = 0.5;
     //what should be displayed on screen, will be set in rendercontent
     String text;
     //includes extension, like .png, will be set in each subclass
     String backgroundName;
     //will be set on creation.
     Entity owner;
+    List<Entity> others = new List<Entity>();
 
     //put things on the ground yo, if it exists
     int groundPos = 300;
@@ -54,6 +58,12 @@ abstract class Scene {
         //TODO check trading card sim to see how to render this on the 'ground' instead of upper left
         CanvasElement ownerCanvas = await owner.canvas;
         await canvas.context2D.drawImage(ownerCanvas,0,height-groundPos);
+        int x = 0;
+        for(Entity e in others) {
+            CanvasElement otherCanvas = await e.canvas;
+           // x += 50;
+            await canvas.context2D.drawImage(otherCanvas,x,height-groundPos);
+        }
     }
 
     Future<Null> statWork(Element div, World w) async {

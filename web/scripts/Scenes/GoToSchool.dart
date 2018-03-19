@@ -1,22 +1,24 @@
 import "../LifeSimLib.dart";
 
 
-class DickAround extends Scene {
-    String backgroundName = "City.png";
-    DickAround(owner) : super(owner);
+class GoToSchool extends Scene {
+    String backgroundName = "Skule.png";
+    GoToSchool(owner) : super(owner);
 
 
     //should be bottom in list, only acitvates if nothing better to do.
   @override
   bool triggered() {
-    return true;
+      if(owner.rand.nextDouble() > triggerChance) return false;
+      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/4) return true;
+      return false;
   }
 
   @override
   Future<Null> renderContent(Element element, World w) async {
-      text = "${owner.name} completely wastes their time in this life.";
+      text = "${owner.name} does a school.";
+      owner.addStat(StatFactory.GRADITUDE, 1);
       super.renderContent(element, w);
-
   }
 
 }
