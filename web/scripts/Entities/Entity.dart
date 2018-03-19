@@ -66,6 +66,9 @@ class Entity {
     }
 
     void addAllHighPriorityScenes(List<Scene>priorityScenes) {
+        for(Scene s in priorityScenes) {
+            s.owner = this;
+        }
         scenes.insertAll(0, priorityScenes);
     }
 

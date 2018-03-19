@@ -12,3 +12,5 @@ export "GoOnDates.dart";
 export "BecomeAWaste.dart";
 export "BreakTheGame.dart";
 export "GetTrappedInAAttic.dart";
+export "GenericScene.dart";
+export "SceneFactory.dart";
