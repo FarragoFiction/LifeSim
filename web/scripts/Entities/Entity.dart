@@ -28,7 +28,7 @@ class Entity {
         scenes.add(new DickAround(this));
         addAllHighPriorityScenes(nonDefaultScenes);
         addStat(StatFactory.LIFESAUCE,0);
-        addStat(StatFactory.GRADITUDE,0);
+        addStat(StatFactory.AGE,0);
     }
 
     static String randomFirstName(Random rand) {

@@ -4,8 +4,9 @@ class Stat {
 
 
     Colour color;
-    int width = 59; //59
-    int height = 200;
+    int width = 100; //59
+    int height = 165;
+    int vialMaxHeight = 137;
     String name;
     String imageName = "images/vial.png";
     int value = 0;
@@ -14,7 +15,7 @@ class Stat {
     Stat(String this.name, int this.value, this.color, [int this.maxValue = 10]);
 
     int get vialHeight {
-        return (value/maxValue * height).round();
+        return (value/maxValue * vialMaxHeight).round();
     }
 
     //vial should have transparency, fill it up based on how full you are.

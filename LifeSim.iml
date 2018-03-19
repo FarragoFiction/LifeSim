@@ -122,6 +122,7 @@
       <excludeFolder url="file://$MODULE_DIR$/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/scripts/Entities/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/scripts/Scenes/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/scripts/Stats/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/scripts/packages" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

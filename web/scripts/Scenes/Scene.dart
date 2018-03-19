@@ -60,19 +60,18 @@ abstract class Scene {
         CanvasElement canvas = new CanvasElement(width: width, height: 200);
         canvas.classes.add("stats");
         div.append(canvas);
-        DivElement tmpText = new DivElement();
-        div.append(tmpText);
-        String text = "";
+
         int x = 0;
         for(Stat s in owner.readOnlyStats) {
             CanvasElement statCanvas = await s.renderSelf();
-            print("statCanvas is $statCanvas and x is $x");
             canvas.context2D.drawImage(statCanvas,x,0);
-            x += s.width;
-            text += "${s.name}: ${s.value}";
-        }
-        tmpText.text = text;
+            int fontSize = 12;
+            canvas.context2D.font = "${fontSize}px Strife";
+            canvas.context2D.fillText(s.name, x, fontSize);
+            canvas.context2D.fillText("${s.value}/${s.maxValue}", x, fontSize*3);
 
+            x += s.width;
+        }
 
     }
 

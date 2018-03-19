@@ -35,7 +35,7 @@ class World {
 
     void timePasses() {
         age ++;
-        StatFactory.LIFESAUCE.value += -1;
+        StatFactory.AGE.value += 1;
     }
 
 
