@@ -3,6 +3,8 @@ import "../LifeSimLib.dart";
 
 class GoToSchool extends Scene {
     String backgroundName = "Skule.png";
+    @override
+    double triggerChance = 0.75;
     GoToSchool(owner) : super(owner);
 
 
@@ -10,7 +12,7 @@ class GoToSchool extends Scene {
   @override
   bool triggered() {
       if(owner.rand.nextDouble() > triggerChance) return false;
-      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/4) return true;
+      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/2) return true;
       return false;
   }
 
