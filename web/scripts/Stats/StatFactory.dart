@@ -17,7 +17,8 @@ abstract class StatFactory {
     static Stat JOBFLAKES = new Stat("JOBFLAKES",0,new Colour.fromStyleString("#888888") );
     static Stat COMMERCE = new Stat("COMMERCE",0,new Colour.fromStyleString("#78c34a"));
     static Stat ROMCOMMERY = new Stat("ROMCOMMERY",0,new Colour.fromStyleString("#f3bfbf"));
+    static Stat PARENTRITUDE = new Stat("PARENTRITUDE",0,new Colour.fromStyleString("#A8A8A8"));
     static Stat LIFESAUCE = new Stat("LIFESAUCE",10,new Colour.fromStyleString("#ff0000"));
-    static Stat AGE = new Stat("AGE",0,new Colour.fromStyleString("#000000"),5);
+    static Stat AGE = new Stat("AGE",0,new Colour.fromStyleString("#000000"),15);
 
 }

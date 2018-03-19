@@ -58,22 +58,31 @@ abstract class Scene {
 
     void addSpouseToOthers() {
         others.addAll(owner.spouses);
+        others.addAll(owner.children);
+
     }
 
     Future<Null> canvasWork(CanvasElement canvas, World w) async {
         //and now we async
         await Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
 
-        CanvasElement ownerCanvas = await owner.canvas;
-        await canvas.context2D.drawImage(ownerCanvas,0,height-groundPos);
-        int x = width-150;
-        for(Entity e in others) {
-            print("rendering other $e");
-            CanvasElement otherCanvas = await e.canvas;
-            x += -150;
-            await canvas.context2D.drawImage(otherCanvas,x,height-groundPos);
-            print("drew image");
+        if(!owner.dead) {
+            CanvasElement ownerCanvas = await owner.canvas;
+            await canvas.context2D.drawImage(ownerCanvas, 0, height - groundPos);
         }
+        int x = 100;
+        for(Entity e in others) {
+            if(!e.dead) {
+                CanvasElement otherCanvas = await e.canvas;
+                x += 100;
+                await canvas.context2D.drawImage(otherCanvas, x, height - groundPos);
+            }
+        }
+    }
+
+
+    static String turnArrayIntoHumanSentence(List<dynamic> retArray) {
+        return [retArray.sublist(0, retArray.length - 1).join(', '), retArray.last].join(retArray.length < 2 ? '' : ' and ');
     }
 
     Future<Null> statWork(Element div, World w) async {

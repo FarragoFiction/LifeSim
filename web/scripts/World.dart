@@ -6,10 +6,10 @@ import "LifeSimLib.dart";
 class World {
     Random rand;
     bool ended = false;
-    int renderingSpeed = 1000;
+    int renderingSpeed = 100;
 
     int age = 0;
-    int maxAge = 10;
+    int maxAge = 25;
     Entity protagonist;
     //where do i draw to?
     Element div;

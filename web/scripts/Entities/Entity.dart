@@ -8,6 +8,8 @@ class Entity {
     //take from world
     Random rand;
     List<Scene> scenes = new List<Scene>();
+    List<Scene> scenesToAdd = new List<Scene>();
+
     bool born = false;
 
     //tend to have only one but that's not guaranteed.
@@ -90,6 +92,10 @@ class Entity {
         return "$firstName $lastName";
     }
 
+    String toString() {
+        return name;
+    }
+
     Future<Null> tick(Element div, World w) async {
         if(dead) return;
         //be born first asshole
@@ -99,6 +105,8 @@ class Entity {
            born = true;
            return;
         }
+        addAllHighPriorityScenes(scenesToAdd);
+        scenesToAdd.clear();
         print("tick for $name div is $div");
         //only one scene per tick.
         for(Scene s in scenes) {
@@ -112,9 +120,7 @@ class Entity {
     Future<CanvasElement> get canvas  async{
         if(canvasDirty || cachedCanvas == null) {
             cachedCanvas = new CanvasElement(width: doll.width, height: doll.height);
-            //cachedCanvas.context2D.rotate(rotation);
-
-
+            //cachedCanvas.context2D.fillRect(0,0,doll.width,doll.height);
 
             cachedCanvas.context2D.scale(1, 1);
             await DollRenderer.drawDoll(cachedCanvas, doll);
@@ -122,10 +128,10 @@ class Entity {
             if(turnways) {
                 CanvasElement ret  = new CanvasElement(width: doll.width, height: doll.height);
 
-                cachedCanvas.context2D.scale(-1*1, 1);
-                cachedCanvas.context2D.translate(cachedCanvas.width/2, cachedCanvas.height/2);
+                ret.context2D.translate(ret.width/2, ret.height/2);
+                ret.context2D.scale(-1*1, 1);
                 ret.context2D.drawImage(cachedCanvas, -ret.width/2, -ret.height/2);
-                ret.context2D.drawImage(cachedCanvas, -ret.width, -ret.height);
+                //ret.context2D.drawImage(cachedCanvas, 0, 0);
 
                 cachedCanvas = ret;
                 return ret;

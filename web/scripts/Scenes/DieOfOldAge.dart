@@ -15,13 +15,23 @@ class DieOfOldAge extends Scene {
     return false;
   }
 
+  String epitaph() {
+
+      if(others.isNotEmpty) {
+            return "They are mourned by ${Scene.turnArrayIntoHumanSentence(others)}";
+      }
+      return "DIDN'T ACOMPLISH MUCH OF ANYTHING.";
+  }
+
   @override
   Future<Null> renderContent(Element element, World w) async {
+      initOthers();
+
       print("seriously, make their tombstone dynamic and a canvas");
-      text = "${owner.name} has finally died of old age. Their tombstone reads: DIDN'T ACOMPLISH MUCH OF ANYTHING.";
+      text = "${owner.name} has finally died of old age. Their tombstone reads: ${epitaph()}";
       w.ended = true;
+      owner.dead = true;
       owner.canvasDirty = true;
-      owner.doll.orientation = Doll.TURNWAYS;
       super.renderContent(element, w);
   }
 

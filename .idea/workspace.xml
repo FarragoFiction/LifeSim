@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GetAKid.dart" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GoOnDates.dart" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" afterPath="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" afterPath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/World.dart" afterPath="$PROJECT_DIR$/web/scripts/World.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,12 +25,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/main.dart">
+      <file leaf-file-name="SceneLibrary.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding>
+                <element signature="e#23#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -33,20 +41,8 @@
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GoToSchool.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SceneLibrary.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-              <folding>
-                <element signature="e#23#43#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -54,8 +50,8 @@
       <file leaf-file-name="Scene.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+            <state relative-caret-position="313">
+              <caret line="76" column="24" lean-forward="false" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -63,51 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DickAround.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart">
+      <file leaf-file-name="GoOnDates.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GoOnDates.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="World.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/World.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entity.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/scripts/Entities/Entity.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="127" column="77" lean-forward="false" selection-start-line="127" selection-start-column="77" selection-end-line="127" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetASpouse.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Doll.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-c6c7bfc6ff39c55cda18b39139e85078b0343f38/lib/src/Dolls/Doll.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -116,8 +72,58 @@
       <file leaf-file-name="StatFactory.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="92" lean-forward="false" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
+            <state relative-caret-position="315">
+              <caret line="21" column="78" lean-forward="false" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DickAround.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetAKid.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetAKid.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TakeKidToPark.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="World.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/World.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetASpouse.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -159,18 +165,21 @@
         <option value="$PROJECT_DIR$/web/scripts/Entities/Stats.dart" />
         <option value="$PROJECT_DIR$/web/scripts/LifeSimLib.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/StatLib.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/World.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/BeBorn.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/Stat.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/GoToSchool.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
         <option value="$PROJECT_DIR$/web/scripts/main.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/World.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/GetAKid.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/GoOnDates.dart" />
       </list>
     </option>
   </component>
@@ -831,14 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="61" lean-forward="false" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/Stats/Stat.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -863,53 +864,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GoToSchool.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="92" lean-forward="false" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/World.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="33" lean-forward="false" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#23#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,28 +880,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
+    <entry file="file://$PROJECT_DIR$/web/scripts/Entities/Entity.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="108" column="28" lean-forward="false" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DieOfOldAge.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/DickAround.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/World.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="76" column="24" lean-forward="false" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart">
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetAKid.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="267">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Entities/Entity.dart">
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GoToSchool.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="127" column="77" lean-forward="false" selection-start-line="127" selection-start-column="77" selection-end-line="127" selection-end-column="77" />
+        <state relative-caret-position="165">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="78" lean-forward="false" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#23#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GetASpouse.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GoOnDates.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
           <folding />
         </state>
       </provider>

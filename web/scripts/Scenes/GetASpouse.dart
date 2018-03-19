@@ -21,6 +21,9 @@ class GetASpouse extends Scene {
       owner.addStat(StatFactory.ROMCOMMERY, 1);
       owner.spouses.add(spouse);
       others.add(spouse);
+      owner.scenesToAdd.add(new GetAKid(owner));
+      owner.scenesToAdd.add(new GoOnDates(owner));
+
       super.renderContent(element, w);
   }
 
