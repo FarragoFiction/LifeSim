@@ -22,7 +22,7 @@ abstract class Scene {
     String name = "???";
     //for scenes with random in them. they can override this if they want
     //higher the chance, more likely it is to happen
-    double triggerChance = 0.5;
+    double triggerChance = 0.2;
     //what should be displayed on screen, will be set in rendercontent
     String text;
     //includes extension, like .png, will be set in each subclass

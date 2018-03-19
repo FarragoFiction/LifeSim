@@ -10,7 +10,7 @@ abstract class StatFactory {
     //BRAINITUDE is their intelligence, which is NOT the same as how good they are doing in school
     //JOB FLAKES is how well their job is going
     //COMMERCE is their money power
-    static Stat SMELLWAVES = new Stat("SMELL WAVES","They had poor hygine.",0,new Colour.fromStyleString("#827f00") );
+    static Stat SMELLWAVES = new Stat("SMELL WAVES","They had poor hygiene.",0,new Colour.fromStyleString("#827f00"),6 );
     static Stat ESTEEM = new Stat("ESTEEM","They were a valued member of the community.",0,new Colour.fromStyleString("#ffff00"),3); //almost white, you ass
     static Stat GNOSIS = new Stat("GNOSIS","They were kind of a dick.",0,new Colour.fromStyleString("#eeeeee"),3); //almost white, you ass
     static Stat GRADEMOXY = new Stat("GRADE MOXY","They had good grades.",0,new Colour.fromStyleString("#0000ff"),3);

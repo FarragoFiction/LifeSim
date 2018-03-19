@@ -34,10 +34,8 @@ class World {
     void showDeck(List<Scene> scenes) {
         DivElement container = new DivElement();
         div.append(container);
-        String text = "";
-        for(Scene s in scenes) {
-            text = "$text ${s.name}";
-        }
+        String text = "${Scene.turnArrayIntoHumanSentence(scenes)}";
+        
         container.text = text;
     }
 

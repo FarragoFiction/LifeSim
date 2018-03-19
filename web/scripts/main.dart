@@ -21,7 +21,7 @@ void pickCardsRandomly() {
   sceneCards.add(new GetTrappedInAAttic(null));
   sceneCards.addAll(SceneFactory.allGenericScenes);
 
-  List<Scene> chosenScenes = new List<Scene>();
+  chosenScenes = new List<Scene>();
   for(int i=0; i<10; i++) {
     Scene chosen = rand.pickFrom(sceneCards);
     print("adding a ${chosen.name} to the deck");
