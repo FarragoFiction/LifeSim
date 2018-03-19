@@ -26,6 +26,7 @@ class GetAKid extends Scene {
       text = "${owner.name} produces a baby named ${kid.name}$outOfWedlock.";
       owner.addStat(StatFactory.PARENTRITUDE, 1);
       owner.addStat(StatFactory.ROMCOMMERY, 1);
+      owner.scenesToAdd.add(new TakeKidToPark(owner));
       owner.children.add(kid);
       others.add(kid);
       super.renderContent(element, w);

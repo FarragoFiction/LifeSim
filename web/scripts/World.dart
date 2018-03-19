@@ -9,7 +9,7 @@ class World {
     int renderingSpeed = 100;
 
     int age = 0;
-    int maxAge = 25;
+    int maxAge = 100;
     Entity protagonist;
     //where do i draw to?
     Element div;

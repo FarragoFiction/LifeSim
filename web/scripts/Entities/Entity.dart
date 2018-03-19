@@ -105,6 +105,14 @@ class Entity {
            born = true;
            return;
         }
+
+        //you might die of old age sooner, but this is the last shot
+        if(StatFactory.AGE.value > StatFactory.AGE.maxValue * 2) {
+            Scene s = new DieOfOldAge(this);
+            await s.renderContent(div, w);
+            return;
+        }
+
         addAllHighPriorityScenes(scenesToAdd);
         scenesToAdd.clear();
         print("tick for $name div is $div");

@@ -11,8 +11,9 @@ class Stat {
     String imageName = "images/vial.png";
     int value = 0;
     int maxValue;
+    String epitaphSentence;
 
-    Stat(String this.name, int this.value, this.color, [int this.maxValue = 10]);
+    Stat(String this.name, this.epitaphSentence, int this.value, this.color, [int this.maxValue = 10]);
 
     int get vialHeight {
         return (value/maxValue * vialMaxHeight).round();

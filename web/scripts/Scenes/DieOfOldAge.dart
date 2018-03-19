@@ -16,10 +16,18 @@ class DieOfOldAge extends Scene {
   }
 
   String epitaph() {
+      String ret = "";
+      for(Stat s in owner.readOnlyStats) {
+          if(s.value >= 3*s.maxValue/4) {
+              ret = "$ret ${s.epitaphSentence}";
+          }
+      }
 
       if(others.isNotEmpty) {
-            return "They are mourned by ${Scene.turnArrayIntoHumanSentence(others)}";
+            ret =  "$ret They are mourned by ${Scene.turnArrayIntoHumanSentence(others)}";
       }
+      if(ret.isNotEmpty) return ret;
+
       return "DIDN'T ACOMPLISH MUCH OF ANYTHING.";
   }
 
