@@ -9,3 +9,6 @@ export "GetASpouse.dart";
 export "GetAKid.dart";
 export "TakeKidToPark.dart";
 export "GoOnDates.dart";
+export "BecomeAWaste.dart";
+export "BreakTheGame.dart";
+export "GetTrappedInAAttic.dart";

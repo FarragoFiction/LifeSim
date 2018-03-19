@@ -5,6 +5,20 @@ import "../LifeSimLib.dart";
 
 abstract class Scene {
 
+    //TODO have scenes have ids so you can store and load them as cards
+    /*TODO have a 'blank' scene object that has the stat it is triggered by
+    and the stat it gives when it happens be variables, as well as the text it displays
+    that means TODO stats have ids as well
+    also have optional scene that is unlocked if this scene plays
+    TODO store image as an INT from an array i have.
+    TODO test this blank scene object with RANDOMIZED scenes as well.
+
+    and TODO convert the simplist existing scenes into the blank format and store in a factory.
+
+    make sure you don't use the factory scenes directly, instead copy them
+     */
+
+
     //for scenes with random in them. they can override this if they want
     //higher the chance, more likely it is to happen
     double triggerChance = 0.5;

@@ -16,7 +16,15 @@ class World {
     List<Entity> sideChars = new List<Entity>();
     bool loadedManifest = false;
 
-    World(Random this.rand, Entity this.protagonist, Element this.div);
+    World(Random this.rand, Entity this.protagonist, Element this.div) {
+        window.onError.listen((e) {
+            window.alert("haha it broke.");
+            Element error = new DivElement();
+            error.classes.add("error");
+            error.text = ("Uh. Fuck. I think it broke. Sure hope it was something the asshole living this life did, and not me.");
+            div.append(error);
+        });
+    }
 
     Future<Null> preloadManifest() async {
         await Loader.preloadManifest();
