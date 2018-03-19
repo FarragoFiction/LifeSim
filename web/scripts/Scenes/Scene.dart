@@ -43,6 +43,7 @@ abstract class Scene {
         container.append(narration);
         //don't await it
         canvasWork(canvas,w);
+        statWork(container,w);
 
     }
 
@@ -55,4 +56,24 @@ abstract class Scene {
         await canvas.context2D.drawImage(ownerCanvas,0,height-groundPos);
     }
 
+    Future<Null> statWork(Element div, World w) async {
+        CanvasElement canvas = new CanvasElement(width: width, height: 200);
+        canvas.classes.add("stats");
+        div.append(canvas);
+        DivElement tmpText = new DivElement();
+        div.append(tmpText);
+        String text = "";
+        int x = 0;
+        for(Stat s in owner.readOnlyStats) {
+            CanvasElement statCanvas = await s.renderSelf();
+            print("statCanvas is $statCanvas and x is $x");
+            canvas.context2D.drawImage(statCanvas,x,0);
+            x += s.width;
+            text += "${s.name}: ${s.value}";
+        }
+        tmpText.text = text;
+
+
     }
+
+}

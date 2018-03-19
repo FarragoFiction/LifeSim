@@ -12,10 +12,10 @@ abstract class StatFactory {
     //COMMERCE is their money power
     //LIFESAUCE is how old they are, but turnways.
 
-    static Stat GRADITUDE = new Stat("GRADITUDE",0);
-    static Stat BRAINITUDE = new Stat("BRAINITUDE",0);
-    static Stat JOBFLAKES = new Stat("JOBFLAKES",0);
-    static Stat COMMERCE = new Stat("COMMERCE",0);
-    static Stat LIFESAUCE = new Stat("LIFESAUCE",0);
+    static Stat GRADITUDE = new Stat("GRADITUDE",0,new Colour.fromStyleString("#0000ff"));
+    static Stat BRAINITUDE = new Stat("BRAINITUDE",0,new Colour.fromStyleString("#3ede89"));
+    static Stat JOBFLAKES = new Stat("JOBFLAKES",0,new Colour.fromStyleString("#888888") );
+    static Stat COMMERCE = new Stat("COMMERCE",0,new Colour.fromStyleString("#78c34a"));
+    static Stat LIFESAUCE = new Stat("LIFESAUCE",5,new Colour.fromStyleString("#ff0000"));
 
 }
