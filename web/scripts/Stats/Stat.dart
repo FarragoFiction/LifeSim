@@ -9,14 +9,21 @@ class Stat {
     int vialMaxHeight = 137;
     String name;
     String imageName = "images/vial.png";
-    int value = 0;
+    int _value = 0;
     int maxValue;
     String epitaphSentence;
 
-    Stat(String this.name, this.epitaphSentence, int this.value, this.color, [int this.maxValue = 10]);
+    Stat(String this.name, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]);
 
     int get vialHeight {
-        return (value/maxValue * vialMaxHeight).round();
+        return (_value/maxValue * vialMaxHeight).round();
+    }
+
+    int get value => _value;
+
+    void set value(value) {
+        _value = value;
+        if(_value < 0) _value = 0;
     }
 
     //vial should have transparency, fill it up based on how full you are.

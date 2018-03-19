@@ -18,6 +18,7 @@ class GoOnDates extends Scene {
       others.clear();
       Entity date = owner.rand.pickFrom(owner.spouses);
       others.add(date);
+      owner.addStat(StatFactory.COMMERCE, -1);
       owner.addStat(StatFactory.ROMCOMMERY, 1);
       text = "${owner.name} has romantic fun times with ${date}";
       super.renderContent(element, w);

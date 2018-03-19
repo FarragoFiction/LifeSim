@@ -2,6 +2,9 @@ import "../LifeSimLib.dart";
 
 
 class BreakTheGame extends Scene {
+    @override
+    String name = "Break the Game";
+
     String backgroundName = "404pagebecauseecch.png";
     BreakTheGame(owner) : super(owner);
 

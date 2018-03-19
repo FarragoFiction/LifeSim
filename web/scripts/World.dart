@@ -31,6 +31,16 @@ class World {
         loadedManifest = true;
     }
 
+    void showDeck(List<Scene> scenes) {
+        DivElement container = new DivElement();
+        div.append(container);
+        String text = "";
+        for(Scene s in scenes) {
+            text = "$text ${s.name}";
+        }
+        container.text = text;
+    }
+
     Future<Null> tick() async {
         if(!loadedManifest) await preloadManifest();
         print("tick!");
@@ -44,6 +54,7 @@ class World {
     void timePasses() {
         age ++;
         StatFactory.AGE.value += 1;
+        StatFactory.COMMERCE.value += -1;
     }
 
 

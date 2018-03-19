@@ -30,11 +30,12 @@ class Entity {
 
     Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, List<Scene> nonDefaultScenes) {
         //all entities have these three scenes no matter what
-        scenes.add(new DieOfOldAge(this));
+        scenes.add(new Die(this));
+        scenes.add(new GoToSchool(this));
+
+        nonDefaultScenes.add(SceneFactory.BERICH);
+        nonDefaultScenes.add(new BeAHobo(this));
         scenes.add(new DickAround(this));
-        for(Scene s in nonDefaultScenes) {
-            s.owner = this; //couldn't own it before i existed, now could i
-        }
         addAllHighPriorityScenes(nonDefaultScenes);
         addStat(StatFactory.LIFESAUCE,0);
         addStat(StatFactory.AGE,0);
@@ -88,6 +89,7 @@ class Entity {
     List<Stat> get readOnlyStats => _stats;
 
     void addHighPriorityScene(Scene scene) {
+        scene.owner = this;
         scenes.insert(0,scene);
     }
 
@@ -110,15 +112,15 @@ class Entity {
         }
 
         //you might die of old age sooner, but this is the last shot
-        if(StatFactory.AGE.value > StatFactory.AGE.maxValue * 2) {
-            Scene s = new DieOfOldAge(this);
+        if(StatFactory.AGE.value > StatFactory.AGE.maxValue * 2 || StatFactory.LIFESAUCE.value <=0) {
+            Scene s = new Die(this);
             await s.renderContent(div, w);
             return;
         }
 
         addAllHighPriorityScenes(scenesToAdd);
         scenesToAdd.clear();
-        print("tick for $name div is $div");
+        //print("tick for $name div is $div");
         //only one scene per tick.
         for(Scene s in scenes) {
             if(s.triggered()) {

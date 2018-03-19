@@ -2,6 +2,9 @@ import "../LifeSimLib.dart";
 
 
 class GetTrappedInAAttic extends Scene {
+    @override
+    String name = "Get Trapped In Attic";
+
     String backgroundName = "Attic.png";
     GetTrappedInAAttic(owner) : super(owner);
 

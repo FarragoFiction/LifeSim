@@ -3,6 +3,8 @@ import "../LifeSimLib.dart";
 
 class BecomeAWaste extends Scene {
     @override
+    String name = "Become a Waste";
+    @override
     double triggerChance = 0.75;
     String backgroundName = "LoRaSiguess.png";
     BecomeAWaste(owner) : super(owner);

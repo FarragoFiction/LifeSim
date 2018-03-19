@@ -29,6 +29,8 @@ class GetAKid extends Scene {
       owner.scenesToAdd.add(new TakeKidToPark(owner));
       owner.children.add(kid);
       others.add(kid);
+      owner.addStat(StatFactory.ESTEEM, 1);
+      owner.addStat(StatFactory.COMMERCE, -1);
       super.renderContent(element, w);
   }
 

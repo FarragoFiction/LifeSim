@@ -2,6 +2,9 @@ import "../LifeSimLib.dart";
 
 
 class GetASpouse extends Scene {
+    @override
+    String name = "Get a Spouse";
+
     String backgroundName = "ThisIsLoveIGuess.png";
     GetASpouse(owner) : super(owner);
     //should be bottom in list, only acitvates if nothing better to do.
@@ -21,6 +24,9 @@ class GetASpouse extends Scene {
       owner.addStat(StatFactory.ROMCOMMERY, 1);
       owner.spouses.add(spouse);
       others.add(spouse);
+      owner.addStat(StatFactory.ESTEEM, 1);
+
+      owner.addStat(StatFactory.COMMERCE, -1);
       owner.scenesToAdd.add(new GetAKid(owner));
       owner.scenesToAdd.add(new GoOnDates(owner));
 

@@ -19,6 +19,7 @@ abstract class Scene {
      */
 
 
+    String name = "???";
     //for scenes with random in them. they can override this if they want
     //higher the chance, more likely it is to happen
     double triggerChance = 0.5;
@@ -43,6 +44,11 @@ abstract class Scene {
     //should probably take in the MainChar
     bool triggered();
 
+    @override
+    String toString() {
+        return name;
+    }
+
     //by default just puts background, doll and text in places.
     //most scenes should do what they need to to change vars and set text, then call super.
     //some scenes could add another div after super is called if they need something fancy, but
@@ -59,9 +65,13 @@ abstract class Scene {
         narration.setInnerHtml(text);
         container.append(canvas);
         container.append(narration);
+
+        //get stats now so it's not happening asnc style
+        List<Stat> readOnlyStats = owner.readOnlyStats;
+        await statWork(readOnlyStats,container,w);
+
         //don't await it
         canvasWork(canvas,w);
-        statWork(container,w);
     }
 
 
@@ -99,20 +109,20 @@ abstract class Scene {
         return [retArray.sublist(0, retArray.length - 1).join(', '), retArray.last].join(retArray.length < 2 ? '' : ' and ');
     }
 
-    Future<Null> statWork(Element div, World w) async {
+    Future<Null> statWork(List<Stat> readOnlyStats, Element div, World w) async {
         CanvasElement canvas = new CanvasElement(width: width, height: 200);
         canvas.classes.add("stats");
         div.append(canvas);
 
         int x = 0;
-        for(Stat s in owner.readOnlyStats) {
+        for(Stat s in readOnlyStats) {
+           // print("iterating on stat ${s.name}");
             CanvasElement statCanvas = await s.renderSelf();
             canvas.context2D.drawImage(statCanvas,x,0);
             int fontSize = 12;
             canvas.context2D.font = "${fontSize}px Strife";
             canvas.context2D.fillText(s.name, x, fontSize);
             canvas.context2D.fillText("${s.value}/${s.maxValue}", x, fontSize*3);
-
             x += s.width;
         }
 

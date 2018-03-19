@@ -15,17 +15,18 @@ class GenericScene extends Scene {
     @override
     double triggerChance;
 
-    //will you die in this scene?
-    bool die;
-
     static String OWNERNAME = 'ownerenamer';
     List<Scene> scenesToUnlock;
 
-    GenericScene(List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5, bool die = false]) : super(owner);
+    @override
+    String name;
+
+    GenericScene(String this.name, List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5]) : super(owner);
 
 
   @override
   bool triggered() {
+      //print("checking $backgroundName");
       if(owner.rand.nextDouble() > triggerChance) return false;
       for(SVP svp in triggerStats) {
           if(!svp.triggered()) return false;
@@ -36,7 +37,9 @@ class GenericScene extends Scene {
 
     @override
     Future<Null> renderContent(Element element, World w) async {
-        for(SVP svp in triggerStats) {
+       text =   text.replaceAll("$OWNERNAME", "${owner.name}");
+
+       for(SVP svp in resultStats) {
             svp.apply(owner);
         }
         if(scenesToUnlock.isNotEmpty) {
@@ -46,7 +49,6 @@ class GenericScene extends Scene {
                 }
             }
         }
-        if(die) owner.dead = true;
         super.renderContent(element, w);
     }
 

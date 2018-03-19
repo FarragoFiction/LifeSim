@@ -15,7 +15,7 @@ class GoToSchool extends Scene {
       if(StatFactory.GRADEMOXY.value == 0) return true; //try to go at least once
       if(StatFactory.JOBFLAKES.value >0) return false; //already starting a job i guess
 
-      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/2) return true;
+      if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value < StatFactory.AGE.maxValue/3) return true;
       return false;
   }
 

@@ -1,18 +1,16 @@
 import "../LifeSimLib.dart";
 
 
-class DieOfOldAge extends Scene {
+class Die extends Scene {
     String backgroundName = "SomeoneFuckinDied.png";
-    DieOfOldAge(owner) : super(owner);
+    Die(owner) : super(owner);
 
 
   @override
   bool triggered() {
-      if(owner.hasStat(StatFactory.LIFESAUCE)){
-          if(StatFactory.AGE.value > StatFactory.AGE.maxValue) return true;
-      }
-      //literally immortal, somehow.
-    return false;
+      if(StatFactory.AGE.value > StatFactory.AGE.maxValue) return true;
+      if(StatFactory.LIFESAUCE.value <= 0) return true;
+      return false;
   }
 
   String epitaph() {
@@ -36,7 +34,7 @@ class DieOfOldAge extends Scene {
       initOthers();
 
       print("seriously, make their tombstone dynamic and a canvas");
-      text = "${owner.name} has finally died of old age. Their tombstone reads: ${epitaph()}";
+      text = "${owner.name} has finally died. Their tombstone reads: ${epitaph()}";
       w.ended = true;
       owner.dead = true;
       owner.canvasDirty = true;
