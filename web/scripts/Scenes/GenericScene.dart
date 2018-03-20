@@ -23,6 +23,23 @@ class GenericScene extends Scene {
 
     GenericScene(String this.name, List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5]) : super(owner);
 
+    @override
+    String get description {
+        String ret = "TODO: make this look better by overriding draw card. This scenes has the following results: ";
+        if(resultStats.isNotEmpty) {
+            ret += " Stats: ";
+            for(SVP svp in resultStats) {
+                ret += "${svp.stat.name}: ${svp.value} ,";
+            }
+        }
+        if(scenesToUnlock.isNotEmpty) {
+            ret += "Scenes: ";
+            for(Scene s in scenesToUnlock) {
+                ret += "${s.name} ,";
+            }
+        }
+        return ret;
+    }
 
   @override
   bool triggered() {

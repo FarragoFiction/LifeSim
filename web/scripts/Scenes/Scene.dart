@@ -20,6 +20,7 @@ abstract class Scene {
 
 
     String name = "???";
+    String description = "This is a pre-built card, without a standard way of indicating end results";
     //for scenes with random in them. they can override this if they want
     //higher the chance, more likely it is to happen
     double triggerChance = 0.2;
@@ -30,6 +31,8 @@ abstract class Scene {
     //will be set on creation.
     Entity owner;
     List<Entity> others = new List<Entity>();
+
+    String cardLocation = "images/blank.png";
 
     //put things on the ground yo, if it exists
     int groundPos = 300;
@@ -47,6 +50,26 @@ abstract class Scene {
     @override
     String toString() {
         return name;
+    }
+
+    Future<Null> drawCard(Element element) async {
+        print("tring to draw $name card");
+        CanvasElement canvas = new CanvasElement(width:322, height: 450);
+        canvas.classes.add('sceneCard');
+        element.append(canvas);
+        drawCardRest(canvas);
+    }
+
+    //the async part of drawing a card
+    Future<Null> drawCardRest(CanvasElement canvas) async {
+        await Renderer.drawWhateverFuture(canvas, cardLocation);
+        int fontSize = 18;
+        canvas.context2D.font = "${fontSize}px Times New Roman";
+        canvas.context2D.fillText("$name",40,260);
+
+        //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
+
+        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, description, "Times New Roman", 40, 290, fontSize, 250, 134);
     }
 
     //by default just puts background, doll and text in places.

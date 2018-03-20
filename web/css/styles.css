@@ -16,3 +16,7 @@ html, body {
 .error{
     background-color: red;
 }
+
+.sceneCard{
+    margin: 5px;
+}

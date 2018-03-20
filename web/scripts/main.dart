@@ -15,30 +15,39 @@ void main() {
   rand = new Random();
   cardLibrary = new DivElement();
   cardLibrary.id = "cardLibrary"; //for humans
-  
+
   story = new DivElement();
   story.id = "story";
 
   div.append(cardLibrary);
   div.append(story);
 
+  displayCardLibrary();
   pickCardsRandomly();
  // start();
 }
 
+void initCardLibrary() {
+  sceneCards.add(new GetASpouse(null));
+  sceneCards.add(new BecomeAWaste(null));
+  sceneCards.add(new BreakTheGame(null));
+  sceneCards.add(new GetTrappedInAAttic(null));
+  sceneCards.addAll(SceneFactory.allGenericScenes);
+}
+
 //as opposed to a library card
-void displayCardLibrary() {
+Future<Null> displayCardLibrary() async {
+  await Loader.preloadManifest();
+
+  print("card library");
+  initCardLibrary();
   for(Scene s in sceneCards) {
       s.drawCard(div);
   }
 }
 
 void pickCardsRandomly() {
-  sceneCards.add(new GetASpouse(null));
-  sceneCards.add(new BecomeAWaste(null));
-  sceneCards.add(new BreakTheGame(null));
-  sceneCards.add(new GetTrappedInAAttic(null));
-  sceneCards.addAll(SceneFactory.allGenericScenes);
+  initCardLibrary();
 
   chosenScenes = new List<Scene>();
   for(int i=0; i<10; i++) {
