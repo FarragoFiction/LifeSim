@@ -6,12 +6,31 @@ World world;
 List<Scene> sceneCards = new List<Scene>();
 List<Scene> chosenScenes = new List<Scene>();
 Random rand;
+Element div = querySelector("#output");
+Element cardLibrary;
+Element story;
 
 void main() {
   //if you care, can set the seed yourself later.
   rand = new Random();
+  cardLibrary = new DivElement();
+  cardLibrary.id = "cardLibrary"; //for humans
+  
+  story = new DivElement();
+  story.id = "story";
+
+  div.append(cardLibrary);
+  div.append(story);
+
   pickCardsRandomly();
-  start();
+ // start();
+}
+
+//as opposed to a library card
+void displayCardLibrary() {
+  for(Scene s in sceneCards) {
+      s.drawCard(div);
+  }
 }
 
 void pickCardsRandomly() {
@@ -32,7 +51,7 @@ void pickCardsRandomly() {
 
 void start() {
   Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
-  world = new World(rand, protagonist, querySelector("#output"));
+  world = new World(rand, protagonist, story);
   print("before showing., there are ${chosenScenes}");
 
   world.showDeck(chosenScenes);
