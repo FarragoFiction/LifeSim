@@ -60,7 +60,7 @@ abstract class Scene {
         drawCardRest(canvas);
     }
 
-    //the async part of drawing a card
+    //the async part of drawing a card, genericScene overrides this
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
         int fontSize = 18;

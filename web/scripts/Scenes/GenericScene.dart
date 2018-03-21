@@ -25,7 +25,7 @@ class GenericScene extends Scene {
 
     @override
     String get description {
-        String ret = "TODO: make this look better by overriding draw card. This scenes has the following results: ";
+        String ret = "This scenes has the following results: ";
         if(resultStats.isNotEmpty) {
             ret += " Stats: ";
             for(SVP svp in resultStats) {
@@ -40,6 +40,9 @@ class GenericScene extends Scene {
         }
         return ret;
     }
+
+
+
 
   @override
   bool triggered() {
@@ -69,6 +72,19 @@ class GenericScene extends Scene {
         super.renderContent(element, w);
     }
 
+    Future<Null> drawCardRest(CanvasElement canvas) async {
+        await Renderer.drawWhateverFuture(canvas, cardLocation);
+        int fontSize = 18;
+        canvas.context2D.font = "${fontSize}px Times New Roman";
+        canvas.context2D.fillText("$name",40,260);
+
+        //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
+
+        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, 290, fontSize, 250, 134);
+        if(scenesToUnlock.isNotEmpty) Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, 350, fontSize, 250, 134);
+
+    }
+
 }
 
 
@@ -87,5 +103,9 @@ class SVP
 
     void apply(Entity owner) {
         owner.addStat(stat, value);
+    }
+
+    String toString() {
+        return "${stat.name}: ${value}";
     }
 }
