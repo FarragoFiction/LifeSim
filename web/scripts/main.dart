@@ -43,15 +43,32 @@ void initCardLibrary() {
   sceneCards.addAll(SceneFactory.allGenericScenes);
 }
 
+void grabSelectedCardsAndStart() {
+  List<Element> selected = querySelectorAll(".selectedCard");
+  String text = "${selected.length} selected: ";
+  for(Element e in selected) {
+    int id = int.parse(e.id.replaceAll("card", ""));
+    text += "${sceneCards[id]},";
+  }
+  window.alert(text);
+
+}
+
 //as opposed to a library card
 Future<Null> displayCardLibrary() async {
   await Loader.preloadManifest();
+  DivElement buttonHolder = new DivElement();
+  ButtonElement button = new ButtonElement();
+  button.text = "Start Life With Selected Cards";
+  button.onClick.listen((e) => grabSelectedCardsAndStart());
+  buttonHolder.append(button);
+  cardLibrary.append(buttonHolder);
 
   print("card library");
   initCardLibrary();
   for(int i = 0; i<sceneCards.length; i++) {
       Scene s = sceneCards[i];
-      s.drawCard(div, i);
+      s.drawCard(cardLibrary, i);
   }
 }
 
