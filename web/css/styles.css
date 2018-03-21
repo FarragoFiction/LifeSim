@@ -10,11 +10,12 @@ html, body {
 
 
 .selectedCard{
-    border: 3px solid #00ff00;
+    opacity: 1.0;
 }
 
 .unSelectedCard{
     border:none;
+    opacity: 0.3;
 }
 
 #output {

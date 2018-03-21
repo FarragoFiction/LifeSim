@@ -57,10 +57,18 @@ abstract class Scene {
        // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
         canvas.classes.add('sceneCard');
+        canvas.classes.add('unSelectedCard');
+
         canvas.id = "card$id"; //needed to know which were selected
         element.append(canvas);
         canvas.onClick.listen((e) {
-            canvas.classes.add('selectedCard');
+            if(canvas.classes.contains("selectedCard")){
+                canvas.classes.add('unSelectedCard');
+                canvas.classes.remove('selectedCard');
+            }else{
+                canvas.classes.add('selectedCard');
+                canvas.classes.remove('unSelectedCard');
+            }
         });
 
         drawCardRest(canvas);

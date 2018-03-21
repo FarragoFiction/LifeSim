@@ -15,6 +15,7 @@ void main() {
   rand = new Random();
   cardLibrary = new DivElement();
   cardLibrary.id = "cardLibrary"; //for humans
+  cardLibrary.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
 
   story = new DivElement();
   story.id = "story";
