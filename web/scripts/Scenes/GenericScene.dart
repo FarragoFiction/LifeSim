@@ -24,7 +24,7 @@ class GenericScene extends Scene {
     GenericScene(String this.name, List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5]) : super(owner);
 
     @override
-    Colour get color {
+    Colour get cardColor {
         if(resultStats.isNotEmpty) {
             return resultStats.first.stat.color;
         }else {
@@ -83,7 +83,10 @@ class GenericScene extends Scene {
 
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
-        Renderer.swapColors(canvas, color);
+        Renderer.swapColors(canvas, cardColor);
+        ImageElement image = await Loader.getResource(("${Scene.bgStartLocation}$backgroundName"));
+        //get rekt
+        canvas.context2D.drawImageToRect(image, new Rectangle(31,34,260,210));
         int fontSize = 18;
         canvas.context2D.font = "${fontSize}px Times New Roman";
         canvas.context2D.fillText("$name",40,260);

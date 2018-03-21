@@ -3,7 +3,8 @@ import "../LifeSimLib.dart";
 
 class GoToSchool extends Scene {
 
-
+    @override
+    String name = "Go to School";
     @override
     String description = "The Protagonist is forced to go to school, mostly to learn how to put up with rank bullshit.";
     @override

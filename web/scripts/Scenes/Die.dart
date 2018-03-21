@@ -4,6 +4,8 @@ import "../LifeSimLib.dart";
 class Die extends Scene {
 
     @override
+    String name = "Die of Old Age";
+    @override
     String description = "The Protagonist dies, their epitaph is written.";
     @override
     Colour cardColor = StatFactory.AGE.color;

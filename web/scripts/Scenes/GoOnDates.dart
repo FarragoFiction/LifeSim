@@ -7,7 +7,8 @@ class GoOnDates extends Scene {
     String description = "The Protagonist enjoys the good time feelings of true love.";
     @override
     Colour cardColor = StatFactory.ROMCOMMERY.color;
-
+    @override
+    String name = "Go on Dates";
 
     String backgroundName = "Shittydanceparty.png";
     GoOnDates(owner) : super(owner);

@@ -2,7 +2,8 @@ import "../LifeSimLib.dart";
 
 
 class BeAHobo extends Scene {
-
+    @override
+    String name = "Be a Hobo";
     @override
     String description = "Lacking money, the Protagonist lives on the street and develops a prestigious SMELL WAVE meter.";
     @override

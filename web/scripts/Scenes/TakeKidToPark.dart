@@ -3,6 +3,9 @@ import "../LifeSimLib.dart";
 
 class TakeKidToPark extends Scene {
 
+
+    @override
+    String name = "Take Kid To Park";
     @override
     String description = "The Protagonist spends time with their many and various OFFSPRING. ";
     @override

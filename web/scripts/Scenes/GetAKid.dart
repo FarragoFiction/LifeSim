@@ -7,6 +7,8 @@ class GetAKid extends Scene {
     String description = "The Protagonist joins the vaulted ranks of the Parents.";
     @override
     Colour cardColor = StatFactory.PARENTRITUDE.color;
+    @override
+    String name = "Become a Parent";
 
 
     double triggerChance = 0.2;

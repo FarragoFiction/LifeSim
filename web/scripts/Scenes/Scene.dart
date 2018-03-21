@@ -54,23 +54,32 @@ abstract class Scene {
     }
 
     Future<Null> drawCard(Element element) async {
-        print("tring to draw $name card");
+       // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
         canvas.classes.add('sceneCard');
         element.append(canvas);
         drawCardRest(canvas);
+        //print("finished allocating space for card $name");
     }
 
     //the async part of drawing a card, genericScene overrides this
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
+        Renderer.swapColors(canvas, cardColor);
         int fontSize = 18;
+        //await Renderer.drawWhateverFuture(canvas, "$bgStartLocation$backgroundName");
+        ImageElement image = await Loader.getResource(("$bgStartLocation$backgroundName"));
+        //get rekt
+        canvas.context2D.drawImageToRect(image, new Rectangle(31,34,260,210));
+
         canvas.context2D.font = "${fontSize}px Times New Roman";
         canvas.context2D.fillText("$name",40,260);
 
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, description, "Times New Roman", 40, 290, fontSize, 250, 134);
+        //print("finished drawing card $name");
+
     }
 
     //by default just puts background, doll and text in places.
