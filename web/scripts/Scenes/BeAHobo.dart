@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class BeAHobo extends Scene {
+
+    @override
+    String description = "Lacking money, the Protagonist lives on the street and develops a prestigious SMELL WAVE meter.";
+    @override
+    Colour cardColor = StatFactory.SMELLWAVES.color;
+
+
     @override
     double triggerChance = 0.9;
     String backgroundName = "GetInTheBoxObserver.png";

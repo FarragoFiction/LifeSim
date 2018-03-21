@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class BreakTheGame extends Scene {
+
+
+    @override
+    String description = "Fucking Wastes. Stay out of my game!";
+    @override
+    Colour cardColor = StatFactory.GNOSIS.color;
+
     @override
     String name = "Break the Game";
 

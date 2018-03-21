@@ -2,6 +2,12 @@ import "../LifeSimLib.dart";
 
 
 class GetASpouse extends Scene {
+
+    @override
+    String description = "The Protagonist finds true love.";
+    @override
+    Colour cardColor = StatFactory.ROMCOMMERY.color;
+
     @override
     String name = "Get a Spouse";
 

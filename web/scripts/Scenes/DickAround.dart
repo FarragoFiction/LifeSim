@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class DickAround extends Scene {
+
+    @override
+    String description = "The Protagonist doesn't do very much at all.";
+    @override
+    Colour cardColor = StatFactory.JOBFLAKES.color;
+
+
     String backgroundName = "City.png";
     DickAround(owner) : super(owner);
 

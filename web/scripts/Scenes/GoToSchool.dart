@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class GoToSchool extends Scene {
+
+
+    @override
+    String description = "The Protagonist is forced to go to school, mostly to learn how to put up with rank bullshit.";
+    @override
+    Colour cardColor = StatFactory.GRADEMOXY.color;
+
     String backgroundName = "Skule.png";
     @override
     double triggerChance = 0.75;

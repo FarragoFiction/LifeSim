@@ -24,6 +24,15 @@ class GenericScene extends Scene {
     GenericScene(String this.name, List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5]) : super(owner);
 
     @override
+    Colour get color {
+        if(resultStats.isNotEmpty) {
+            return resultStats.first.stat.color;
+        }else {
+            return new Colour(255,255,255);
+        }
+    }
+
+    @override
     String get description {
         String ret = "This scenes has the following results: ";
         if(resultStats.isNotEmpty) {
@@ -74,6 +83,7 @@ class GenericScene extends Scene {
 
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
+        Renderer.swapColors(canvas, color);
         int fontSize = 18;
         canvas.context2D.font = "${fontSize}px Times New Roman";
         canvas.context2D.fillText("$name",40,260);
@@ -81,7 +91,7 @@ class GenericScene extends Scene {
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, 290, fontSize, 250, 134);
-        if(scenesToUnlock.isNotEmpty) Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, 350, fontSize, 250, 134);
+        if(scenesToUnlock.isNotEmpty) Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(scenesToUnlock)}", "Times New Roman", 40, 350, fontSize, 250, 134);
 
     }
 

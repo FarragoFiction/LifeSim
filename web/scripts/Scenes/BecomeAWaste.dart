@@ -2,6 +2,12 @@ import "../LifeSimLib.dart";
 
 
 class BecomeAWaste extends Scene {
+
+    @override
+    String description = "The Protagonist... wait. Should they really be doing that?";
+    @override
+    Colour cardColor = StatFactory.GNOSIS.color;
+
     @override
     String name = "Become a Waste";
     @override

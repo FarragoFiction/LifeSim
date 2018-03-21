@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class Die extends Scene {
+
+    @override
+    String description = "The Protagonist dies, their epitaph is written.";
+    @override
+    Colour cardColor = StatFactory.AGE.color;
+
+
     String backgroundName = "SomeoneFuckinDied.png";
     Die(owner) : super(owner);
 

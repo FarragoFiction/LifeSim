@@ -4,7 +4,10 @@ import "../LifeSimLib.dart";
 class BeBorn extends Scene {
     String backgroundName = "Hospital.png";
   BeBorn(owner) : super(owner);
-
+    @override
+    String description = "The Protagonist begins life.";
+    @override
+    Colour cardColor = StatFactory.LIFESAUCE.color;
 
   @override
   bool triggered() {

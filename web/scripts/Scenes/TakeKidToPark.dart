@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class TakeKidToPark extends Scene {
+
+    @override
+    String description = "The Protagonist spends time with their many and various OFFSPRING. ";
+    @override
+    Colour cardColor = StatFactory.PARENTRITUDE.color;
+
+
     String backgroundName = "Perk.png";
     TakeKidToPark(owner) : super(owner);
 

@@ -20,7 +20,6 @@ abstract class Scene {
 
 
     String name = "???";
-    String description = "This is a pre-built card, without a standard way of indicating end results";
     //for scenes with random in them. they can override this if they want
     //higher the chance, more likely it is to happen
     double triggerChance = 0.2;
@@ -32,6 +31,8 @@ abstract class Scene {
     Entity owner;
     List<Entity> others = new List<Entity>();
 
+    String description = "This is a pre-built card, without a standard way of indicating end results";
+    Colour cardColor = new Colour(255,255,255);
     String cardLocation = "images/blank.png";
 
     //put things on the ground yo, if it exists

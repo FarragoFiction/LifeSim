@@ -30,6 +30,13 @@ void main() {
 void initCardLibrary() {
   sceneCards.add(new GetASpouse(null));
   sceneCards.add(new BecomeAWaste(null));
+  sceneCards.add(new BeAHobo(null));
+  sceneCards.add(new DickAround(null));
+  sceneCards.add(new Die(null));
+  sceneCards.add(new GetAKid(null));
+  sceneCards.add(new GoOnDates(null));
+  sceneCards.add(new GoToSchool(null));
+  sceneCards.add(new TakeKidToPark(null));
   sceneCards.add(new BreakTheGame(null));
   sceneCards.add(new GetTrappedInAAttic(null));
   sceneCards.addAll(SceneFactory.allGenericScenes);

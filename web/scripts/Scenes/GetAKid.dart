@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class GetAKid extends Scene {
+
+    @override
+    String description = "The Protagonist joins the vaulted ranks of the Parents.";
+    @override
+    Colour cardColor = StatFactory.PARENTRITUDE.color;
+
+
     double triggerChance = 0.2;
 
     String backgroundName = "Hospitalbed.png";

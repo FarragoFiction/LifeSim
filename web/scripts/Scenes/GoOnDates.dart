@@ -2,6 +2,13 @@ import "../LifeSimLib.dart";
 
 
 class GoOnDates extends Scene {
+
+    @override
+    String description = "The Protagonist enjoys the good time feelings of true love.";
+    @override
+    Colour cardColor = StatFactory.ROMCOMMERY.color;
+
+
     String backgroundName = "Shittydanceparty.png";
     GoOnDates(owner) : super(owner);
 
