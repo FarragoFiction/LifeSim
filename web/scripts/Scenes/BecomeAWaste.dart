@@ -27,7 +27,14 @@ class BecomeAWaste extends Scene {
   Future<Null> renderContent(Element element, World w) async {
       text = "${owner.name} is learning how to be a Waste. Huh. Uh. Is this supposed to be happening?";
       owner.addStat(StatFactory.GNOSIS, 1);
+
+      if(StatFactory.GNOSIS.value == 2) {
+          owner.scenesToAdd.add(new BreakTheGame(owner));
+          owner.scenesToAdd.add(new GetTrappedInAAttic(owner));
+      }
+
       super.renderContent(element, w);
+
 
   }
 

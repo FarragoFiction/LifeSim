@@ -3,6 +3,7 @@ import "../LifeSimLib.dart";
 
 class BreakTheGame extends Scene {
 
+    double triggerChance = 0.13;
 
     @override
     String description = "Fucking Wastes. Stay out of my game!";

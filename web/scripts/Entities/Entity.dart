@@ -33,8 +33,10 @@ class Entity {
         scenes.add(new Die(this));
         scenes.add(new GoToSchool(this));
 
-        nonDefaultScenes.add(SceneFactory.BERICH);
-        nonDefaultScenes.add(new BeAHobo(this));
+        print("non default scenes are${nonDefaultScenes.length}");
+        scenes.add(SceneFactory.BERICH);
+        scenes.last.owner = this;
+        scenes.add(new BeAHobo(this));
         scenes.add(new DickAround(this));
         addAllHighPriorityScenes(nonDefaultScenes);
         addStat(StatFactory.LIFESAUCE,0);

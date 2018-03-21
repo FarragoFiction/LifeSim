@@ -8,24 +8,90 @@ List<Scene> chosenScenes = new List<Scene>();
 Random rand;
 Element div = querySelector("#output");
 Element cardLibrary;
+Element preStory;
 Element story;
+Element protagLoader;
+CanvasElement protagPreview;
+
 
 void main() {
   //if you care, can set the seed yourself later.
   rand = new Random();
+
   cardLibrary = new DivElement();
   cardLibrary.id = "cardLibrary"; //for humans
   cardLibrary.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
 
+  preStory = new DivElement();
+  preStory.id  = "preStory";
+
   story = new DivElement();
   story.id = "story";
 
-  div.append(cardLibrary);
+  Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
+  rand = new Random(0);
+
+  world = new World(rand, protagonist, story);
+
+  protagLoader = new DivElement();
+  protagLoader.id  = "protagLoader";
+
+  preStory.append(protagLoader);
+  preStory.append(cardLibrary);
+  div.append(preStory);
   div.append(story);
 
+  displayProtagLoader();
   displayCardLibrary();
-  pickCardsRandomly();
+  //pickCardsRandomly();
  // start();
+}
+
+Future<Null>  displayProtagLoader() async{
+
+  protagPreview = await world.protagonist.canvas;
+  DivElement nameLabel = new DivElement();
+  nameLabel.text = "Name: ";
+  TextInputElement firstName = new TextInputElement();
+  firstName.value = world.protagonist.firstName;
+  nameLabel.append(firstName);
+
+  TextInputElement lastName = new TextInputElement();
+  lastName.value = world.protagonist.lastName;
+  nameLabel.append(lastName);
+
+  DivElement dollStringLabel = new DivElement();
+  dollStringLabel.text = "Data String: ";
+  TextAreaElement dollString = new TextAreaElement();
+  dollString.value = world.protagonist.doll.toDataBytesX();
+  dollStringLabel.append(dollString);
+
+  ButtonElement button = new ButtonElement();
+  button.text = ("Load Changes");
+  button.onClick.listen((e) {
+    String  newdataString = dollString.value;
+    if(newdataString != world.protagonist.doll.toDataBytesX()) {
+      world.protagonist.doll = Doll.loadSpecificDoll(newdataString);
+      world.protagonist.canvasDirty = true;
+      loadProtagDoll();
+    }
+
+    world.protagonist.firstName = firstName.value;
+    world.protagonist.lastName = lastName.value;
+  });
+
+  protagLoader.classes.add("protagLoader");
+  protagLoader.append(protagPreview);
+  protagLoader.append(nameLabel);
+  protagLoader.append(dollStringLabel);
+  protagLoader.append(button);
+}
+
+Future<Null> loadProtagDoll() async {
+  CanvasElement tmp =  await world.protagonist.canvas;
+  protagPreview.context2D.clearRect(0,0,protagPreview.width, protagPreview.height);
+  protagPreview.context2D.drawImage(tmp,0,0);
+
 }
 
 void initCardLibrary() {
@@ -44,14 +110,14 @@ void initCardLibrary() {
 }
 
 void grabSelectedCardsAndStart() {
+  print("before selecting., there are ${chosenScenes}");
+
   List<Element> selected = querySelectorAll(".selectedCard");
-  String text = "${selected.length} selected: ";
   for(Element e in selected) {
     int id = int.parse(e.id.replaceAll("card", ""));
-    text += "${sceneCards[id]},";
+    chosenScenes.add(sceneCards[id]);
   }
-  window.alert(text);
-
+  start();
 }
 
 //as opposed to a library card
@@ -64,7 +130,6 @@ Future<Null> displayCardLibrary() async {
   buttonHolder.append(button);
   cardLibrary.append(buttonHolder);
 
-  print("card library");
   initCardLibrary();
   for(int i = 0; i<sceneCards.length; i++) {
       Scene s = sceneCards[i];
@@ -78,17 +143,19 @@ void pickCardsRandomly() {
   chosenScenes = new List<Scene>();
   for(int i=0; i<10; i++) {
     Scene chosen = rand.pickFrom(sceneCards);
-    print("adding a ${chosen.name} to the deck");
+    //print("adding a ${chosen.name} to the deck");
     chosenScenes.add(chosen);
   }
-  print("after adding, there are ${chosenScenes}");
+  //print("after adding, there are ${chosenScenes}");
 }
 
 void start() {
-  Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
-  world = new World(rand, protagonist, story);
-  print("before showing., there are ${chosenScenes}");
+ // print("before starting., there are ${chosenScenes}");
 
+  preStory.style.display = "none";
+
+  //print("before showing., there are ${chosenScenes}");
+  world.protagonist.addAllHighPriorityScenes(chosenScenes);
   world.showDeck(chosenScenes);
   world.tick();
 }

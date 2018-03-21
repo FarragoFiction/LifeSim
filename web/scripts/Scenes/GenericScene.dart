@@ -98,6 +98,9 @@ class GenericScene extends Scene {
 
     }
 
+    //TODO to json has the scenes it unlocks get turned into json, and all the stats, too
+
+
 }
 
 

@@ -8,6 +8,9 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.protagLoader{
+    padding: 10px;
+}
 
 .selectedCard{
     opacity: 1.0;

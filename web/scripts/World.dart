@@ -31,10 +31,10 @@ class World {
         loadedManifest = true;
     }
 
-    void showDeck(List<Scene> scenes) {
+    void showDeck(List<Scene> chosenScenes) {
         DivElement container = new DivElement();
         div.append(container);
-        String text = "${Scene.turnArrayIntoHumanSentence(scenes)}";
+        String text = "${Scene.turnArrayIntoHumanSentence(chosenScenes)}";
         
         container.text = text;
     }

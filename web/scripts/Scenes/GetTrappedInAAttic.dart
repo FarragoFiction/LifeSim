@@ -2,6 +2,9 @@ import "../LifeSimLib.dart";
 
 
 class GetTrappedInAAttic extends Scene {
+    double triggerChance = 0.8;
+
+
     @override
     String name = "Get Trapped In Attic";
 
@@ -13,7 +16,7 @@ class GetTrappedInAAttic extends Scene {
   @override
   bool triggered() {
       if(owner.rand.nextDouble() > triggerChance) return false;
-      return StatFactory.GNOSIS.value >= StatFactory.GNOSIS.maxValue;
+      return StatFactory.GNOSIS.value >= StatFactory.GNOSIS.maxValue-1;
   }
 
   @override
