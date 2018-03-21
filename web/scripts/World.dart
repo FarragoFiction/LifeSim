@@ -34,7 +34,12 @@ class World {
     void showDeck(List<Scene> chosenScenes) {
         DivElement container = new DivElement();
         div.append(container);
-        String text = "${Scene.turnArrayIntoHumanSentence(chosenScenes)}";
+        String text;
+        if(chosenScenes.isEmpty) {
+            text = "Uh. You didn't pick any cards. Actually. Why did you do that?";
+        }else {
+            text = "${Scene.turnArrayIntoHumanSentence(chosenScenes)}";
+        }
         
         container.text = text;
     }
