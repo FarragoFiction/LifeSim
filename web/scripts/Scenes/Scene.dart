@@ -53,11 +53,16 @@ abstract class Scene {
         return name;
     }
 
-    Future<Null> drawCard(Element element) async {
+    Future<Null> drawCard(Element element, int id) async {
        // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
         canvas.classes.add('sceneCard');
+        canvas.id = "card$id"; //needed to know which were selected
         element.append(canvas);
+        canvas.onClick.listen((e) {
+            canvas.classes.add('selectedCard');
+        });
+
         drawCardRest(canvas);
         //print("finished allocating space for card $name");
     }

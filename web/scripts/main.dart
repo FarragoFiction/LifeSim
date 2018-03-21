@@ -48,8 +48,9 @@ Future<Null> displayCardLibrary() async {
 
   print("card library");
   initCardLibrary();
-  for(Scene s in sceneCards) {
-      s.drawCard(div);
+  for(int i = 0; i<sceneCards.length; i++) {
+      Scene s = sceneCards[i];
+      s.drawCard(div, i);
   }
 }
 
