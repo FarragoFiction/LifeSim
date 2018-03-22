@@ -11,6 +11,7 @@ Element cardLibrary;
 Element preStory;
 Element story;
 Element protagLoader;
+Element coinToss;
 CanvasElement protagPreview;
 
 
@@ -36,16 +37,22 @@ void main() {
   protagLoader = new DivElement();
   protagLoader.id  = "protagLoader";
 
+  coinToss = new DivElement();
+  coinToss.id  = "protagLoader";
+
   preStory.append(protagLoader);
   preStory.append(cardLibrary);
   div.append(preStory);
   div.append(story);
+  story.append(coinToss);
 
   displayProtagLoader();
   displayCardLibrary();
   //pickCardsRandomly();
  // start();
 }
+
+
 
 Future<Null>  displayProtagLoader() async{
 
@@ -85,6 +92,23 @@ Future<Null>  displayProtagLoader() async{
   protagLoader.append(nameLabel);
   protagLoader.append(dollStringLabel);
   protagLoader.append(button);
+}
+
+//decides which of two seeds to use: 0 or 1.
+//means if you have the exact same cards the sim can only go one of two ways, instead of night infinite
+void doCoinToss() {
+  ImageElement img;
+  if(world.rand.nextBool()){
+    world.rand = new Random(0);
+    img = new ImageElement(src: "images/sniperZeeABJCoinHmm.png");
+    coinToss.text = "The coin flip decides: Heads";
+  }else{
+    world.rand = new Random(1);
+    coinToss.text = "The coin flip decides: Tails";
+    img = new ImageElement(src: "images/sniperZeeABJCoinInteresting.png");
+  }
+  coinToss.append(img);
+  chosenScenes = world.shuffleDeck(chosenScenes);
 }
 
 Future<Null> loadProtagDoll() async {
@@ -151,7 +175,7 @@ void pickCardsRandomly() {
 
 void start() {
  // print("before starting., there are ${chosenScenes}");
-
+  doCoinToss();
   preStory.style.display = "none";
 
   //print("before showing., there are ${chosenScenes}");

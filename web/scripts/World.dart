@@ -31,6 +31,17 @@ class World {
         loadedManifest = true;
     }
 
+     List<Scene> shuffleDeck(List<Scene> scenes) {
+        List<Scene> ret = new List<Scene>();
+        while(scenes.length > 0) {
+            Scene chosen = rand.pickFrom(scenes);
+            ret.add(chosen);
+            scenes.remove(chosen);
+        }
+        return ret;
+
+    }
+
     void showDeck(List<Scene> chosenScenes) {
         DivElement container = new DivElement();
         div.append(container);
