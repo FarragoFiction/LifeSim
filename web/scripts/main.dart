@@ -30,7 +30,6 @@ void main() {
   story.id = "story";
 
   Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
-  rand = new Random(0);
 
   world = new World(rand, protagonist, story);
 
@@ -98,16 +97,20 @@ Future<Null>  displayProtagLoader() async{
 //means if you have the exact same cards the sim can only go one of two ways, instead of night infinite
 void doCoinToss() {
   ImageElement img;
-  if(world.rand.nextBool()){
+  //noo one ever said it was a fair coin
+  double flip =   rand.nextDouble();
+  print("flip was $flip");
+  if(flip <0.75){
     world.rand = new Random(0);
     img = new ImageElement(src: "images/sniperZeeABJCoinHmm.png");
-    coinToss.text = "The coin flip decides: Heads";
+    coinToss.text = "The coin flip decides: Hrmmm... ";
   }else{
     world.rand = new Random(1);
-    coinToss.text = "The coin flip decides: Tails";
+    coinToss.text = "The coin flip decides: Interesting!!!";
     img = new ImageElement(src: "images/sniperZeeABJCoinInteresting.png");
   }
   coinToss.append(img);
+  //shuffled after aligning to one of two timelines
   chosenScenes = world.shuffleDeck(chosenScenes);
 }
 

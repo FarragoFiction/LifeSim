@@ -59,7 +59,7 @@ abstract class Scene {
         canvas.classes.add('sceneCard');
         Random rand = new Random();
         rand.nextInt();
-        if(rand.nextBool()) {
+        if(rand.nextBool() && false) {
             canvas.classes.add('selectedCard');
         }else {
             canvas.classes.add('unSelectedCard');
