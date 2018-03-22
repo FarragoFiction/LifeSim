@@ -5,8 +5,10 @@ class GenericScene extends Scene {
     @override
     String backgroundName;
 
-    //trigger stat must be above max
-    List<SVP> triggerStats;
+    //ALL of these must be true.
+    List<SVP> triggerStatsGreater;
+    List<SVP> triggerStatsLesser;
+
     //you get reward unit of this
     List<SVP> resultStats;
     @override
@@ -21,7 +23,9 @@ class GenericScene extends Scene {
     @override
     String name;
 
-    GenericScene(String this.name, List<SVP> this.triggerStats,List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, [double this.triggerChance = 0.5]) : super(owner);
+    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+        SceneFactory.allGenericScenes.add(this);
+    }
 
     @override
     Colour get cardColor {
@@ -57,8 +61,12 @@ class GenericScene extends Scene {
   bool triggered() {
       //print("checking $backgroundName");
       if(owner.rand.nextDouble() > triggerChance) return false;
-      for(SVP svp in triggerStats) {
-          if(!svp.triggered()) return false;
+      for(SVP svp in triggerStatsGreater) {
+          if(!svp.triggeredGreater()) return false;
+      }
+
+      for(SVP svp in triggerStatsLesser) {
+          if(!svp.triggeredLesser()) return false;
       }
       //made it through gauntlet of negativity
       return true;
@@ -113,8 +121,12 @@ class SVP
     int value;
     SVP(Stat this.stat, int this.value);
 
-    bool triggered() {
+    bool triggeredGreater() {
         return stat.value >= value;
+    }
+
+    bool triggeredLesser() {
+        return stat.value > value;
     }
 
     void apply(Entity owner) {

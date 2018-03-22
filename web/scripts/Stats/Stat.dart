@@ -3,6 +3,7 @@ import "../LifeSimLib.dart";
 class Stat implements Comparable<Stat> {
 
 
+
     Colour color;
 
     DateTime lastAccessed;
@@ -10,12 +11,14 @@ class Stat implements Comparable<Stat> {
     int height = 165;
     int vialMaxHeight = 137;
     String name;
+    //used for noble epitaphcs
+    String title;
     String imageName = "images/vial.png";
     int _value = 0;
     int maxValue;
     String epitaphSentence;
 
-    Stat(String this.name, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]) {
+    Stat(String this.name, String this.title, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]) {
         lastAccessed = new DateTime.now();
     }
 

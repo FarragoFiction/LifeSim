@@ -17,6 +17,7 @@ class World {
     bool loadedManifest = false;
 
     World(Random this.rand, Entity this.protagonist, Element this.div) {
+        StatFactory.initAllStats();
         window.onError.listen((e) {
             window.alert("haha it broke.");
             Element error = new DivElement();
