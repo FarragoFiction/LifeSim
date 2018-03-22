@@ -100,7 +100,7 @@ void doCoinToss() {
   //noo one ever said it was a fair coin
   double flip =   rand.nextDouble();
   print("flip was $flip");
-  if(flip <0.75){
+  if(flip <0.87){ //100-13
     world.rand = new Random(0);
     img = new ImageElement(src: "images/sniperZeeABJCoinHmm.png");
     coinToss.text = "The coin flip decides: Hrmmm... ";
