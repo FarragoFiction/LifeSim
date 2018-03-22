@@ -15,6 +15,54 @@ abstract class StatFactory {
   static Stat FURY;
   static Stat BRAINITUDE;
 
+  /*
+  Squiddlesense
+  Termilocity
+  Sneakapacity
+  PULCHRITUDE
+  Gumption
+Spunk
+Moxie
+Chutzpah
+Guts
+jib cuttery
+je ne sais quoi
+Henderson Scaling (0 or 1)
+Sarcastitude, the brown of Daria's hair.
+magnetism
+Conductivity
+Days Since Counter Reset? -flesh colored
+girth
+Meme Depth- brown
+Dankness- black
+Stankness -grey
+Spankness-awkward pink(edited)
+Corruption Coefficent
+vim
+panache
+waffle artisanship
+Jerry Seinfield Scalage
+Caffination
+Blasphemoxy
+Heresexy
+breadcraft
+Deus-Vultcraft
+Patience
+patients
+Google image searching "256x256 jpg": 1 - 256. White.
+Sock condimenticity: 1-10, off-white
+Blink speed: 1-1563, orange
+Sinus clearage: 0-5382, dull green
+Dolphin communication: 0-1023, light blue
+Anomalimity: 0-3999, reddish
+Tommy Wiseau: 0-12250, black
+meganger, anathemalice, omniloathing, abhorrination. all would be 1-9999 and black.(edited)
+Power Level, 9001-10,000, red
+Sesquipedalian Loquaciousness: one to ten, ultramarine
+ Jump and Stability and Magic Find.
+  */
+
+
   //who cares if it's static, only the protagonist gets any stats anyways. ... ....
     //FINE brain ghost dm. I will not do that dumb thing. No. You can't control me. I'm doing it this way.
     //BECAUSE I DON'T WANT ANY TEMPTATIONT O MAKE THIS MORE COMPLCIATED. ONE CHAR, THAT'S IT

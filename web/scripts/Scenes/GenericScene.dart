@@ -24,6 +24,9 @@ class GenericScene extends Scene {
     String name;
 
     GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+        if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
+        if(triggerStatsLesser == null) triggerStatsGreater = new List<SVP>();
+
         SceneFactory.allGenericScenes.add(this);
     }
 
@@ -100,9 +103,28 @@ class GenericScene extends Scene {
         canvas.context2D.fillText("$name",40,260);
 
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
+        int y = 290;
+        String statsChecked = "";
+        if(triggerStatsGreater.isNotEmpty) {
+            statsChecked = "${Scene.turnArrayIntoHumanSentence(triggerStatsGreater)}";
+        }
 
-        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, 290, fontSize, 250, 134);
-        if(scenesToUnlock.isNotEmpty) Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(scenesToUnlock)}", "Times New Roman", 40, 350, fontSize, 250, 134);
+        if(triggerStatsLesser.isNotEmpty) {
+            if(statsChecked.isNotEmpty) statsChecked = "$statsChecked , ";
+            statsChecked = "${Scene.turnArrayIntoHumanSentence(triggerStatsLesser)}";
+        }
+
+        if(statsChecked.isEmpty) statsChecked == "None";
+
+        int textBlockHeight = 40;
+
+        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Checked: $statsChecked", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
+        y += textBlockHeight;
+        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
+        if(scenesToUnlock.isNotEmpty) {
+            y += textBlockHeight;
+            Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(scenesToUnlock)}", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
+        }
 
     }
 

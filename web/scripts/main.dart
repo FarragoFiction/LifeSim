@@ -16,6 +16,8 @@ CanvasElement protagPreview;
 
 
 void main() {
+  StatFactory.initAllStats();
+  SceneFactory.initScenes();
   //if you care, can set the seed yourself later.
   rand = new Random();
 
