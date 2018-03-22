@@ -1,9 +1,11 @@
 import "../LifeSimLib.dart";
 
-class Stat {
+class Stat implements Comparable<Stat> {
 
 
     Colour color;
+
+    DateTime lastAccessed;
     int width = 100; //59
     int height = 165;
     int vialMaxHeight = 137;
@@ -13,7 +15,9 @@ class Stat {
     int maxValue;
     String epitaphSentence;
 
-    Stat(String this.name, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]);
+    Stat(String this.name, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]) {
+        lastAccessed = new DateTime.now();
+    }
 
     int get vialHeight {
         return (_value/maxValue * vialMaxHeight).round();
@@ -22,6 +26,7 @@ class Stat {
     int get value => _value;
 
     void set value(value) {
+        lastAccessed = new DateTime.now();
         _value = value;
         if(_value < 0) _value = 0;
     }
@@ -35,4 +40,8 @@ class Stat {
         await Renderer.drawWhateverFuture(canvas, imageName);
         return canvas;
     }
+  @override
+  int compareTo(Stat other) {
+    return other.lastAccessed.millisecondsSinceEpoch - lastAccessed.millisecondsSinceEpoch;
+  }
 }

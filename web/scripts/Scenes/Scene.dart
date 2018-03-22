@@ -57,7 +57,13 @@ abstract class Scene {
        // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
         canvas.classes.add('sceneCard');
-        canvas.classes.add('unSelectedCard');
+        Random rand = new Random();
+        rand.nextInt();
+        if(rand.nextBool()) {
+            canvas.classes.add('selectedCard');
+        }else {
+            canvas.classes.add('unSelectedCard');
+        }
 
         canvas.id = "card$id"; //needed to know which were selected
         element.append(canvas);
@@ -161,6 +167,9 @@ abstract class Scene {
         div.append(canvas);
 
         int x = 0;
+
+        readOnlyStats.sort(); //naturally sorted by date of last access
+
         for(Stat s in readOnlyStats) {
            // print("iterating on stat ${s.name}");
             CanvasElement statCanvas = await s.renderSelf();

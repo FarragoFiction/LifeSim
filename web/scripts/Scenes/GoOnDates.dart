@@ -18,7 +18,7 @@ class GoOnDates extends Scene {
   @override
   bool triggered() {
       if(owner.rand.nextDouble() > triggerChance) return false;
-      return owner.spouses.isNotEmpty;
+      return owner.spouses.isNotEmpty && StatFactory.COMMERCE.value >0;
   }
 
   @override
