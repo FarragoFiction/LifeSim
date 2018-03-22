@@ -109,6 +109,7 @@ void doCoinToss() {
     coinToss.text = "The coin flip decides: Interesting!!!";
     img = new ImageElement(src: "images/sniperZeeABJCoinInteresting.png");
   }
+  world.protagonist.rand = world.rand;
   coinToss.append(img);
   //shuffled after aligning to one of two timelines
   chosenScenes = world.shuffleDeck(chosenScenes);
