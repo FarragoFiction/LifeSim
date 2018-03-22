@@ -26,6 +26,18 @@ class World {
         });
     }
 
+    Entity makeEntity(String firstName, String lastName) {
+        return new Entity(firstName, lastName, new SuperbSuckDoll(rand), rand, <Scene>[]);
+    }
+
+    Entity makeSpouse() {
+        return new Entity(Entity.randomSpouseName(protagonist.rand),protagonist.lastName, new SuperbSuckDoll(rand), rand, <Scene>[]);
+    }
+
+    Entity makeKid() {
+        return new Entity(Entity.randomChildName(protagonist.rand),protagonist.lastName, new SuperbSuckDoll(rand), rand, <Scene>[]);
+    }
+
     Future<Null> preloadManifest() async {
         await Loader.preloadManifest();
         loadedManifest = true;

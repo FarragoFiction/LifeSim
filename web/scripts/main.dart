@@ -106,6 +106,7 @@ void doCoinToss() {
     coinToss.text = "The coin flip decides: Hrmmm... ";
   }else{
     world.rand = new Random(1);
+    //it's interesting by virtue of being rarer
     coinToss.text = "The coin flip decides: Interesting!!!";
     img = new ImageElement(src: "images/sniperZeeABJCoinInteresting.png");
   }

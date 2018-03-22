@@ -26,7 +26,7 @@ class GetAKid extends Scene {
   @override
   Future<Null> renderContent(Element element, World w) async {
       initOthers();
-      Entity kid = new Entity(Entity.randomChildName(owner.rand), owner.lastName, new SuperbSuckDoll(), owner.rand, <Scene>[]);
+      Entity kid = w.makeKid();
       //for some reason turnways makes them invisible???
       //spouse.doll.orientation = Doll.TURNWAYS;
       kid.turnways = true;
