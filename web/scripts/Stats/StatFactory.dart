@@ -48,6 +48,8 @@ Heresexy
 breadcraft
 Deus-Vultcraft
 Patience
+Fuckitudercourse
+turducken level,
 patients
 Google image searching "256x256 jpg": 1 - 256. White.
 Sock condimenticity: 1-10, off-white
