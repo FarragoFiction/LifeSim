@@ -5,6 +5,9 @@ import "../LifeSimLib.dart";
 
 abstract class Scene {
 
+    String source = "Included in Base Game";
+
+
     //TODO have scenes have ids so you can store and load them as cards
     /*TODO have a 'blank' scene object that has the stat it is triggered by
     and the stat it gives when it happens be variables, as well as the text it displays
@@ -94,7 +97,9 @@ abstract class Scene {
         canvas.context2D.font = "${fontSize}px Times New Roman";
         canvas.context2D.fillText("$name",40,260);
 
+        int textBlockHeight = 40;
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
+        canvas.context2D.fillText("Found: $source",textBlockHeight/2,textBlockHeight/2+8);
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, description, "Times New Roman", 40, 290, fontSize, 250, 134);
         //print("finished drawing card $name");

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" afterPath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
@@ -59,8 +59,8 @@
       <file leaf-file-name="Scene.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="98" column="85" lean-forward="false" selection-start-line="98" selection-start-column="85" selection-end-line="98" selection-end-column="85" />
+            <state relative-caret-position="88">
+              <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericScene.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenericScene.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="120" column="149" lean-forward="false" selection-start-line="120" selection-start-column="149" selection-end-line="120" selection-end-column="149" />
+            <state relative-caret-position="71">
+              <caret line="119" column="42" lean-forward="false" selection-start-line="119" selection-start-column="42" selection-end-line="119" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -144,6 +144,7 @@
       <find>&lt;SVP&gt;[],</find>
       <find>coin</find>
       <find>wrap</find>
+      <find>scene</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -183,12 +184,12 @@
         <option value="$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/Stat.dart" />
         <option value="$PROJECT_DIR$/web/scripts/World.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/SceneFactory.dart" />
         <option value="$PROJECT_DIR$/web/scripts/main.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
         <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
       </list>
     </option>
   </component>
@@ -1026,24 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="98" column="85" lean-forward="false" selection-start-line="98" selection-start-column="85" selection-end-line="98" selection-end-column="85" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="120" column="149" lean-forward="false" selection-start-line="120" selection-start-column="149" selection-end-line="120" selection-end-column="149" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/Entities/Entity.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -1072,6 +1055,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="119" column="42" lean-forward="false" selection-start-line="119" selection-start-column="42" selection-end-line="119" selection-end-column="42" />
           <folding />
         </state>
       </provider>

@@ -1,7 +1,6 @@
 import "../LifeSimLib.dart";
 
 class GenericScene extends Scene {
-
     @override
     String backgroundName;
 
@@ -117,6 +116,8 @@ class GenericScene extends Scene {
         if(statsChecked.isEmpty) statsChecked == "None";
 
         int textBlockHeight = 40;
+
+        canvas.context2D.fillText("Found: $source",textBlockHeight/2,textBlockHeight/2+8);
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Checked: $statsChecked", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
         y += textBlockHeight;
