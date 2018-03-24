@@ -17,12 +17,13 @@ class GenericScene extends Scene {
     double triggerChance;
 
     static String OWNERNAME = 'ownerenamer';
-    List<Scene> scenesToUnlock;
+    //can't be a regular scene or can't serialize
+    List<GenericScene> scenesToUnlock;
 
     @override
     String name;
 
-    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<GenericScene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
         if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
         if(triggerStatsLesser == null) triggerStatsGreater = new List<SVP>();
 
@@ -91,6 +92,27 @@ class GenericScene extends Scene {
         super.renderContent(element, w);
     }
 
+    JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+        json["source"] = source;
+        json["name"] = name;
+        json["text"] = text;
+        json["backgroundName"] = backgroundName;
+        json["triggerChance"] = "$triggerChance";
+        List<JSONObject> sceneArray = new List<JSONObject>();
+        for(Scene s in scenesToUnlock) {
+            if(s is GenericScene) sceneArray.add((s as GenericScene).toJSON());
+        }
+        json["scenesToUnlock"] = sceneArray.toString();
+
+        //just store as names
+        List<JSONObject> resultStatsJSON = new List<JSONObject>();
+        for(SVP s in resultStats) {
+            resultStatsJSON.add(s.toJSON());
+        }
+    }
+
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
         Renderer.swapColors(canvas, cardColor);
@@ -136,12 +158,12 @@ class GenericScene extends Scene {
 
 
 //stat value pairs
-class SVP
-
-{
+class SVP {
     Stat stat;
+
     //what threshold does it need to be at or how much do i add to it
     int value;
+
     SVP(Stat this.stat, int this.value);
 
     bool triggeredGreater() {
@@ -159,4 +181,12 @@ class SVP
     String toString() {
         return "${stat.name}: ${value}";
     }
+
+    JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json["name"] = stat.name;
+        json["value"] = "$value";
+        return json;
+    }
+
 }
