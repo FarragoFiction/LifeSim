@@ -96,11 +96,16 @@ class GenericScene extends Scene {
     }
 
     String toDataString() {
+        window.alert("TODO: just use javascript LZString.");
+        throw("TODO:just use javascript LZString.");
         String json = toJSON().toString();
+        print("json is $json");
         var input = new LZMA.InStream(UTF8.encode(json));
         var output = new LZMA.OutStream();
-        LZMA.compress(input, output);
-        return output.toString();
+        LZMA.compress(input, output); //<-- this is not what i want.
+        print("input is $input");
+        print("output is $output");
+        return UTF8.decode(output.data);
     }
 
     static GenericScene fromDataString(String string) {
@@ -141,6 +146,7 @@ class GenericScene extends Scene {
             triggerStatsGreaterJSON.add(s.toJSON());
         }
         json["triggerStatsGreater"] = triggerStatsGreaterJSON.toString();
+        return json;
     }
 
     Future<Null> drawCardRest(CanvasElement canvas) async {
