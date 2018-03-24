@@ -106,11 +106,23 @@ class GenericScene extends Scene {
         }
         json["scenesToUnlock"] = sceneArray.toString();
 
-        //just store as names
         List<JSONObject> resultStatsJSON = new List<JSONObject>();
         for(SVP s in resultStats) {
             resultStatsJSON.add(s.toJSON());
         }
+        json["resultsStats"] = resultStatsJSON.toString();
+
+        List<JSONObject> triggerStatsLesserJSON = new List<JSONObject>();
+        for(SVP s in triggerStatsLesser) {
+            triggerStatsLesserJSON.add(s.toJSON());
+        }
+        json["triggerStatsLesser"] = triggerStatsLesserJSON.toString();
+
+        List<JSONObject> triggerStatsGreaterJSON = new List<JSONObject>();
+        for(SVP s in triggerStatsGreater) {
+            triggerStatsGreaterJSON.add(s.toJSON());
+        }
+        json["triggerStatsGreater"] = triggerStatsGreaterJSON.toString();
     }
 
     Future<Null> drawCardRest(CanvasElement canvas) async {
@@ -184,6 +196,7 @@ class SVP {
 
     JSONObject toJSON() {
         JSONObject json = new JSONObject();
+        //don't need to store the stat, just the name
         json["name"] = stat.name;
         json["value"] = "$value";
         return json;
