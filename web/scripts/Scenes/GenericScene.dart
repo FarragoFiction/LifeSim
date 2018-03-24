@@ -114,6 +114,7 @@ class GenericScene extends Scene {
         double trigger = double.parse(json["triggerChance"]);
         GenericScene ret = new GenericScene(name, [], text, bg, null, [], triggerChance: trigger);
         ret.source = json["source"];
+        window.alert("TODO: svps and scenes");
         return ret;
     }
 
