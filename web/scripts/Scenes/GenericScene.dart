@@ -1,5 +1,5 @@
 import "../LifeSimLib.dart";
-import "package:lzma/lzma.dart" as LZMA;
+import '../lz-string.dart';
 import "dart:convert";
 
 
@@ -96,23 +96,14 @@ class GenericScene extends Scene {
     }
 
     String toDataString() {
-        window.alert("TODO: just use javascript LZString.");
-        throw("TODO:just use javascript LZString.");
         String json = toJSON().toString();
-        print("json is $json");
-        var input = new LZMA.InStream(UTF8.encode(json));
-        var output = new LZMA.OutStream();
-        LZMA.compress(input, output); //<-- this is not what i want.
-        print("input is $input");
-        print("output is $output");
-        return UTF8.decode(output.data);
+        return LZString.compressToEncodedURIComponent(json);
     }
 
     static GenericScene fromDataString(String string) {
-        var input = new LZMA.InStream(UTF8.encode(string));
-        var output = new LZMA.OutStream();
-        LZMA.decompress(input, output);
-        print(output);
+        String json = LZString.decompress(string);
+        print("$json");
+        throw("TODO: need to have a json to scene function");
     }
 
     JSONObject toJSON() {
@@ -187,7 +178,6 @@ class GenericScene extends Scene {
 
     }
 
-    //TODO to json has the scenes it unlocks get turned into json, and all the stats, too
 
 
 }
