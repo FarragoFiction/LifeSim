@@ -100,6 +100,14 @@ class GenericScene extends Scene {
         var input = new LZMA.InStream(UTF8.encode(json));
         var output = new LZMA.OutStream();
         LZMA.compress(input, output);
+        return output.toString();
+    }
+
+    static GenericScene fromDataString(String string) {
+        var input = new LZMA.InStream(UTF8.encode(string));
+        var output = new LZMA.OutStream();
+        LZMA.decompress(input, output);
+        print(output);
     }
 
     JSONObject toJSON() {
