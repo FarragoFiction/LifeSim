@@ -102,8 +102,19 @@ class GenericScene extends Scene {
 
     static GenericScene fromDataString(String string) {
         String json = LZString.decompress(string);
-        print("$json");
-        throw("TODO: need to have a json to scene function");
+        return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
+    }
+
+    static GenericScene fromJSON(JSONObject json) {
+        //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+
+        String name = json["name"];
+        String text = json["text"];
+        String bg = json["backgroundName"];
+        double trigger = double.parse(json["triggerChance"]);
+        GenericScene ret = new GenericScene(name, [], text, bg, null, [], triggerChance: trigger);
+        ret.source = json["source"];
+        return ret;
     }
 
     JSONObject toJSON() {
