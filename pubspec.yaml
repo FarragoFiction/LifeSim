@@ -20,6 +20,9 @@ dependencies:
   DollLibCorrect:
     git:  git://github.com/jadedResearcher/DollLibCorrect.git
 
+  lzma: "^0.3.0"
+
+
 transformers:
 - dart_to_js_script_rewriter
 

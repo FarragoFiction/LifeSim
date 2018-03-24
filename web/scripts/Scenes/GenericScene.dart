@@ -1,4 +1,7 @@
 import "../LifeSimLib.dart";
+import "package:lzma/lzma.dart" as LZMA;
+import "dart:convert";
+
 
 class GenericScene extends Scene {
     @override
@@ -90,6 +93,13 @@ class GenericScene extends Scene {
             }
         }
         super.renderContent(element, w);
+    }
+
+    String toDataString() {
+        String json = toJSON().toString();
+        var input = new LZMA.InStream(UTF8.encode(json));
+        var output = new LZMA.OutStream();
+        LZMA.compress(input, output);
     }
 
     JSONObject toJSON() {
