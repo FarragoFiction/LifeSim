@@ -39,6 +39,15 @@ void displayBox() {
   });
 }
 
+void   displayFoundCards() {
+  List<GenericScene> foundCards = CardLibrary.foundCards;
+  for(GenericScene s in foundCards) {
+    displayNewScene(s);
+    CardLibrary.addCard(s);
+  }
+  CardLibrary.clearFoundCards();
+}
+
 void processString(String s) {
   try {
     GenericScene scene = GenericScene.fromDataString(s);

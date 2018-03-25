@@ -28,7 +28,6 @@ abstract class CardLibrary {
         if(_regularCards == null) {
             _regularCards = new List<Scene>();
             _regularCards.add(new GetASpouse(null));
-            _regularCards.add(new BecomeAWaste(null));
             _regularCards.add(new BeAHobo(null));
             _regularCards.add(new DickAround(null));
             _regularCards.add(new Die(null));
@@ -37,7 +36,6 @@ abstract class CardLibrary {
             _regularCards.add(new GoToSchool(null));
             _regularCards.add(new TakeKidToPark(null));
             _regularCards.add(new BreakTheGame(null));
-            _regularCards.add(new GetTrappedInAAttic(null));
         }
         return _regularCards;
     }
@@ -58,7 +56,7 @@ abstract class CardLibrary {
         datastrings = datastrings.replaceAll(" ", "");
         List<String> subsets = datastrings.split(",");
         for(String d in subsets) {
-            print("dynamic thing is  $d");
+           // print("dynamic thing is  $d");
             _genericCards.add(GenericScene.fromDataString(d));
         }
     }
@@ -82,7 +80,11 @@ abstract class CardLibrary {
         CardLibrary.saveLibrary();
     }
 
-    static List<GenericScene> foundCards() {
+    static void clearFoundCards() {
+        window.localStorage.remove(FOUNDCARDSSTRING);
+    }
+
+    static List<GenericScene> get foundCards {
         List<GenericScene> ret = new List<GenericScene>();
         //so there are no repeats in one slurp
         List<String> checked = new List<String>();

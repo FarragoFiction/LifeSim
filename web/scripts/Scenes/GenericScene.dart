@@ -29,7 +29,7 @@ class GenericScene extends Scene {
     @override
     String name;
 
-    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<GenericScene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
+    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<GenericScene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual }) : super(owner) {
         if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
         if(triggerStatsGreater == null) triggerStatsGreater = new List<SVP>();
         if(triggerStatsEqual == null) triggerStatsEqual = new List<SVP>();
@@ -121,7 +121,7 @@ class GenericScene extends Scene {
 
     static GenericScene fromJSON(JSONObject json) {
         //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
-        print("the json object is $json");
+        //print("the json object is $json");
         String name = json["name"];
         String text = json["text"];
         String bg = json["backgroundName"];

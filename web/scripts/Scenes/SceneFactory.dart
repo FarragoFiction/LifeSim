@@ -21,6 +21,16 @@ abstract class SceneFactory {
 
        BERICH = new GenericScene("Be Rich",<SVP>[new SVP(StatFactory.ESTEEM,10)], "${GenericScene.OWNERNAME} is now rich.","GoodMansion.png",null, <GenericScene>[],triggerChance: 0.9,triggerStatsGreater:<SVP>[new SVP(StatFactory.COMMERCE,StatFactory.COMMERCE.maxValue)]);
 
+       GenericScene AtticSpook = new GenericScene("Be Terrified in An Attic",<SVP>[new SVP(StatFactory.GNOSIS,1)], "Oh fuck, ${GenericScene.OWNERNAME} is trapped in an attic and being terrified by this Spooky Wolf!","LoRaSiguess.png",null, <GenericScene>[],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
+       AtticSpook.source = "BEATING LORAS";
+
+       GenericScene BecomeAWaste = new GenericScene("Become a Waste",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} is learning how to be a Waste. Huh. Uh. Is this supposed to be happening?","LoRaSiguess.png",null, <GenericScene>[AtticSpook],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
+       BecomeAWaste.source = "BEATING LORAS";
+
+       GenericScene beconfused = new GenericScene("Be Confused at LORAS",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} has absolutely no idea how this LORAS thing works.","LoRaSiguess.png",null, <GenericScene>[],triggerStatsEqual:<SVP>[new SVP(StatFactory.GNOSIS,0)]);
+       beconfused.source = "LORAS";
+       print(BecomeAWaste.toDataString());
+
        GenericScene BEFRIENDALIENS = new GenericScene("Befriend Aliens",<SVP>[new SVP(StatFactory.ESTEEM,10)], "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. Luckly, the Power of Love protects them. They are recognized publicly for their heroism.","ThrowTheCheese.png",null, <GenericScene>[],triggerChance:0.99, triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue),new SVP(StatFactory.ROMCOMMERY, StatFactory.ROMCOMMERY.maxValue)]);
        GenericScene DIETOALIENS = new GenericScene("Die To Aliens",<SVP>[new SVP(StatFactory.LIFESAUCE,-1 * StatFactory.LIFESAUCE.maxValue)], "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. They die.","ThrowTheCheese.png",null, <GenericScene>[],triggerChance:0.9,triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue)]);
 
@@ -47,4 +57,9 @@ N4Igzg9grgTgxgUxALhASQHZwDZQCYJ4AEAlhkQEICGYCRA4lQLZIA0IGzSqFdASiTgALEOwAuCAB5iU
 
 N4Igzg9grgTgxgUxALhASQHZwDZQCYJ4AEAlhkQEICGYCRA4lQLZIA0IGzSqFCAZjBIIMxAILYhGMCHYAXBAA9ZKEBADuGBDGFcYAcjBF5MQQCNsdCHggwiVWbJhU4sw1XJUJw0hgBuNEggMADoiABkoOABrbABPViMACzoABXUtIgg+cIhfOgAHGAh5F0NZZKZQgBVk2LttIm04CABzDBIAL0IifKhzEhw6vhskhBJbZKKSMEqZEFNnKJaiqBEAOS4VGqK1GoQAYWSEWmD8jBa5xxIWlq1D90QVAAZggE5XubBETTAqiABVDDYCDRFQAbQAunNtGAoNhXABlWT2aSoMHAAA6HC4WOQWIAogiqvj8QBZLGsLH+XAIXFYgCMTyxAF8oXJBDctEiUWFjrQYOC2SArpyYNzXPRtPYtODMdiWHSQAjSfiwmEiAB1UQANUJFKpnigtJQWIAbCyEnLOAqTSAAEoAeVJ+ydKrtAE19SBqUbFYyWUKRbcxcjXPiAI5QTyCkDMoA
 
+be waste
+N4Igzg9grgTgxgUxALhAIQKIEEAqBJAOQHEACAGQHkAlLAZRABoQA7AQwFslU0E4JOSrEgHVWYAC5ImkgB7iUICAHdmCGAjacYJAJZgSAGwSsYzHcwDmJABbKS4iCQBGCQSLGSAdCQASUa94AqgEkePri1nokYFAADrEQYAgAJvaOLjas8RrmFgD8jCBOrHAA1hYw0MzJBBxcIGQQVKy0OhZQCGBgnrGWheIwbRZqAMLWrMyICgAMngCshWCIqmA4EIHMBhBlCgDawAA64NDwCEfIR5i4hKSUNLRHDEeaZyiXrjhqgwBmOim6zBIWEBWHE4h0cEeR1k4nORwo1hI3ygZQYJGUqnUL20UQGWVi-3MgkBrDBEOJqRcuXsXx0v3+TgAnvZIvpaAkIKVmcIIAZvgBCKFFErlSpQaq1ThwhpNFptDpdHqWIUDIajcaTV4XECzOZCpYaTprDZbMrS3YAXSF6hiBnEYFo4lJYHNhwOzzq7rh7pARAIFFoeAePqePoAbqwDB0vW8fQBGGMAXytjGhgwswxgjudZE6SRgrpjLxjFx9foDQZjoaOEajZx9paOAGYkymniBVRm1Nn7UR1KS1Oa22m1VmnfaMABHKCRodHZOFG1QO0O8dgPaHFiet6+-2Bh6pkC16M7hMgBfSdOZntgXNdNQbj1Snfl-dC49a5vzi39K-dtd9sYkgwHsP6XqON5TjOBigeeQA+CABVDGwIEy0AbQBdUpgeqGxZMDTZfzAj4AAdDi4X5Bf6Wu00tDSX1gvABuVFwCHeLwAjC8AL6nFTCCLjGC3e6NHq0GCPF52cEoT7fX7-ZTA0HdCEgADMsPhIFGSMEqOu9HO-kER1p9ORTLAAFEAI5QUEckAwoA
+
+be confused
+N4Igzg9grgTgxgUxALhAGQPICUCCBlEAGhADsBDAWyVQCEEACAYQhIDMowEATesgF3qZcBYnwQAPPihAQA7iQQwE5KjHoALMmF4AjSABsoY-QE96JCPQCWXBGQ1z6fdVe1D8TlyQDm9WRBgAazAAOiIQHTI4QO8YaBIuADlKanQILDI8K28oBDBQgAcfcL4YbO9FRk0SRGkABhCAVnCwRAUwABUIAFUSfQho6QBtAF1wpTAofT4wPD5+MGHgAB1SFNXkVYBxRIw8AEk8VcJVgDcyQwQN1YBGVYBfMdEy7wqYOYW0PM4YYaeQUrlRQfGZbJT8RR-EovN4gsAAUQAjlALlD7kA
  */
