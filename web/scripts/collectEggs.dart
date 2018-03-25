@@ -18,7 +18,7 @@ void main() {
   //CardLibrary.clearLibrary();
   //testShit();
   //testSaving();
-  //testLoading();
+  testLoading();
 }
 
 void displayBox() {
@@ -59,7 +59,9 @@ Future<Null> displayNewScene(GenericScene scene) async {
   container.append(picture);
   div.append(container);
 
-  await scene.drawCard(picture, 0);
+  CardLibrary.addCard(scene);
+
+  await scene.drawCard(picture, -13);
 
 }
 
@@ -79,7 +81,11 @@ void testLoading() {
   List<Scene> scenes = CardLibrary.genericCards;
   for(Scene s in scenes) {
     DivElement d = new DivElement();
-    d.text = s.toString();
+    if(s is GenericScene) {
+      d.setInnerHtml("${s.toString()}<br><br>${s.toDataString()}");
+    }else {
+      d.text = s.toString();
+    }
     div.append(d);
   }
 }

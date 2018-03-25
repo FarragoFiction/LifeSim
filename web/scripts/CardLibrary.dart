@@ -79,8 +79,7 @@ abstract class CardLibrary {
     static void addCard(GenericScene scene) {
         genericCards; //to load
         _genericCards.add(scene);
+        CardLibrary.saveLibrary();
     }
-
-
 
 }
