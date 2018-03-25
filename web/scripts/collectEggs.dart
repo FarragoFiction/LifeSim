@@ -18,7 +18,7 @@ void main() {
   //CardLibrary.clearLibrary();
   //testShit();
   //testSaving();
-  testLoading();
+  //testLoading();
 }
 
 void displayBox() {
@@ -60,6 +60,7 @@ Future<Null> displayNewScene(GenericScene scene) async {
   div.append(container);
 
   CardLibrary.addCard(scene);
+  syncNumberScenes();
 
   await scene.drawCard(picture, -13);
 

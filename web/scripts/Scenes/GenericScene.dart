@@ -98,6 +98,7 @@ class GenericScene extends Scene {
             for(Scene s in scenesToUnlock) {
                 if(!owner.scenes.contains(s)) {
                     owner.addHighPriorityScene(s);
+                    CardLibrary.addCard(s);
                 }
             }
         }
