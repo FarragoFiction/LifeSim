@@ -16,8 +16,8 @@ abstract class CardLibrary {
         if(_genericCards == null) {
             CardLibrary.loadLibrary();
             if(_genericCards.length == 0) {
-                _genericCards.addAll(SceneFactory.allGenericScenes);
-                saveLibrary();
+                //_genericCards.addAll(SceneFactory.allGenericScenes);
+                //saveLibrary();
             }
         }
         return _genericCards;
@@ -69,6 +69,10 @@ abstract class CardLibrary {
             sceneArray.add(s.toDataString());
         }
         window.localStorage[CARDSAVESTRING] = sceneArray.toString();
+    }
+
+    static void clearLibrary() {
+        window.localStorage.remove(CARDSAVESTRING);
     }
 
     static void addCard(GenericScene scene) {

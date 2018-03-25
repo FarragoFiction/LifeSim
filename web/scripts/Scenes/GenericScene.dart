@@ -130,7 +130,7 @@ class GenericScene extends Scene {
 
         String scenesToUnlockString = json["scenesToUnlock"];
         ret.loadScenesToUnlock(scenesToUnlockString);
-        String resultStatsString = json["resultStats"];
+        String resultStatsString = json["resultsStats"];
         ret.loadResultsSVPs(resultStatsString);
         String triggerStatsLesserString = json["triggerStatsLesser"];
         ret.loadLesserTriggers(triggerStatsLesserString);

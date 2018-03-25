@@ -8,9 +8,10 @@ void main() {
   div = querySelector("#output");
   StatFactory.initAllStats();
   SceneFactory.initScenes();
+  //CardLibrary.clearLibrary();
   //testShit();
   //testSaving();
-  testLoading();
+  //testLoading();
 }
 
 void testSaving()
@@ -22,7 +23,7 @@ void testSaving()
 }
 
 void testLoading() {
-  List<Scene> scenes = CardLibrary.cards;
+  List<Scene> scenes = CardLibrary.genericCards;
   for(Scene s in scenes) {
     DivElement d = new DivElement();
     d.text = s.toString();
