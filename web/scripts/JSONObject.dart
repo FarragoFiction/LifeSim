@@ -10,14 +10,6 @@ class JSONObject extends Object with MapMixin<String,String>{
     JSONObject();
 
     JSONObject.fromJSONString(String j){
-        //;
-        //okay. that's not working. what if i do it opposite to see what a encoded object looks like
-        JSONObject test = new JSONObject();
-        test["HELLO"] = "WORLD ";
-        test["GOODBYE"] = "WORLD BUT A SECOND TIME ";
-        //;
-        //;
-
         json  = JSON.decode(j);
     }
 

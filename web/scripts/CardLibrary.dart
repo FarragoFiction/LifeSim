@@ -16,8 +16,8 @@ abstract class CardLibrary {
         if(_genericCards == null) {
             CardLibrary.loadLibrary();
             if(_genericCards.length == 0) {
-                //_genericCards.addAll(SceneFactory.allGenericScenes);
-                //saveLibrary();
+                _genericCards.addAll(SceneFactory.allGenericScenes);
+                saveLibrary();
             }
         }
         return _genericCards;
@@ -55,6 +55,7 @@ abstract class CardLibrary {
         String datastrings = window.localStorage[CARDSAVESTRING];
         datastrings = datastrings.replaceAll("[", "");
         datastrings = datastrings.replaceAll("]", "");
+        datastrings = datastrings.replaceAll(" ", "");
         List<String> subsets = datastrings.split(",");
         for(String d in subsets) {
             print("dynamic thing is  $d");

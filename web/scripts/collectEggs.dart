@@ -1,17 +1,70 @@
 import 'dart:html';
 import "LifeSimLib.dart";
+import 'dart:async';
 
 
 Element div;
+
+Element numberScenes;
 
 void main() {
   div = querySelector("#output");
   StatFactory.initAllStats();
   SceneFactory.initScenes();
+  numberScenes = new DivElement();
+  div.append(numberScenes);
+  syncNumberScenes();
+  displayBox();
   //CardLibrary.clearLibrary();
   //testShit();
   //testSaving();
   //testLoading();
+}
+
+void displayBox() {
+  DivElement container = new DivElement();
+  container.text = "In addition to finding cards throughout the site, you can enter them manually here, too. I wonder how you find their dataStrings to do this?";
+  DivElement subContainer = new DivElement();
+  TextAreaElement box = new TextAreaElement();
+  subContainer.append(box);
+  ButtonElement button = new ButtonElement();
+  button.text = ("Load");
+  subContainer.append(button);
+  container.append(subContainer);
+  div.append(container);
+
+  button.onClick.listen((e) {
+    processString(box.value);
+  });
+}
+
+void processString(String s) {
+  try {
+    GenericScene scene = GenericScene.fromDataString(s);
+    displayNewScene(scene);
+  }catch(e) {
+    DivElement error = new DivElement();
+    error.text = "Look. I am proud that you're trying. But I don't recomend bullshiting theses. $s just isn't a scene.";
+    div.append(error);
+  }
+}
+
+Future<Null> displayNewScene(GenericScene scene) async {
+  DivElement container = new DivElement();
+
+  DivElement text = new DivElement();
+  text.text = "You got a card: ${scene.name}!!!";
+  DivElement picture = new DivElement();
+  container.append(text);
+  container.append(picture);
+  div.append(container);
+
+  await scene.drawCard(picture, 0);
+
+}
+
+void syncNumberScenes() {
+  numberScenes.text = "Number Cards In Library: ${CardLibrary.cards.length}";
 }
 
 void testSaving()
