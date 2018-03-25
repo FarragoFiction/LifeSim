@@ -9,7 +9,7 @@ abstract class CardLibrary {
     static List<GenericScene> _genericCards;
     static List<Scene> _regularCards;
     static String CARDSAVESTRING = "LIFESIMCARDLIBRARY";
-
+    static String FOUNDCARDSSTRING = "LIFESIMFOUNDCARDS";
 
 
     static List<Scene> get genericCards {
@@ -80,6 +80,26 @@ abstract class CardLibrary {
         genericCards; //to load
         _genericCards.add(scene);
         CardLibrary.saveLibrary();
+    }
+
+    static List<GenericScene> foundCards() {
+        List<GenericScene> ret = new List<GenericScene>();
+        //so there are no repeats in one slurp
+        List<String> checked = new List<String>();
+        if(window.localStorage.containsKey(FOUNDCARDSSTRING)) {
+            try{
+                List<String> dataStrings = window.localStorage[FOUNDCARDSSTRING].split(",");
+                for(String s in dataStrings) {
+                    if(!checked.contains(s)){
+                        ret.add(GenericScene.fromDataString(s));
+                        checked.add(s);
+                    }
+                }
+            }catch(e) {
+                ret.add(new GenericScene("Uh. Whoops? Loading Your Card Fucked Up...",<SVP>[new SVP(StatFactory.SPOOK,1)], "${GenericScene.OWNERNAME} gets caught in a shitty error space. It's terrifying.","404pagebecauseecch.png",null, <GenericScene>[], triggerChance: 0.1));
+            }
+        }
+        return ret;
     }
 
 }

@@ -15,6 +15,7 @@ void main() {
   div.append(numberScenes);
   syncNumberScenes();
   displayBox();
+  displayFoundCards();
   //CardLibrary.clearLibrary();
   //testShit();
   //testSaving();
