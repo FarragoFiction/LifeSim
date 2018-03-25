@@ -105,7 +105,7 @@ class GenericScene extends Scene {
     }
 
     String toString() {
-        return toJSON.toString();
+        return toJSON().toString();
     }
 
     String toDataString() {
@@ -201,7 +201,7 @@ class GenericScene extends Scene {
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Checked: $statsChecked", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
         y += textBlockHeight;
-        Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
+        if(resultStats.isNotEmpty) Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Modified: ${Scene.turnArrayIntoHumanSentence(resultStats)}", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
         if(scenesToUnlock.isNotEmpty) {
             y += textBlockHeight;
             Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Scenes Unlocked: ${Scene.turnArrayIntoHumanSentence(scenesToUnlock)}", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);

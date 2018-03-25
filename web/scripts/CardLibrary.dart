@@ -15,14 +15,18 @@ abstract class CardLibrary {
     static List<Scene> get genericCards {
         if(_genericCards == null) {
             CardLibrary.loadLibrary();
+            if(_genericCards.length == 0) {
+                _genericCards.addAll(SceneFactory.allGenericScenes);
+                saveLibrary();
+            }
         }
-
         return _genericCards;
     }
 
     //can't be removed or added. goal is to convert as many of these as possible to generic
     static List<Scene> get regularCards {
         if(_regularCards == null) {
+            _regularCards = new List<Scene>();
             _regularCards.add(new GetASpouse(null));
             _regularCards.add(new BecomeAWaste(null));
             _regularCards.add(new BeAHobo(null));
@@ -48,10 +52,11 @@ abstract class CardLibrary {
     static void loadLibrary() {
         _genericCards = new List<GenericScene>();
         if(!window.localStorage.containsKey(CARDSAVESTRING)) return ;
-        String idontevenKnow = window.localStorage[CARDSAVESTRING];
-        List<dynamic> what = JSON.decode(idontevenKnow);
-        //print("what json is $what");
-        for(dynamic d in what) {
+        String datastrings = window.localStorage[CARDSAVESTRING];
+        datastrings = datastrings.replaceAll("[", "");
+        datastrings = datastrings.replaceAll("]", "");
+        List<String> subsets = datastrings.split(",");
+        for(String d in subsets) {
             print("dynamic thing is  $d");
             _genericCards.add(GenericScene.fromDataString(d));
         }
