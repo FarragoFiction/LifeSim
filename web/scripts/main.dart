@@ -7,7 +7,7 @@ List<Scene> sceneCards = new List<Scene>();
 List<Scene> chosenScenes = new List<Scene>();
 Random rand;
 Element div = querySelector("#output");
-Element cardLibrary;
+Element cardLibraryDiv;
 Element preStory;
 Element story;
 Element protagLoader;
@@ -21,9 +21,9 @@ void main() {
   //if you care, can set the seed yourself later.
   rand = new Random();
 
-  cardLibrary = new DivElement();
-  cardLibrary.id = "cardLibrary"; //for humans
-  cardLibrary.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
+  cardLibraryDiv = new DivElement();
+  cardLibraryDiv.id = "cardLibrary"; //for humans
+  cardLibraryDiv.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
 
   preStory = new DivElement();
   preStory.id  = "preStory";
@@ -42,7 +42,7 @@ void main() {
   coinToss.id  = "protagLoader";
 
   preStory.append(protagLoader);
-  preStory.append(cardLibrary);
+  preStory.append(cardLibraryDiv);
   div.append(preStory);
   div.append(story);
   story.append(coinToss);
@@ -159,12 +159,12 @@ Future<Null> displayCardLibrary() async {
   button.text = "Start Life With Selected Cards";
   button.onClick.listen((e) => grabSelectedCardsAndStart());
   buttonHolder.append(button);
-  cardLibrary.append(buttonHolder);
+  cardLibraryDiv.append(buttonHolder);
 
   initCardLibrary();
   for(int i = 0; i<sceneCards.length; i++) {
       Scene s = sceneCards[i];
-      s.drawCard(cardLibrary, i);
+      s.drawCard(cardLibraryDiv, i);
   }
 }
 

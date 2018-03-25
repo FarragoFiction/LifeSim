@@ -104,13 +104,17 @@ class GenericScene extends Scene {
         super.renderContent(element, w);
     }
 
+    String toString() {
+        return toJSON.toString();
+    }
+
     String toDataString() {
         String json = toJSON().toString();
         return LZString.compressToEncodedURIComponent(json);
     }
 
     static GenericScene fromDataString(String string) {
-        String json = LZString.decompress(string);
+        String json = LZString.decompressFromEncodedURIComponent(string);
         return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
     }
 
