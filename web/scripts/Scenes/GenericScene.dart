@@ -127,8 +127,69 @@ class GenericScene extends Scene {
         double trigger = double.parse(json["triggerChance"]);
         GenericScene ret = new GenericScene(name, [], text, bg, null, [], triggerChance: trigger);
         ret.source = json["source"];
-        window.alert("TODO: svps and scenes");
+
+        String scenesToUnlockString = json["scenesToUnlock"];
+        ret.loadScenesToUnlock(scenesToUnlockString);
+        String resultStatsString = json["resultStats"];
+        ret.loadResultsSVPs(resultStatsString);
+        String triggerStatsLesserString = json["triggerStatsLesser"];
+        ret.loadLesserTriggers(triggerStatsLesserString);
+        String triggerStatsGreater = json["triggerStatsGreater"];
+        ret.loadGreaterTriggers(triggerStatsGreater);
+        String triggerStatsEqual = json["triggerStatsEqual"];
+        ret.loadEqualTriggers(triggerStatsEqual);
         return ret;
+    }
+
+    void loadScenesToUnlock(String weirdString) {
+        List<dynamic> what = JSON.decode(weirdString);
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            scenesToUnlock.add(GenericScene.fromJSON(j));
+        }
+    }
+
+    void loadResultsSVPs(String weirdString) {
+        List<dynamic> what = JSON.decode(weirdString);
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            resultStats.add(SVP.fromJSON(j));
+        }
+    }
+
+    void loadGreaterTriggers(String weirdString) {
+        List<dynamic> what = JSON.decode(weirdString);
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            triggerStatsGreater.add(SVP.fromJSON(j));
+        }
+    }
+
+
+    void loadLesserTriggers(String weirdString) {
+        List<dynamic> what = JSON.decode(weirdString);
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            triggerStatsLesser.add(SVP.fromJSON(j));
+        }
+    }
+
+    void loadEqualTriggers(String weirdString) {
+        List<dynamic> what = JSON.decode(weirdString);
+        for(dynamic d in what) {
+            //print("dynamic json thing is  $d");
+            JSONObject j = new JSONObject();
+            j.json = d;
+            triggerStatsEqual.add(SVP.fromJSON(j));
+        }
     }
 
     JSONObject toJSON() {
@@ -249,6 +310,10 @@ class SVP {
         json["name"] = stat.name;
         json["value"] = "$value";
         return json;
+    }
+
+    static SVP fromJSON(JSONObject json) {
+        return new SVP(Stat.findStatWithName(json["name"]), int.parse(json["value"]));
     }
 
 }

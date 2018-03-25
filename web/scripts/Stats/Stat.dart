@@ -2,7 +2,7 @@ import "../LifeSimLib.dart";
 
 class Stat implements Comparable<Stat> {
 
-
+    static List<Stat> allStats = new List<Stat>();
 
     Colour color;
 
@@ -20,6 +20,15 @@ class Stat implements Comparable<Stat> {
 
     Stat(String this.name, String this.title, this.epitaphSentence, int this._value, this.color, [int this.maxValue = 10]) {
         lastAccessed = new DateTime.now();
+        Stat.allStats.add(this);
+    }
+
+    static Stat findStatWithName(String name) {
+        for(Stat s in Stat.allStats) {
+            if(s.name == name) return s;
+        }
+        print("TINY WARNING LEVEL ERROR, COULDN'T FIND STAT WITH NAME $name");
+        return null;
     }
 
     int get vialHeight {
