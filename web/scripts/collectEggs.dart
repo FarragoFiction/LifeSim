@@ -23,7 +23,7 @@ void testShit() {
 
 
   DivElement d2 = new DivElement();
-  GenericScene gs2= GenericScene.fromDataString(gs.toDataString());
+  GenericScene gs2= GenericScene.fromJSON(gs.toJSON());
   d2.text = gs2.toJSON().toString();
   div.append(d2);
 }

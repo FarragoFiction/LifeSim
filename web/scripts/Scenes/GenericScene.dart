@@ -10,6 +10,9 @@ class GenericScene extends Scene {
     //ALL of these must be true.
     List<SVP> triggerStatsGreater;
     List<SVP> triggerStatsLesser;
+    //useful if you want it to only go once
+    List<SVP> triggerStatsEqual;
+
 
     //you get reward unit of this
     List<SVP> resultStats;
@@ -28,7 +31,9 @@ class GenericScene extends Scene {
 
     GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<GenericScene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
         if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
-        if(triggerStatsLesser == null) triggerStatsGreater = new List<SVP>();
+        if(triggerStatsGreater == null) triggerStatsGreater = new List<SVP>();
+        if(triggerStatsEqual == null) triggerStatsEqual = new List<SVP>();
+
 
         SceneFactory.allGenericScenes.add(this);
     }
@@ -74,6 +79,10 @@ class GenericScene extends Scene {
       for(SVP svp in triggerStatsLesser) {
           if(!svp.triggeredLesser()) return false;
       }
+
+      for(SVP svp in triggerStatsEqual) {
+          if(!svp.triggeredEqual()) return false;
+      }
       //made it through gauntlet of negativity
       return true;
   }
@@ -107,7 +116,7 @@ class GenericScene extends Scene {
 
     static GenericScene fromJSON(JSONObject json) {
         //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
-
+        print("the json object is $json");
         String name = json["name"];
         String text = json["text"];
         String bg = json["backgroundName"];
@@ -149,6 +158,12 @@ class GenericScene extends Scene {
             triggerStatsGreaterJSON.add(s.toJSON());
         }
         json["triggerStatsGreater"] = triggerStatsGreaterJSON.toString();
+
+        List<JSONObject> triggerStatsEqual = new List<JSONObject>();
+        for(SVP s in triggerStatsGreater) {
+            triggerStatsGreaterJSON.add(s.toJSON());
+        }
+        json["triggerStatsEqual"] = triggerStatsEqual.toString();
         return json;
     }
 
@@ -210,6 +225,10 @@ class SVP {
 
     bool triggeredLesser() {
         return stat.value > value;
+    }
+
+    bool triggeredEqual() {
+        return stat.value == value;
     }
 
     void apply(Entity owner) {
