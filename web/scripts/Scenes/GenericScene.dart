@@ -33,6 +33,9 @@ class GenericScene extends Scene {
         if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
         if(triggerStatsGreater == null) triggerStatsGreater = new List<SVP>();
         if(triggerStatsEqual == null) triggerStatsEqual = new List<SVP>();
+        if(resultStats == null) resultStats = new List<SVP>();
+        if(scenesToUnlock == null) scenesToUnlock = new List<GenericScene>();
+
 
 
         SceneFactory.allGenericScenes.add(this);

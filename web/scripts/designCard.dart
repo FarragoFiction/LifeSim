@@ -55,11 +55,12 @@ void syncTemplateToDataBox() {
 
 void makeDataBox(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "Name";
+    myContainer.text = "DataString";
     dataBox = new TextAreaElement();
     dataBox.onChange.listen((e) {
         syncTemplateToDataBox();
     });
+    myContainer.append(dataBox);
     container.append(myContainer);
 }
 
@@ -71,6 +72,7 @@ void makeNameBox(Element container) {
         template.name = name.value;
         syncDataBoxToTemplate();
     });
+    myContainer.append(name);
     container.append(myContainer);
 }
 
