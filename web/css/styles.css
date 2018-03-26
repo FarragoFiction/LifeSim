@@ -7,6 +7,14 @@ html, body {
   font-family: 'Courier', sans-serif;
 }
 
+input{
+    margin-left: 10px;
+}
+
+textarea{
+    margin-left: 10px;
+}
+
 .protagLoader{
     padding: 10px;
 }

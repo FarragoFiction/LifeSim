@@ -6,10 +6,16 @@ Element div;
 GenericScene template;
 TextAreaElement dataBox;
 TextInputElement name;
+TextAreaElement narrationBox;
+InputElement triggerChance;
+DivElement triggerChanceText;
+
 
 void main() {
+    StatFactory.initAllStats();
+    SceneFactory.initScenes();
     div = querySelector("#output");
-    template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the owner name.", "404pagebecauseecch.png", null);
+    template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the protagonist's name.", "404pagebecauseecch.png", null);
 
     drawControls();
 
@@ -30,13 +36,41 @@ void drawControls() {
     div.append(controls);
     makeDataBox(controls);
     makeNameBox(controls);
+    makeNarrationBox(controls);
+    makeTriggerChance(controls);
     syncEverythingToTemplate();
 }
 
 void syncEverythingToTemplate() {
     name.value = template.name;
+    narrationBox.value = template.text;
+    triggerChance.value = "${template.triggerChance * 100}";
+    triggerChanceText.text = "${template.triggerChance * 100}%";
     syncDataBoxToTemplate();
 }
+
+void makeTriggerChance(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "Trigger Chance:";
+    triggerChance = new InputElement();
+    triggerChance.type = "range";
+    triggerChance.min = "0";
+    triggerChance.max = "100";
+
+    triggerChanceText = new DivElement();
+    triggerChanceText.text = "???";
+
+    triggerChance.onInput.listen((e) {
+        template.triggerChance = int.parse(triggerChance.value)/100;
+        triggerChanceText.text = "${template.triggerChance * 100}%";
+        syncDataBoxToTemplate();
+    });
+
+    myContainer.append(triggerChanceText);
+    myContainer.append(triggerChance);
+    container.append(myContainer);
+}
+
 
 //separate because it needs called so often
 void syncDataBoxToTemplate() {
@@ -55,8 +89,13 @@ void syncTemplateToDataBox() {
 
 void makeDataBox(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "DataString";
+    myContainer.style.paddingBottom = "10px";
+    myContainer.style.paddingTop = "10px";
+
+    myContainer.text = "DataString:";
     dataBox = new TextAreaElement();
+    dataBox.cols = 60;
+    dataBox.rows = 10;
     dataBox.onChange.listen((e) {
         syncTemplateToDataBox();
     });
@@ -64,11 +103,43 @@ void makeDataBox(Element container) {
     container.append(myContainer);
 }
 
+
+void makeNarrationBox(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.style.paddingBottom = "10px";
+    myContainer.style.paddingTop = "10px";
+
+    myContainer.text = "Narration:";
+    narrationBox = new TextAreaElement();
+    narrationBox.cols = 60;
+    dataBox.rows = 10;
+    narrationBox.onInput.listen((e) {
+        template.text = narrationBox.value;
+        syncDataBoxToTemplate();
+
+    });
+
+    DivElement buttonDiv = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Append Protagonist Name";
+    button.onClick.listen((e) {
+        template.text = "${template.text} ${GenericScene.OWNERNAME}";
+        narrationBox.value = template.text;
+        syncDataBoxToTemplate();
+    });
+    buttonDiv.append(button);
+
+
+    myContainer.append(narrationBox);
+    myContainer.append(buttonDiv);
+    container.append(myContainer);
+}
+
 void makeNameBox(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "Name";
+    myContainer.text = "Name:";
     name = new TextInputElement();
-    name.onChange.listen((e) {
+    name.onInput.listen((e) {
         template.name = name.value;
         syncDataBoxToTemplate();
     });
