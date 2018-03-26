@@ -21,15 +21,15 @@ abstract class SceneFactory {
 
        BERICH = new GenericScene("Be Rich",<SVP>[new SVP(StatFactory.ESTEEM,10)], "${GenericScene.OWNERNAME} is now rich.","GoodMansion.png",null, <GenericScene>[],triggerChance: 0.9,triggerStatsGreater:<SVP>[new SVP(StatFactory.COMMERCE,StatFactory.COMMERCE.maxValue)]);
 
-       GenericScene AtticSpook = new GenericScene("Be Terrified in An Attic",<SVP>[new SVP(StatFactory.GNOSIS,1)], "Oh fuck, ${GenericScene.OWNERNAME} is trapped in an attic and being terrified by this Spooky Wolf!","LoRaSiguess.png",null, <GenericScene>[],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
-       AtticSpook.source = "BEATING LORAS";
+       //GenericScene AtticSpook = new GenericScene("Be Terrified in An Attic",<SVP>[new SVP(StatFactory.GNOSIS,1)], "Oh fuck, ${GenericScene.OWNERNAME} is trapped in an attic and being terrified by this Spooky Wolf!","Attic.png",null, <GenericScene>[],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
+       //AtticSpook.source = "BEATING LORAS";
 
-       GenericScene BecomeAWaste = new GenericScene("Become a Waste",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} is learning how to be a Waste. Huh. Uh. Is this supposed to be happening?","LoRaSiguess.png",null, <GenericScene>[AtticSpook],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
-       BecomeAWaste.source = "BEATING LORAS";
+       //GenericScene BecomeAWaste = new GenericScene("Become a Waste",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} is learning how to be a Waste. Huh. Uh. Is this supposed to be happening?","LoRaSiguess.png",null, <GenericScene>[AtticSpook],triggerStatsLesser:<SVP>[new SVP(StatFactory.GNOSIS,StatFactory.GNOSIS.maxValue)]);
+       //BecomeAWaste.source = "BEATING LORAS";
 
-       GenericScene beconfused = new GenericScene("Be Confused at LORAS",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} has absolutely no idea how this LORAS thing works.","LoRaSiguess.png",null, <GenericScene>[],triggerStatsEqual:<SVP>[new SVP(StatFactory.GNOSIS,0)]);
-       beconfused.source = "LORAS";
-       print(BecomeAWaste.toDataString());
+       //GenericScene beconfused = new GenericScene("Be Confused at LORAS",<SVP>[new SVP(StatFactory.GNOSIS,1)], "${GenericScene.OWNERNAME} has absolutely no idea how this LORAS thing works.","LoRaSiguess.png",null, <GenericScene>[],triggerStatsEqual:<SVP>[new SVP(StatFactory.GNOSIS,0)]);
+       //beconfused.source = "LORAS";
+       //print(BecomeAWaste.toDataString());
 
        GenericScene BEFRIENDALIENS = new GenericScene("Befriend Aliens",<SVP>[new SVP(StatFactory.ESTEEM,10)], "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. Luckly, the Power of Love protects them. They are recognized publicly for their heroism.","ThrowTheCheese.png",null, <GenericScene>[],triggerChance:0.99, triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue),new SVP(StatFactory.ROMCOMMERY, StatFactory.ROMCOMMERY.maxValue)]);
        GenericScene DIETOALIENS = new GenericScene("Die To Aliens",<SVP>[new SVP(StatFactory.LIFESAUCE,-1 * StatFactory.LIFESAUCE.maxValue)], "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. They die.","ThrowTheCheese.png",null, <GenericScene>[],triggerChance:0.9,triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue)]);
