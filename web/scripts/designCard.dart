@@ -1,6 +1,7 @@
 import 'dart:html';
 import "LifeSimLib.dart";
 import 'dart:async';
+import "image_browser.dart";
 
 Element div;
 GenericScene template;
@@ -9,6 +10,8 @@ TextInputElement name;
 TextAreaElement narrationBox;
 InputElement triggerChance;
 DivElement triggerChanceText;
+ImageElement backgroundSample;
+SelectElement backgroundSelector;
 
 
 void main() {
@@ -25,9 +28,6 @@ void main() {
 
 void drawControls() {
     todo("Make the easy text sections.");
-    todo("button for adding 'owner name script' to the text");
-    todo("wire up turning them into a scene");
-    todo("text box for the data string, load box for loading an already made card");
     todo("premade drop down of automatic bgs");
     todo("have button to add a scene to unlock (just text string");
     todo("have button to add SVP (drop down of stats, then value)");
@@ -35,6 +35,7 @@ void drawControls() {
     controls.classes.add("controls");
     div.append(controls);
     makeDataBox(controls);
+    makeBackground(controls);
     makeNameBox(controls);
     makeNarrationBox(controls);
     makeTriggerChance(controls);
@@ -46,7 +47,41 @@ void syncEverythingToTemplate() {
     narrationBox.value = template.text;
     triggerChance.value = "${template.triggerChance * 100}";
     triggerChanceText.text = "${template.triggerChance * 100}%";
+    backgroundSample.src = template.backgroundName;
     syncDataBoxToTemplate();
+}
+
+void makeBackground(Element container) {
+    backgroundSample = new ImageElement();
+    backgroundSelector = new SelectElement();
+    backgroundSelector.style.display = "block";
+    backgroundSelector.style.marginLeft = "auto";
+    backgroundSelector.style.marginRight = "auto";
+
+    backgroundSelector.onChange.listen((e) {
+        template.backgroundName = backgroundSelector.selectedOptions.first.value;
+        syncEverythingToTemplate();
+    });
+
+    container.append(backgroundSample);
+    container.append(backgroundSelector);
+    backgroundSample.width = 300;
+    finishMakeBackground(container);
+}
+
+Future<Null> finishMakeBackground(Element container) async {
+    ImageHandler imageHandler = new ImageHandler(backgroundSample, new ArtCategory("BGs","BGs", "bg",url: "images/LifeSimBGs/"));
+    List<ImageElement> images = await imageHandler.getImageCategory();
+    for(ImageElement e in images) {
+        OptionElement o = new OptionElement();
+        o.text = e.src;
+        o.value = e.src;
+        backgroundSelector.append(o);
+    }
+    backgroundSelector.options.first.selected = true;
+    container.appendHtml("${images}");
+    backgroundSample.src = images[0].src;
+
 }
 
 void makeTriggerChance(Element container) {
