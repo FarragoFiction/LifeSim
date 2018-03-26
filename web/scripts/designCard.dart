@@ -3,9 +3,11 @@ import "LifeSimLib.dart";
 import 'dart:async';
 
 Element div;
+GenericScene template;
 
 void main() {
     div = querySelector("#output");
+    template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the owner name.", "404pagebecauseecch.png", null);
 
     drawControls();
 
@@ -13,6 +15,7 @@ void main() {
 
 void drawControls() {
     todo("Make the easy text sections.");
+    todo("button for adding 'owner name script' to the text");
     todo("wire up turning them into a scene");
     todo("text box for the data string");
     todo("premade drop down of automatic bgs");
@@ -25,3 +28,4 @@ void todo(String todo) {
     t.text = todo;
     div.append(t);
 }
+

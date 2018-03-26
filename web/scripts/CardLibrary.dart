@@ -98,7 +98,7 @@ abstract class CardLibrary {
                     }
                 }
             }catch(e) {
-                ret.add(new GenericScene("Uh. Whoops? Loading Your Card Fucked Up...",<SVP>[new SVP(StatFactory.SPOOK,1)], "${GenericScene.OWNERNAME} gets caught in a shitty error space. It's terrifying.","404pagebecauseecch.png",null, <GenericScene>[], triggerChance: 0.1));
+                ret.add(new GenericScene("Uh. Whoops? Loading Your Card Fucked Up...", "${GenericScene.OWNERNAME} gets caught in a shitty error space. It's terrifying.","404pagebecauseecch.png",null, triggerChance: 0.1, resultStats: <SVP>[new SVP(StatFactory.SPOOK,1)]));
             }
         }
         return ret;

@@ -29,7 +29,7 @@ class GenericScene extends Scene {
     @override
     String name;
 
-    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<GenericScene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual }) : super(owner) {
+    GenericScene(String this.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
         if(triggerStatsLesser == null) triggerStatsLesser = new List<SVP>();
         if(triggerStatsGreater == null) triggerStatsGreater = new List<SVP>();
         if(triggerStatsEqual == null) triggerStatsEqual = new List<SVP>();
@@ -123,7 +123,7 @@ class GenericScene extends Scene {
         String text = json["text"];
         String bg = json["backgroundName"];
         double trigger = double.parse(json["triggerChance"]);
-        GenericScene ret = new GenericScene(name, [], text, bg, null, [], triggerChance: trigger);
+        GenericScene ret = new GenericScene(name, text, bg, null, triggerChance: trigger);
         ret.source = json["source"];
 
         String scenesToUnlockString = json["scenesToUnlock"];
