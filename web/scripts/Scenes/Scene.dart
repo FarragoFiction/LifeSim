@@ -43,6 +43,10 @@ abstract class Scene {
 
     Scene(Entity this.owner);
 
+    String get backGroundImageFullName {
+        return "$bgStartLocation$backgroundName";
+    }
+
     //all scenes are the same size
     static int width = 800;
     static int height = 600;

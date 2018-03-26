@@ -47,7 +47,14 @@ void syncEverythingToTemplate() {
     narrationBox.value = template.text;
     triggerChance.value = "${template.triggerChance * 100}";
     triggerChanceText.text = "${template.triggerChance * 100}%";
-    backgroundSample.src = template.backgroundName;
+    backgroundSample.src = template.backGroundImageFullName;
+    for(OptionElement option in backgroundSelector.options) {
+        if(option.value == template.backgroundName) {
+            option.selected = true;
+        }else {
+            option.selected = false;
+        }
+    }
     syncDataBoxToTemplate();
 }
 
@@ -59,7 +66,7 @@ void makeBackground(Element container) {
     backgroundSelector.style.marginRight = "auto";
 
     backgroundSelector.onChange.listen((e) {
-        template.backgroundName = backgroundSelector.selectedOptions.first.value;
+        template.backgroundName = backgroundSelector.selectedOptions.first.value.split("/").last;
         syncEverythingToTemplate();
     });
 
@@ -74,12 +81,11 @@ Future<Null> finishMakeBackground(Element container) async {
     List<ImageElement> images = await imageHandler.getImageCategory();
     for(ImageElement e in images) {
         OptionElement o = new OptionElement();
-        o.text = e.src;
-        o.value = e.src;
+        o.text = e.src.split("/").last;
+        o.value = e.src.split("/").last;
         backgroundSelector.append(o);
     }
     backgroundSelector.options.first.selected = true;
-    container.appendHtml("${images}");
     backgroundSample.src = images[0].src;
 
 }
@@ -173,6 +179,7 @@ void makeNarrationBox(Element container) {
 void makeNameBox(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "Name:";
+    myContainer.style.paddingTop = "10px";
     name = new TextInputElement();
     name.onInput.listen((e) {
         template.name = name.value;
