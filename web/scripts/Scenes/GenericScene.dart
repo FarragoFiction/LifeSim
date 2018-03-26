@@ -104,7 +104,7 @@ class GenericScene extends Scene {
         }
         super.renderContent(element, w);
     }
-    
+
 
     String toDataString() {
         String json = toJSON().toString();
