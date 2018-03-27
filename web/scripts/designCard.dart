@@ -231,7 +231,7 @@ void makeSceneUnlockedDataBox(Element container, String value) {
 
 void makeResultButton(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "Once this scene triggers, stats will be modified in the following ways:";
+    myContainer.text = "Once this scene triggers, stats will be added to in the following ways:";
     resultHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Stat Result";
