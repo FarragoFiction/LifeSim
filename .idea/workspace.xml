@@ -61,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
-              <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+              <caret line="259" column="52" lean-forward="false" selection-start-line="259" selection-start-column="52" selection-end-line="259" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -1101,7 +1101,7 @@
     <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
-          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <caret line="259" column="52" lean-forward="false" selection-start-line="259" selection-start-column="52" selection-end-line="259" selection-end-column="52" />
           <folding />
         </state>
       </provider>
