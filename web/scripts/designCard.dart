@@ -194,21 +194,21 @@ void makeScenesUnlocked(Element container) {
     myContainer.append(scenesUnlockedHolder);
 
     button.onClick.listen((e) {
-        //TODO make a text box that loads a scene to add to the template
+        makeSceneUnlockedDataBox(scenesUnlockedHolder, "Put the DataString for an existing card here.");
     });
 
     myContainer.append(button);
     container.append(myContainer);
 }
 
-void makeSceneUnlockedDataBox(Element container) {
+void makeSceneUnlockedDataBox(Element container, String value) {
     DivElement myContainer = new DivElement();
     myContainer.style.paddingBottom = "10px";
     myContainer.style.paddingTop = "10px";
 
     myContainer.text = "DataString:";
     TextAreaElement holder = new TextAreaElement();
-    holder.value = "Put the DataString for an existing card here.";
+    holder.value = value;
     holder.cols = 60;
     holder.rows = 10;
 
