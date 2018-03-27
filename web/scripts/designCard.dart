@@ -52,8 +52,9 @@ void drawCard() {
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
 
 void drawControls() {
-    todo("have button to add a scene to unlock (just text string");
-    todo("have button to add SVP (drop down of stats, then value (values max value is based on stat)");
+    todo("TEST THOROUGHLY");
+    todo("give to wranglers");
+    todo("have ability to save data strings to file for later use");
     DivElement controls = new DivElement();
     controls.classes.add("controls");
     div.append(controls);
