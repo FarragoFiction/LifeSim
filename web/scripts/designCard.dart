@@ -164,7 +164,7 @@ void makeEqualButton(Element container) {
 void makeGreaterButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "If the chosen stat is greater than the chosen value, this scene will trigger.";
-    DivElement greaterHolder = new DivElement();
+    greaterHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Greater Than Trigger Condition";
     myContainer.append(greaterHolder);
@@ -220,6 +220,7 @@ void makeSceneUnlockedDataBox(Element container, String value) {
     holder.onChange.listen((e) {
         try {
             template.scenesToUnlock.add(GenericScene.fromDataString(holder.value));
+            syncDataBoxToTemplate();
         }catch(e) {
             window.alert("I cannot stress enough, don't try to hax this. Just get a data string you made for some other card, please.");
         }
