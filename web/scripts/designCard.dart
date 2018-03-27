@@ -41,6 +41,7 @@ void main() {
 }
 
 void drawCard() {
+    print('drawing card');
     card.setInnerHtml("");
     template.drawCard(card, -13);
     DivElement debug = new DivElement();
@@ -55,7 +56,6 @@ Future<Null> drawControls() async {
 
     todo("TEST THOROUGHLY");
     todo("have ability to save data strings to file for later use");
-    drawCard();
     DivElement controls = new DivElement();
     controls.classes.add("controls");
     div.append(controls);
@@ -74,7 +74,7 @@ Future<Null> drawControls() async {
 }
 
 void syncEverythingToTemplate() {
-    drawCard();
+    //drawCard();
     name.value = template.name;
     source.value = template.source;
 
