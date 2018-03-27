@@ -247,12 +247,17 @@ class GenericScene extends Scene {
         int y = 290;
         String statsChecked = "";
         if(triggerStatsGreater.isNotEmpty) {
-            statsChecked = "${Scene.turnArrayIntoHumanSentence(triggerStatsGreater)}";
+            statsChecked = "${statsChecked} ${Scene.turnArrayIntoHumanSentence(triggerStatsGreater)}";
+        }
+
+        if(triggerStatsEqual.isNotEmpty) {
+            if(statsChecked.isNotEmpty) statsChecked = "$statsChecked , ";
+            statsChecked = "${statsChecked} ${Scene.turnArrayIntoHumanSentence(triggerStatsEqual)}";
         }
 
         if(triggerStatsLesser.isNotEmpty) {
             if(statsChecked.isNotEmpty) statsChecked = "$statsChecked , ";
-            statsChecked = "${Scene.turnArrayIntoHumanSentence(triggerStatsLesser)}";
+            statsChecked = "${statsChecked} ${Scene.turnArrayIntoHumanSentence(triggerStatsLesser)}";
         }
 
         if(statsChecked.isEmpty) statsChecked == "None";

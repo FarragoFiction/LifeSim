@@ -44,6 +44,9 @@ void main() {
 void drawCard() {
     card.setInnerHtml("");
     template.drawCard(card, -13);
+    DivElement debug = new DivElement();
+    debug.text = "${template.toJSON()}";
+    card.append(debug);
 }
 
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
@@ -126,7 +129,7 @@ void makeLessButton(Element container) {
         //think through this. i should make a svpElement object, but also know which array i should add it to.
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
-        template.resultStats.add(svp);
+        template.triggerStatsLesser.add(svp);
         triggerLessElements.add(SVPFormPair.create(lesserHolder,svp));
     });
     myContainer.append(lesserHolder);
@@ -137,7 +140,7 @@ void makeLessButton(Element container) {
 void makeEqualButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "If the chosen stat is exactly equal to the chosen value, this scene will trigger.";
-    DivElement equalHolder = new DivElement();
+    equalHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Equal Trigger Condition";
     myContainer.append(equalHolder);
@@ -145,7 +148,7 @@ void makeEqualButton(Element container) {
         //think through this. i should make a svpElement object, but also know which array i should add it to.
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
-        template.resultStats.add(svp);
+        template.triggerStatsEqual.add(svp);
         triggerEqualElements.add(SVPFormPair.create(equalHolder,svp));
     });
 
@@ -164,7 +167,7 @@ void makeGreaterButton(Element container) {
         //think through this. i should make a svpElement object, but also know which array i should add it to.
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
-        template.resultStats.add(svp);
+        template.triggerStatsGreater.add(svp);
         triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
     });
     myContainer.append(button);
