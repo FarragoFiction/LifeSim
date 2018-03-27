@@ -21,6 +21,7 @@ Element greaterHolder;
 Element scenesUnlockedHolder;
 
 
+//actually i don't think i'm using these....uh. i guess keep for now anyways???
 List<SVPFormPair> triggerLessElements = new List<SVPFormPair>();
 List<SVPFormPair> triggerEqualElements = new List<SVPFormPair>();
 List<SVPFormPair> triggerGreaterElements = new List<SVPFormPair>();
@@ -88,6 +89,21 @@ void syncEverythingToTemplate() {
     for(SVP svp in template.resultStats) {
         resultElements.add(SVPFormPair.create(resultHolder,svp));
     }
+
+    lesserHolder.setInnerHtml("");
+    for(SVP svp in template.triggerStatsLesser) {
+        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp));
+    }
+
+    equalHolder.setInnerHtml("");
+    for(SVP svp in template.triggerStatsEqual) {
+        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp));
+    }
+
+    greaterHolder.setInnerHtml("");
+    for(SVP svp in template.triggerStatsGreater) {
+        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
+    }
 }
 
 void makeTriggerStats(Element container) {
@@ -103,10 +119,17 @@ void makeTriggerStats(Element container) {
 void makeLessButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "If the chosen stat is less than the chosen value, this scene will trigger.";
-    DivElement holder = new DivElement();
+    lesserHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Less Than Trigger Condition";
-    myContainer.append(holder);
+    button.onClick.listen((e) {
+        //think through this. i should make a svpElement object, but also know which array i should add it to.
+        //sounds like a static method
+        SVP svp = new SVP(Stat.allStats.first, 1);
+        template.resultStats.add(svp);
+        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp));
+    });
+    myContainer.append(lesserHolder);
     myContainer.append(button);
     container.append(myContainer);
 }
@@ -114,10 +137,17 @@ void makeLessButton(Element container) {
 void makeEqualButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "If the chosen stat is exactly equal to the chosen value, this scene will trigger.";
-    DivElement holder = new DivElement();
+    DivElement equalHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Equal Trigger Condition";
-    myContainer.append(holder);
+    myContainer.append(equalHolder);
+    button.onClick.listen((e) {
+        //think through this. i should make a svpElement object, but also know which array i should add it to.
+        //sounds like a static method
+        SVP svp = new SVP(Stat.allStats.first, 1);
+        template.resultStats.add(svp);
+        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp));
+    });
 
     myContainer.append(button);
     container.append(myContainer);
@@ -126,11 +156,17 @@ void makeEqualButton(Element container) {
 void makeGreaterButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "If the chosen stat is greater than the chosen value, this scene will trigger.";
-    DivElement holder = new DivElement();
+    DivElement greaterHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Greater Than Trigger Condition";
-    myContainer.append(holder);
-
+    myContainer.append(greaterHolder);
+    button.onClick.listen((e) {
+        //think through this. i should make a svpElement object, but also know which array i should add it to.
+        //sounds like a static method
+        SVP svp = new SVP(Stat.allStats.first, 1);
+        template.resultStats.add(svp);
+        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
+    });
     myContainer.append(button);
     container.append(myContainer);
 }
