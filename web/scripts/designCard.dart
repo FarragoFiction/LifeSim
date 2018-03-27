@@ -13,6 +13,12 @@ InputElement triggerChance;
 DivElement triggerChanceText;
 ImageElement backgroundSample;
 SelectElement backgroundSelector;
+Element resultHolder;
+Element lesserHolder;
+Element equalHolder;
+Element greaterHolder;
+Element scenesUnlockedHolder;
+
 
 List<SVPFormPair> triggerLessElements = new List<SVPFormPair>();
 List<SVPFormPair> triggerEqualElements = new List<SVPFormPair>();
@@ -68,6 +74,10 @@ void syncEverythingToTemplate() {
         }
     }
     syncDataBoxToTemplate();
+    resultHolder.setInnerHtml("");
+    for(SVP svp in template.resultStats) {
+        resultElements.add(SVPFormPair.create(resultHolder,svp));
+    }
 }
 
 void makeTriggerStats(Element container) {
@@ -127,22 +137,24 @@ void makeResults(Element container) {
 void makeResultButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "Once this scene triggers, stats will be modified in the following ways:";
-    DivElement holder = new DivElement();
+    resultHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add Stat Result";
-    myContainer.append(holder);
+    myContainer.append(resultHolder);
 
     button.onClick.listen((e) {
         //think through this. i should make a svpElement object, but also know which array i should add it to.
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
         template.resultStats.add(svp);
-        resultElements.add(SVPFormPair.create(holder,svp));
+        resultElements.add(SVPFormPair.create(resultHolder,svp));
     });
 
     myContainer.append(button);
     container.append(myContainer);
 }
+
+
 
 
 
