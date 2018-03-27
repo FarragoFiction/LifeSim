@@ -306,8 +306,9 @@ void todo(String todo) {
 class SVPFormPair {
     SelectElement statElement;
     InputElement valueElement;
+    Element valueMarker;
 
-    SVPFormPair(SelectElement this.statElement, InputElement this.valueElement);
+    SVPFormPair(SelectElement this.statElement, InputElement this.valueElement, Element this.valueMarker);
 
     static SVPFormPair create(Element holder){
         DivElement container = new DivElement();
@@ -323,13 +324,23 @@ class SVPFormPair {
         max = Stat.allStats.first.maxValue;
 
         InputElement value = new InputElement();
+        value.value = "1";
         value.type = "range";
         value.min = "0";
         value.max = "$max";
-        
+
+        SpanElement valueMarker = new SpanElement();
+        valueMarker.text = "1";
         container.append(stat);
         container.append(value);
+        container.append(valueMarker);
+
         holder.append(container);
-        return new SVPFormPair(stat, value);
+
+        value.onChange.listen((e) {
+            valueMarker.text = value.value;
+        });
+
+        return new SVPFormPair(stat, value, valueMarker);
     }
 }
