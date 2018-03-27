@@ -107,6 +107,11 @@ void syncEverythingToTemplate() {
     for(SVP svp in template.triggerStatsGreater) {
         triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
     }
+
+    scenesUnlockedHolder.setInnerHtml("");
+    for(GenericScene scene in template.scenesToUnlock) {
+        makeSceneUnlockedDataBox(scenesUnlockedHolder, scene.toDataString());
+    }
 }
 
 void makeTriggerStats(Element container) {
