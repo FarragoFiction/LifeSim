@@ -10,6 +10,8 @@ void main() {
   giggleSnort("I wonder if LORAS has any eggs???");
   giggleSnort("Thinking like a Waste might find one for you, but only if you remember where to go.");
   giggleSnort("What if you combine all the things???");
+  giggleSnort("Have you seen what lies beyond the Void???");
+  giggleSnort("Have you Been the Arms?");
 
 }
 

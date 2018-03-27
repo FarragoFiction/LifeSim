@@ -39,7 +39,6 @@ Stankness -grey
 Spankness-awkward pink(edited)
 Corruption Coefficent
 vim
-panache
 waffle artisanship
 Jerry Seinfield Scalage
 Caffination
@@ -89,6 +88,40 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         LIFESAUCE = new Stat("LIFESAUCE","","They had a good life.",10,new Colour.fromStyleString("#ff0000"));
         AGE = new Stat("AGE","","They lived a long life.",0,new Colour.fromStyleString("#000000"),15);
         FURY = new Stat("RIGHTEOUS FURY","","They were a very righteous person.",10,new Colour.fromStyleString("#ff0000"));
+
+
+        // = new Stat("SNEAKAPACITY","","They had a certain style.",0,new Colour.fromStyleString("#182855"));
+        GUMPTION = new Stat("GUMPTION","","They had a lot of chutzpah.",0,new Colour.fromStyleString("#3c00a0"));
+        FAME = new Stat("FAME","","They were known to everyone.",0,new Colour.fromStyleString("#ffff00"));
+        ASSHOLERY = new Stat("ASSHOLERY","","They were an asshole.",0,new Colour.fromStyleString("#c39480"));
+        HORSE = new Stat("HORSE","","They were actually a horse in a clever disguise.",0,new Colour.fromStyleString("#642306"));
+        TWOFIFTYSIX = new Stat("256 x 256","","They had a love for images sized 256 x 256 that you could find on google.",0,new Colour.fromStyleString("#d0af15"));
+        SPEED = new Stat("SPEED","","They probably wore red running shoes.",0,new Colour.fromStyleString("#ff0000"));
+        MAGNITUTDE = new Stat("MAGNITUTDE","","They did everything with magnitude and direction. Or maybe just magnitude.",0,new Colour.fromStyleString("#ffa912"));
+        DIRECTION = new Stat("DIRECTION","","They were very direct.",0,new Colour.fromStyleString("#888888"));
+        PATIENCE =  new Stat("PATIENCE","","They were very patient.",0,new Colour.fromStyleString("#74a77b"));
+        PATIENTS = new Stat("PATIENTS","","They had many patients.",0,new Colour.fromStyleString("#eeeeee"));
+        TALLNESSQUOTIENT = new Stat("TALLNESS QUOTIENT","","They were really tall, which sounds kind of useless to me. Just saying.",0,new Colour.fromStyleString("#00ff00"));
+        SMOLNESSQUOTIENT = new Stat("SMOLNESS QUOTIENT","","They were the King Bun.",0,new Colour.fromStyleString("#06FFC9"));
+        TURDUCKENOCITY = new Stat("TURDUCKENOCITY","","They liked putting things into other things.",0,new Colour.fromStyleString("#c97422"));
+        SESQUIPEDALIANLOQUACIOUSNESS =new Stat("SESQUIPEDALIAN LOQUACIOUSNESS","","They had really liked to talk.",0,new Colour.fromStyleString("#ff1dd2"));
+        OMNILOATHING = new Stat("OMNILOATHING","","They hated everything.",0,new Colour.fromStyleString("#000000"));
+        BLINKSPEED = new Stat("BLINK SPEED","","They could blink just. So fast.",0,new Colour.fromStyleString("#ffbd1d"));
+        CAFFINATION = new Stat("CAFFINATION","","They were extremely awake.",0,new Colour.fromStyleString("#b48207"));
+        GIRTH = new Stat("GIRTH","","They were very large.",0,new Colour.fromStyleString("#e9ec9f"));
+        FUCKITUDERCOURSE= new Stat("FUCKITUDERCOURSE","","They uh. You know what. Nevermind.",0,new Colour.fromStyleString("#005a27"));
+        SARCASTITUDE = new Stat("SARCASTITUDE","","They were sarcastic and witty.",0,new Colour.fromStyleString("#6f2d1f"));
+        CORRUPTIONCOEFFICIENT = new Stat("CORRUPTION COEFFICIENT","","They had eldritch power.",0,new Colour.fromStyleString("#501855"));
+        BLASPHEMOXY = new Stat("BLASPHEMOXY","","They had a certain style.",0,new Colour.fromStyleString("#131313"));
+        SEINFIELDSCALAGE = new Stat("SEINFIELD SCALAGE","","They had traits in common with Jerry Seinfield.",0,new Colour.fromStyleString("#182855"));
+        BREADCRAFT  = new Stat("BREADCRAFT","","They had very warm hands.",0,new Colour.fromStyleString("#553a18"));
+        SNEAKAPACITY = new Stat("SNEAKAPACITY","","They had were a sneak thief.",0,new Colour.fromStyleString("#182855"));
+        PANACHE = new Stat("PANACHE","","They had a certain je ne sais quoi.",0,new Colour.fromStyleString("#987d9f"));
+        VIM = new Stat("VIM","","They were very dominant.",0,new Colour.fromStyleString("#0000ff"));
+        IMAGINATION = new Stat("IMAGINATION","","They were very imaginative.",0,new Colour.fromStyleString("#00ff00"));
+        SQUIDDLESENSE = new Stat("SQUIDDLESENSE","","They were very otherworldly.",0,new Colour.fromStyleString("#77bcba"));
+
+
 
     }
 
