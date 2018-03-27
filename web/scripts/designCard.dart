@@ -53,7 +53,6 @@ void drawCard() {
 
 void drawControls() {
     todo("TEST THOROUGHLY");
-    todo("give to wranglers");
     todo("have ability to save data strings to file for later use");
     DivElement controls = new DivElement();
     controls.classes.add("controls");

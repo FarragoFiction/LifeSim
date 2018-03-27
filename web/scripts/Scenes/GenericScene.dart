@@ -113,10 +113,10 @@ class GenericScene extends Scene {
         }
         if(scenesToUnlock.isNotEmpty) {
             for(Scene s in scenesToUnlock) {
-                if(!owner.scenes.contains(s)) {
-                    owner.addHighPriorityScene(s);
-                    CardLibrary.addCard(s);
-                }
+                owner.scenesToAdd.add(s);
+                //this does concurrent mod, remember? don't fucking do this.
+                //owner.addHighPriorityScene(s);
+                //CardLibrary.addCard(s);
             }
         }
         super.renderContent(element, w);
