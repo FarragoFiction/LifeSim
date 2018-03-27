@@ -341,6 +341,12 @@ class SVPFormPair {
             valueMarker.text = value.value;
         });
 
+        stat.onChange.listen((e) {
+            Stat s = Stat.findStatWithName(stat.options[stat.selectedIndex].value);
+            value.max = "${s.maxValue}";
+            valueMarker.text = value.value;
+        });
+
         return new SVPFormPair(stat, value, valueMarker);
     }
 }
