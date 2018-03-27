@@ -225,11 +225,11 @@ class GenericScene extends Scene {
         }
         json["triggerStatsGreater"] = triggerStatsGreaterJSON.toString();
 
-        List<JSONObject> triggerStatsEqual = new List<JSONObject>();
-        for(SVP s in triggerStatsGreater) {
-            triggerStatsGreaterJSON.add(s.toJSON());
+        List<JSONObject> triggerStatsEqualJSON = new List<JSONObject>();
+        for(SVP s in triggerStatsEqual) {
+            triggerStatsEqualJSON.add(s.toJSON());
         }
-        json["triggerStatsEqual"] = triggerStatsEqual.toString();
+        json["triggerStatsEqual"] = triggerStatsEqualJSON.toString();
         return json;
     }
 

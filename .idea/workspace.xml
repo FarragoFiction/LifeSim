@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/designCard.dart" afterPath="$PROJECT_DIR$/web/scripts/designCard.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +60,8 @@
       <file leaf-file-name="GenericScene.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="249" column="44" lean-forward="false" selection-start-line="249" selection-start-column="44" selection-end-line="249" selection-end-column="44" />
+            <state relative-caret-position="236">
+              <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,8 +112,6 @@
       <find>wrap</find>
       <find>toJSON</find>
       <find>fromDAta</find>
-      <find>toJson</find>
-      <find>fromJSON</find>
       <find>remo</find>
       <find>dynamic</find>
       <find>dynamic thing</find>
@@ -131,6 +128,8 @@
       <find>resultHolde</find>
       <find>new svp</find>
       <find>greaterHolder</find>
+      <find>toJson</find>
+      <find>fromJSON</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1101,8 +1100,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="249" column="44" lean-forward="false" selection-start-line="249" selection-start-column="44" selection-end-line="249" selection-end-column="44" />
+        <state relative-caret-position="236">
+          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding />
         </state>
       </provider>
