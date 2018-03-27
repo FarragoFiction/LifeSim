@@ -4,6 +4,7 @@ import 'dart:async';
 import "image_browser.dart";
 
 Element div;
+Element card;
 GenericScene template;
 TextAreaElement dataBox;
 TextInputElement name;
@@ -30,10 +31,18 @@ void main() {
     StatFactory.initAllStats();
     SceneFactory.initScenes();
     div = querySelector("#output");
+    card = new DivElement();
+    div.append(card);
     template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the protagonist's name.", "404pagebecauseecch.png", null);
     template.source = "Pleasing a Wrangler";
+    drawCard();
     drawControls();
 
+}
+
+void drawCard() {
+    card.setInnerHtml("");
+    template.drawCard(card, -13);
 }
 
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
@@ -59,6 +68,7 @@ void drawControls() {
 }
 
 void syncEverythingToTemplate() {
+    drawCard();
     name.value = template.name;
     source.value = template.source;
 
@@ -220,6 +230,7 @@ void makeTriggerChance(Element container) {
 
 //separate because it needs called so often
 void syncDataBoxToTemplate() {
+    drawCard();
     dataBox.value = template.toDataString();
 }
 
@@ -340,6 +351,7 @@ class SVPFormPair {
     }
 
     static SVPFormPair create(Element holder, SVP svp){
+        syncDataBoxToTemplate();
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
         int max = 0;
