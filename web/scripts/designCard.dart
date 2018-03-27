@@ -454,7 +454,7 @@ class SVPFormPair {
         InputElement value = new InputElement();
         value.value = "${svp.stat.value}";
         value.type = "range";
-        value.min = "0";
+        value.min = "${-1*svp.stat.maxValue}";
         value.max = "$max";
 
         SpanElement valueMarker = new SpanElement();
@@ -477,6 +477,7 @@ class SVPFormPair {
 
         stat.onChange.listen((e) {
             Stat s = Stat.findStatWithName(stat.options[stat.selectedIndex].value);
+            value.min = "${-1*s.maxValue}";
             value.max = "${s.maxValue}";
             valueMarker.text = value.value;
             svpFormPair.svp.stat = s;
