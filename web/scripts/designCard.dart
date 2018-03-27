@@ -180,6 +180,46 @@ void makeResults(Element container) {
     myContainer.style.border = "1px solid black";
     myContainer.setInnerHtml("<h2>Results</h2><br>All results will apply once a scene is triggered.");
     makeResultButton(myContainer);
+    makeScenesUnlocked(myContainer);
+
+    container.append(myContainer);
+}
+
+void makeScenesUnlocked(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.setInnerHtml("Will add Scenes to a session beyond what the User picked. Useful to create entire quest lines.<br><br> Recomended use is for you to distribute a single card that unlocks all the cards that are meant to happen after it. If progression is important, child cards can have a trigger of exactly a stat value. <br><br>Example: First card gives you SPEEDICITY of 1, and unlocks 7 more cards. Each of the 7 cards is triggered by SPEEDICITY equalling a different value and also raises SPEEDICITY by one. ");
+    scenesUnlockedHolder = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Add UnlockedScene";
+    myContainer.append(scenesUnlockedHolder);
+
+    button.onClick.listen((e) {
+        //TODO make a text box that loads a scene to add to the template
+    });
+
+    myContainer.append(button);
+    container.append(myContainer);
+}
+
+void makeSceneUnlockedDataBox(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.style.paddingBottom = "10px";
+    myContainer.style.paddingTop = "10px";
+
+    myContainer.text = "DataString:";
+    TextAreaElement holder = new TextAreaElement();
+    holder.value = "Put the DataString for an existing card here.";
+    holder.cols = 60;
+    holder.rows = 10;
+
+    holder.onChange.listen((e) {
+        try {
+            template.scenesToUnlock.add(GenericScene.fromDataString(holder.value));
+        }catch(e) {
+            window.alert("I cannot stress enough, don't try to hax this. Just get a data string you made for some other card, please.");
+        }
+    });
+    myContainer.append(holder);
     container.append(myContainer);
 }
 
