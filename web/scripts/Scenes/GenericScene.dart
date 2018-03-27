@@ -74,17 +74,31 @@ class GenericScene extends Scene {
   @override
   bool triggered() {
       //print("checking $backgroundName");
-      if(owner.rand.nextDouble() > triggerChance) return false;
+      double rolled  = owner.rand.nextDouble();
+      //print("rolled for $name is $rolled, and triggerChance was $triggerChance");
+      if(owner.rand.nextDouble() > triggerChance) {
+          //print("random won't let you trigger");
+          return false;
+      }
       for(SVP svp in triggerStatsGreater) {
-          if(!svp.triggeredGreater()) return false;
+          if(!svp.triggeredGreater()) {
+             // print("greater won't let you trigger");
+              return false;
+          }
       }
 
       for(SVP svp in triggerStatsLesser) {
-          if(!svp.triggeredLesser()) return false;
+          if(!svp.triggeredLesser()) {
+             // print("lesser won't let you trigger");
+              return false;
+          }
       }
 
       for(SVP svp in triggerStatsEqual) {
-          if(!svp.triggeredEqual()) return false;
+          if(!svp.triggeredEqual()) {
+             // print("equal won't let you trigger");
+              return false;
+          }
       }
       //made it through gauntlet of negativity
       return true;
@@ -242,7 +256,7 @@ class GenericScene extends Scene {
         int fontSize = 18;
         canvas.context2D.font = "${fontSize}px Times New Roman";
         canvas.context2D.fillText("$name",40,260);
-
+        canvas.context2D.fillText("Chance: ${(triggerChance*100)}%",20,415);
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
         int y = 290;
         String statsChecked = "";
@@ -295,7 +309,7 @@ class SVP {
     }
 
     bool triggeredLesser() {
-        return stat.value > value;
+        return stat.value < value;
     }
 
     bool triggeredEqual() {

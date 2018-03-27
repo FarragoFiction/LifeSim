@@ -41,6 +41,7 @@ class Entity {
         addAllHighPriorityScenes(nonDefaultScenes);
         addStat(StatFactory.LIFESAUCE,0);
         addStat(StatFactory.AGE,0);
+        addStat(StatFactory.BRAINITUDE,0);
     }
 
     static String randomSpouseName( Random rand) {
