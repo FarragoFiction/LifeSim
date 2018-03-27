@@ -307,6 +307,7 @@ class SVPFormPair {
     SelectElement statElement;
     InputElement valueElement;
     Element valueMarker;
+    SVP svp;
 
     SVPFormPair(SelectElement this.statElement, InputElement this.valueElement, Element this.valueMarker);
 
@@ -337,16 +338,23 @@ class SVPFormPair {
 
         holder.append(container);
 
+        SVPFormPair svpFormPair=  new SVPFormPair(stat, value, valueMarker);
+        svpFormPair.svp = new SVP(Stat.allStats.first, 1);
+
         value.onChange.listen((e) {
             valueMarker.text = value.value;
+            svpFormPair.svp.value = int.parse(value.value);
         });
 
         stat.onChange.listen((e) {
             Stat s = Stat.findStatWithName(stat.options[stat.selectedIndex].value);
             value.max = "${s.maxValue}";
             valueMarker.text = value.value;
+            svpFormPair.svp.stat = s;
         });
 
-        return new SVPFormPair(stat, value, valueMarker);
+
+        return svpFormPair;
+
     }
 }
