@@ -36,7 +36,6 @@ void main() {
     div.append(card);
     template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the protagonist's name.", "404pagebecauseecch.png", null);
     template.source = "Pleasing a Wrangler";
-    drawCard();
     drawControls();
 
 }
@@ -51,9 +50,12 @@ void drawCard() {
 
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
 
-void drawControls() {
+Future<Null> drawControls() async {
+    await Loader.preloadManifest();
+
     todo("TEST THOROUGHLY");
     todo("have ability to save data strings to file for later use");
+    drawCard();
     DivElement controls = new DivElement();
     controls.classes.add("controls");
     div.append(controls);
