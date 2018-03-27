@@ -37,6 +37,10 @@ textarea{
     background-color: red;
 }
 
+div{
+    padding: 10px;
+}
+
 .sceneCard{
     margin: 5px;
 }

@@ -21,6 +21,7 @@ class TakeKidToPark extends Scene {
   bool triggered() {
       if(owner.rand.nextDouble() > triggerChance) return false;
       if(owner.children.isNotEmpty) return true;
+      return false;
   }
 
   @override

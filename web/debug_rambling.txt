@@ -1,0 +1,12 @@
+Alright.
+
+I'm stumped.
+
+I need to have the card creator sync to itself, but also need the number of results adn triggers
+to be dynamic....
+
+Oh. Wait.
+
+No.
+
+It's just an array of elements.

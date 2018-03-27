@@ -7,11 +7,17 @@ Element div;
 GenericScene template;
 TextAreaElement dataBox;
 TextInputElement name;
+TextInputElement source;
 TextAreaElement narrationBox;
 InputElement triggerChance;
 DivElement triggerChanceText;
 ImageElement backgroundSample;
 SelectElement backgroundSelector;
+
+List<SVPFormPairs> triggerLessElements;
+List<SVPFormPairs> triggerEqualElements;
+List<SVPFormPairs> triggerGreaterElements;
+List<SVPFormPairs> resultElements;
 
 
 void main() {
@@ -19,7 +25,7 @@ void main() {
     SceneFactory.initScenes();
     div = querySelector("#output");
     template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the protagonist's name.", "404pagebecauseecch.png", null);
-
+    template.source = "Pleasing a Wrangler";
     drawControls();
 
 }
@@ -27,10 +33,8 @@ void main() {
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
 
 void drawControls() {
-    todo("Make the easy text sections.");
-    todo("premade drop down of automatic bgs");
     todo("have button to add a scene to unlock (just text string");
-    todo("have button to add SVP (drop down of stats, then value)");
+    todo("have button to add SVP (drop down of stats, then value (values max value is based on stat)");
     DivElement controls = new DivElement();
     controls.classes.add("controls");
     div.append(controls);
@@ -38,12 +42,17 @@ void drawControls() {
     makeBackground(controls);
     makeNameBox(controls);
     makeNarrationBox(controls);
+    makeSource(controls);
     makeTriggerChance(controls);
+    makeTriggerStats(controls);
+    makeResultButton(controls);
     syncEverythingToTemplate();
 }
 
 void syncEverythingToTemplate() {
     name.value = template.name;
+    source.value = template.source;
+
     narrationBox.value = template.text;
     triggerChance.value = "${template.triggerChance * 100}";
     triggerChanceText.text = "${template.triggerChance * 100}%";
@@ -58,7 +67,68 @@ void syncEverythingToTemplate() {
     syncDataBoxToTemplate();
 }
 
+void makeTriggerStats(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "ALL triggers must be true for this scene to trigger.";
+    makeLessButton(myContainer);
+    makeEqualButton(myContainer);
+    makeGreaterButton(myContainer);
+    container.append(myContainer);
+}
+
+void makeLessButton(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "If the chosen stat is less than the chosen value, this scene will trigger.";
+    DivElement holder = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Add Less Than Trigger Condition";
+    myContainer.append(holder);
+    myContainer.append(button);
+    container.append(myContainer);
+}
+
+void makeEqualButton(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "If the chosen stat is exactly equal to the chosen value, this scene will trigger.";
+    DivElement holder = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Add Equal Trigger Condition";
+    myContainer.append(holder);
+
+    myContainer.append(button);
+    container.append(myContainer);
+}
+
+void makeGreaterButton(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "If the chosen stat is greater than the chosen value, this scene will trigger.";
+    DivElement holder = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Add Greater Than Trigger Condition";
+    myContainer.append(holder);
+
+    myContainer.append(button);
+    container.append(myContainer);
+}
+
+void makeResultButton(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "Once this scene triggers, stats will be modified in the following ways:";
+    DivElement holder = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Add Stat Result";
+    myContainer.append(holder);
+
+    myContainer.append(button);
+    container.append(myContainer);
+}
+
+
+
+
 void makeBackground(Element container) {
+    DivElement myContainer = new DivElement();
+
     backgroundSample = new ImageElement();
     backgroundSelector = new SelectElement();
     backgroundSelector.style.display = "block";
@@ -70,13 +140,15 @@ void makeBackground(Element container) {
         syncEverythingToTemplate();
     });
 
-    container.append(backgroundSample);
-    container.append(backgroundSelector);
+    myContainer.append(backgroundSample);
+    myContainer.append(backgroundSelector);
+    container.append(myContainer);
     backgroundSample.width = 300;
     finishMakeBackground(container);
 }
 
 Future<Null> finishMakeBackground(Element container) async {
+    
     ImageHandler imageHandler = new ImageHandler(backgroundSample, new ArtCategory("BGs","BGs", "bg",url: "images/LifeSimBGs/"));
     List<ImageElement> images = await imageHandler.getImageCategory();
     for(ImageElement e in images) {
@@ -190,6 +262,19 @@ void makeNameBox(Element container) {
 }
 
 
+void makeSource(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.text = "How should they find it?";
+    myContainer.style.paddingTop = "10px";
+    source = new TextInputElement();
+    source.onInput.listen((e) {
+        template.source = source.value;
+        syncDataBoxToTemplate();
+    });
+    myContainer.append(source);
+    container.append(myContainer);
+}
+
 
 void todo(String todo) {
     DivElement t = new DivElement();
@@ -197,3 +282,11 @@ void todo(String todo) {
     div.append(t);
 }
 
+
+
+class SVPFormPairs {
+    SelectElement statElement;
+    InputElement valueElement;
+
+    SVPFormPairs(SelectElement this.statElement, InputElement this.valueElement);
+}
