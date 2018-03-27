@@ -12,6 +12,7 @@ void main() {
   giggleSnort("What if you combine all the things???");
   giggleSnort("Have you seen what lies beyond the Void???");
   giggleSnort("Have you Been the Arms?");
+  giggleSnort("Have you met the Drunk Philosopher?");
 
 }
 
