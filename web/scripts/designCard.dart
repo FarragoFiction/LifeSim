@@ -92,22 +92,22 @@ void syncEverythingToTemplate() {
     syncDataBoxToTemplate();
     resultHolder.setInnerHtml("");
     for(SVP svp in template.resultStats) {
-        resultElements.add(SVPFormPair.create(resultHolder,svp));
+        resultElements.add(SVPFormPair.create(resultHolder,svp,true));
     }
 
     lesserHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsLesser) {
-        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp));
+        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp,false));
     }
 
     equalHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsEqual) {
-        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp));
+        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp,false));
     }
 
     greaterHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsGreater) {
-        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
+        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp,false));
     }
 
     scenesUnlockedHolder.setInnerHtml("");
@@ -137,7 +137,7 @@ void makeLessButton(Element container) {
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
         template.triggerStatsLesser.add(svp);
-        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp));
+        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp,false));
     });
     myContainer.append(lesserHolder);
     myContainer.append(button);
@@ -156,7 +156,7 @@ void makeEqualButton(Element container) {
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
         template.triggerStatsEqual.add(svp);
-        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp));
+        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp,false));
     });
 
     myContainer.append(button);
@@ -175,7 +175,7 @@ void makeGreaterButton(Element container) {
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
         template.triggerStatsGreater.add(svp);
-        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp));
+        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp, false));
     });
     myContainer.append(button);
     container.append(myContainer);
@@ -244,7 +244,7 @@ void makeResultButton(Element container) {
         //sounds like a static method
         SVP svp = new SVP(Stat.allStats.first, 1);
         template.resultStats.add(svp);
-        resultElements.add(SVPFormPair.create(resultHolder,svp));
+        resultElements.add(SVPFormPair.create(resultHolder,svp, true));
     });
 
     myContainer.append(button);
@@ -437,11 +437,10 @@ class SVPFormPair {
         }
     }
 
-    static SVPFormPair create(Element holder, SVP svp){
+    static SVPFormPair create(Element holder, SVP svp, bool isResult){
         syncDataBoxToTemplate();
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
-        int max = 0;
         for(Stat s in Stat.allStats) {
             OptionElement o = new OptionElement();
             o.value = s.name;
@@ -449,13 +448,16 @@ class SVPFormPair {
             stat.append(o);
         }
         stat.options.first.selected = true;
-        max = svp.stat.value;
 
         InputElement value = new InputElement();
         value.value = "${svp.stat.value}";
         value.type = "range";
-        value.min = "${-1*svp.stat.maxValue}";
-        value.max = "$max";
+        if(isResult) {
+            value.min = "${-1 * svp.stat.maxValue}";
+        }else {
+            value.min = "";
+        }
+        value.max = "${svp.stat.maxValue}";
 
         SpanElement valueMarker = new SpanElement();
         valueMarker.text = "1";
@@ -477,7 +479,7 @@ class SVPFormPair {
 
         stat.onChange.listen((e) {
             Stat s = Stat.findStatWithName(stat.options[stat.selectedIndex].value);
-            value.min = "${-1*s.maxValue}";
+            if(isResult) value.min = "${-1*s.maxValue}";
             value.max = "${s.maxValue}";
             valueMarker.text = value.value;
             svpFormPair.svp.stat = s;
