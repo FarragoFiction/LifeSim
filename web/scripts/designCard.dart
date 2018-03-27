@@ -135,7 +135,9 @@ void makeResultButton(Element container) {
     button.onClick.listen((e) {
         //think through this. i should make a svpElement object, but also know which array i should add it to.
         //sounds like a static method
-        resultElements.add(SVPFormPair.create(holder));
+        SVP svp = new SVP(Stat.allStats.first, 1);
+        template.resultStats.add(svp);
+        resultElements.add(SVPFormPair.create(holder,svp));
     });
 
     myContainer.append(button);
@@ -309,9 +311,23 @@ class SVPFormPair {
     Element valueMarker;
     SVP svp;
 
-    SVPFormPair(SelectElement this.statElement, InputElement this.valueElement, Element this.valueMarker);
+    SVPFormPair(SVP svp, SelectElement this.statElement, InputElement this.valueElement, Element this.valueMarker);
 
-    static SVPFormPair create(Element holder){
+    void syncToSVP(SVP svpNew) {
+        svp = svpNew;
+        valueMarker.text = "${svp.value}";
+        valueElement.value = "${svp.value}";
+
+        for(OptionElement option in statElement.options) {
+            if(option.value == svp.stat.name) {
+                option.selected = true;
+            }else {
+                option.selected = false;
+            }
+        }
+    }
+
+    static SVPFormPair create(Element holder, SVP svp){
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
         int max = 0;
@@ -322,10 +338,10 @@ class SVPFormPair {
             stat.append(o);
         }
         stat.options.first.selected = true;
-        max = Stat.allStats.first.maxValue;
+        max = svp.stat.value;
 
         InputElement value = new InputElement();
-        value.value = "1";
+        value.value = "${svp.stat.value}";
         value.type = "range";
         value.min = "0";
         value.max = "$max";
@@ -338,12 +354,14 @@ class SVPFormPair {
 
         holder.append(container);
 
-        SVPFormPair svpFormPair=  new SVPFormPair(stat, value, valueMarker);
-        svpFormPair.svp = new SVP(Stat.allStats.first, 1);
+        SVPFormPair svpFormPair=  new SVPFormPair(svp, stat, value, valueMarker);
+        //set values in form
+        svpFormPair.syncToSVP(svp);
 
         value.onChange.listen((e) {
             valueMarker.text = value.value;
             svpFormPair.svp.value = int.parse(value.value);
+            syncDataBoxToTemplate();
         });
 
         stat.onChange.listen((e) {
@@ -351,6 +369,7 @@ class SVPFormPair {
             value.max = "${s.maxValue}";
             valueMarker.text = value.value;
             svpFormPair.svp.stat = s;
+            syncDataBoxToTemplate();
         });
 
 
