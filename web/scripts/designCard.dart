@@ -14,10 +14,10 @@ DivElement triggerChanceText;
 ImageElement backgroundSample;
 SelectElement backgroundSelector;
 
-List<SVPFormPairs> triggerLessElements;
-List<SVPFormPairs> triggerEqualElements;
-List<SVPFormPairs> triggerGreaterElements;
-List<SVPFormPairs> resultElements;
+List<SVPFormPair> triggerLessElements = new List<SVPFormPair>();
+List<SVPFormPair> triggerEqualElements = new List<SVPFormPair>();
+List<SVPFormPair> triggerGreaterElements = new List<SVPFormPair>();
+List<SVPFormPair> resultElements = new List<SVPFormPair>();
 
 
 void main() {
@@ -44,8 +44,11 @@ void drawControls() {
     makeNarrationBox(controls);
     makeSource(controls);
     makeTriggerChance(controls);
+    DivElement divider = new DivElement();
+    divider.setInnerHtml("<h1>Optional Sections</h1><hr>");
+    controls.append(divider);
     makeTriggerStats(controls);
-    makeResultButton(controls);
+    makeResults(controls);
     syncEverythingToTemplate();
 }
 
@@ -69,7 +72,8 @@ void syncEverythingToTemplate() {
 
 void makeTriggerStats(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "ALL triggers must be true for this scene to trigger.";
+    myContainer.style.border = "1px solid black";
+    myContainer.setInnerHtml("<h2>Triggers</h2><br>ALL triggers must be true for this scene to trigger.");
     makeLessButton(myContainer);
     makeEqualButton(myContainer);
     makeGreaterButton(myContainer);
@@ -111,6 +115,15 @@ void makeGreaterButton(Element container) {
     container.append(myContainer);
 }
 
+void makeResults(Element container) {
+    DivElement myContainer = new DivElement();
+    myContainer.style.marginTop = "10px";
+    myContainer.style.border = "1px solid black";
+    myContainer.setInnerHtml("<h2>Results</h2><br>All results will apply once a scene is triggered.");
+    makeResultButton(myContainer);
+    container.append(myContainer);
+}
+
 void makeResultButton(Element container) {
     DivElement myContainer = new DivElement();
     myContainer.text = "Once this scene triggers, stats will be modified in the following ways:";
@@ -118,6 +131,12 @@ void makeResultButton(Element container) {
     ButtonElement button = new ButtonElement();
     button.text = "Add Stat Result";
     myContainer.append(holder);
+
+    button.onClick.listen((e) {
+        //think through this. i should make a svpElement object, but also know which array i should add it to.
+        //sounds like a static method
+        resultElements.add(SVPFormPair.create(holder));
+    });
 
     myContainer.append(button);
     container.append(myContainer);
@@ -284,9 +303,28 @@ void todo(String todo) {
 
 
 
-class SVPFormPairs {
+class SVPFormPair {
     SelectElement statElement;
     InputElement valueElement;
 
-    SVPFormPairs(SelectElement this.statElement, InputElement this.valueElement);
+    SVPFormPair(SelectElement this.statElement, InputElement this.valueElement);
+
+    static SVPFormPair create(Element holder){
+        DivElement container = new DivElement();
+        SelectElement stat = new SelectElement();
+        int max = 0;
+        for(Stat s in Stat.allStats) {
+            OptionElement o = new OptionElement();
+            o.value = s.name;
+            stat.append(o);
+        }
+        stat.options.first.selected = true;
+        max = Stat.allStats.first.maxValue;
+
+        InputElement value = new InputElement();
+        value.type = "range";
+        value.min = "0";
+        value.max = "$max";
+        return new SVPFormPair(stat, value);
+    }
 }
