@@ -316,6 +316,7 @@ class SVPFormPair {
         for(Stat s in Stat.allStats) {
             OptionElement o = new OptionElement();
             o.value = s.name;
+            o.text = s.name;
             stat.append(o);
         }
         stat.options.first.selected = true;
@@ -325,6 +326,10 @@ class SVPFormPair {
         value.type = "range";
         value.min = "0";
         value.max = "$max";
+        
+        container.append(stat);
+        container.append(value);
+        holder.append(container);
         return new SVPFormPair(stat, value);
     }
 }
