@@ -98,22 +98,22 @@ void syncEverythingToTemplate() {
     syncDataBoxToTemplate("syncEverythingToTemplate");
     resultHolder.setInnerHtml("");
     for(SVP svp in template.resultStats) {
-        resultElements.add(SVPFormPair.create(resultHolder,svp,true));
+        resultElements.add(SVPFormPair.create(resultHolder,svp,true,false));
     }
 
     lesserHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsLesser) {
-        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp,false));
+        triggerLessElements.add(SVPFormPair.create(lesserHolder,svp,false,false));
     }
 
     equalHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsEqual) {
-        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp,false));
+        triggerEqualElements.add(SVPFormPair.create(equalHolder,svp,false,false));
     }
 
     greaterHolder.setInnerHtml("");
     for(SVP svp in template.triggerStatsGreater) {
-        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp,false));
+        triggerGreaterElements.add(SVPFormPair.create(greaterHolder,svp,false,false));
     }
 
     scenesUnlockedHolder.setInnerHtml("");
@@ -520,8 +520,8 @@ class SVPFormPair {
         }
     }
 
-    static SVPFormPair create(Element holder, SVP svp, bool isResult){
-        syncDataBoxToTemplate("SVPFormPairCreate");
+    static SVPFormPair create(Element holder, SVP svp, bool isResult, [bool initialSync]){
+        if(initialSync) syncDataBoxToTemplate("SVPFormPairCreate");
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
         for(Stat s in Stat.allStats) {

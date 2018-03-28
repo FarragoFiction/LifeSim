@@ -23,3 +23,24 @@ VM172:1 syncing data box to template
 VM172:1 drawing card because of syncDataBoxToTemplate
 VM172:1 syncing data box to template
 VM172:1 drawing card because of syncDataBoxToTemplate
+
+
+
+okay more data:
+
+syncing everything to template
+VM196:1 syncing data box to template because syncEverythingToTemplate
+VM196:1 drawing card because of syncDataBoxToTemplate
+VM196:1 syncing template to data box
+VM196:1 syncing everything to template
+VM196:1 syncing data box to template because syncEverythingToTemplate
+VM196:1 drawing card because of syncDataBoxToTemplate
+VM196:1 syncing data box to template because SVPFormPairCreate
+VM196:1 drawing card because of syncDataBoxToTemplate
+VM196:1 syncing data box to template because SVPFormPairCreate
+VM196:1 drawing card because of syncDataBoxToTemplate
+
+
+AHAH there we go. SVP form pair create sets off a few more
+
+SO....I think if i pass a bool for "sync" or not it'll fix.
