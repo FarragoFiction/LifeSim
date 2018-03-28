@@ -35,7 +35,11 @@ void main() {
   giggleSnort("Don't Royal Bakers have a lot of access to eggs???");
   giggleSnort("I hope the Hysterical Dame isn't too hysterical to give you an egg...");
   giggleSnort("Surely the Draconian Dignitary would be too ...dignified to have an egg?");
+  giggleSnort("If you can put up with his disconcerting ogle, Pickle Inspector might be up for the job.");
+  giggleSnort("Amethyst Copycat might have a gem in the shape of an egg???");
+  giggleSnort("Your local Authority Regulator might know where to find an egg.");
   giggleSnort("Clubs Deuce has been known to keep an egg or two under his hat."); //its funny cuz he has paired scenes
+  giggleSnort("The Nervous Broad might have some SWEET TIPS for finding easter eggs, so long as you don't make her very nervous.");
 }
 
 void giggleSnort(String hideytalk) {
