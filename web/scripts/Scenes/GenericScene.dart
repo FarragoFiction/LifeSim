@@ -247,6 +247,18 @@ class GenericScene extends Scene {
         return json;
     }
 
+    //should draw a card, and all it's children and all THEIR children.
+    Future<Null> drawCardRecursively(Element element, int id, [int levels = 0]) async {
+        if(levels > 13) return; //just. fucking stop. okay?
+        SpanElement debug = new SpanElement();
+        debug.text = "Level is $levels";
+        element.append(debug);
+        await drawCard(element, id);
+        for(GenericScene s in scenesToUnlock) {
+            await s.drawCardRecursively(element, id, levels +1);
+        }
+    }
+
     Future<Null> drawCardRest(CanvasElement canvas) async {
         await Renderer.drawWhateverFuture(canvas, cardLocation);
         Renderer.swapColors(canvas, cardColor);

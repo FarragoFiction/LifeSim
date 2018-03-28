@@ -42,17 +42,16 @@ void main() {
 
 }
 
-void drawCard() {
-    print('drawing card');
+void drawCard(String source) {
+    print('drawing card because of $source');
     card.setInnerHtml("");
-    template.drawCard(card, -13);
+    //draws the card and all it's children and all their children, etc.
+    template.drawCardRecursively(card, -13);
+   // template.drawCard(card, -13);
     DivElement debug = new DivElement();
     debug.text = "${template.toJSON()}";
     card.append(debug);
-    //so i can see what my children are, too
-    for(GenericScene s in template.scenesToUnlock) {
-        template.drawCard(card, -13);
-    }
+
 }
 
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
@@ -80,6 +79,7 @@ Future<Null> drawControls() async {
 }
 
 void syncEverythingToTemplate() {
+    print("syncing everything to template");
     //drawCard();
     name.value = template.name;
     source.value = template.source;
@@ -95,7 +95,7 @@ void syncEverythingToTemplate() {
             option.selected = false;
         }
     }
-    syncDataBoxToTemplate();
+    syncDataBoxToTemplate("syncEverythingToTemplate");
     resultHolder.setInnerHtml("");
     for(SVP svp in template.resultStats) {
         resultElements.add(SVPFormPair.create(resultHolder,svp,true));
@@ -244,11 +244,12 @@ void makeSceneUnlockedDataBox(Element container, String value) {
             button.onClick.listen((e) {
                 template.scenesToUnlock.remove(s);
                 myContainer.remove();
-                syncDataBoxToTemplate();
+                syncDataBoxToTemplate("makeSceneUnlockedDataBoxRemove");
             });
 
-            syncDataBoxToTemplate();
+            syncDataBoxToTemplate("makeSceneUnlockedDataBox");
         }catch(e) {
+            print(e);
             window.alert("I cannot stress enough, don't try to hax this. Just get a data string you made for some other card, please.");
         }
     });
@@ -333,7 +334,7 @@ void makeTriggerChance(Element container) {
     triggerChance.onInput.listen((e) {
         template.triggerChance = int.parse(triggerChance.value)/100;
         triggerChanceText.text = "${template.triggerChance * 100}%";
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("makeTriggerChance");
     });
 
     myContainer.append(triggerChanceText);
@@ -343,9 +344,10 @@ void makeTriggerChance(Element container) {
 
 
 //separate because it needs called so often
-void syncDataBoxToTemplate() {
+void syncDataBoxToTemplate(String source) {
+    print("syncing data box to template because $source");
     checkForNulls(); //easiest way to remove svps and scenes do this first so draw card doesn't die
-    drawCard();
+    drawCard("syncDataBoxToTemplate");
     dataBox.value = template.toDataString();
 }
 
@@ -421,6 +423,7 @@ void makeDataBox(Element container) {
     dataBox.cols = 60;
     dataBox.rows = 10;
     dataBox.onChange.listen((e) {
+        print("syncing template to data box");
         syncTemplateToDataBox();
     });
     myContainer.append(dataBox);
@@ -439,7 +442,7 @@ void makeNarrationBox(Element container) {
     dataBox.rows = 10;
     narrationBox.onInput.listen((e) {
         template.text = narrationBox.value;
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("Add Narration");
 
     });
 
@@ -449,7 +452,7 @@ void makeNarrationBox(Element container) {
     button.onClick.listen((e) {
         template.text = "${template.text} ${GenericScene.OWNERNAME}";
         narrationBox.value = template.text;
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("AppendProtagName");
     });
     buttonDiv.append(button);
 
@@ -466,7 +469,7 @@ void makeNameBox(Element container) {
     name = new TextInputElement();
     name.onInput.listen((e) {
         template.name = name.value;
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("makeNameBox");
     });
     myContainer.append(name);
     container.append(myContainer);
@@ -480,7 +483,7 @@ void makeSource(Element container) {
     source = new TextInputElement();
     source.onInput.listen((e) {
         template.source = source.value;
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("makeSource");
     });
     myContainer.append(source);
     container.append(myContainer);
@@ -518,7 +521,7 @@ class SVPFormPair {
     }
 
     static SVPFormPair create(Element holder, SVP svp, bool isResult){
-        syncDataBoxToTemplate();
+        syncDataBoxToTemplate("SVPFormPairCreate");
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
         for(Stat s in Stat.allStats) {
@@ -561,13 +564,13 @@ class SVPFormPair {
         button.onClick.listen((e) {
             svp.stat = null; //<-- let's syncer know to remove
             container.remove();
-            syncDataBoxToTemplate();
+            syncDataBoxToTemplate("SVPFormPairRemove");
         });
 
         value.onChange.listen((e) {
             valueMarker.text = value.value;
             svpFormPair.svp.value = int.parse(value.value);
-            syncDataBoxToTemplate();
+            syncDataBoxToTemplate("SVPFormPairChangeValue");
         });
 
         stat.onChange.listen((e) {
@@ -576,7 +579,7 @@ class SVPFormPair {
             value.max = "${s.maxValue}";
             valueMarker.text = value.value;
             svpFormPair.svp.stat = s;
-            syncDataBoxToTemplate();
+            syncDataBoxToTemplate("SVPFormPairChangeStat");
         });
 
 

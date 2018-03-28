@@ -10,3 +10,16 @@ Oh. Wait.
 No.
 
 It's just an array of elements.
+
+~~~~~~~~~
+
+Why does it draw three times when i load the card from a string???
+
+syncing template to data box
+VM172:1 syncing everything to template
+VM172:1 syncing data box to template
+VM172:1 drawing card because of syncDataBoxToTemplate
+VM172:1 syncing data box to template
+VM172:1 drawing card because of syncDataBoxToTemplate
+VM172:1 syncing data box to template
+VM172:1 drawing card because of syncDataBoxToTemplate

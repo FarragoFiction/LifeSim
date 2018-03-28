@@ -60,6 +60,9 @@ abstract class Scene {
         return name;
     }
 
+
+
+
     Future<Null> drawCard(Element element, int id) async {
        // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
