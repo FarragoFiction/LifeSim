@@ -3,6 +3,8 @@ import "LifeSimLib.dart";
 import 'dart:async';
 import "image_browser.dart";
 
+String DELETE_THIS = "~~~!!!DELETETHIS!!!~~~";
+
 Element div;
 Element card;
 GenericScene template;
@@ -219,9 +221,28 @@ void makeSceneUnlockedDataBox(Element container, String value) {
     holder.cols = 60;
     holder.rows = 10;
 
+    DivElement buttonDiv = new DivElement();
+    ButtonElement button = new ButtonElement();
+    button.text = "Remove";
+    buttonDiv.append(button);
+    myContainer.append(buttonDiv);
+
+
+    //until there's a scene in here, just remove it.
+    button.onClick.listen((e) {
+        myContainer.remove();
+    });
+
     holder.onChange.listen((e) {
         try {
-            template.scenesToUnlock.add(GenericScene.fromDataString(holder.value));
+            GenericScene s = GenericScene.fromDataString(holder.value);
+            template.scenesToUnlock.add(s);
+            //overwrite just removing, now can remove the scene too
+            button.onClick.listen((e) {
+                template.scenesToUnlock.remove(s);
+                myContainer.remove();
+            });
+
             syncDataBoxToTemplate();
         }catch(e) {
             window.alert("I cannot stress enough, don't try to hax this. Just get a data string you made for some other card, please.");
@@ -318,7 +339,71 @@ void makeTriggerChance(Element container) {
 //separate because it needs called so often
 void syncDataBoxToTemplate() {
     drawCard();
+    checkForNulls(); //easiest way to remove svps and scenes
     dataBox.value = template.toDataString();
+}
+
+void checkForNulls() {
+    checkResultsForNulls();
+    checkLesserForNulls();
+    checkGreaterForNulls();
+    checkEqualForNulls();
+    checkScenesForNulls();
+}
+
+void checkResultsForNulls() {
+    List<SVP> toRemove = new List<SVP>();
+    for(SVP s in template.resultStats) {
+        if(s.stat == null) toRemove.add(s);
+    }
+
+    for(SVP s in toRemove) {
+        template.resultStats.remove(s);
+    }
+}
+
+void checkLesserForNulls() {
+    List<SVP> toRemove = new List<SVP>();
+    for(SVP s in template.triggerStatsLesser) {
+        if(s.stat == null) toRemove.add(s);
+    }
+
+    for(SVP s in toRemove) {
+        template.triggerStatsLesser.remove(s);
+    }
+}
+
+void checkEqualForNulls() {
+    List<SVP> toRemove = new List<SVP>();
+    for(SVP s in template.triggerStatsEqual) {
+        if(s.stat == null) toRemove.add(s);
+    }
+
+    for(SVP s in toRemove) {
+        template.triggerStatsEqual.remove(s);
+    }
+}
+
+void checkGreaterForNulls() {
+    List<SVP> toRemove = new List<SVP>();
+    for(SVP s in template.triggerStatsGreater) {
+        if(s.stat == null) toRemove.add(s);
+    }
+
+    for(SVP s in toRemove) {
+        template.triggerStatsGreater.remove(s);
+    }
+}
+
+void checkScenesForNulls() {
+    List<GenericScene> toRemove = new List<GenericScene>();
+    for(GenericScene s in template.scenesToUnlock) {
+        if(s.name == DELETE_THIS) toRemove.add(s);
+    }
+
+    for(GenericScene s in toRemove) {
+        template.scenesToUnlock.remove(s);
+    }
 }
 
 void syncTemplateToDataBox() {
@@ -461,15 +546,28 @@ class SVPFormPair {
 
         SpanElement valueMarker = new SpanElement();
         valueMarker.text = "1";
+
+        DivElement buttonDiv = new DivElement();
+        ButtonElement button = new ButtonElement();
+        button.text = "Remove";
+        buttonDiv.append(button);
+
         container.append(stat);
         container.append(value);
         container.append(valueMarker);
+        container.append(buttonDiv);
 
         holder.append(container);
 
         SVPFormPair svpFormPair=  new SVPFormPair(svp, stat, value, valueMarker);
         //set values in form
         svpFormPair.syncToSVP(svp);
+
+        button.onClick.listen((e) {
+            svp.stat = null; //<-- let's syncer know to remove
+            container.remove();
+            syncDataBoxToTemplate();
+        });
 
         value.onChange.listen((e) {
             valueMarker.text = value.value;
@@ -485,6 +583,8 @@ class SVPFormPair {
             svpFormPair.svp.stat = s;
             syncDataBoxToTemplate();
         });
+
+
 
 
         return svpFormPair;

@@ -40,6 +40,7 @@ abstract class StatFactory {
   static Stat BREADCRAFT;
   static Stat SNEAKAPACITY;
   static Stat PANACHE;
+  static Stat THOT;
   static Stat VIM;
   static Stat IMAGINATION;
   static Stat SQUIDDLESENSE;
@@ -125,6 +126,8 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         FURY = new Stat("RIGHTEOUS FURY","","They were a very righteous person.",0,new Colour.fromStyleString("#ff0000"));
 
         // = new Stat("SNEAKAPACITY","","They had a certain style.",0,new Colour.fromStyleString("#182855"));
+        //NEGATE THOT scene makes the thot stat strongly negative, hide in attic sim
+        THOT = new Stat("THOT","","They had were a thot.",0,new Colour.fromStyleString("#edbda5"),8); //so you can have a NEGATE THOT scene
         QUIETUDE = new Stat("GUMPTION","","They were very quiet.",0,new Colour.fromStyleString("#daccf1"),11); //it goes up to 11
         HENDERSON = new Stat("HENDERSON SCALING","","They probably made Life's DM mad.",0,new Colour.fromStyleString("#8383ff"),1);
         GUMPTION = new Stat("GUMPTION","","They had a lot of chutzpah.",0,new Colour.fromStyleString("#3c00a0"),5);
