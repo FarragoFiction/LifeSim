@@ -31,6 +31,7 @@ void main() {
   giggleSnort("Hearts Boxcar is known to have a softspot for eggs.");
   giggleSnort("The Dersite deliveryman might know where to find some eggs.");
   giggleSnort("The Mobster Kingpin is known to have a sweet tooth for eggs.");
+  giggleSnort("Have you been to see the Yogistic Doctor lately?");
 
 }
 
