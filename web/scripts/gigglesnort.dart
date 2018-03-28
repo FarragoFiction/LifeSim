@@ -34,7 +34,8 @@ void main() {
   giggleSnort("Have you been to see the Yogistic Doctor lately??? His head kind of looks like an egg...");
   giggleSnort("Don't Royal Bakers have a lot of access to eggs???");
   giggleSnort("I hope the Hysterical Dame isn't too hysterical to give you an egg...");
-
+  giggleSnort("Surely the Draconian Dignitary would be too ...dignified to have an egg?");
+  giggleSnort("Clubs Deuce has been known to keep an egg or two under his hat."); //its funny cuz he has paired scenes
 }
 
 void giggleSnort(String hideytalk) {
