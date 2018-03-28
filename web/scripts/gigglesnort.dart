@@ -39,6 +39,7 @@ void main() {
   giggleSnort("Amethyst Copycat might have a gem in the shape of an egg???");
   giggleSnort("Your local Authority Regulator might know where to find an egg.");
   giggleSnort("Problem Sleuth is always available to help those in need.");
+  giggleSnort("It's a long shot, but maybe the Beetle Enthusiast has found an egg while out hunting for bugs?");
   giggleSnort("The Malpracticing Doctor might be able to get an egg for you, if you don't ask where it came from. ");
   giggleSnort("Clubs Deuce has been known to keep an egg or two under his hat."); //its funny cuz he has paired scenes
   giggleSnort("The Nervous Broad might have some SWEET TIPS for finding easter eggs, so long as you don't make her very nervous.");
