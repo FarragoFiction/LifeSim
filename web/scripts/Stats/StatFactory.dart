@@ -128,13 +128,13 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         // = new Stat("SNEAKAPACITY","","They had a certain style.",0,new Colour.fromStyleString("#182855"));
         //NEGATE THOT scene makes the thot stat strongly negative, hide in attic sim
         THOT = new Stat("THOT","","They had were a thot.",0,new Colour.fromStyleString("#edbda5"),8); //so you can have a NEGATE THOT scene
-        QUIETUDE = new Stat("GUMPTION","","They were very quiet.",0,new Colour.fromStyleString("#daccf1"),11); //it goes up to 11
+        QUIETUDE = new Stat("QUIETUDE","","They were very quiet.",0,new Colour.fromStyleString("#daccf1"),11); //it goes up to 11
         HENDERSON = new Stat("HENDERSON SCALING","","They probably made Life's DM mad.",0,new Colour.fromStyleString("#8383ff"),1);
         GUMPTION = new Stat("GUMPTION","","They had a lot of chutzpah.",0,new Colour.fromStyleString("#3c00a0"),5);
         FAME = new Stat("FAME","","They were known to everyone.",0,new Colour.fromStyleString("#ffff00"));
         ASSHOLERY = new Stat("ASSHOLERY","","They were an asshole.",0,new Colour.fromStyleString("#c39480"));
         HORSE = new Stat("HORSE","","They were actually a horse in a clever disguise.",0,new Colour.fromStyleString("#642306"),8);
-        TWOFIFTYSIX = new Stat("256 x 256","","They had a love for images sized 256 x 256 that you could find on google.",0,new Colour.fromStyleString("#d0af15"));
+        TWOFIFTYSIX = new Stat("256 x 256","","They had a love for images sized 256 x 256 that you could find on google.",0,new Colour.fromStyleString("#d0af15"),256);
         SPEED = new Stat("SPEED","","They probably wore red running shoes.",0,new Colour.fromStyleString("#ff0000"));
         MAGNITUTDE = new Stat("MAGNITUTDE","","They did everything with magnitude and direction. Or maybe just magnitude.",0,new Colour.fromStyleString("#ffa912"));
         DIRECTION = new Stat("DIRECTION","","They were very direct.",0,new Colour.fromStyleString("#888888"));

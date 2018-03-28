@@ -59,7 +59,6 @@ void drawCard(String source) {
 Future<Null> drawControls() async {
     await Loader.preloadManifest();
 
-    todo("TEST THOROUGHLY");
     todo("have ability to save data strings to file for later use");
     DivElement controls = new DivElement();
     controls.classes.add("controls");
@@ -492,7 +491,7 @@ void makeSource(Element container) {
 
 void todo(String todo) {
     DivElement t = new DivElement();
-    t.text = todo;
+    t.text = "TODO: $todo";
     div.append(t);
 }
 
@@ -520,7 +519,7 @@ class SVPFormPair {
         }
     }
 
-    static SVPFormPair create(Element holder, SVP svp, bool isResult, [bool initialSync]){
+    static SVPFormPair create(Element holder, SVP svp, bool isResult, [bool initialSync = false]){
         if(initialSync) syncDataBoxToTemplate("SVPFormPairCreate");
         DivElement container = new DivElement();
         SelectElement stat = new SelectElement();
