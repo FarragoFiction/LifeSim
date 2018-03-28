@@ -49,6 +49,10 @@ void drawCard() {
     DivElement debug = new DivElement();
     debug.text = "${template.toJSON()}";
     card.append(debug);
+    //so i can see what my children are, too
+    for(GenericScene s in template.scenesToUnlock) {
+        template.drawCard(card, -13);
+    }
 }
 
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
@@ -225,7 +229,6 @@ void makeSceneUnlockedDataBox(Element container, String value) {
     ButtonElement button = new ButtonElement();
     button.text = "Remove";
     buttonDiv.append(button);
-    myContainer.append(buttonDiv);
 
 
     //until there's a scene in here, just remove it.
@@ -241,6 +244,7 @@ void makeSceneUnlockedDataBox(Element container, String value) {
             button.onClick.listen((e) {
                 template.scenesToUnlock.remove(s);
                 myContainer.remove();
+                syncDataBoxToTemplate();
             });
 
             syncDataBoxToTemplate();
@@ -249,6 +253,8 @@ void makeSceneUnlockedDataBox(Element container, String value) {
         }
     });
     myContainer.append(holder);
+    myContainer.append(buttonDiv);
+
     container.append(myContainer);
 }
 
@@ -338,8 +344,8 @@ void makeTriggerChance(Element container) {
 
 //separate because it needs called so often
 void syncDataBoxToTemplate() {
+    checkForNulls(); //easiest way to remove svps and scenes do this first so draw card doesn't die
     drawCard();
-    checkForNulls(); //easiest way to remove svps and scenes
     dataBox.value = template.toDataString();
 }
 
@@ -348,7 +354,6 @@ void checkForNulls() {
     checkLesserForNulls();
     checkGreaterForNulls();
     checkEqualForNulls();
-    checkScenesForNulls();
 }
 
 void checkResultsForNulls() {
@@ -395,16 +400,6 @@ void checkGreaterForNulls() {
     }
 }
 
-void checkScenesForNulls() {
-    List<GenericScene> toRemove = new List<GenericScene>();
-    for(GenericScene s in template.scenesToUnlock) {
-        if(s.name == DELETE_THIS) toRemove.add(s);
-    }
-
-    for(GenericScene s in toRemove) {
-        template.scenesToUnlock.remove(s);
-    }
-}
 
 void syncTemplateToDataBox() {
     try {

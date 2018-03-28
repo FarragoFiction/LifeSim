@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/LifeSimBGs/easter.jpg" afterPath="$PROJECT_DIR$/web/images/LifeSimBGs/easter.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" afterPath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/designCard.dart" afterPath="$PROJECT_DIR$/web/scripts/designCard.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" afterPath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" />
@@ -31,8 +32,8 @@
       <file leaf-file-name="designCard.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="579" column="31" lean-forward="true" selection-start-line="579" selection-start-column="31" selection-end-line="579" selection-end-column="31" />
+            <state relative-caret-position="190">
+              <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -53,8 +54,8 @@
       <file leaf-file-name="SceneFactory.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneFactory.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="68" column="2" lean-forward="false" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
+            <state relative-caret-position="37">
+              <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>remo</find>
       <find>dynamic</find>
       <find>dynamic thing</find>
       <find>the json o</find>
@@ -132,6 +132,7 @@
       <find>henderson</find>
       <find>drawcon</find>
       <find>scene</find>
+      <find>remove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1013,14 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneFactory.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="68" column="2" lean-forward="false" selection-start-line="68" selection-start-column="2" selection-end-line="68" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1053,10 +1046,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/SceneFactory.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="60" column="27" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="579" column="31" lean-forward="true" selection-start-line="579" selection-start-column="31" selection-end-line="579" selection-end-column="31" />
+        <state relative-caret-position="190">
+          <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
