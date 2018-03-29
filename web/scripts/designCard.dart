@@ -31,6 +31,8 @@ List<SVPFormPair> resultElements = new List<SVPFormPair>();
 
 
 void main() {
+    loadNavbar();
+
     StatFactory.initAllStats();
     SceneFactory.initScenes();
     div = querySelector("#output");

@@ -16,6 +16,7 @@ CanvasElement protagPreview;
 
 
 void main() {
+  loadNavbar();
   StatFactory.initAllStats();
   SceneFactory.initScenes();
   //if you care, can set the seed yourself later.
