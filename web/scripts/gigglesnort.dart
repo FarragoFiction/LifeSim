@@ -22,12 +22,14 @@ void main() {
   giggleSnort("A Maid's work is never done.");
   giggleSnort("Have you found a friend of Democracy???");
   giggleSnort("Do you know about EA???");
+  giggleSnort("You know about the turtles...right???");
   giggleSnort("Ms. Paint would surely help you look for eggs.");
   giggleSnort("Have you heard the Jazz Singer's voice??? ");
   giggleSnort("The Creative Investigator might know where to find some eggs.");
   giggleSnort("Have you taken five minutes today to try to feel better about yourself?");
   giggleSnort("Maybe Mass Effect and his robot girlfriend have an egg???");
   giggleSnort("The Arch Agent likely knows where to find illicit eggs.");
+  giggleSnort("Do you think there's a MiniSim index page???");
   giggleSnort("Ace Dick seems like the kind of guy who'd know about some choice eggs.");
   giggleSnort("Hearts Boxcar is known to have a softspot for eggs.");
   giggleSnort("The Dersite deliveryman might know where to find some eggs.");
@@ -40,6 +42,8 @@ void main() {
   giggleSnort("If you can put up with his disconcerting ogle, Pickle Inspector might be up for the job.");
   giggleSnort("Amethyst Copycat might have a gem in the shape of an egg???");
   giggleSnort("Your local Authority Regulator might know where to find an egg.");
+  giggleSnort("Have you looked into making any Trading Cards lately?");
+  giggleSnort("Sometimes it takes a good strife against a Dad to find an egg.");
   giggleSnort("Problem Sleuth is always available to help those in need.");
   giggleSnort("It's a long shot, but maybe the Beetle Enthusiast has found an egg while out hunting for bugs?");
   giggleSnort("The Malpracticing Doctor might be able to get an egg for you, if you don't ask where it came from. ");
