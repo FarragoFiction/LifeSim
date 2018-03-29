@@ -25,6 +25,7 @@ void main() {
   giggleSnort("Ms. Paint would surely help you look for eggs.");
   giggleSnort("Have you heard the Jazz Singer's voice??? ");
   giggleSnort("The Creative Investigator might know where to find some eggs.");
+  giggleSnort("Have you taken five minutes today to try to feel better about yourself?");
   giggleSnort("Maybe Mass Effect and his robot girlfriend have an egg???");
   giggleSnort("The Arch Agent likely knows where to find illicit eggs.");
   giggleSnort("Ace Dick seems like the kind of guy who'd know about some choice eggs.");
@@ -32,6 +33,7 @@ void main() {
   giggleSnort("The Dersite deliveryman might know where to find some eggs.");
   giggleSnort("The Mobster Kingpin is known to have a sweet tooth for eggs.");
   giggleSnort("Have you been to see the Yogistic Doctor lately??? His head kind of looks like an egg...");
+  giggleSnort("Have you reviewed the exponential power of positive thoughts lately?");
   giggleSnort("Don't Royal Bakers have a lot of access to eggs???");
   giggleSnort("I hope the Hysterical Dame isn't too hysterical to give you an egg...");
   giggleSnort("Surely the Draconian Dignitary would be too ...dignified to have an egg?");

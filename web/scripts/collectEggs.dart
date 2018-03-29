@@ -8,6 +8,15 @@ Element div;
 Element numberScenes;
 
 void main() {
+start();
+  //CardLibrary.clearLibrary();
+  //testShit();
+  //testSaving();
+  //testLoading();
+}
+
+Future<Null> start() async {
+  await Loader.preloadManifest();
   div = querySelector("#output");
   StatFactory.initAllStats();
   SceneFactory.initScenes();
@@ -16,10 +25,7 @@ void main() {
   syncNumberScenes();
   displayBox();
   displayFoundCards();
-  //CardLibrary.clearLibrary();
-  //testShit();
-  //testSaving();
-  //testLoading();
+
 }
 
 void displayBox() {
