@@ -12,6 +12,7 @@ void main() {
   giggleSnort("Could the Prospitian Maillady have any eggs to deliver to you?");
   giggleSnort("Thinking like a Waste might find one for you, but only if you remember where to go.");
   giggleSnort("What if you combine all the things???");
+  giggleSnort("Did JR ever even finish that bullet hell shooter they were working on?");
   giggleSnort("Have you seen what lies beyond the Void???");
   giggleSnort("Have you Been the Arms???");
   giggleSnort("I wonder what the Holy Preacher is up to???");
@@ -19,6 +20,7 @@ void main() {
   giggleSnort("Have you met Kid Boi???");
   giggleSnort("The Gourmet Nutritionist might know where to find rare and delectable eggs.");
   giggleSnort("Have you seen the Persistent Educator???");
+  giggleSnort("I wouldn't recomend actually meteoring your dear sweet precious grubs, but it might not hurt to check it out as an option.");
   giggleSnort("A Maid's work is never done.");
   giggleSnort("Have you found a friend of Democracy???");
   giggleSnort("Do you know about EA???");
@@ -29,10 +31,12 @@ void main() {
   giggleSnort("Have you taken five minutes today to try to feel better about yourself?");
   giggleSnort("Maybe Mass Effect and his robot girlfriend have an egg???");
   giggleSnort("The Arch Agent likely knows where to find illicit eggs.");
+  giggleSnort("I mean...you've made a doll. Right?");
   giggleSnort("Do you think there's a MiniSim index page???");
   giggleSnort("Ace Dick seems like the kind of guy who'd know about some choice eggs.");
   giggleSnort("Hearts Boxcar is known to have a softspot for eggs.");
   giggleSnort("The Dersite deliveryman might know where to find some eggs.");
+  giggleSnort("I mean...if nothing else, you could expect a Jade Blood to have some eggs.");
   giggleSnort("The Mobster Kingpin is known to have a sweet tooth for eggs.");
   giggleSnort("Have you been to see the Yogistic Doctor lately??? His head kind of looks like an egg...");
   giggleSnort("Have you reviewed the exponential power of positive thoughts lately?");
@@ -45,6 +49,7 @@ void main() {
   giggleSnort("Have you looked into making any Trading Cards lately?");
   giggleSnort("Sometimes it takes a good strife against a Dad to find an egg.");
   giggleSnort("Problem Sleuth is always available to help those in need.");
+  giggleSnort("Huh. I can't even remember if I ever linked to Homestuck the Moive from anywhere. Oh well.");
   giggleSnort("It's a long shot, but maybe the Beetle Enthusiast has found an egg while out hunting for bugs?");
   giggleSnort("The Malpracticing Doctor might be able to get an egg for you, if you don't ask where it came from. ");
   giggleSnort("Clubs Deuce has been known to keep an egg or two under his hat."); //its funny cuz he has paired scenes
