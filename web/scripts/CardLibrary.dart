@@ -10,6 +10,8 @@ abstract class CardLibrary {
     static List<Scene> _regularCards;
     static String CARDSAVESTRING = "LIFESIMCARDLIBRARY";
     static String FOUNDCARDSSTRING = "LIFESIMFOUNDCARDS";
+    //will be a set.
+    static String VIEWEDSCENES = "LIFESIMVIEWEDSCENES";
 
 
     static List<Scene> get genericCards {
@@ -21,6 +23,21 @@ abstract class CardLibrary {
             }
         }
         return _genericCards;
+    }
+
+    static Set<Scene> get viewedScenes {
+        /*
+            TODO  load from localStorage
+         */
+        Set<GenericScene> scense = new Set<GenericScene>();
+        Set<String> dataStrings = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
+
+    }
+
+    static set viewedScenes(Set<Scene> scenes) {
+        /* TODO
+        store this in local storage
+         */
     }
 
     //can't be removed or added. goal is to convert as many of these as possible to generic

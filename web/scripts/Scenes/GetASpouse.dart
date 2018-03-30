@@ -27,12 +27,12 @@ class GetASpouse extends Scene {
       //spouse.doll.orientation = Doll.TURNWAYS;
       spouse.turnways = true;
       text = "${owner.name} finds true love in ${spouse.name}.";
-      owner.addStat(StatFactory.ROMCOMMERY, 1);
+      owner.addStatLater(StatFactory.ROMCOMMERY, 1);
       owner.spouses.add(spouse);
       others.add(spouse);
-      owner.addStat(StatFactory.ESTEEM, 1);
+      owner.addStatLater(StatFactory.ESTEEM, 1);
 
-      owner.addStat(StatFactory.COMMERCE, -1);
+      owner.addStatLater(StatFactory.COMMERCE, -1);
       owner.scenesToAdd.add(new GetAKid(owner));
       owner.scenesToAdd.add(new GoOnDates(owner));
 

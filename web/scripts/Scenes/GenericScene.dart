@@ -329,7 +329,7 @@ class SVP {
     }
 
     void apply(Entity owner) {
-        owner.addStat(stat, value);
+        owner.addStatLater(stat, value);
     }
 
     String toString() {

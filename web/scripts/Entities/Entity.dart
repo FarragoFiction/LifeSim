@@ -9,6 +9,7 @@ class Entity {
     Random rand;
     List<Scene> scenes = new List<Scene>();
     List<Scene> scenesToAdd = new List<Scene>();
+    List<SVP> statsToAdd = new List<SVP>();
 
     bool born = false;
 
@@ -39,8 +40,8 @@ class Entity {
         scenes.add(new BeAHobo(this));
         scenes.add(new DickAround(this));
         addAllHighPriorityScenes(nonDefaultScenes);
-        addStat(StatFactory.LIFESAUCE,0);
-        addStat(StatFactory.AGE,0);
+        addStatLater(StatFactory.LIFESAUCE,0);
+        addStatLater(StatFactory.AGE,0);
         //addStat(StatFactory.BRAINITUDE,0);
     }
 
@@ -69,6 +70,12 @@ class Entity {
         return rand.pickFrom(lastNames);
     }
 
+    void addAllNewStats(List<SVP> newStats) {
+        for(SVP s in newStats) {
+            addStatLater(s.stat, s.value);
+        }
+    }
+
     void addAllHighPriorityScenes(List<Scene>priorityScenes) {
         for(Scene s in priorityScenes) {
             s.owner = this;
@@ -80,7 +87,11 @@ class Entity {
         return _stats.contains(s);
     }
 
-    void addStat(Stat s, int value) {
+    void addStatLater(Stat s, int value) {
+        statsToAdd.add(new SVP(s,value));
+    }
+
+    void addStatNow(Stat s, int value) {
         s.value += value;
         if(!hasStat(s)){
             _stats.add(s);
@@ -106,6 +117,10 @@ class Entity {
 
     Future<Null> tick(Element div, World w) async {
         if(dead) return;
+        addAllNewStats(statsToAdd);
+        statsToAdd.clear();
+
+
         //be born first asshole
         if(!born) {
            Scene s = new BeBorn(this);
@@ -122,6 +137,7 @@ class Entity {
         }
 
         addAllHighPriorityScenes(scenesToAdd);
+
         scenesToAdd.clear();
         //print("tick for $name div is $div");
         //only one scene per tick.
@@ -157,3 +173,4 @@ class Entity {
         return cachedCanvas;
     }
 }
+

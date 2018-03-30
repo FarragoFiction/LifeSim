@@ -10,7 +10,8 @@ void main() {
 
   div = querySelector("#output");
   div.style.textAlign = "left";
-  div.style.marginLeft = "300px";
+  div.style.marginLeft = "auto";
+  div.style.marginRight = "auto";
   //in theory i could strike through these as you find them...but then i'd need to know how to identify them
   allude("The Mathematician can calculate one for you.");
   allude("I wonder if LORAS has any eggs???");

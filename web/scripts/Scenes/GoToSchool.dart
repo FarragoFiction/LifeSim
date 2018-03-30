@@ -30,7 +30,7 @@ class GoToSchool extends Scene {
   @override
   Future<Null> renderContent(Element element, World w) async {
       text = "${owner.name} does a school.";
-      owner.addStat(StatFactory.GRADEMOXY, 1);
+      owner.addStatLater(StatFactory.GRADEMOXY, 1);
       super.renderContent(element, w);
   }
 

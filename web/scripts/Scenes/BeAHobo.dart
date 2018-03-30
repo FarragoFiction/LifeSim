@@ -26,8 +26,8 @@ class BeAHobo extends Scene {
   Future<Null> renderContent(Element element, World w) async {
       initOthers();
       text = "${owner.name} is destitute.";
-      owner.addStat(StatFactory.SMELLWAVES, 3);
-      owner.addStat(StatFactory.ESTEEM, -3);
+      owner.addStatLater(StatFactory.SMELLWAVES, 3);
+      owner.addStatLater(StatFactory.ESTEEM, -3);
 
       super.renderContent(element, w);
 

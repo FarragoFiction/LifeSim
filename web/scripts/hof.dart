@@ -9,7 +9,7 @@ void main() {
   //i just think it's funny to watch the style change as it loads.
   div = querySelector("#output");
   div.style.width = "1000px";
-  div.style.marginLeft = "300px";
-  div.style.textAlign = "left";
+  div.style.marginLeft = "auto";
+  div.style.marginRight = "auto";  div.style.textAlign = "left";
   loadNavbar();
 }

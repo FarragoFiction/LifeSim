@@ -33,13 +33,13 @@ class GetAKid extends Scene {
       String outOfWedlock = "";
       if(owner.spouses.isEmpty) outOfWedlock = " through shenanigans.";
       text = "${owner.name} produces a baby named ${kid.name}$outOfWedlock.";
-      owner.addStat(StatFactory.PARENTRITUDE, 1);
-      owner.addStat(StatFactory.ROMCOMMERY, 1);
+      owner.addStatLater(StatFactory.PARENTRITUDE, 1);
+      owner.addStatLater(StatFactory.ROMCOMMERY, 1);
       owner.scenesToAdd.add(new TakeKidToPark(owner));
       owner.children.add(kid);
       others.add(kid);
-      owner.addStat(StatFactory.ESTEEM, 1);
-      owner.addStat(StatFactory.COMMERCE, -1);
+      owner.addStatLater(StatFactory.ESTEEM, 1);
+      owner.addStatLater(StatFactory.COMMERCE, -1);
       super.renderContent(element, w);
   }
 
