@@ -16,6 +16,9 @@ abstract class CardLibrary {
     static String MONEYSTRING = "LIFESIMMONEY";
 
 
+
+
+
     static List<Scene> get genericCards {
         if(_genericCards == null) {
             CardLibrary.loadLibrary();
@@ -79,6 +82,13 @@ abstract class CardLibrary {
         List<Scene> ret = new List<Scene>();
         ret.addAll(genericCards);
         ret.addAll(regularCards);
+        return ret;
+    }
+
+    static Set<Scene> cardsWithSearchTerm(String term) {
+        // (GenericScene scene) => scene.toJson();
+        Set<Scene> ret = Search.textSearch(genericCards,term,(Scene scene) => (scene as GenericScene).toJSON().toString());
+        ret.addAll(Search.textSearch(regularCards,term,(Scene scene) => scene.description));
         return ret;
     }
 

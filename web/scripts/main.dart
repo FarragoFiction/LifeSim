@@ -131,6 +131,7 @@ Future<Null> loadProtagDoll() async {
 
 void initCardLibrary() {
   sceneCards = CardLibrary.cards;
+  //sceneCards = new List.from(CardLibrary.cardsWithSearchTerm("thot"));
 }
 
 void grabSelectedCardsAndStart() {

@@ -11,3 +11,4 @@ export "Stats/StatLib.dart";
 export "JSONObject.dart";
 export "CardLibrary.dart";
 export "navbar.dart";
+export "text_search.dart"; //thnx pl

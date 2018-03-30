@@ -55,3 +55,36 @@ First step: add a "money" section to the save data.
 second step: display money on lifesim page.
 third step: button to sell any card
 fourth step: all the other library management shit (sorting, filtering, searching etc)
+
+~~~~
+
+okay, next step is to display not the ENTIRE library, but  a subset.
+
+maybe look through wiggler sim to see how i want to handle it.
+
+Should ALWAYS be paginated.  But WHAT is paginated should vary.
+
+wait. this is scope creep right now. I have to finish today, and I HAVE to finish tomorrow so...
+
+I need to think about what I need.... (5 minutes on the clock)
+
+The problem I'm trying to solve is:
+
+* There are going to be a FUCK TON more cards than will be useful.
+* It will be annoying to decide which cards to turn on or off.
+* It will be annoying to figure out how to activate certain cards in the sim.
+
+Cards are activated through stats. So you might have a "THOT" trigger card and want to find
+any card that has a result involving THOT.
+
+You'll want buttons for turning on ALL cards, NO cards, or RANDOM cards... ( no matter what is displayed?)
+
+What if there's a particular card you want to try to see?
+
+I know PL has search code for the image browser....
+
+So maybe...
+
+A text box, and a drop down for which field to check (name, found, trigger stat or result stat, unlock scene?).
+
+Then a button for filter? Then a button for select all, select none and select random.
