@@ -133,6 +133,25 @@ class GenericScene extends Scene {
         super.renderContent(element, w);
     }
 
+    void drawSellButton(Element div) {
+        DivElement d = new DivElement();
+        int price = convertToNumber() % 113; //yes, this is an insane way to do it, why do you ask? (i really don't want to store price along with shit, it'll be annoying to calibrate so why not just go fucking hog wild)
+        ButtonElement b = new ButtonElement();
+        b.text = "Sell for $price?";
+        d.append(b);
+        div.append(d);
+        //TODO remove me from card lib and give you price.
+    }
+
+    int convertToNumber() {
+        int ret = 0;
+        String str = toDataString();
+        for(int s in str.codeUnits) {
+            ret += s;
+        }
+        return ret;
+    }
+
 
     String toDataString() {
         String json = toJSON().toString();

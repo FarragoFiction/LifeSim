@@ -157,7 +157,11 @@ Future<Null> displayCardLibrary() async {
   initCardLibrary();
   for(int i = 0; i<sceneCards.length; i++) {
       Scene s = sceneCards[i];
-      s.drawCard(cardLibraryDiv, i);
+      DivElement span = new DivElement();
+      span.style.display = "inline-block";
+      cardLibraryDiv.append(span);
+      s.drawCard(span, i);
+      if(s is GenericScene) s.drawSellButton(span);
   }
 }
 
