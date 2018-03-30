@@ -8,6 +8,9 @@ class World {
     bool ended = false;
     int renderingSpeed = 100;
 
+    //datastrings
+    Set<String> viewedScenes = new Set<String>();
+
     int age = 0;
     int maxAge = 100;
     Entity protagonist;
@@ -24,6 +27,7 @@ class World {
             error.text = ("Uh. Fuck. I think it broke. Sure hope it was something the asshole living this life did, and not me.");
             div.append(error);
         });
+        viewedScenes.addAll(CardLibrary.viewedScenes);
     }
 
     Entity makeEntity(String firstName, String lastName) {
@@ -74,6 +78,8 @@ class World {
             await protagonist.tick(div, this);
             timePasses();
             new Timer(new Duration(milliseconds: renderingSpeed), () => tick());
+        }else {
+            CardLibrary.viewedScenes = viewedScenes; //save
         }
     }
 

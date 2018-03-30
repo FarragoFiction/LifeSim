@@ -25,21 +25,16 @@ abstract class CardLibrary {
         return _genericCards;
     }
 
-    static Set<Scene> get viewedScenes {
-        Set<GenericScene> scense = new Set<GenericScene>();
+    static Set<String> get viewedScenes {
+        Set<String> scense = new Set<String>();
         if(window.localStorage.containsKey(VIEWEDSCENES)){
-            Set<String> dataStrings = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
-            for(String s in dataStrings) {
-                scense.add(GenericScene.fromDataString(s));
-            }
+            scense = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
         }
         return scense;
     }
 
-    static set viewedScenes(Set<Scene> scenes) {
-        /* TODO
-        store this in local storage
-         */
+    static set viewedScenes(Set<String> scenes) {
+        window.localStorage[VIEWEDSCENES] = scenes.toString();
     }
 
     //can't be removed or added. goal is to convert as many of these as possible to generic

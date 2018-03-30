@@ -143,6 +143,7 @@ class Entity {
         for(Scene s in scenes) {
             if(s.triggered()) {
                 await s.renderContent(div, w);
+                if(s is GenericScene) w.viewedScenes.add(s.toDataString());
                 return;
             }
         }
