@@ -119,7 +119,7 @@ void syncEverythingToTemplate() {
 
     scenesUnlockedHolder.setInnerHtml("");
     for(GenericScene scene in template.scenesToUnlock) {
-        makeSceneUnlockedDataBox(scenesUnlockedHolder, scene.toDataString());
+        makeSceneUnlockedDataBox(scenesUnlockedHolder, scene.toDataString(), scene);
     }
 }
 
@@ -201,7 +201,7 @@ void makeResults(Element container) {
 
 void makeScenesUnlocked(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.setInnerHtml("Will add Scenes to a session beyond what the User picked. Useful to create entire quest lines.<br><br> Recomended use is for you to distribute a single card that unlocks all the cards that are meant to happen after it. If progression is important, child cards can have a trigger of exactly a stat value. <br><br>Example: First card gives you SPEEDICITY of 1, and unlocks 7 more cards. Each of the 7 cards is triggered by SPEEDICITY equalling a different value and also raises SPEEDICITY by one. ");
+    myContainer.setInnerHtml("Will add Scenes to a session beyond what the User picked. Useful to create entire quest lines.<br><br> Recomended use is for you to distribute a single card that unlocks all the cards that are meant to happen after it. If progression is important, child cards can have a trigger of exactly a stat value. <br><br>Example: First card gives you SPEEDICITY of 1, and unlocks 7 more cards. Each of the 7 cards is triggered by SPEEDICITY equalling a different value and also raises SPEEDICITY by one.<br><Br>This DOES mean you will need to make the first card in the chain LAST, so it can have the other cards inside of it. A quest chain should have a single dataString to pass out. ");
     scenesUnlockedHolder = new DivElement();
     ButtonElement button = new ButtonElement();
     button.text = "Add UnlockedScene";
@@ -215,7 +215,7 @@ void makeScenesUnlocked(Element container) {
     container.append(myContainer);
 }
 
-void makeSceneUnlockedDataBox(Element container, String value) {
+void makeSceneUnlockedDataBox(Element container, String value, [GenericScene defaultScene]) {
     DivElement myContainer = new DivElement();
     myContainer.style.paddingBottom = "10px";
     myContainer.style.paddingTop = "10px";
@@ -237,7 +237,22 @@ void makeSceneUnlockedDataBox(Element container, String value) {
         myContainer.remove();
     });
 
+    //try to make the remove button more sane
+    if(defaultScene != null){
+        print("there's a default scene");
+        //overwrite just removing, now can remove the scene too
+        button.onClick.listen((e) {
+            //can't remove directly since it's technically a diff object than what was added
+            template.scenesToUnlock.remove(defaultScene);
+            myContainer.remove();
+            syncDataBoxToTemplate("makeSceneUnlockedDataBoxRemove");
+        });
+
+        syncDataBoxToTemplate("makeSceneUnlockedDataBox");
+    }
+
     holder.onChange.listen((e) {
+        print("holder changed");
         try {
             GenericScene s = GenericScene.fromDataString(holder.value);
             template.scenesToUnlock.add(s);

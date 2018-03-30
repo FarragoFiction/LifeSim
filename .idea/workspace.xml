@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/CardLibrary.dart" afterPath="$PROJECT_DIR$/web/scripts/CardLibrary.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" afterPath="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/designCard.dart" afterPath="$PROJECT_DIR$/web/scripts/designCard.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +23,18 @@
             <state relative-caret-position="244">
               <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="designCard.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="203" column="706" lean-forward="false" selection-start-line="203" selection-start-column="706" selection-end-line="203" selection-end-column="706" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,8 +72,8 @@
       <file leaf-file-name="GenericScene.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
+            <state relative-caret-position="165">
+              <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -107,16 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hof.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/hof.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -129,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new svp</find>
-      <find>greaterHolder</find>
       <find>toJson</find>
       <find>fromJSON</find>
       <find>resulsts</find>
@@ -141,7 +141,6 @@
       <find>henderson</find>
       <find>drawcon</find>
       <find>scene</find>
-      <find>remove</find>
       <find>drawC</find>
       <find>drawCardR</find>
       <find>drawCard</find>
@@ -157,8 +156,11 @@
       <find>recom</find>
       <find>output</find>
       <find>addAllnew</find>
-      <find>toadd</find>
       <find>print</find>
+      <find>remove</find>
+      <find>synctemplate</find>
+      <find>toadd</find>
+      <find>7</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,7 +199,6 @@
         <option value="$PROJECT_DIR$/web/scripts/Scenes/SceneLibrary.dart" />
         <option value="$PROJECT_DIR$/web/scripts/image_browser.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/TakeKidToPark.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
         <option value="$PROJECT_DIR$/web/debug_rambling.txt" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/SceneFactory.dart" />
@@ -206,7 +207,6 @@
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/scripts/LifeSimLib.dart" />
         <option value="$PROJECT_DIR$/web/scripts/main.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/designCard.dart" />
         <option value="$PROJECT_DIR$/web/scripts/collectEggs.dart" />
         <option value="$PROJECT_DIR$/web/scripts/navbar.dart" />
         <option value="$PROJECT_DIR$/web/navbar.txt" />
@@ -220,6 +220,8 @@
         <option value="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
         <option value="$PROJECT_DIR$/web/scripts/CardLibrary.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart" />
+        <option value="$PROJECT_DIR$/web/scripts/designCard.dart" />
       </list>
     </option>
   </component>
@@ -951,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
@@ -1101,14 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="115" column="27" lean-forward="false" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/Scene.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1122,6 +1106,24 @@
         <state relative-caret-position="251">
           <caret line="46" column="35" lean-forward="false" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="203" column="706" lean-forward="false" selection-start-line="203" selection-start-column="706" selection-end-line="203" selection-end-column="706" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

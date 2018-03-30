@@ -104,6 +104,16 @@ class GenericScene extends Scene {
       return true;
   }
 
+  void removeResultSceneWithName(String n) {
+        GenericScene remove;
+        for(GenericScene s in scenesToUnlock) {
+            if(s.name == n) {
+                remove = s;
+            }
+        }
+        scenesToUnlock.remove(remove);
+  }
+
     @override
     Future<Null> renderContent(Element element, World w) async {
        text =   text.replaceAll("$OWNERNAME", "${owner.name}");
