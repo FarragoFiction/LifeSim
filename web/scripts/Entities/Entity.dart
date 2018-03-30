@@ -72,7 +72,7 @@ class Entity {
 
     void addAllNewStats(List<SVP> newStats) {
         for(SVP s in newStats) {
-            addStatLater(s.stat, s.value);
+            addStatNow(s.stat, s.value);
         }
     }
 
@@ -117,9 +117,6 @@ class Entity {
 
     Future<Null> tick(Element div, World w) async {
         if(dead) return;
-        addAllNewStats(statsToAdd);
-        statsToAdd.clear();
-
 
         //be born first asshole
         if(!born) {
@@ -137,8 +134,10 @@ class Entity {
         }
 
         addAllHighPriorityScenes(scenesToAdd);
-
         scenesToAdd.clear();
+
+        addAllNewStats(statsToAdd);
+        statsToAdd.clear();
         //print("tick for $name div is $div");
         //only one scene per tick.
         for(Scene s in scenes) {

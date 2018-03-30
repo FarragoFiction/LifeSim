@@ -118,6 +118,7 @@ abstract class Scene {
     //some scenes could add another div after super is called if they need something fancy, but
     //image with caption underneath should be standard.
     Future<Null> renderContent(Element element, World w) async {
+        //print('rendering a scene $name');
         DivElement container = new DivElement();
         //as long as i get this appended soon, it goes on screen then we async
         element.append(container);
@@ -174,6 +175,7 @@ abstract class Scene {
     }
 
     Future<Null> statWork(List<Stat> readOnlyStats, Element div, World w) async {
+        //print("rendering stats for $name");
         CanvasElement canvas = new CanvasElement(width: width, height: 200);
         canvas.classes.add("stats");
         div.append(canvas);

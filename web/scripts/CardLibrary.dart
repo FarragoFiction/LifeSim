@@ -26,12 +26,14 @@ abstract class CardLibrary {
     }
 
     static Set<Scene> get viewedScenes {
-        /*
-            TODO  load from localStorage
-         */
         Set<GenericScene> scense = new Set<GenericScene>();
-        Set<String> dataStrings = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
-
+        if(window.localStorage.containsKey(VIEWEDSCENES)){
+            Set<String> dataStrings = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
+            for(String s in dataStrings) {
+                scense.add(GenericScene.fromDataString(s));
+            }
+        }
+        return scense;
     }
 
     static set viewedScenes(Set<Scene> scenes) {
