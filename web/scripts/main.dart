@@ -16,6 +16,7 @@ CanvasElement protagPreview;
 
 
 void main() {
+  div.style.width = "100%";
   loadNavbar();
   StatFactory.initAllStats();
   SceneFactory.initScenes();
@@ -23,6 +24,7 @@ void main() {
   rand = new Random();
 
   cardLibraryDiv = new DivElement();
+  cardLibraryDiv.style.width = "100%";
   cardLibraryDiv.id = "cardLibrary"; //for humans
   cardLibraryDiv.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
 
@@ -31,6 +33,7 @@ void main() {
 
   story = new DivElement();
   story.id = "story";
+  story.style.width = "1000px";
 
   Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
 
@@ -171,6 +174,7 @@ void pickCardsRandomly() {
 }
 
 void start() {
+  div.style.width = "1000px";
  // print("before starting., there are ${chosenScenes}");
   doCoinToss();
   preStory.style.display = "none";

@@ -44,3 +44,14 @@ VM196:1 drawing card because of syncDataBoxToTemplate
 AHAH there we go. SVP form pair create sets off a few more
 
 SO....I think if i pass a bool for "sync" or not it'll fix.
+
+~~~~~
+
+i feel really sleepy.
+
+so, I'm gonna need an extra push to finish this stuff.
+
+First step: add a "money" section to the save data.
+second step: display money on lifesim page.
+third step: button to sell any card
+fourth step: all the other library management shit (sorting, filtering, searching etc)

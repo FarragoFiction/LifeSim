@@ -12,6 +12,8 @@ abstract class CardLibrary {
     static String FOUNDCARDSSTRING = "LIFESIMFOUNDCARDS";
     //will be a set.
     static String VIEWEDSCENES = "LIFESIMVIEWEDSCENES";
+    //eventually, once i open up the card builder, booster packs will be able to be bought with in game currency
+    static String MONEYSTRING = "LIFESIMMONEY";
 
 
     static List<Scene> get genericCards {
@@ -23,6 +25,18 @@ abstract class CardLibrary {
             }
         }
         return _genericCards;
+    }
+
+    static int get money {
+        if(window.localStorage.containsKey(MONEYSTRING)){
+            return int.parse(window.localStorage[MONEYSTRING]);
+        }else {
+            return 0;
+        }
+    }
+
+    static set money(int value) {
+        window.localStorage[MONEYSTRING] = "$value";
     }
 
     static void clearViewedScenes(){

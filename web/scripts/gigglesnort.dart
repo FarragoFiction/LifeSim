@@ -15,6 +15,7 @@ void main() {
   //in theory i could strike through these as you find them...but then i'd need to know how to identify them
   allude("The Mathematician can calculate one for you.");
   allude("I wonder if LORAS has any eggs???");
+  allude("The Artist has been known to paint some eggs.");
   allude("Do you think there's an FAQ anywhere???");
   allude("Could the Prospitian Maillady have any eggs to deliver to you?");
   allude("Thinking like a Waste might find one for you, but only if you remember where to go.");

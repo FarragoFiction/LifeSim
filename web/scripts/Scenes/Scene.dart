@@ -106,6 +106,7 @@ abstract class Scene {
     //some scenes could add another div after super is called if they need something fancy, but
     //image with caption underneath should be standard.
     Future<Null> renderContent(Element element, World w) async {
+        if(displayedText == null) displayedText = text;
         //print('rendering a scene $name');
         DivElement container = new DivElement();
         //as long as i get this appended soon, it goes on screen then we async

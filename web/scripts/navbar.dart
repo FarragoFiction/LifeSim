@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import "CardLibrary.dart";
 import "package:DollLibCorrect/DollRenderer.dart";
 
 String simulatedParamsGlobalVar = "";
@@ -31,7 +31,17 @@ void onNavbarLoaded(String data) {
         querySelector("#story").appendHtml("<button id = 'voidButton'>Peer into Void, Y/N?</a><div class='void'>Well, NOW you've certainly gone and done it. You can expect to see any Void Player shenanignans now. If there are any.", treeSanitizer: NodeTreeSanitizer.trusted);
         (querySelector("#voidButton") as ButtonElement).onClick.listen((Event e) => toggleVoid());
     }
+    displayMoney();
+
 }
+
+
+void displayMoney() {
+    DivElement money = new DivElement();
+    money.text = "Life Bux: ${CardLibrary.money}";
+    querySelector("#navbar").append(money);
+}
+
 String getParamStringMinusParam(String name) {
     String params = window.location.href.substring(window.location.href.indexOf("?") + 1);
     if (params == window.location.href) params = "";

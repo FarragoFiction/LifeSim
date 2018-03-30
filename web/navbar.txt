@@ -6,8 +6,14 @@
 
   <li class = "menuButtonPureCSS"><a href="index.html">LifeSim</a></li>
   <li class = "menuButtonPureCSS"><a href="collectScenes.html">CollectCards</a></li>
-  <li class = "menuButtonPureCSS"><a href="gigglesnort.html">GiggleSnort</a></li>
-  <li class = "menuButtonPureCSS"><a href="about.html">FAQ</a></li>
+  <li class="dropdown menuButtonPureCSS">
+              <a href="javascript:void(0)" class="dropbtn">Info</a>
+                  <div class="dropdown-content">
+                  <a href="gigglesnort.html">GiggleSnort</a>
+                  <a href="about.html">FAQ</a>
+                  <a href = "viewAchievements.html">Scenes Viewed</a>
+              </li>
+
     <li class = "menuButtonPureCSS"><a href="hallOfFame.html">HOF</a></li>
 
 

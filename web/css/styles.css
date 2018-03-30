@@ -115,7 +115,7 @@ div{
 	z-index: 13;
 	padding-right: 5px;
 	border: 3px solid #000000;
-	background-color: #3ffffff;
+	background-color: #fffffff;
 	font-family: "Courier", Times, serif;
 	font-size: 18px;
 	color: #06ffc9;
@@ -184,7 +184,7 @@ li.dropdown {
     display: none;
     z-index: 13;
     position: absolute;
-    background-color: #000000;
+    background-color: #ffffff;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -199,7 +199,7 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #131313}
+.dropdown-content a:hover {background-color: #eeeeee}
 
 .dropdown:hover .dropdown-content {
 z-index: 13;
