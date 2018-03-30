@@ -141,6 +141,12 @@ class GenericScene extends Scene {
         d.append(b);
         div.append(d);
         //TODO remove me from card lib and give you price.
+        b.onClick.listen((e) {
+            CardLibrary.money = CardLibrary.money + price;
+            CardLibrary.removeCard(this);
+            div.remove();
+            syncMoney();
+        });
     }
 
     int convertToNumber() {

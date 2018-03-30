@@ -115,6 +115,12 @@ abstract class CardLibrary {
         CardLibrary.saveLibrary();
     }
 
+    static void removeCard(GenericScene scene) {
+        genericCards; //to load
+        _genericCards.remove(scene);
+        CardLibrary.saveLibrary();
+    }
+
     static void clearFoundCards() {
         window.localStorage.remove(FOUNDCARDSSTRING);
     }

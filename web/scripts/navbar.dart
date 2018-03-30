@@ -38,8 +38,14 @@ void onNavbarLoaded(String data) {
 
 void displayMoney() {
     DivElement money = new DivElement();
-    money.text = "Life Bux: ${CardLibrary.money}";
+    money.id = "money";
     querySelector("#navbar").append(money);
+    syncMoney();
+}
+
+void syncMoney() {
+    DivElement money = querySelector("#money");
+    money.text = "Life Bux: ${CardLibrary.money}";
 }
 
 String getParamStringMinusParam(String name) {
