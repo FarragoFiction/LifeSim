@@ -8,19 +8,6 @@ abstract class Scene {
     String source = "Included in Base Game";
 
 
-    //TODO have scenes have ids so you can store and load them as cards
-    /*TODO have a 'blank' scene object that has the stat it is triggered by
-    and the stat it gives when it happens be variables, as well as the text it displays
-    that means TODO stats have ids as well
-    also have optional scene that is unlocked if this scene plays
-    TODO store image as an INT from an array i have.
-    TODO test this blank scene object with RANDOMIZED scenes as well.
-
-    and TODO convert the simplist existing scenes into the blank format and store in a factory.
-
-    make sure you don't use the factory scenes directly, instead copy them
-     */
-
 
     String name = "???";
     //for scenes with random in them. they can override this if they want
@@ -28,6 +15,7 @@ abstract class Scene {
     double triggerChance = 0.2;
     //what should be displayed on screen, will be set in rendercontent
     String text;
+    String displayedText;
     //includes extension, like .png, will be set in each subclass
     String backgroundName;
     //will be set on creation.
@@ -127,7 +115,7 @@ abstract class Scene {
         canvas.classes.add("picture");
         DivElement narration = new DivElement();
         narration.classes.add("narration");
-        narration.setInnerHtml(text);
+        narration.setInnerHtml(displayedText);
         container.append(canvas);
         container.append(narration);
 

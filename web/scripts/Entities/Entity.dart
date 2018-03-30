@@ -88,7 +88,13 @@ class Entity {
     }
 
     void addStatLater(Stat s, int value) {
-        statsToAdd.add(new SVP(s,value));
+        //shit i can't do this how i wanted because it makes the stats not update right.
+        //makes them show p the tick AFTER a scene mods them.
+        if(true || _stats.contains(s)){
+            addStatNow(s,value); //won't be modding the array.
+        }else{
+            statsToAdd.add(new SVP(s, value));
+        }
     }
 
     void addStatNow(Stat s, int value) {

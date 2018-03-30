@@ -116,7 +116,8 @@ class GenericScene extends Scene {
 
     @override
     Future<Null> renderContent(Element element, World w) async {
-       text =   text.replaceAll("$OWNERNAME", "${owner.name}");
+        //don't replace text, keep that the same
+       displayedText =   text.replaceAll("$OWNERNAME", "${owner.name}");
 
        for(SVP svp in resultStats) {
             svp.apply(owner);

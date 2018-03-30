@@ -27,7 +27,7 @@ class BreakTheGame extends Scene {
   @override
   Future<Null> renderContent(Element element, World w) async {
       initOthers();
-      text = "Uh. Is ${owner.name} supposed to be.... Fuck.";
+      text = "Uh. Is ${owner.name} supposed to be.... Fuck. I think they broke something...";
       super.renderContent(element, w);
       throw("whoops");
   }

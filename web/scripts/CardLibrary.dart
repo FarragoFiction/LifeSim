@@ -25,15 +25,22 @@ abstract class CardLibrary {
         return _genericCards;
     }
 
+    static void clearViewedScenes(){
+        window.localStorage.remove(VIEWEDSCENES);
+    }
+
+
     static Set<String> get viewedScenes {
-        Set<String> scense = new Set<String>();
+        Set<String> scenes = new Set<String>();
         if(window.localStorage.containsKey(VIEWEDSCENES)){
-            scense = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
+            scenes = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
         }
-        return scense;
+        print("getting ${scenes.length} viewed scenes");
+        return scenes;
     }
 
     static set viewedScenes(Set<String> scenes) {
+        print("saving ${scenes.length} viewed scenes");
         window.localStorage[VIEWEDSCENES] = scenes.toString();
     }
 
