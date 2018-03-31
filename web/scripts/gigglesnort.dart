@@ -53,6 +53,7 @@ void main() {
   allude("The Dersite deliveryman might know where to find some eggs.");
   allude("I mean...if nothing else, you could expect a Jade Blood to have some eggs.");
   allude("The Mobster Kingpin is known to have a sweet tooth for eggs.");
+  allude("I mean, I always just ask AuthorBot when I'm looking for anything. It's worth a shot.");
   allude("Have you been to see the Yogistic Doctor lately??? His head kind of looks like an egg...");
   allude("Have you reviewed the exponential power of positive thoughts lately?");
   allude("Don't Royal Bakers have a lot of access to eggs???");
