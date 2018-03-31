@@ -51,7 +51,7 @@ abstract class Scene {
 
 
 
-    Future<Null> drawCard(Element element, int id) async {
+    Future<CanvasElement> drawCard(Element element, int id) async {
        // print("tring to draw $name card");
         CanvasElement canvas = new CanvasElement(width:322, height: 450);
         canvas.classes.add('sceneCard');
@@ -77,6 +77,7 @@ abstract class Scene {
 
         drawCardRest(canvas);
         //print("finished allocating space for card $name");
+        return canvas;
     }
 
     //the async part of drawing a card, genericScene overrides this

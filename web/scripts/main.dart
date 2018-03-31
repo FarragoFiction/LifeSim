@@ -13,6 +13,7 @@ Element story;
 Element protagLoader;
 Element coinToss;
 CanvasElement protagPreview;
+List<CanvasElement> cardCanvases = new List<CanvasElement>();
 
 
 void main() {
@@ -145,6 +146,38 @@ void grabSelectedCardsAndStart() {
   start();
 }
 
+void selectAllCards() {
+  print("select all cards");
+  for(CanvasElement canvas in cardCanvases) {
+      canvas.classes.add('selectedCard');
+      canvas.classes.remove('unSelectedCard');
+
+  }
+}
+
+void selectNoCards() {
+  print("select no cards");
+  for(CanvasElement canvas in cardCanvases) {
+      canvas.classes.add('unSelectedCard');
+      canvas.classes.remove('selectedCard');
+  }
+}
+
+void selectRandomCards() {
+  print("select random cards");
+  Random rand = new Random();
+  rand.nextInt();
+  for(CanvasElement canvas in cardCanvases) {
+    if (rand.nextBool()) {
+      canvas.classes.add('selectedCard');
+      canvas.classes.remove('unSelectedCard');
+    } else {
+      canvas.classes.add('unSelectedCard');
+      canvas.classes.remove('selectedCard');
+    }
+  }
+}
+
 //as opposed to a library card
 Future<Null> displayCardLibrary() async {
   await Loader.preloadManifest();
@@ -152,7 +185,24 @@ Future<Null> displayCardLibrary() async {
   ButtonElement button = new ButtonElement();
   button.text = "Start Life With Selected Cards";
   button.onClick.listen((e) => grabSelectedCardsAndStart());
+
+  ButtonElement buttonAll = new ButtonElement();
+  buttonAll.text = "Select All Cards";
+  buttonAll.onClick.listen((e) => selectAllCards());
+
+  ButtonElement buttonNone = new ButtonElement();
+  buttonNone.text = "Select No Cards";
+  buttonNone.onClick.listen((e) => selectNoCards());
+
+  ButtonElement buttonRandom = new ButtonElement();
+  buttonRandom.text = "Select Random Cards";
+  buttonRandom.onClick.listen((e) => selectRandomCards());
+
   buttonHolder.append(button);
+  buttonHolder.append(buttonAll);
+  buttonHolder.append(buttonNone);
+  buttonHolder.append(buttonRandom);
+
   cardLibraryDiv.append(buttonHolder);
 
   initCardLibrary();
@@ -161,7 +211,8 @@ Future<Null> displayCardLibrary() async {
       DivElement span = new DivElement();
       span.style.display = "inline-block";
       cardLibraryDiv.append(span);
-      s.drawCard(span, i);
+      CanvasElement c = await s.drawCard(span, i);
+      cardCanvases.add(c);
       if(s is GenericScene) s.drawSellButton(span);
   }
 }

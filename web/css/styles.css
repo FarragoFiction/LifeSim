@@ -180,6 +180,10 @@ li.dropdown {
     z-index: 13;
 }
 
+button{
+    margin-left: 10px;
+}
+
 .dropdown-content {
     display: none;
     z-index: 13;
