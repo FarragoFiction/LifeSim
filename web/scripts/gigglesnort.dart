@@ -13,6 +13,8 @@ void main() {
   div.style.marginLeft = "auto";
   div.style.marginRight = "auto";
   //in theory i could strike through these as you find them...but then i'd need to know how to identify them
+  allude("AuthorBotJunior SEEMS safe enough to approach to ask about eggs. Right???");
+  allude("There is no way the Author wouldn't have cards for you.");
   allude("You...don't think JR would just....add MORE lines to this over time, would they? That would be some kind of ....prank. And JR would only do that on some sort of....designated...prank....holiday... Shit.");
   allude("The Mathematician can calculate one for you.");
   allude("I wonder if LORAS has any eggs???");
@@ -35,15 +37,19 @@ void main() {
   allude("Do you know about EA???");
   allude("You know about the turtles...right???");
   allude("Ms. Paint would surely help you look for eggs.");
+  allude("I wouldn't dare approach Dennis directly. But maybe there is somewhere you can go to learn about him.");
   allude("Have you heard the Jazz Singer's voice??? ");
   allude("The Creative Investigator might know where to find some eggs.");
   allude("Have you taken five minutes today to try to feel better about yourself?");
   allude("Maybe Mass Effect and his robot girlfriend have an egg???");
   allude("The Arch Agent likely knows where to find illicit eggs.");
   allude("I mean...you've made a doll. Right?");
+  allude("The Silicon Inventress might be able to help you find an egg.");
   allude("Do you think there's a MiniSim index page???");
   allude("Ace Dick seems like the kind of guy who'd know about some choice eggs.");
   allude("Hearts Boxcar is known to have a softspot for eggs.");
+  allude("The Brope seems like they'd have an egg or two.");
+  allude("If you go talk to Sans Undertale you're gonna have a bad time...but you might find an Egg, too.");
   allude("The Dersite deliveryman might know where to find some eggs.");
   allude("I mean...if nothing else, you could expect a Jade Blood to have some eggs.");
   allude("The Mobster Kingpin is known to have a sweet tooth for eggs.");
