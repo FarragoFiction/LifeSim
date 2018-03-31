@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" afterPath="$PROJECT_DIR$/web/scripts/Scenes/Scene.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" afterPath="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/main.dart" afterPath="$PROJECT_DIR$/web/scripts/main.dart" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" afterPath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,21 +15,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debug_rambling.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/debug_rambling.txt">
+      <file leaf-file-name="gigglesnort.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/scripts/gigglesnort.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="130">
+              <caret line="15" column="212" lean-forward="false" selection-start-line="15" selection-start-column="212" selection-end-line="15" selection-end-column="212" />
               <folding />
             </state>
           </provider>
@@ -179,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/scripts/Scenes.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Entities/EntityLibrary.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Universe.dart" />
         <option value="$PROJECT_DIR$/web/farragotransfer.sh" />
@@ -216,7 +212,6 @@
         <option value="$PROJECT_DIR$/web/scripts/Scenes/BreakTheGame.dart" />
         <option value="$PROJECT_DIR$/web/scripts/achievements.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Entities/Entity.dart" />
-        <option value="$PROJECT_DIR$/web/scripts/gigglesnort.dart" />
         <option value="$PROJECT_DIR$/web/navbar.txt" />
         <option value="$PROJECT_DIR$/web/hallOfFame.html" />
         <option value="$PROJECT_DIR$/web/scripts/navbar.dart" />
@@ -230,6 +225,8 @@
         <option value="$PROJECT_DIR$/web/css/styles.css" />
         <option value="$PROJECT_DIR$/web/scripts/main.dart" />
         <option value="$PROJECT_DIR$/web/scripts/Stats/StatFactory.dart" />
+        <option value="$USER_HOME$/FarragoFiction/index.html" />
+        <option value="$PROJECT_DIR$/web/scripts/gigglesnort.dart" />
       </list>
     </option>
   </component>
@@ -640,11 +637,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="99" y="22" width="1259" height="673" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44117647" sideWeight="0.4305004" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44117647" sideWeight="0.4305004" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -715,7 +713,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/PutOutFire.dart" />
     <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/BeBorn.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -965,14 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/gigglesnort.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/navbar.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -1103,10 +1092,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/FarragoFiction/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/gigglesnort.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="15" column="212" lean-forward="false" selection-start-line="15" selection-start-column="212" selection-end-line="15" selection-end-column="212" />
           <folding />
         </state>
       </provider>

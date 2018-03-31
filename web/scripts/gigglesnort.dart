@@ -13,6 +13,7 @@ void main() {
   div.style.marginLeft = "auto";
   div.style.marginRight = "auto";
   //in theory i could strike through these as you find them...but then i'd need to know how to identify them
+  allude("You...don't think JR would just....add MORE lines to this over time, would they? That would be some kind of ....prank. And JR would only do that on some sort of....designated...prank....holiday... Shit.");
   allude("The Mathematician can calculate one for you.");
   allude("I wonder if LORAS has any eggs???");
   allude("The Artist has been known to paint some eggs.");
