@@ -183,8 +183,10 @@ Future<Null> displayCardLibrary() async {
   await Loader.preloadManifest();
   DivElement buttonHolder = new DivElement();
   ButtonElement button = new ButtonElement();
+  button.style.display = "block";
   button.text = "Start Life With Selected Cards";
   button.onClick.listen((e) => grabSelectedCardsAndStart());
+
 
   ButtonElement buttonAll = new ButtonElement();
   buttonAll.text = "Select All Cards";
