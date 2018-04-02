@@ -245,23 +245,22 @@ void searchCards() {
   for(int i = 0; i<sceneCards.length; i++) {
     Scene s = sceneCards[i];
     Element found = querySelector("#card${i}");
-    if(found == null) {
-      print("why is card $i null???");
-    }
+    if(found != null) { //if you sell it it will be null.
 
-    if(searchedSet.contains(s)) {
-      found.classes.remove("invisibleCard");
-      if(found.parent != null) {
-        found.parent.children.forEach((f) {
-          f.classes.remove("invisibleCard");
-        });
-      }
-    }else {
-      found.classes.add("invisibleCard");
-      if(found.parent != null) {
-        found.parent.children.forEach((f) {
-          f.classes.add("invisibleCard");
-        });
+      if (searchedSet.contains(s)) {
+        found.classes.remove("invisibleCard");
+        if (found.parent != null) {
+          found.parent.children.forEach((f) {
+            f.classes.remove("invisibleCard");
+          });
+        }
+      } else {
+        found.classes.add("invisibleCard");
+        if (found.parent != null) {
+          found.parent.children.forEach((f) {
+            f.classes.add("invisibleCard");
+          });
+        }
       }
     }
   }

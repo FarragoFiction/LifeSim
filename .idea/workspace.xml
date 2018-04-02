@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/hallOfFame.html" afterPath="$PROJECT_DIR$/web/hallOfFame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" afterPath="$PROJECT_DIR$/web/scripts/gigglesnort.dart" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/main.dart" afterPath="$PROJECT_DIR$/web/scripts/main.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -91,8 +88,8 @@
       <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/scripts/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="248" column="35" lean-forward="false" selection-start-line="248" selection-start-column="35" selection-end-line="248" selection-end-column="35" />
+            <state relative-caret-position="85">
+              <caret line="142" column="24" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -130,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addAllnew</find>
       <find>remove</find>
       <find>synctemplate</find>
       <find>toadd</find>
@@ -160,6 +156,7 @@
       <find>chosenScenes</find>
       <find>sele</find>
       <find>searchCards</find>
+      <find>selected</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1123,8 +1120,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="248" column="35" lean-forward="false" selection-start-line="248" selection-start-column="35" selection-end-line="248" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="142" column="24" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="24" />
           <folding />
         </state>
       </provider>
