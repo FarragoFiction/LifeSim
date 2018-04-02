@@ -4,6 +4,7 @@ import "LifeSimLib.dart";
 
 World world;
 List<Scene> sceneCards = new List<Scene>();
+
 List<Scene> chosenScenes = new List<Scene>();
 Random rand;
 Element div = querySelector("#output");
@@ -14,6 +15,7 @@ Element protagLoader;
 Element coinToss;
 CanvasElement protagPreview;
 List<CanvasElement> cardCanvases = new List<CanvasElement>();
+TextInputElement search;
 
 
 void main() {
@@ -192,6 +194,14 @@ Future<Null> displayCardLibrary() async {
   buttonAll.text = "Select All Cards";
   buttonAll.onClick.listen((e) => selectAllCards());
 
+  DivElement searchContainer = new DivElement();
+  searchContainer.text = "Search Cards: ";
+  search = new TextInputElement();
+  searchContainer.append(search);
+  cardLibraryDiv.append(searchContainer);
+  search.onInput.listen((e) => searchCards());
+
+
   ButtonElement buttonNone = new ButtonElement();
   buttonNone.text = "Select No Cards";
   buttonNone.onClick.listen((e) => selectNoCards());
@@ -217,6 +227,45 @@ Future<Null> displayCardLibrary() async {
       cardCanvases.add(c);
       if(s is GenericScene) s.drawSellButton(span);
   }
+}
+
+void searchCards() {
+  String term = search.value;
+  print("searching for prices and  $term ");
+  /*
+    List<Element> selected = querySelectorAll(".selectedCard");
+  for(Element e in selected) {
+    int id = int.parse(e.id.replaceAll("card", ""));
+    chosenScenes.add(sceneCards[id]);
+
+   */
+
+  Set<Scene> searchedSet = CardLibrary.cardsWithSearchTerm(term);
+  //need to go through the scene cards one by one and turn on or off based on existance in this set.
+  for(int i = 0; i<sceneCards.length; i++) {
+    Scene s = sceneCards[i];
+    Element found = querySelector("#card${i}");
+    if(found == null) {
+      print("why is card $i null???");
+    }
+
+    if(searchedSet.contains(s)) {
+      found.classes.remove("invisibleCard");
+      if(found.parent != null) {
+        found.parent.children.forEach((f) {
+          f.classes.remove("invisibleCard");
+        });
+      }
+    }else {
+      found.classes.add("invisibleCard");
+      if(found.parent != null) {
+        found.parent.children.forEach((f) {
+          f.classes.add("invisibleCard");
+        });
+      }
+    }
+  }
+
 }
 
 void pickCardsRandomly() {

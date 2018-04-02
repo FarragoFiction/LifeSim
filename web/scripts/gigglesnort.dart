@@ -15,7 +15,7 @@ void main() {
   //in theory i could strike through these as you find them...but then i'd need to know how to identify them
   allude("AuthorBotJunior SEEMS safe enough to approach to ask about eggs. Right???");
   allude("There is no way the Author wouldn't have cards for you.");
-  allude("You...don't think JR would just....add MORE lines to this over time, would they? That would be some kind of ....prank. And JR would only do that on some sort of....designated...prank....holiday... Shit.");
+  //ironically, i added LESS, not MORE. poor attic sim just has none, but at least DennisFacts does so it's kinda like that???
   allude("The Mathematician can calculate one for you.");
   allude("I wonder if LORAS has any eggs???");
   allude("The Artist has been known to paint some eggs.");
