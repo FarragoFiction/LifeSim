@@ -39,7 +39,7 @@ void main() {
     card = new DivElement();
     div.append(card);
     template = new GenericScene("Template Scene", "Put a sentence or two here. ${GenericScene.OWNERNAME} is what you put for the protagonist's name.", "404pagebecauseecch.png", null);
-    template.source = "Pleasing a Wrangler";
+    template.source = "???";
     drawControls();
 
 }
