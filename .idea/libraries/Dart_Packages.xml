@@ -5,7 +5,7 @@
         <entry key="DollLibCorrect">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/DollLibCorrect-17cdee0b5dcc244d2cf722c67e61706b4d60e88c/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/DollLibCorrect-df21f4762a26c4a347718a219dcf20ba3506b163/lib" />
             </list>
           </value>
         </entry>
@@ -26,7 +26,7 @@
         <entry key="args">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.4.1/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.4.2/lib" />
             </list>
           </value>
         </entry>
@@ -131,7 +131,7 @@
         <entry key="matcher">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.1+4/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.2/lib" />
             </list>
           </value>
         </entry>
@@ -229,10 +229,10 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-17cdee0b5dcc244d2cf722c67e61706b4d60e88c/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-df21f4762a26c4a347718a219dcf20ba3506b163/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/RenderingLib-347925e9bed34b0d5e55488c2c2013713425ec08/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/archive-1.0.33/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.4.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.4.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/async-1.13.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/barback-0.15.2+15/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/browser-0.10.0+3/lib" />
@@ -247,7 +247,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/js-0.6.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/logging-0.11.3+1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.1+4/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/package_config-1.0.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/package_resolver-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/path-1.5.1/lib" />

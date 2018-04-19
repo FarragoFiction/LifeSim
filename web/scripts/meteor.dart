@@ -22,6 +22,7 @@ void main() {
 
 
 void displayShit(Element container, String saveString, String name) {
+  print("displaying shit ${container}, ${saveString}, $name");
   ButtonElement button =  new ButtonElement();
   button.text = "destroy your $name save data?";
   container.append(button);
@@ -46,7 +47,7 @@ void displayShit(Element container, String saveString, String name) {
   fileElement.type = "file";
   fileElement.setInnerHtml("Restore from Save Backup?");
   container.append(fileElement);
-  container.append(container);
+  //container.append(container);
 
   fileElement.onChange.listen((e) {
     List<File> loadFiles = fileElement.files;
