@@ -9,6 +9,8 @@
   <li class="dropdown menuButtonPureCSS">
               <a href="javascript:void(0)" class="dropbtn">Info</a>
                   <div class="dropdown-content">
+                   <a href="meteor.html">Manage Data</a>
+
                   <a href="gigglesnort.html">GiggleSnort</a>
                   <a href="about.html">FAQ</a>
                   <a href = "viewAchievements.html">Scenes Viewed</a>
