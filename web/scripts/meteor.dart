@@ -29,7 +29,7 @@ void displayShit(Element container, String saveString, String name) {
   button.onClick.listen((e) {
     if(window.confirm("Are you sure? You can't undo this...")) {
       window.localStorage.remove(saveString);
-      window.location.href = "index.html";
+      window.location.href = window.location.href;
     }
   });
 
@@ -37,10 +37,28 @@ void displayShit(Element container, String saveString, String name) {
     AnchorElement saveLink = new AnchorElement();
     saveLink.href = new UriData.fromString(window.localStorage[saveString], mimeType: "text/plain").toString();
     saveLink.target = "_blank";
-    saveLink.download = "recoverFileLifeSimLibrary.txt";
+    saveLink.download = "recoverFileLifeSim${name.replaceAll(" ", "_")}.txt";
     saveLink.setInnerHtml("Download Last Minute Backup/Recover file for $name?");
     container.append(saveLink);
   }
+
+  InputElement fileElement = new InputElement();
+  fileElement.type = "file";
+  fileElement.setInnerHtml("Restore from Save Backup?");
+  container.append(fileElement);
+  container.append(container);
+
+  fileElement.onChange.listen((e) {
+    List<File> loadFiles = fileElement.files;
+    File file = loadFiles.first;
+    FileReader reader = new FileReader();
+    reader.readAsText(file);
+    reader.onLoadEnd.listen((e) {
+      String loadData = reader.result;
+      window.localStorage[saveString] = loadData;
+      window.location.href = window.location.href;
+    });
+  });
 }
 
 
