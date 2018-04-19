@@ -3,79 +3,57 @@ import "LifeSimLib.dart";
 import 'dart:async';
 
 
-Element div;
 List<String> snorts = new List<String>();
+Element div;
 void main() {
   loadNavbar();
-  showLibrary();
-  showFound();
-  showViewd();
+  div = querySelector('#output');
+  Element libraryDiv = new DivElement();
+  Element foundDiv = new DivElement();
+  Element viewDiv = new DivElement();
+  div.append(libraryDiv);
+  div.append(foundDiv);
+  div.append(viewDiv);
+  showLibrary(libraryDiv);
+  showFound(foundDiv);
+  showViewd(viewDiv);
 
 }
-void showLibrary() {
+
+
+void displayShit(Element container, String saveString, String name) {
   ButtonElement button =  new ButtonElement();
-  button.text = "destroy your card library save data?";
-  querySelector('#output').append(button);
+  button.text = "destroy your $name save data?";
+  container.append(button);
 
   button.onClick.listen((e) {
     if(window.confirm("Are you sure? You can't undo this...")) {
-      window.localStorage.remove(CardLibrary.CARDSAVESTRING);
+      window.localStorage.remove(saveString);
       window.location.href = "index.html";
     }
   });
 
-  if(window.localStorage.containsKey(CardLibrary.CARDSAVESTRING)) {
+  if(window.localStorage.containsKey(saveString)) {
     AnchorElement saveLink = new AnchorElement();
-    saveLink.href = new UriData.fromString(window.localStorage[CardLibrary.CARDSAVESTRING], mimeType: "text/plain").toString();
+    saveLink.href = new UriData.fromString(window.localStorage[saveString], mimeType: "text/plain").toString();
     saveLink.target = "_blank";
     saveLink.download = "recoverFileLifeSimLibrary.txt";
-    saveLink.setInnerHtml("Download Last Minute Backup/Recover file for Library?");
-    querySelector('#output').append(saveLink);
+    saveLink.setInnerHtml("Download Last Minute Backup/Recover file for $name?");
+    container.append(saveLink);
   }
 }
 
 
-void showViewd() {
-  ButtonElement button =  new ButtonElement();
-  button.text = "destroy your viewed scene save data?";
-  querySelector('#output').append(button);
-
-  button.onClick.listen((e) {
-    if(window.confirm("Are you sure? You can't undo this...")) {
-      window.localStorage.remove(CardLibrary.VIEWEDSCENES);
-      window.location.href = "index.html";
-    }
-  });
-
-  if(window.localStorage.containsKey(CardLibrary.VIEWEDSCENES)) {
-    AnchorElement saveLink = new AnchorElement();
-    saveLink.href = new UriData.fromString(window.localStorage[CardLibrary.VIEWEDSCENES], mimeType: "text/plain").toString();
-    saveLink.target = "_blank";
-    saveLink.download = "recoverFileLifeSimViewedScenes.txt";
-    saveLink.setInnerHtml("Download Last Minute Backup/Recover file for Viewed Scenes?");
-    querySelector('#output').append(saveLink);
-  }
+void showLibrary(Element container) {
+  displayShit(container, CardLibrary.CARDSAVESTRING, "Card Library");
 }
 
 
-void showFound() {
-  ButtonElement button =  new ButtonElement();
-  button.text = "destroy your found but unclaimed cards?";
-  querySelector('#output').append(button);
+void showViewd(Element container) {
+  displayShit(container, CardLibrary.VIEWEDSCENES, "Viewed Scenes");
+}
 
-  button.onClick.listen((e) {
-    if(window.confirm("Are you sure? You can't undo this...")) {
-      window.localStorage.remove(CardLibrary.FOUNDCARDSSTRING);
-      window.location.href = "index.html";
-    }
-  });
 
-  if(window.localStorage.containsKey(CardLibrary.FOUNDCARDSSTRING)) {
-    AnchorElement saveLink = new AnchorElement();
-    saveLink.href = new UriData.fromString(window.localStorage[CardLibrary.FOUNDCARDSSTRING], mimeType: "text/plain").toString();
-    saveLink.target = "_blank";
-    saveLink.download = "recoverFileLifeSimFoundCards.txt";
-    saveLink.setInnerHtml("Download Last Minute Backup/Recover file for Found Cards?");
-    querySelector('#output').append(saveLink);
-  }
+void showFound(Element container) {
+  displayShit(container, CardLibrary.FOUNDCARDSSTRING, "Found But Unclaimed Cards");
 }
