@@ -11,8 +11,6 @@ void main() {
 
 Future<Null> start() async{
     await Loader.preloadManifest();
-
-
     game = new Game(Card.getFreshDeck(),querySelector("#output"), finishGame);
     game.start();
 }

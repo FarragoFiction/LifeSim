@@ -5,7 +5,7 @@
         <entry key="BlackJack">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/BlackJack-919753235fbb82a8deb299e162cb18f008395bb0/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/BlackJack-e46515b9e83a52ce3f33a416f6b26d6a5f27b0c8/lib" />
             </list>
           </value>
         </entry>
@@ -236,7 +236,7 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/BlackJack-919753235fbb82a8deb299e162cb18f008395bb0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/BlackJack-e46515b9e83a52ce3f33a416f6b26d6a5f27b0c8/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-df21f4762a26c4a347718a219dcf20ba3506b163/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/RenderingLib-347925e9bed34b0d5e55488c2c2013713425ec08/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/archive-1.0.33/lib" />
