@@ -2,6 +2,13 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
+        <entry key="BlackJack">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/git/BlackJack-04e1dbee9e70778794579abd72ac4d8a8785388a/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="DollLibCorrect">
           <value>
             <list>
@@ -229,6 +236,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/.pub-cache/git/BlackJack-04e1dbee9e70778794579abd72ac4d8a8785388a/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-df21f4762a26c4a347718a219dcf20ba3506b163/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/RenderingLib-347925e9bed34b0d5e55488c2c2013713425ec08/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/archive-1.0.33/lib" />

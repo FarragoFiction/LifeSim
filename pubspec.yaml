@@ -19,6 +19,8 @@ dependencies:
     git: git://github.com/jadedResearcher/RenderingLib.git
   DollLibCorrect:
     git:  git://github.com/jadedResearcher/DollLibCorrect.git
+  BlackJack:
+      git:  git://github.com/jadedResearcher/BlackJack.git
 
 
 
