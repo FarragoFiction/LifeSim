@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5148d8f0-ea27-4fc0-8b41-c235fc9a3111" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/Cards/Base.png" afterPath="$PROJECT_DIR$/web/images/Cards/Base.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/Cards/Clubs.png" afterPath="$PROJECT_DIR$/web/images/Cards/Clubs.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/Cards/Diamonds.png" afterPath="$PROJECT_DIR$/web/images/Cards/Diamonds.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/Cards/Hearts.png" afterPath="$PROJECT_DIR$/web/images/Cards/Hearts.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/Cards/Spades.png" afterPath="$PROJECT_DIR$/web/images/Cards/Spades.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/betterSim.html" afterPath="$PROJECT_DIR$/web/betterSim.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart" afterPath="$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,14 +15,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="blackJack.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="blackJack.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            <state relative-caret-position="295">
+              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="designCard.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="585" column="8" lean-forward="true" selection-start-line="585" selection-start-column="8" selection-end-line="589" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="betterSim.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="betterSim.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/betterSim.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -97,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/news.dart">
+      <file leaf-file-name="CardLibrary.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/scripts/CardLibrary.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="115" lean-forward="false" selection-start-line="24" selection-start-column="115" selection-end-line="24" selection-end-column="115" />
+            <state relative-caret-position="480">
+              <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -129,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>replac</find>
-      <find>quiet</find>
       <find>background-color:</find>
       <find>dropdown-c</find>
       <find>wiki</find>
@@ -159,6 +159,8 @@
       <find>dataBox =</find>
       <find>lz</find>
       <find>append</find>
+      <find>range</find>
+      <find>money</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,8 +223,8 @@
         <option value="$PROJECT_DIR$/web/hallOfFame.html" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/web/css/blackJack.css" />
-        <option value="$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart" />
         <option value="$PROJECT_DIR$/web/betterSim.html" />
+        <option value="$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart" />
       </list>
     </option>
   </component>
@@ -961,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6705">
-          <caret line="450" column="46" lean-forward="false" selection-start-line="450" selection-start-column="46" selection-end-line="450" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/Scenes/GenericScene.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2655">
@@ -979,14 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="124" column="28" lean-forward="false" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/CardLibrary.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1094,16 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.pub-cache/git/BlackJack-e46515b9e83a52ce3f33a416f6b26d6a5f27b0c8/lib/src/Game.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1117,6 +1094,32 @@
         <state relative-caret-position="360">
           <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/designCard.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="585" column="8" lean-forward="true" selection-start-line="585" selection-start-column="8" selection-end-line="589" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/CardLibrary.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/Controllers/blackJack.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
