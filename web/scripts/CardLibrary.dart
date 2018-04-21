@@ -40,6 +40,7 @@ abstract class CardLibrary {
 
     static set money(int value) {
         window.localStorage[MONEYSTRING] = "$value";
+        syncMoney();
     }
 
     static void clearViewedScenes(){

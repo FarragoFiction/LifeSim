@@ -7,6 +7,7 @@ import "dart:math" as Math;
 Game game;
 Element div;
 int bet = 113;
+int minBet = 113;
 void main() {
     loadNavbar();
     div = querySelector("#output");
@@ -22,11 +23,15 @@ void clearDiv() {
 
 void drawBetButton() {
     clearDiv();
+    if(CardLibrary.money < minBet) {
+        div.setInnerHtml("Sorry, but you can't afford to bet.");
+        return;
+    }
     ButtonElement betButton = new ButtonElement();
     betButton.text = "Bet";
     InputElement value = new InputElement();
     value.value = "$bet";
-    value.min = "$bet";
+    value.min = "$minBet";
     int max = Math.max(bet, CardLibrary.money);
     value.max = "${max}";
 
@@ -57,12 +62,13 @@ Future<Null> start() async{
 }
 
 void finishGame() {
-    String result = "You lost, thems the breaks.";
+    String result = " You lost, thems the breaks.";
     if(!game.lost) {
         int winnings = 2* bet;
-        result = ("You won! ${winnings} Life Bux");
+        result = (" You won ${winnings} Life Bux!!!");
         CardLibrary.money = CardLibrary.money + winnings;
     }
+    querySelector("#money").appendText(result);
     ButtonElement restartButton = new ButtonElement();
     restartButton.text = "New Deal?";
     div.append(restartButton);
