@@ -47,6 +47,9 @@ abstract class StatFactory {
   static Stat HENDERSON;
   static Stat DOMINANCE;
   static Stat QUIETUDE;
+  //DISCORD MEMES, have enough feel goods and you level up
+  static Stat LEVEL;
+  static Stat POSITIVITY;
 
 
 
@@ -160,6 +163,8 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         VIM = new Stat("VIM","","They were very good at punching snouts to establish dominance.",0,new Colour.fromStyleString("#0000ff"));
         IMAGINATION = new Stat("IMAGINATION","","They were very imaginative.",0,new Colour.fromStyleString("#00ff00"));
         SQUIDDLESENSE = new Stat("SQUIDDLESENSE","","They were very otherworldly.",0,new Colour.fromStyleString("#77bcba"));
+        LEVEL = new Stat("LEVEL","","They were high level.",0,new Colour.fromStyleString("#000000"),3);
+        POSITIVITY = new Stat("POSITIVITY","","They were a very helpful and supportive person.",0,new Colour.fromStyleString("#ffff00"),3);
 
 
 
