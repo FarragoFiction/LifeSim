@@ -33,7 +33,7 @@ abstract class SceneFactory {
 
        GenericScene BEFRIENDALIENS = new GenericScene("Befriend Aliens", "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. Luckly, the Power of Love protects them. They are recognized publicly for their heroism.","ThrowTheCheese.png",null,triggerChance:0.99, triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue),new SVP(StatFactory.ROMCOMMERY, StatFactory.ROMCOMMERY.maxValue)], resultStats: <SVP>[new SVP(StatFactory.ESTEEM,10)]);
        GenericScene DIETOALIENS = new GenericScene("Die To Aliens", "${GenericScene.OWNERNAME}'s terrible odor attracts an alien invasion. They die.","ThrowTheCheese.png",null,triggerChance:0.9,triggerStatsGreater:<SVP>[new SVP(StatFactory.SMELLWAVES,StatFactory.SMELLWAVES.maxValue)], resultStats: <SVP>[new SVP(StatFactory.LIFESAUCE,-1 * StatFactory.LIFESAUCE.maxValue)]);
-      
+
    }
 }
 
