@@ -11,9 +11,11 @@ int bet = 113;
 int minBet = 113;
 CanvasElement dealerCanvas;
 CanvasElement meCanvas;
+Element newGame;
 void main() {
     loadNavbar();
     div = querySelector("#output");
+
     drawBetButton();
 }
 
@@ -33,13 +35,17 @@ Future<Null> drawMe() async{
 
 Future<Null> drawHooker() async{
     SuperbSuckDoll doll = new SuperbSuckDoll();
+    doll.body.imgNumber = 3;
     CanvasElement canvas = new CanvasElement(width: doll.width, height: doll.height);
     DollRenderer.drawDoll(canvas, doll);
     div.append(canvas);
+    newGame = new DivElement();
+    div.append(newGame);
 }
 
 void drawBetButton() {
     clearDiv();
+
     if(CardLibrary.money < minBet) {
         div.setInnerHtml("Sorry, but you can't afford to bet.");
         return;
@@ -68,16 +74,22 @@ void drawBetButton() {
     betButton.onClick.listen((e) {
         start();
     });
+
+    newGame = new DivElement();
+    div.append(newGame);
 }
 
 Future<Null> start() async{
     clearDiv();
+
     CardLibrary.money = CardLibrary.money + -1* bet;
     await Loader.preloadManifest();
     await drawHooker();
     game = new Game(Card.getFreshDeck(),div, finishGame);
     game.dealer.name = "Hooker";
     game.player.name = "You";
+    game.dealerLostQuips = <String>["Oh no! I lost?","How could you beat me!?","That's not fair!"];
+    game.dealerWonQuips = <String>["Oh! You nearly won! You should try again!","You were so close, too!","No refunds."];
     game.start();
     drawMe();
 }
@@ -92,7 +104,7 @@ void finishGame() {
     querySelector("#money").appendText(result);
     ButtonElement restartButton = new ButtonElement();
     restartButton.text = "New Deal?";
-    div.append(restartButton);
+    newGame.append(restartButton);
     restartButton.onClick.listen((e) {
         drawBetButton();
     });
