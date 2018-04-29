@@ -47,7 +47,7 @@ void drawBetButton() {
     clearDiv();
 
     if(CardLibrary.money < minBet) {
-        div.setInnerHtml("Sorry, but you can't afford to bet.");
+        div.setInnerHtml("Sorry, but you can't afford to bet. You might want to sell some cards.");
         return;
     }
     ButtonElement betButton = new ButtonElement();
