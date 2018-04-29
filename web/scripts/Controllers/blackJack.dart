@@ -3,11 +3,14 @@ import "../LifeSimLib.dart";
 import 'dart:async';
 import "package:BlackJack/BlackJack.dart";
 import "dart:math" as Math;
+import "package:DollLibCorrect/DollRenderer.dart";
 
 Game game;
 Element div;
 int bet = 113;
 int minBet = 113;
+CanvasElement dealerCanvas;
+CanvasElement meCanvas;
 void main() {
     loadNavbar();
     div = querySelector("#output");
@@ -19,6 +22,20 @@ void clearDiv() {
     children.forEach((f) {
         f.remove();
     });
+}
+
+Future<Null> drawMe() async{
+    SuperbSuckDoll doll = new SuperbSuckDoll();
+    CanvasElement canvas = new CanvasElement(width: doll.width, height: doll.height);
+    DollRenderer.drawDoll(canvas, doll);
+    div.append(canvas);
+}
+
+Future<Null> drawHooker() async{
+    SuperbSuckDoll doll = new SuperbSuckDoll();
+    CanvasElement canvas = new CanvasElement(width: doll.width, height: doll.height);
+    DollRenderer.drawDoll(canvas, doll);
+    div.append(canvas);
 }
 
 void drawBetButton() {
@@ -57,8 +74,12 @@ Future<Null> start() async{
     clearDiv();
     CardLibrary.money = CardLibrary.money + -1* bet;
     await Loader.preloadManifest();
+    await drawHooker();
     game = new Game(Card.getFreshDeck(),div, finishGame);
+    game.dealer.name = "Hooker";
+    game.player.name = "You";
     game.start();
+    drawMe();
 }
 
 void finishGame() {
