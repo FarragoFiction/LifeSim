@@ -12,7 +12,7 @@
         <entry key="DollLibCorrect">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/DollLibCorrect-37952541db89831d34157b3b405f3f7437a00143/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/DollLibCorrect-750ef889f03a66257949b8fdf9fc17f9d65227d5/lib" />
             </list>
           </value>
         </entry>
@@ -237,7 +237,7 @@
     </properties>
     <CLASSES>
       <root url="file://$USER_HOME$/.pub-cache/git/BlackJack-5acd7b9f6a50d45150fdc1e983478efd1d92fd88/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-37952541db89831d34157b3b405f3f7437a00143/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/DollLibCorrect-750ef889f03a66257949b8fdf9fc17f9d65227d5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/RenderingLib-85b746283d57adb05cc07a9e1080c7ff4c5db8e7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/archive-1.0.33/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.4.3/lib" />
