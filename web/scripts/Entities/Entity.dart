@@ -35,6 +35,10 @@ class Entity {
         scenes.add(new GoToSchool(this));
 
         print("non default scenes are${nonDefaultScenes.length}");
+        if(nonDefaultScenes.isEmpty) {
+            //templars easter egg
+            storeCard("N4Igzg9grgTgxgUxALhAQQC4YQWwA7YAmABAEJQDmxAFACq54A2AhjAJQgA0IAdszklQApZgEtGCEgDMIMYsywMixAOqzGhAEYwEzANaieFLiGwAPDChAA5UYmIYYAT07F6+FnOaMdzQk4cIDWIhACV5TWgMBwALUTBiTUoAOmIAcQhiQlEdOAxGAIxMgCsxRldCTJ4IaLxmMASKCAqqmuI4IIk84gAmAAY+gBJkk01mOD0KGGgeQmt+QRAAZRYcERwV-gARKB4DI1oYhE2cARhkvCMTR1EKCgQYAGEY5h5EKwBGEzBEHgQwWgQACqPEYEAmVgA2gBdEw6MBQRgYMBLDAKMBQ4AAHV4CxxyBxABkAJIAMQAoks0EDHuScZwcQA3bxQBD4nEAWg+fRxAF9YdwbncHqj0YT-mAHlCBaYYLd7jBRci0r5sDBMTi+AJ2SASRSqTS6VwmSy2SgcTyQPzrnLhYq0cjyQBHKDeaVWoA");
+        }
         scenes.add(SceneFactory.BERICH);
         scenes.last.owner = this;
         scenes.add(new BeAHobo(this));

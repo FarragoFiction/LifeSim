@@ -103,7 +103,7 @@ abstract class CardLibrary {
         List<String> subsets = datastrings.split(",");
         for(String d in subsets) {
            // print("dynamic thing is  $d");
-            _genericCards.add(GenericScene.fromDataString(d));
+            if(d.isNotEmpty) _genericCards.add(GenericScene.fromDataString(d));
         }
     }
 
