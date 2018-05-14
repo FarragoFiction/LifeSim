@@ -26,6 +26,7 @@ class World {
             error.classes.add("error");
             error.text = ("Uh. Fuck. I think it broke. Sure hope it was something the asshole living this life did, and not me.");
             div.append(error);
+            storeCard("N4Igzg9grgTgxgUxALhAQQC4YQWwA7YAmABAEJQDmxAFACq54A2AhjAJQgA0IAdszklQApZgEtGCEgDMIMYsywMixAOqzGhAEYwEzANaieFLiGwAPDChAA5UYmIYYAT07F6+FnOaMdzQk4cIDWIhACV5TWgMBwALUTBiTUoAOmIAcQhiQlEdOAxGAIxMgCsxRldCTJ4IaLxmMASKCAqqmuI4IIk84gAmAAY+gBJkk01mOD0KGGgeQmt+QRAAZRYcERwV-gARKB4DI1oYhE2cARhkvCMTR1EKCgQYAGEY5h5EKwBGEzBEHgQwWgQACqPEYEAmVgA2gBdEw6MBQRgYMBLDAKMBQ4AAHV4CxxyBxABkAJIAMQAoks0EDHuScZwcQA3bxQBD4nEAWg+fRxAF9YdwbncHqj0YT-mAHlCBaYYLd7jBRci0r5sDBMTi+AJ2SASRSqTS6VwmSy2SgcTyQPzrnLhYq0cjyQBHKDeaVWoA");
         });
         viewedScenes.addAll(CardLibrary.viewedScenes);
     }
