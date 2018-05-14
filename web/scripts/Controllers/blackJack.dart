@@ -5,7 +5,7 @@ import "package:BlackJack/BlackJack.dart";
 import "dart:math" as Math;
 import "package:DollLibCorrect/DollRenderer.dart";
 
-Game game;
+BlackJackGame game;
 Element div;
 int bet = 113;
 int minBet = 113;
@@ -85,7 +85,7 @@ Future<Null> start() async{
     CardLibrary.money = CardLibrary.money + -1* bet;
     await Loader.preloadManifest();
     await drawHooker();
-    game = new Game(Card.getFreshDeck(),div, finishGame);
+    game = new BlackJackGame(Card.getFreshDeck(),div, finishGame);
     game.dealer.name = "Hooker";
     game.player.name = "You";
     game.dealerLostQuips = <String>["Oh no! I lost?","How could you beat me!?","That's not fair!"];
@@ -96,9 +96,13 @@ Future<Null> start() async{
 
 void finishGame() {
     String result = " You lost, thems the breaks.";
-    if(!game.lost) {
+    if(game.result == BlackJackGame.LOST) {
         int winnings = 2* bet;
         result = (" You won ${winnings} Life Bux!!!");
+        CardLibrary.money = CardLibrary.money + winnings;
+    }else if(game.result == BlackJackGame.TIED) {
+        int winnings = bet;
+        result = (" You got back ${winnings} Life Bux!!!");
         CardLibrary.money = CardLibrary.money + winnings;
     }
     querySelector("#money").appendText(result);
