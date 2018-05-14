@@ -494,7 +494,7 @@ void makeNameBox(Element container) {
 
 void makeSource(Element container) {
     DivElement myContainer = new DivElement();
-    myContainer.text = "How should they find it?";
+    myContainer.text = "Source of Card (generally your user name)";
     myContainer.style.paddingTop = "10px";
     source = new TextInputElement();
     source.onInput.listen((e) {

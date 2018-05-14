@@ -326,7 +326,7 @@ class GenericScene extends Scene {
 
         int textBlockHeight = 40;
 
-        canvas.context2D.fillText("Found: $source",textBlockHeight/2,textBlockHeight/2+8);
+        canvas.context2D.fillText("Source: $source",textBlockHeight/2,textBlockHeight/2+8);
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, "Stats Checked: $statsChecked", "Times New Roman", 40, y, fontSize, 250, textBlockHeight);
         y += textBlockHeight;

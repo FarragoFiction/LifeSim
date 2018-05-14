@@ -95,7 +95,7 @@ abstract class Scene {
 
         int textBlockHeight = 40;
         //Renderer.wrap_text(canvas.context2D, description,40, 290, fontSize, 220, "left");
-        canvas.context2D.fillText("Found: $source",textBlockHeight/2,textBlockHeight/2+8);
+        canvas.context2D.fillText("Source: $source",textBlockHeight/2,textBlockHeight/2+8);
 
         Renderer.wrapTextAndResizeIfNeeded(canvas.context2D, description, "Times New Roman", 40, 290, fontSize, 250, 134);
         //print("finished drawing card $name");
