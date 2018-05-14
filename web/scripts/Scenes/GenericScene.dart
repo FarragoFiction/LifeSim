@@ -4,6 +4,9 @@ import "dart:convert";
 
 
 class GenericScene extends Scene {
+
+    static String get labelPattern => ":___ ";
+
     @override
     String backgroundName;
 
@@ -161,11 +164,21 @@ class GenericScene extends Scene {
 
     String toDataString() {
         String json = toJSON().toString();
-        return LZString.compressToEncodedURIComponent(json);
+        //return LZString.compressToEncodedURIComponent(json);
+        return  "$name($source)$labelPattern${LZString.compressToEncodedURIComponent(toJSON().toString())}";
+
     }
 
     static GenericScene fromDataString(String string) {
-        String json = LZString.decompressFromEncodedURIComponent(string);
+        List<String> tmp = string.split("$labelPattern");
+        String dataWithoutName;
+        //works for data strings pre and post labels
+        if(tmp.length == 1) {
+            dataWithoutName = tmp[0];
+        }else {
+            dataWithoutName = tmp[1];
+        }
+        String json = LZString.decompressFromEncodedURIComponent(dataWithoutName);
         return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
     }
 
