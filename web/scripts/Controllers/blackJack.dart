@@ -96,7 +96,7 @@ Future<Null> start() async{
 
 void finishGame() {
     String result = " You lost, thems the breaks.";
-    if(game.result == BlackJackGame.LOST) {
+    if(game.result == BlackJackGame.WON) {
         int winnings = 2* bet;
         result = (" You won ${winnings} Life Bux!!!");
         CardLibrary.money = CardLibrary.money + winnings;
