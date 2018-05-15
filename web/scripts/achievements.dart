@@ -35,7 +35,7 @@ Future<Null> displayAchievements() async {
     div.append(inner);
   }
   DivElement inner = new DivElement();
-  inner.setInnerHtml("${scenes.length} Unique Scenes Viewed<br><br>");
+  inner.setInnerHtml("${scenes.length} Unique Scenes Viewed<br><br>$scenes");
   div.append(inner);
   for(String s in scenes) {
 

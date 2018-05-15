@@ -5,7 +5,7 @@ import "dart:convert";
 
 class GenericScene extends Scene {
 
-    static String get labelPattern => ":___ ";
+    static String get labelPattern => ":___";
 
     @override
     String backgroundName;
@@ -165,12 +165,16 @@ class GenericScene extends Scene {
     String toDataString() {
         String json = toJSON().toString();
         //return LZString.compressToEncodedURIComponent(json);
-        return  "$name($source)$labelPattern${LZString.compressToEncodedURIComponent(toJSON().toString())}";
+        String label = "$name($source)";
+        label.replaceAll(" ", ""); //no spaces
+        return  "$label$labelPattern${LZString.compressToEncodedURIComponent(toJSON().toString())}";
 
     }
 
     static GenericScene fromDataString(String string) {
+        string.replaceAll(" ", ""); //no spaces
         List<String> tmp = string.split("$labelPattern");
+        print("tmp is $tmp, label pattern is $labelPattern");
         String dataWithoutName;
         //works for data strings pre and post labels
         if(tmp.length == 1) {
@@ -178,6 +182,7 @@ class GenericScene extends Scene {
         }else {
             dataWithoutName = tmp[1];
         }
+        print("dataWithoutName is $dataWithoutName");
         String json = LZString.decompressFromEncodedURIComponent(dataWithoutName);
         return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
     }

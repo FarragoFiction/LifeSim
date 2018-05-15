@@ -51,6 +51,7 @@ abstract class CardLibrary {
     static Set<String> get viewedScenes {
         Set<String> scenes = new Set<String>();
         if(window.localStorage.containsKey(VIEWEDSCENES)){
+            print("viewed scenes is: ${window.localStorage[VIEWEDSCENES]}");
             scenes = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
         }
         print("getting ${scenes.length} viewed scenes");
@@ -94,6 +95,7 @@ abstract class CardLibrary {
     }
 
     static void loadLibrary() {
+       // print("going to load library");
         _genericCards = new List<GenericScene>();
         if(!window.localStorage.containsKey(CARDSAVESTRING)) return ;
         String datastrings = window.localStorage[CARDSAVESTRING];
@@ -102,12 +104,15 @@ abstract class CardLibrary {
         datastrings = datastrings.replaceAll(" ", "");
         List<String> subsets = datastrings.split(",");
         for(String d in subsets) {
-           // print("dynamic thing is  $d");
+          // print("dynamic thing is  $d");
             if(d.isNotEmpty) _genericCards.add(GenericScene.fromDataString(d));
         }
+       // print("loaded library of ${genericCards}");
+
     }
 
     static void saveLibrary() {
+        //print("saving library of ${genericCards}");
         List<String> sceneArray = new List<String>();
         List genericScenes = genericCards;
         for(GenericScene s in genericScenes) {
