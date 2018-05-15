@@ -35,21 +35,22 @@ Future<Null> displayAchievements() async {
     div.append(inner);
   }
   DivElement inner = new DivElement();
-  inner.setInnerHtml("${scenes.length} Unique Scenes Viewed<br><br>$scenes");
+  inner.setInnerHtml("${scenes.length} Unique Scenes Viewed<br><br>");
   div.append(inner);
   for(String s in scenes) {
-
     GenericScene scene = GenericScene.fromDataString(s);
-    if(debug.contains(s)) {
-      print("I have seen $scene before.");
-    }else {
-      //print("I have not seen $scene before");
-    }
+    if (scene != null) {
+      if (debug.contains(s)) {
+        //print("I have seen $scene before.");
+      } else {
+        //print("I have not seen $scene before");
+      }
 
-    if(scene.name.contains("Crimes")){
-      print("Crimes Scene is: ${scene.text}");
+      if (scene.name.contains("Crimes")) {
+        print("Crimes Scene is: ${scene.text}");
+      }
+      debug.add(s);
+      scene.drawCard(inner, -13);
     }
-    debug.add(s);
-    scene.drawCard(inner, -13);
   }
 }

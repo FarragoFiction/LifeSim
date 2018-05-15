@@ -51,10 +51,10 @@ abstract class CardLibrary {
     static Set<String> get viewedScenes {
         Set<String> scenes = new Set<String>();
         if(window.localStorage.containsKey(VIEWEDSCENES)){
-            print("viewed scenes is: ${window.localStorage[VIEWEDSCENES]}");
+            //print("viewed scenes is: ${window.localStorage[VIEWEDSCENES]}");
             scenes = JSONObject.jsonStringToStringSet(window.localStorage[VIEWEDSCENES]);
         }
-        print("getting ${scenes.length} viewed scenes");
+        //print("getting ${scenes.length} viewed scenes");
         return scenes;
     }
 
@@ -99,13 +99,17 @@ abstract class CardLibrary {
         _genericCards = new List<GenericScene>();
         if(!window.localStorage.containsKey(CARDSAVESTRING)) return ;
         String datastrings = window.localStorage[CARDSAVESTRING];
+        //print("all data strings is $datastrings");
         datastrings = datastrings.replaceAll("[", "");
         datastrings = datastrings.replaceAll("]", "");
         datastrings = datastrings.replaceAll(" ", "");
         List<String> subsets = datastrings.split(",");
         for(String d in subsets) {
-          // print("dynamic thing is  $d");
-            if(d.isNotEmpty) _genericCards.add(GenericScene.fromDataString(d));
+          //print("dynamic thing is  $d");
+            if(d.isNotEmpty && d != " ") {
+                GenericScene g = (GenericScene.fromDataString(d));
+                if(g != null) _genericCards.add(g);
+            }
         }
        // print("loaded library of ${genericCards}");
 
