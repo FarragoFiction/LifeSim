@@ -51,6 +51,8 @@ abstract class StatFactory {
   static Stat LEVEL;
   static Stat POSITIVITY;
 
+  static Stat  DANCFIMILISM;
+
   //from wiggler sim
   static Stat PATIENT;
   static Stat ENERGETIC;
@@ -64,6 +66,8 @@ abstract class StatFactory {
   static Stat ACCEPTING;
   static Stat FREE;
   static Stat INTERNAL;
+
+
 
 
   /*
@@ -127,6 +131,7 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
 
     static void initAllStats(){
         //for alternia
+
         PATIENT = new Stat("PATIENT","","They were a very patient person.",0,new Colour.fromStyleString("#00ff00"),3);
         ENERGETIC = new Stat("ENERGETIC","","They had so much energy!!!!!!!!!!!.",0,new Colour.fromStyleString("#494132"),3);
         IDEALISTIC= new Stat("IDEALISTIC","","They always hoped for the best.",0,new Colour.fromStyleString("#ffcc66"),3);
@@ -140,7 +145,7 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         FREE= new Stat("FREE","","They never let themself get tied down, even by friends.",0,new Colour.fromStyleString("#3399ff"),3);
         INTERNAL= new Stat("INTERNAL","","They had a solid understanding of who they were.",0,new Colour.fromStyleString("#ff3399"),3);
 
-
+        DANCFIMILISM  = new Stat("DANCFIMILISM","","They were groovy to the max.",0,new Colour.fromStyleString("#ff00ff"),3);
         SMELLWAVES = new Stat("SMELL WAVES","","They had poor hygiene.",0,new Colour.fromStyleString("#827f00"),6 );
         ESTEEM = new Stat("ESTEEM","","They were a valued member of the community.",0,new Colour.fromStyleString("#ffff00"),3); //almost white, you ass
         GNOSIS = new Stat("GNOSIS","","They were kind of a dick.",0,new Colour.fromStyleString("#eeeeee"),3); //almost white, you ass
