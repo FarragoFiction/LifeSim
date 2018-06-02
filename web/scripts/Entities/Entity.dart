@@ -31,6 +31,7 @@ class Entity {
 
     Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, List<Scene> nonDefaultScenes) {
         //all entities have these three scenes no matter what
+        print("new entity");
         scenes.add(new Die(this));
         scenes.add(new GoToSchool(this));
 
@@ -43,10 +44,16 @@ class Entity {
         scenes.last.owner = this;
         scenes.add(new BeAHobo(this));
         scenes.add(new DickAround(this));
+        print("done adding scenes");
         addAllHighPriorityScenes(nonDefaultScenes);
+        print("done adding non high priority scenes");
+
         addStatLater(StatFactory.LIFESAUCE,0);
         addStatLater(StatFactory.AGE,0);
+        print("done adding later stats");
+
         //addStat(StatFactory.BRAINITUDE,0);
+        print("done making new entity");
     }
 
     static String randomSpouseName( Random rand) {
