@@ -138,7 +138,7 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         CURIOUS = new Stat("CURIOUS","","They constantly investigated the world around them.",0,new Colour.fromStyleString("#ff9933"),113);
         LOYAL= new Stat("LOYAL","","They never betrayed their friends.",0,new Colour.fromStyleString("#993300"),113);
         EXTERNAL= new Stat("EXTERNAL","","They loved learning about other people.",0,new Colour.fromStyleString("#3da35a"),113);
-        IMPATIENT= new Stat("IMPATIENT","","They were always on the move.",0,new Colour.fromStyleString("#3da35a"),113);
+        IMPATIENT= new Stat("IMPATIENT","","They were always on the move.",0,new Colour.fromStyleString("#ff0000"),113);
         CALM= new Stat("CALM","","They were a very calm and collected person.",0,new Colour.fromStyleString("#003300"),113);
         REALISTIC= new Stat("REALISTIC","","They made sure to always have realistic expectations.",0,new Colour.fromStyleString("#9900cc"),113);
         ACCEPTING= new Stat("ACCEPTING","","They accepted the world for what it was.",0,new Colour.fromStyleString("#000066"),113);
