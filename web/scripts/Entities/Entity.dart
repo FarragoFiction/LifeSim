@@ -1,4 +1,5 @@
 import "../LifeSimLib.dart";
+import '../Scenes/BePupated.dart';
 
 
 class Entity {
@@ -139,10 +140,17 @@ class Entity {
 
         //be born first asshole
         if(!born) {
-           Scene s = new BeBorn(this);
-           await s.renderContent(div, w);
-           born = true;
-           return;
+            if(doll is HomestuckTrollDoll) {
+                Scene s = new BePupated(this);
+                await s.renderContent(div, w);
+                born = true;
+                return;
+            }else {
+                Scene s = new BeBorn(this);
+                await s.renderContent(div, w);
+                born = true;
+                return;
+            }
         }
 
         //you might die of old age sooner, but this is the last shot

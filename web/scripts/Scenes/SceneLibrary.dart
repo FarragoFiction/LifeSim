@@ -2,6 +2,7 @@ library SceneLibrary;
 
 export "Scene.dart";
 export "BeBorn.dart";
+export "BePupated.dart";
 export "DickAround.dart";
 export "Die.dart";
 export "GoToSchool.dart";
