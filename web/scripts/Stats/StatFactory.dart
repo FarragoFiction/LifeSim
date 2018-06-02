@@ -132,18 +132,18 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
     static void initAllStats(){
         //for alternia
 
-        PATIENT = new Stat("PATIENT","","They were a very patient person.",0,new Colour.fromStyleString("#00ff00"),3);
-        ENERGETIC = new Stat("ENERGETIC","","They had so much energy!!!!!!!!!!!.",0,new Colour.fromStyleString("#494132"),3);
-        IDEALISTIC= new Stat("IDEALISTIC","","They always hoped for the best.",0,new Colour.fromStyleString("#ffcc66"),3);
-        CURIOUS = new Stat("CURIOUS","","They constantly investigated the world around them.",0,new Colour.fromStyleString("#ff9933"),3);
-        LOYAL= new Stat("LOYAL","","They never betrayed their friends.",0,new Colour.fromStyleString("#993300"),3);
-        EXTERNAL= new Stat("EXTERNAL","","They loved learning about other people.",0,new Colour.fromStyleString("#3da35a"),3);
-        IMPATIENT= new Stat("IMPATIENT","","They were always on the move.",0,new Colour.fromStyleString("#3da35a"),3);
-        CALM= new Stat("CALM","","They were a very calm and collected person.",0,new Colour.fromStyleString("#003300"),3);
-        REALISTIC= new Stat("REALISTIC","","They made sure to always have realistic expectations.",0,new Colour.fromStyleString("#9900cc"),3);
-        ACCEPTING= new Stat("ACCEPTING","","They accepted the world for what it was.",0,new Colour.fromStyleString("#000066"),3);
-        FREE= new Stat("FREE","","They never let themself get tied down, even by friends.",0,new Colour.fromStyleString("#3399ff"),3);
-        INTERNAL= new Stat("INTERNAL","","They had a solid understanding of who they were.",0,new Colour.fromStyleString("#ff3399"),3);
+        PATIENT = new Stat("PATIENT","","They were a very patient person.",0,new Colour.fromStyleString("#00ff00"),113);
+        ENERGETIC = new Stat("ENERGETIC","","They had so much energy!!!!!!!!!!!.",0,new Colour.fromStyleString("#494132"),113);
+        IDEALISTIC= new Stat("IDEALISTIC","","They always hoped for the best.",0,new Colour.fromStyleString("#ffcc66"),113);
+        CURIOUS = new Stat("CURIOUS","","They constantly investigated the world around them.",0,new Colour.fromStyleString("#ff9933"),113);
+        LOYAL= new Stat("LOYAL","","They never betrayed their friends.",0,new Colour.fromStyleString("#993300"),113);
+        EXTERNAL= new Stat("EXTERNAL","","They loved learning about other people.",0,new Colour.fromStyleString("#3da35a"),113);
+        IMPATIENT= new Stat("IMPATIENT","","They were always on the move.",0,new Colour.fromStyleString("#3da35a"),113);
+        CALM= new Stat("CALM","","They were a very calm and collected person.",0,new Colour.fromStyleString("#003300"),113);
+        REALISTIC= new Stat("REALISTIC","","They made sure to always have realistic expectations.",0,new Colour.fromStyleString("#9900cc"),113);
+        ACCEPTING= new Stat("ACCEPTING","","They accepted the world for what it was.",0,new Colour.fromStyleString("#000066"),113);
+        FREE= new Stat("FREE","","They never let themself get tied down, even by friends.",0,new Colour.fromStyleString("#3399ff"),113);
+        INTERNAL= new Stat("INTERNAL","","They had a solid understanding of who they were.",0,new Colour.fromStyleString("#ff3399"),113);
 
         DANCFIMILISM  = new Stat("DANCFIMILISM","","They were groovy to the max.",0,new Colour.fromStyleString("#ff00ff"),3);
         SMELLWAVES = new Stat("SMELL WAVES","","They had poor hygiene.",0,new Colour.fromStyleString("#827f00"),6 );

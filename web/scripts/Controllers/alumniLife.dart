@@ -13,7 +13,7 @@ Element protagLoader;
 CanvasElement protagPreview;
 
 
-void main() {
+Future<Null> main() async{
     div.style.width = "100%";
     loadNavbar();
     StatFactory.initAllStats();
@@ -33,9 +33,13 @@ void main() {
     div.append(preStory);
     div.append(story);
 
+
     Entity protag = loadAlumni();
+    DivElement intro = new DivElement()..setInnerHtml("Let's see... '${protag.epilogue}'? Sounds boring. What if instead...");
+    story.append(intro);
     world = new World(new Random(protag.doll.seed), protag, story);
-    displayProtagLoader();
+    await displayProtagLoader();
+    start();
 
 }
 /*
@@ -83,7 +87,9 @@ Entity loadAlumni() {
 
         print("name is $name");
         Entity protagonist = new Entity(firstName,lastName, doll, new Random(doll.seed), <Scene>[]);
+        protagonist.epilogue = json["epilogue"];
         print("made protag: $protagonist");
+        loadStats(protagonist, json);
         return protagonist;
     }catch(e) {
         window.alert("error loading alumni. Something went wrong:  $e ");
@@ -91,10 +97,66 @@ Entity loadAlumni() {
 
 }
 
+/*   static String PATIENCE = "patience";
+    static String ENERGETIC = "energetic";
+    static String IDEALISTIC = "idealistic";
+    static String CURIOUS = "curious";
+    static String LOYAL = "loyal";
+    static String EXTERNAL = "external";
+    static String ISEMPRESS = "isempress";*/
+void loadStats(Entity entity, JSONObject json) {
+
+    int patience = int.parse(json["patience"]);
+    int energetic = int.parse(json["energetic"]);
+    int idealistic = int.parse(json["idealistic"]);
+    int curious = int.parse(json["curious"]);
+    int loyal = int.parse(json["loyal"]);
+    int external = int.parse(json["external"]);
+
+    if(patience > 0) {
+        entity.addStatNow(StatFactory.PATIENT,patience);
+    }else {
+        entity.addStatNow(StatFactory.IMPATIENT,patience.abs());
+    }
+
+    if(energetic > 0) {
+        entity.addStatNow(StatFactory.ENERGETIC,energetic);
+    }else {
+        entity.addStatNow(StatFactory.CALM,energetic.abs());
+    }
+
+    if(idealistic > 0) {
+        entity.addStatNow(StatFactory.IDEALISTIC,idealistic);
+    }else {
+        entity.addStatNow(StatFactory.REALISTIC,idealistic.abs());
+    }
+
+    if(curious > 0) {
+        entity.addStatNow(StatFactory.CURIOUS,curious);
+    }else {
+        entity.addStatNow(StatFactory.ACCEPTING,curious.abs());
+    }
+
+    if(loyal > 0) {
+        entity.addStatNow(StatFactory.LOYAL,loyal);
+    }else {
+        entity.addStatNow(StatFactory.FREE,loyal.abs());
+    }
+
+    if(external > 0) {
+        entity.addStatNow(StatFactory.EXTERNAL,external);
+    }else {
+        entity.addStatNow(StatFactory.INTERNAL,external.abs());
+    }
+}
+
 Future<Null>  displayProtagLoader() async{
     print("going to display protag");
     protagPreview = await world.protagonist.canvas;
     DivElement nameLabel = new DivElement();
+    protagLoader.classes.add("protagLoader");
+    protagLoader.append(protagPreview);
+    protagLoader.append(nameLabel);
     nameLabel.text = "Name: ";
     TextInputElement firstName = new TextInputElement();
     firstName.value = world.protagonist.firstName;
@@ -106,11 +168,6 @@ Future<Null>  displayProtagLoader() async{
 
 
 
-    protagLoader.classes.add("protagLoader");
-    protagLoader.append(protagPreview);
-    protagLoader.append(nameLabel);
-
-    loadProtagDoll();
 
 }
 
@@ -120,5 +177,16 @@ Future<Null> loadProtagDoll() async {
     CanvasElement tmp =  await world.protagonist.canvas;
     protagPreview.context2D.clearRect(0,0,protagPreview.width, protagPreview.height);
     protagPreview.context2D.drawImage(tmp,0,0);
+    print("done drawing");
 
+}
+
+void start() {
+    div.style.width = "1000px";
+    // print("before starting., there are ${chosenScenes}");
+    preStory.style.display = "none";
+
+    //print("before showing., there are ${chosenScenes}");
+    //world.protagonist.addAllHighPriorityScenes(chosenScenes);
+    world.tick();
 }

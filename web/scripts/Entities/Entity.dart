@@ -29,6 +29,8 @@ class Entity {
     bool canvasDirty = false;
     CanvasElement cachedCanvas;
 
+    String epilogue = "";
+
     Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, List<Scene> nonDefaultScenes) {
         //all entities have these three scenes no matter what
         print("new entity");
