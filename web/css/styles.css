@@ -1,3 +1,8 @@
+@font-face {
+    font-family: strife;
+    src: url("../Fonts/Strife.ttf");
+}
+
 
 html, body {
   width: 100%;
@@ -125,6 +130,7 @@ div{
 	color: #06ffc9;
 
 }
+
 
 
 ul.menuPureCSS {
