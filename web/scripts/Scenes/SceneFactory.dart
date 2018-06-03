@@ -9,17 +9,17 @@ abstract class SceneFactory {
 
    static List<GenericScene> allGenericScenes  = new List<GenericScene>();
 
-   //just like big bads
+   //just like big bads, assume lower case
    static Future<List<GenericScene>> slurpScenesInFileName(String filename) async {
        print("loading $filename scenes");
-       String data = await Loader.getResource("cards/${filename}.txt");
+       String data = await Loader.getResource("cards/${filename.toLowerCase()}.txt");
        List<String> cardsFromFile = data.split("\n");
        List<GenericScene> ret = new List<GenericScene>();
        for(String s in cardsFromFile) {
            print("processing $s");
            ret.add(GenericScene.fromDataString(s));
        }
-       
+
        return ret;
    }
 
