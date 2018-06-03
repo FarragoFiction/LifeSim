@@ -9,6 +9,10 @@ abstract class SceneFactory {
 
    static List<GenericScene> allGenericScenes  = new List<GenericScene>();
 
+   static List<GenericScene> slurpScenesInFileName(String filename) {
+
+   }
+
    static void initScenes() {
        GenericScene DIEINFIRE = new GenericScene("Die in a Fire", "${GenericScene.OWNERNAME} fails to put their job knowledge to practice, and dies in a fire.","THISISFINE.png",null, triggerChance: 0.1, triggerStatsGreater:<SVP>[new SVP(StatFactory.JOBFLAKES,0)], resultStats: <SVP>[new SVP(StatFactory.LIFESAUCE,-1*StatFactory.LIFESAUCE.maxValue), new SVP(StatFactory.SPOOK,StatFactory.SPOOK.maxValue)] );
        GenericScene BEFIREHERO = new GenericScene("Be a Fire Hero", "${GenericScene.OWNERNAME} fights a terrible fire and is the hero of the hour.","THISISFINE.png",null,triggerStatsGreater:<SVP>[new SVP(StatFactory.JOBFLAKES,StatFactory.JOBFLAKES.maxValue)], resultStats:<SVP>[new SVP(StatFactory.ESTEEM,3), new SVP(StatFactory.COMMERCE,20)] );

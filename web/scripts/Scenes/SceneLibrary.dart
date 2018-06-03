@@ -14,3 +14,4 @@ export "BreakTheGame.dart";
 export "BeAHobo.dart";
 export "GenericScene.dart";
 export "SceneFactory.dart";
+export "BeCulled.dart";
