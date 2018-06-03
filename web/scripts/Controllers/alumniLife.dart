@@ -182,6 +182,7 @@ Future<Null> loadProtagDoll() async {
 }
 
 Future<Null> setupScenes() async {
+    world.protagonist.scenes.clear(); //get rid of default shit
     List<Scene> alternia = await SceneFactory.slurpScenesInFileName("alternia");
     alternia.shuffle(new Random(world.protagonist.doll.seed));
 

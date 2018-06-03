@@ -43,7 +43,7 @@ class BeCulled extends Scene {
       initOthers();
 
       print("seriously, make their tombstone dynamic and a canvas");
-      text = "${owner.name} has finally died. History notes: ${epitaph()} <br><Br>This is definitely way better than ${owner.epilogue}, you are suddenly sure of it.";
+      text = "${owner.name} has finally died. History notes: ${epitaph()} <br><Br>This is definitely way better than '${owner.epilogue}', you are suddenly sure of it.";
       w.ended = true;
       owner.dead = true;
       owner.canvasDirty = true;
