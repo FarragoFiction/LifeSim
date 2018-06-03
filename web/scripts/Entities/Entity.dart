@@ -155,7 +155,12 @@ class Entity {
 
         //you might die of old age sooner, but this is the last shot
         if(StatFactory.AGE.value > StatFactory.AGE.maxValue * 2 || StatFactory.LIFESAUCE.value <=0) {
-            Scene s = new Die(this);
+            Scene s = null;
+            if(doll is HomestuckTrollDoll) {
+                s = new BeCulled(this);
+            }else {
+                s = new Die(this);
+            }
             await s.renderContent(div, w);
             return;
         }
