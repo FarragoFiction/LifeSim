@@ -11,7 +11,7 @@ abstract class SceneFactory {
 
    //just like big bads
    static Future<List<GenericScene>> slurpScenesInFileName(String filename) async {
-       print("loading big bads");
+       print("loading $filename scenes");
        String data = await Loader.getResource("cards/${filename}.txt");
        List<String> cardsFromFile = data.split("\n");
        List<GenericScene> ret = new List<GenericScene>();
