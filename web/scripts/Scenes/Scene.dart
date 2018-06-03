@@ -157,6 +157,14 @@ abstract class Scene {
                 await canvas.context2D.drawImage(otherCanvas, x, height - groundPos);
             }
         }
+        int fontSize = 24;
+        canvas.context2D.font = "${fontSize}px Strife";
+        canvas.context2D.fillStyle = "#000000";
+        String canvasText = displayedText.replaceAll("<br>", "\n");
+        Renderer.wrap_text(canvas.context2D, canvasText, 75, 50, 48, 650, "center");
+        canvas.context2D.fillStyle = "#ffffff";
+        Renderer.wrap_text(canvas.context2D, canvasText, 78, 53, 48, 650, "center");
+
     }
 
 
