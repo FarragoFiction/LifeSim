@@ -186,8 +186,17 @@ Future<Null> setupScenes() async {
     List<Scene> alternia = await SceneFactory.slurpScenesInFileName("alternia");
     alternia.shuffle(new Random(world.protagonist.doll.seed));
 
+    HomestuckTrollDoll t = world.protagonist.doll as HomestuckTrollDoll;
+    try {
+        List<Scene> blood = await SceneFactory.slurpScenesInFileName(t.bloodColor);
+        //blood scenes are treated just like any other.
+        alternia.addAll(blood);
+    }catch(e) {
+        print("found no scenes for blood of color ${t.bloodColor}, $e");
+    }
+    alternia.shuffle(new Random(world.protagonist.doll.seed));
+
     world.protagonist.addAllHighPriorityScenes(alternia);
-    //todo add caste specific scenes l8r so they are higher priority
 
     world.protagonist.addAllHighPriorityScenes(<Scene>[new BeCulled(world.protagonist)]);
 }

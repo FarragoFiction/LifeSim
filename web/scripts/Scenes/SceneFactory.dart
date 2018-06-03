@@ -16,6 +16,7 @@ abstract class SceneFactory {
        List<String> cardsFromFile = data.split("\n");
        List<GenericScene> ret = new List<GenericScene>();
        for(String s in cardsFromFile) {
+           print("processing $s");
            ret.add(GenericScene.fromDataString(s));
        }
        
