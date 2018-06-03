@@ -181,9 +181,8 @@ Future<Null> loadProtagDoll() async {
 
 }
 
-void setupScenes() {
-    //TODO before adding death to front of list, slurp alternia scenes
-    List<Scene> alternia = SceneFactory.slurpScenesInFileName("alternia");
+Future<Null> setupScenes() async {
+    List<Scene> alternia = await SceneFactory.slurpScenesInFileName("alternia");
     alternia.shuffle(new Random(world.protagonist.doll.seed));
 
     world.protagonist.addAllHighPriorityScenes(alternia);
@@ -192,13 +191,13 @@ void setupScenes() {
     world.protagonist.addAllHighPriorityScenes(<Scene>[new BeCulled(world.protagonist)]);
 }
 
-void start() {
+Future<Null> start() async {
     div.style.width = "1000px";
     // print("before starting., there are ${chosenScenes}");
     preStory.style.display = "none";
 
     //print("before showing., there are ${chosenScenes}");
     //world.protagonist.addAllHighPriorityScenes(chosenScenes);
-    setupScenes();
+    await setupScenes();
     world.tick();
 }
