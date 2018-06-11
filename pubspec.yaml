@@ -16,11 +16,11 @@ dev_dependencies:
 
 dependencies:
   RenderingLib:
-    git: git://github.com/jadedResearcher/RenderingLib.git
+    git: git://github.com/FarragoFiction/RenderingLib.git
   DollLibCorrect:
-    git:  git://github.com/jadedResearcher/DollLibCorrect.git
+    git:  git://github.com/FarragoFiction/DollLibCorrect.git
   BlackJack:
-      git:  git://github.com/jadedResearcher/BlackJack.git
+      git:  git://github.com/FarragoFiction/BlackJack.git
 
 
 
