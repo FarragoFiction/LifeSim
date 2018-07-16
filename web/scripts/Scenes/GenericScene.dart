@@ -1,5 +1,4 @@
 import "../LifeSimLib.dart";
-import '../lz-string.dart';
 import "dart:convert";
 
 

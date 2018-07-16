@@ -21,6 +21,8 @@ dependencies:
     git:  git://github.com/FarragoFiction/DollLibCorrect.git
   BlackJack:
       git:  git://github.com/FarragoFiction/BlackJack.git
+  CommonLib:
+            git: git://github.com/FarragoFiction/CommonLib.git
 
 
 
