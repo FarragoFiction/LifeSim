@@ -30,7 +30,7 @@ class Deck {
                 String sceneString = GenericScene.dataStringWithoutLabel(gs.toDataString());
                 for(String string in cardsInMe) {
                     String cardInDeckString = GenericScene.dataStringWithoutLabel(string);
-                    if(cardInDeckString==(sceneString)) {
+                    if(cardInDeckString.contains(sceneString)) {
                         //print("found scene $gs in deck $name");
                         ret.add(gs);
                         break;
@@ -63,12 +63,12 @@ class Deck {
     }
 
     int get boosterCost {
-        if(_cards != null && _cards.isNotEmpty) return _cards.length*57;
+        if(_cards != null && _cards.isNotEmpty) return (_cards.length/60).ceil()*57*13;
         return 10000*13;
     }
 
     int get deckCost {
-        if(_cards != null && _cards.isNotEmpty) return _cards.length*113*2;
+        if(_cards != null && _cards.isNotEmpty) return _cards.length*114;
         return 10000000*13;
     }
 
@@ -121,8 +121,10 @@ class Deck {
 
     Future<Null> makeButtons(Element container, Element purchasedCards) async {
         await cards("getting buttons"); //make sure its init
-        ButtonElement boosterButton = new ButtonElement()..text = "Buy Booster For $boosterCost";
-        ButtonElement deckButton = new ButtonElement()..text = "Buy Deck For $deckCost";
+        int costb = boosterCost;
+        int costd = deckCost;
+        ButtonElement boosterButton = new ButtonElement()..text = "Buy Booster For $costb";
+        ButtonElement deckButton = new ButtonElement()..text = "Buy Deck For $costd";
         ButtonElement sellButton = new ButtonElement()..text = "Sell All Duplicates?";
 
         container.append(boosterButton);
@@ -130,11 +132,11 @@ class Deck {
         container.append(sellButton);
 
         boosterButton.onClick.listen((Event e){
-            processBooster(purchasedCards);
+            processBooster(purchasedCards, costb);
         });
 
         deckButton.onClick.listen((Event e){
-            processDeck(purchasedCards);
+            processDeck(purchasedCards, costd);
         });
 
         sellButton.onClick.listen((Event e){
@@ -175,11 +177,12 @@ class Deck {
         return _cards;
     }
 
-    Future<Null> processBooster(Element container) async {
+    Future<Null> processBooster(Element container, int cost) async {
         container.setInnerHtml("You got: ");
         DivElement element = new DivElement();
         container.append(element);
         List<GenericScene> chosen = await makeBooster();
+        CardLibrary.money = CardLibrary.money - cost;
         for(GenericScene scene in chosen) {
             print("drawing card for $scene");
             await animateBoosterCard(scene,container);
@@ -206,11 +209,13 @@ class Deck {
         DivElement sold = new DivElement()..text = "Total Gained:  ${amount}";
         container.append(sold);    }
 
-    Future<Null> processDeck(Element container) async {
+    Future<Null> processDeck(Element container, int cost) async {
         container.setInnerHtml("You got: ");
         DivElement element = new DivElement();
         container.append(element);
         List<String> chosen = await cards("processing deck");
+        CardLibrary.money = CardLibrary.money - cost;
+
         for(String string in chosen) {
             GenericScene scene = GenericScene.fromDataString(string);
             print("drawing card for $scene");

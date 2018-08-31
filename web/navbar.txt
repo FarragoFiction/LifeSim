@@ -5,7 +5,14 @@
   <span class = 'centeredMenu'>
 
   <li class = "menuButtonPureCSS"><a href="index.html">LifeSim</a></li>
-  <li class = "menuButtonPureCSS"><a href="collectScenes.html">CollectCards</a></li>
+
+  <li class="dropdown menuButtonPureCSS">
+                <a href="javascript:void(0)" class="dropbtn">Get Cards</a>
+                    <div class="dropdown-content">
+                        <a href="collectScenes.html">Collect Cards</a>
+                        <a href="shop.html">Buy Cardpacks</a>
+
+  </li>
   <li class="dropdown menuButtonPureCSS">
               <a href="javascript:void(0)" class="dropbtn">Info</a>
                   <div class="dropdown-content">
