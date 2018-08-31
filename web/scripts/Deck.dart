@@ -14,8 +14,9 @@ import 'package:CommonLib/Random.dart';
 class Deck {
     static String ALTERNIA = "alternia";
     static int boosterSize = 13;
+    static String RANDOMDECK = "random";
     static Map<String, Deck> _allDecks;
-    static List<String> allDeckNames = <String>["misc", "alternia","sburb",];
+    static List<String> allDeckNames = <String>["misc", "alternia","sburb","memes"];
     static List<String> alternianSubDecks = <String>["burgundy","bronze","gold","lime","olive","jade","teal","cerulean","indigo","purple","violet","fuchsia","mutant"];
     String name;
     AudioElement soundEffects = new AudioElement();
@@ -63,6 +64,7 @@ class Deck {
     }
 
     int get boosterCost {
+        if(name == RANDOMDECK) return 33 * 13;
         if(_cards != null && _cards.isNotEmpty) return (_cards.length/60).ceil()*57*13;
         return 10000*13;
     }
@@ -82,6 +84,7 @@ class Deck {
                 Deck deck = new Deck(s);
                 _allDecks[s] = deck;
             }
+            _allDecks[RANDOMDECK] = new Deck(RANDOMDECK);
         }
         return _allDecks;
     }
@@ -162,8 +165,9 @@ class Deck {
         return _image;
     }
 
-    Future<List<String>> cards(String reason) async {
+    Future<List<String>> cards(String reason, [bool dontGetRandom = false]) async {
         print("getting cards for deck $name for reason $reason");
+        if(dontGetRandom && name == RANDOMDECK) return null; //don't fucking recusrse for the love of god
         if(_cards == null) {
             //print("cards for $name is null");
             _cards = await SceneFactory.slurpStringsInFileName(name);
@@ -174,9 +178,16 @@ class Deck {
                     List<String> tmp = await SceneFactory.slurpStringsInFileName(subName);
                     print("adding ${tmp.length} cards to alternian deck that already has ${_cards.length} for caste $subName");
                     _cards.addAll(tmp);
-
                 }
                 //print("got the sub files for alternia");
+            }else if(name == RANDOMDECK) {
+                print("getting all cards from all decks for the random deck");
+                Map<String, Deck> all = allDecks();
+                for(Deck deck in all.values) {
+                    print("getting cards from deck ${deck.name}");
+                    List<String> tmp = await deck.cards("random card thingy", true);
+                    if(tmp != null) _cards.addAll(tmp);
+                }
             }
         }
         print("returning deck $name with ${_cards.length} files");
