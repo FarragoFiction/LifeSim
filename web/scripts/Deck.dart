@@ -1,6 +1,7 @@
 //a deck knows how to load its contents, render its box art, generate a booster, etc.
 //can also make a custom deck.
 
+import 'CardLibrary.dart';
 import 'Scenes/GenericScene.dart';
 import 'Scenes/SceneFactory.dart';
 import 'dart:async';
@@ -107,18 +108,21 @@ class Deck {
     }
 
     Future<Null> processBooster(Element container) async {
+        container.setInnerHtml("You got: ");
         DivElement element = new DivElement();
         container.append(element);
         List<GenericScene> chosen = await makeBooster();
         for(GenericScene scene in chosen) {
             print("drawing card for $scene");
-            await new Future.delayed(const Duration(seconds: 1), () => animateBoosterCard(scene,container));
+            await animateBoosterCard(scene,container);
+            await new Future.delayed(const Duration(seconds: 1), () => print("next"));
             //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
         }
     }
 
     Future<Null> animateBoosterCard(GenericScene scene, Element container) async{
-        //240776__f4ngy__card-flip
+        //240776__f4ngy__card-
+        CardLibrary.addCard(scene);
         playSoundEffect("240776__f4ngy__card-flip");
         await scene.drawCard(container, -13);
         print("done animating booster card for $scene");
