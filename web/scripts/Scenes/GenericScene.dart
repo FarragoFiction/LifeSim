@@ -173,7 +173,8 @@ class GenericScene extends Scene {
     }
 
     static String dataStringWithoutLabel(String string) {
-        string = string.replaceAll(" ", ""); //no spaces
+        string = string.replaceAll(" ", ""); //no space
+        string = string.trim();
         List<String> tmp = string.split("$labelPattern");
         //print("string was $string, tmp is $tmp, label pattern is $labelPattern");
         String dataWithoutName;

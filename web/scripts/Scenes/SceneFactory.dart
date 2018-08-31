@@ -28,7 +28,7 @@ abstract class SceneFactory {
         List<String> ret = new List<String>();
         for(String s in cardsFromFile) {
            // print("processing $s");
-            if(s!=null && s.isNotEmpty)ret.add(s);
+            if(s!=null && s.isNotEmpty)ret.add(s.replaceAll(" ", ""));
         }
 
         return ret;

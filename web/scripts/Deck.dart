@@ -14,35 +14,42 @@ class Deck {
     static String ALTERNIA = "alternia";
     static int boosterSize = 13;
     static Map<String, Deck> _allDecks;
-    static List<String> allDeckNames = <String>["misc", "alternia","sburb"];
+    static List<String> allDeckNames = <String>["misc", "alternia","sburb",];
     static List<String> alternianSubDecks = <String>["burgundy","bronze","gold","lime","olive","jade","teal","cerulean","indigo","purple","violet","fuchsia","mutant"];
     String name;
     AudioElement soundEffects = new AudioElement();
 
     Future<List<GenericScene>> get cardsOwned async {
-        List<Scene> ret = new List<Scene>.from(CardLibrary.cards);
-        List<String> cardsInMe = await cards;
-        ret.removeWhere((Scene scene){
+        List<Scene> myCards = new List<Scene>.from(CardLibrary.cards);
+        List<GenericScene> ret = new List<GenericScene>();
+        List<String> cardsInMe = await cards("getting owned cards");
+        for(Scene scene in myCards) {
             if(scene is GenericScene) {
-                String dataString = (scene as GenericScene).toDataString();
-                bool ret= !cardsInMe.contains(dataString);
-                if(ret) {
-                    ret = !cardsInMe.contains(GenericScene.dataStringWithoutLabel(dataString));
+                GenericScene gs = scene as GenericScene;
+                String sceneString = GenericScene.dataStringWithoutLabel(gs.toDataString());
+                for(String string in cardsInMe) {
+                    String cardInDeckString = GenericScene.dataStringWithoutLabel(string);
+                    if(cardInDeckString==(sceneString)) {
+                        //print("found scene $gs in deck $name");
+                        ret.add(gs);
+                        break;
+                    }
                 }
-                print("is $scene inside deck $name? ${!ret} (it has ${cardsInMe.length} cards in it)");
-                return ret;
-            }else {
-                print("$scene is not generic");
-                return true;
+                //print("$gs is not in deck $name");
             }
-        });
-        print("found ${ret.length} cards in deck $name");
+        }
+        //print("found ${ret.length} cards in deck $name");
         return ret;
     }
 
     Future<Set<GenericScene>> get cardsOwnedNoDuplicates async{
         List<GenericScene> cardsInMe = await cardsOwned;
-        return new Set<GenericScene>.from(cardsInMe);
+        Map<String, GenericScene>map =  new Map<String, GenericScene>();
+
+        for(GenericScene s in cardsInMe) {
+            map[s.toDataString()] = s;
+        }
+        return new Set.from(map.values);
     }
 
     List<String> _cards;
@@ -98,7 +105,8 @@ class Deck {
     }
 
     Future<Null> makeStats(Element stats) async {
-        List<String> tmp2 = await cards;
+        List<String> tmp2 = await cards("making stats");
+        //print("got cards for making stats for $name");
         Set<GenericScene> uniq = await cardsOwnedNoDuplicates;
         List<GenericScene> all = await cardsOwned;
         DivElement youOwn = new DivElement()..text = "You own: ${uniq.length}/${tmp2.length} cards";
@@ -111,9 +119,11 @@ class Deck {
     }
 
     Future<Null> makeButtons(Element container, Element purchasedCards) async {
-        await cards; //make sure its init
+        await cards("getting buttons"); //make sure its init
         ButtonElement boosterButton = new ButtonElement()..text = "Buy Booster For $boosterCost";
         ButtonElement deckButton = new ButtonElement()..text = "Buy Deck For $deckCost";
+        ButtonElement sellButton = new ButtonElement()..text = "Sell All Duplicates?";
+
         container.append(boosterButton);
         container.append(deckButton);
 
@@ -138,17 +148,24 @@ class Deck {
         return _image;
     }
 
-    Future<List<String>> get cards async {
+    Future<List<String>> cards(String reason) async {
+        //print("getting cards for deck $name for reason $reason");
         if(_cards == null) {
+            //print("cards for $name is null");
             _cards = await SceneFactory.slurpStringsInFileName(name);
+            //print("got the strings in file name for $name");
             if(name == ALTERNIA) {
+                //print("alternian sub decks are ${Deck.alternianSubDecks}");
                 for(String subName in Deck.alternianSubDecks) {
                     List<String> tmp = await SceneFactory.slurpStringsInFileName(subName);
+                    //print("adding ${tmp.length} cards to alternian deck that already has ${_cards.length} for caste $subName");
                     _cards.addAll(tmp);
 
                 }
+                //print("got the sub files for alternia");
             }
         }
+        //print("returning deck $name with ${_cards.length} files");
         return _cards;
     }
 
@@ -169,7 +186,7 @@ class Deck {
         container.setInnerHtml("You got: ");
         DivElement element = new DivElement();
         container.append(element);
-        List<String> chosen = await cards;
+        List<String> chosen = await cards("processing deck");
         for(String string in chosen) {
             GenericScene scene = GenericScene.fromDataString(string);
             print("drawing card for $scene");
@@ -189,7 +206,7 @@ class Deck {
     }
 
     Future<List<GenericScene>> makeBooster() async {
-        List<String> c = await cards;
+        List<String> c = await cards("making booster");
         List<GenericScene> ret = new List<GenericScene>();
         Random rand = new Random();
         for(int i = 0; i<Deck.boosterSize; i++) {
