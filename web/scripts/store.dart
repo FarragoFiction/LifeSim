@@ -5,11 +5,14 @@ import 'dart:async';
 import 'dart:html';
 import 'navbar.dart';
 
+import 'package:RenderingLib/RendereringLib.dart';
+
 
 
 DivElement output = querySelector("#output");
 Future<Null> main() async{
     loadNavbar();
+    await Loader.preloadManifest();
     StatFactory.initAllStats();
     SceneFactory.initScenes();
     Element purchasedCards = new DivElement()..classes.add("purchased")..text = "You got:";

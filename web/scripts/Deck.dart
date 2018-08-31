@@ -3,6 +3,7 @@
 
 import 'CardLibrary.dart';
 import 'Scenes/GenericScene.dart';
+import 'Scenes/Scene.dart';
 import 'Scenes/SceneFactory.dart';
 import 'dart:async';
 import 'dart:html';
@@ -18,6 +19,32 @@ class Deck {
     String name;
     AudioElement soundEffects = new AudioElement();
 
+    Future<List<GenericScene>> get cardsOwned async {
+        List<Scene> ret = new List<Scene>.from(CardLibrary.cards);
+        List<String> cardsInMe = await cards;
+        ret.removeWhere((Scene scene){
+            if(scene is GenericScene) {
+                String dataString = (scene as GenericScene).toDataString();
+                bool ret= !cardsInMe.contains(dataString);
+                if(ret) {
+                    ret = !cardsInMe.contains(GenericScene.dataStringWithoutLabel(dataString));
+                }
+                print("is $scene inside deck $name? ${!ret} (it has ${cardsInMe.length} cards in it)");
+                return ret;
+            }else {
+                print("$scene is not generic");
+                return true;
+            }
+        });
+        print("found ${ret.length} cards in deck $name");
+        return ret;
+    }
+
+    Future<Set<GenericScene>> get cardsOwnedNoDuplicates async{
+        List<GenericScene> cardsInMe = await cardsOwned;
+        return new Set<GenericScene>.from(cardsInMe);
+    }
+
     List<String> _cards;
 
     ImageElement _image;
@@ -28,12 +55,12 @@ class Deck {
     }
 
     int get boosterCost {
-        if(_cards.isNotEmpty) return _cards.length*13;
+        if(_cards != null && _cards.isNotEmpty) return _cards.length*13;
         return 10000*13;
     }
 
     int get deckCost {
-        if(_cards.isNotEmpty) return _cards.length*113;
+        if(_cards != null && _cards.isNotEmpty) return _cards.length*113;
         return 10000000*13;
     }
 
@@ -63,14 +90,28 @@ class Deck {
         decks.append(container);
         ImageElement tmp = await image;
         container.append(image);
-        List<String> tmp2 = await cards;
-        DivElement stats = new DivElement()..text = "$name: ${tmp2.length} cards";
+        DivElement stats = new DivElement()..text = "$name: ";
         container.append(stats);
         makeButtons(container, purchasedCards);
+        makeStats(stats); //async but don't wait
         return container;
     }
 
-    void makeButtons(Element container, Element purchasedCards) {
+    Future<Null> makeStats(Element stats) async {
+        List<String> tmp2 = await cards;
+        Set<GenericScene> uniq = await cardsOwnedNoDuplicates;
+        List<GenericScene> all = await cardsOwned;
+        DivElement youOwn = new DivElement()..text = "You own: ${uniq.length}/${tmp2.length} cards";
+        DivElement duplicates = new DivElement()..text = "You have: ${all.length - uniq.length} duplicates";
+
+        stats.append(youOwn);
+        stats.append(duplicates);
+
+
+    }
+
+    Future<Null> makeButtons(Element container, Element purchasedCards) async {
+        await cards; //make sure its init
         ButtonElement boosterButton = new ButtonElement()..text = "Buy Booster For $boosterCost";
         ButtonElement deckButton = new ButtonElement()..text = "Buy Deck For $deckCost";
         container.append(boosterButton);
