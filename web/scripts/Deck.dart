@@ -10,11 +10,11 @@ import 'package:CommonLib/Random.dart';
 
 
 class Deck {
-    static String ALTERNIA = "ALTERNIA";
+    static String ALTERNIA = "alternia";
     static int boosterSize = 13;
     static Map<String, Deck> _allDecks;
     static List<String> allDeckNames = <String>["misc", "alternia","sburb"];
-    static List<String> alternianSubDecks = <String>["burgundy","bronze","gold","lime","olive","jade","teal","cerulean","indigo","purple","violet","fucshia","mutant"];
+    static List<String> alternianSubDecks = <String>["burgundy","bronze","gold","lime","olive","jade","teal","cerulean","indigo","purple","violet","fuchsia","mutant"];
     String name;
     AudioElement soundEffects = new AudioElement();
 
