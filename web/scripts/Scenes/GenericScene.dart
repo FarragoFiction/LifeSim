@@ -193,6 +193,10 @@ class GenericScene extends Scene {
         return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
     }
 
+    GenericScene copy() {
+        return GenericScene.fromDataString(toDataString());
+    }
+
     static GenericScene fromJSON(JSONObject json) {
         //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
         //print("the json object is $json");
