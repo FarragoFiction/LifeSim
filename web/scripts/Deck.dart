@@ -7,6 +7,7 @@ import 'Scenes/Scene.dart';
 import 'Scenes/SceneFactory.dart';
 import 'dart:async';
 import 'dart:html';
+import 'navbar.dart';
 import 'package:CommonLib/Random.dart';
 
 
@@ -62,12 +63,12 @@ class Deck {
     }
 
     int get boosterCost {
-        if(_cards != null && _cards.isNotEmpty) return _cards.length*13;
+        if(_cards != null && _cards.isNotEmpty) return _cards.length*57;
         return 10000*13;
     }
 
     int get deckCost {
-        if(_cards != null && _cards.isNotEmpty) return _cards.length*113;
+        if(_cards != null && _cards.isNotEmpty) return _cards.length*113*2;
         return 10000000*13;
     }
 
@@ -126,6 +127,7 @@ class Deck {
 
         container.append(boosterButton);
         container.append(deckButton);
+        container.append(sellButton);
 
         boosterButton.onClick.listen((Event e){
             processBooster(purchasedCards);
@@ -133,6 +135,10 @@ class Deck {
 
         deckButton.onClick.listen((Event e){
             processDeck(purchasedCards);
+        });
+
+        sellButton.onClick.listen((Event e){
+            processSellingDuplicates(purchasedCards);
         });
     }
 
@@ -182,6 +188,24 @@ class Deck {
         }
     }
 
+    Future<Null> processSellingDuplicates(Element container) async{
+        Set<GenericScene> uniq = await cardsOwnedNoDuplicates;
+        List<GenericScene> all = await cardsOwned;
+        container.setInnerHtml("");
+        //duplicates are the cards that are NOT in common between them....fucking....set theory
+        Set<GenericScene> duplicates = new Set<GenericScene>.from(all).difference(uniq);
+        int amount = 0;
+        for(GenericScene gs in duplicates) {
+            amount += gs.price;
+            CardLibrary.money = CardLibrary.money + gs.price;
+            CardLibrary.removeCard(gs);
+            syncMoney();
+            DivElement sold = new DivElement()..text = "Sold $gs for ${gs.price}";
+            container.append(sold);
+        }
+        DivElement sold = new DivElement()..text = "Total Gained:  ${amount}";
+        container.append(sold);    }
+
     Future<Null> processDeck(Element container) async {
         container.setInnerHtml("You got: ");
         DivElement element = new DivElement();
@@ -191,7 +215,7 @@ class Deck {
             GenericScene scene = GenericScene.fromDataString(string);
             print("drawing card for $scene");
             await animateBoosterCard(scene,container);
-            await new Future.delayed(const Duration(seconds: 1), () => print("next"));
+            await new Future.delayed(const Duration(milliseconds: 500), () => print("next"));
             //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
         }
     }

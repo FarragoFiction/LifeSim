@@ -15,6 +15,9 @@ class GenericScene extends Scene {
     //useful if you want it to only go once
     List<SVP> triggerStatsEqual;
 
+    int get price => convertToNumber() % 113; //yes, this is an insane way to do it, why do you ask? (i really don't want to store price along with shit, it'll be annoying to calibrate so why not just go fucking hog wild)
+
+
 
     //you get reward unit of this
     List<SVP> resultStats;
@@ -137,7 +140,6 @@ class GenericScene extends Scene {
 
     void drawSellButton(Element div) {
         DivElement d = new DivElement();
-        int price = convertToNumber() % 113; //yes, this is an insane way to do it, why do you ask? (i really don't want to store price along with shit, it'll be annoying to calibrate so why not just go fucking hog wild)
         ButtonElement b = new ButtonElement();
         b.text = "Sell for $price?";
         d.append(b);

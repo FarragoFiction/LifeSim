@@ -34,7 +34,7 @@ abstract class CardLibrary {
         if(window.localStorage.containsKey(MONEYSTRING)){
             return int.parse(window.localStorage[MONEYSTRING]);
         }else {
-            return 0;
+            return 4037;
         }
     }
 
