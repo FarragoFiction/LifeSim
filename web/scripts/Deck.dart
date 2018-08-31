@@ -20,6 +20,21 @@ class Deck {
 
     ImageElement _image;
 
+    int get numberCards {
+        if(_cards.isNotEmpty) return _cards.length;
+        return 1;
+    }
+
+    int get boosterCost {
+        if(_cards.isNotEmpty) return _cards.length*13;
+        return 10000*13;
+    }
+
+    int get deckCost {
+        if(_cards.isNotEmpty) return _cards.length*113;
+        return 10000000*13;
+    }
+
 
     Deck(String this.name);
 
@@ -35,12 +50,21 @@ class Deck {
     }
 
     Future<Element> makeShopElement() async{
-        DivElement container = new DivElement();
+        DivElement container = new DivElement()..classes.add("deck");
         ImageElement tmp = await image;
         container.append(image);
         List<String> tmp2 = await cards;
         DivElement stats = new DivElement()..text = "$name: ${tmp2.length} cards";
         container.append(stats);
+        makeButtons(container);
+        return container;
+    }
+
+    void makeButtons(Element container) {
+        ButtonElement boosterButton = new ButtonElement()..text = "Buy Booster For $boosterCost";
+        ButtonElement deckButton = new ButtonElement()..text = "Buy Deck For $deckCost";
+        container.append(boosterButton);
+        container.append(deckButton);
     }
 
 
@@ -48,6 +72,9 @@ class Deck {
     ImageElement get image {
         if(_image == null) {
             _image = new ImageElement(src:"images/DeckBoxArt/${name}.png");
+            _image.onError.listen((Event e) {
+                _image.src = "images/DeckBoxArt/default.png";
+            });
         }
         return _image;
     }

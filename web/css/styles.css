@@ -16,6 +16,10 @@ input{
     margin-left: 10px;
 }
 
+.deck{
+    display: inline-block;
+}
+
 textarea{
     margin-left: 10px;
 }

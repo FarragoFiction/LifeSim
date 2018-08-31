@@ -14,7 +14,7 @@ abstract class SceneFactory {
        List<String> sceneStrings = await slurpStringsInFileName(filename);
        List<GenericScene> ret = new List<GenericScene>();
        for(String s in sceneStrings) {
-           print("processing $s");
+           //print("processing $s");
            if(s!=null && s.isNotEmpty)ret.add(GenericScene.fromDataString(s));
        }
 
@@ -27,7 +27,7 @@ abstract class SceneFactory {
         List<String> cardsFromFile = data.split("\n");
         List<String> ret = new List<String>();
         for(String s in cardsFromFile) {
-            print("processing $s");
+           // print("processing $s");
             if(s!=null && s.isNotEmpty)ret.add(s);
         }
 
