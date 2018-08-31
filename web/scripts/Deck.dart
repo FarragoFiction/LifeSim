@@ -79,6 +79,10 @@ class Deck {
         boosterButton.onClick.listen((Event e){
             processBooster(purchasedCards);
         });
+
+        deckButton.onClick.listen((Event e){
+            processDeck(purchasedCards);
+        });
     }
 
 
@@ -113,6 +117,20 @@ class Deck {
         container.append(element);
         List<GenericScene> chosen = await makeBooster();
         for(GenericScene scene in chosen) {
+            print("drawing card for $scene");
+            await animateBoosterCard(scene,container);
+            await new Future.delayed(const Duration(seconds: 1), () => print("next"));
+            //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
+        }
+    }
+
+    Future<Null> processDeck(Element container) async {
+        container.setInnerHtml("You got: ");
+        DivElement element = new DivElement();
+        container.append(element);
+        List<String> chosen = await cards;
+        for(String string in chosen) {
+            GenericScene scene = GenericScene.fromDataString(string);
             print("drawing card for $scene");
             await animateBoosterCard(scene,container);
             await new Future.delayed(const Duration(seconds: 1), () => print("next"));
