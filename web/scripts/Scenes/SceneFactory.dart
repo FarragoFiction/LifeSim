@@ -11,17 +11,28 @@ abstract class SceneFactory {
 
    //just like big bads, assume lower case
    static Future<List<GenericScene>> slurpScenesInFileName(String filename) async {
-       print("loading $filename scenes");
-       String data = await Loader.getResource("cards/${filename.toLowerCase()}.txt");
-       List<String> cardsFromFile = data.split("\n");
+       List<String> sceneStrings = await slurpStringsInFileName(filename);
        List<GenericScene> ret = new List<GenericScene>();
-       for(String s in cardsFromFile) {
+       for(String s in sceneStrings) {
            print("processing $s");
            if(s!=null && s.isNotEmpty)ret.add(GenericScene.fromDataString(s));
        }
 
        return ret;
    }
+
+    static Future<List<String>> slurpStringsInFileName(String filename) async {
+        print("loading $filename scenes");
+        String data = await Loader.getResource("cards/${filename.toLowerCase()}.txt");
+        List<String> cardsFromFile = data.split("\n");
+        List<String> ret = new List<String>();
+        for(String s in cardsFromFile) {
+            print("processing $s");
+            if(s!=null && s.isNotEmpty)ret.add(s);
+        }
+
+        return ret;
+    }
 
    static void initScenes() {
        GenericScene DIEINFIRE = new GenericScene("Die in a Fire", "${GenericScene.OWNERNAME} fails to put their job knowledge to practice, and dies in a fire.","THISISFINE.png",null, triggerChance: 0.1, triggerStatsGreater:<SVP>[new SVP(StatFactory.JOBFLAKES,0)], resultStats: <SVP>[new SVP(StatFactory.LIFESAUCE,-1*StatFactory.LIFESAUCE.maxValue), new SVP(StatFactory.SPOOK,StatFactory.SPOOK.maxValue)] );
