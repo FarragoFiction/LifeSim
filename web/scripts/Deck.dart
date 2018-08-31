@@ -115,8 +115,14 @@ class Deck {
 
         stats.append(youOwn);
         stats.append(duplicates);
+    }
 
-
+    void makeRefreshButton(Element container) {
+        ButtonElement button = new ButtonElement()..text = "Refresh Page?"..style.display="block";
+        button.onClick.listen((Event e) {
+            window.location.href = window.location.href;
+        });
+        container.append(button);
     }
 
     Future<Null> makeButtons(Element container, Element purchasedCards) async {
@@ -189,6 +195,7 @@ class Deck {
             await new Future.delayed(const Duration(seconds: 1), () => print("next"));
             //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
         }
+        makeRefreshButton(container);
     }
 
     Future<Null> processSellingDuplicates(Element container) async{
@@ -207,7 +214,10 @@ class Deck {
             container.append(sold);
         }
         DivElement sold = new DivElement()..text = "Total Gained:  ${amount}";
-        container.append(sold);    }
+        container.append(sold);
+        makeRefreshButton(container);
+
+    }
 
     Future<Null> processDeck(Element container, int cost) async {
         container.setInnerHtml("You got: ");
@@ -223,6 +233,8 @@ class Deck {
             await new Future.delayed(const Duration(milliseconds: 500), () => print("next"));
             //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
         }
+        makeRefreshButton(container);
+
     }
 
     Future<Null> animateBoosterCard(GenericScene scene, Element container) async{
