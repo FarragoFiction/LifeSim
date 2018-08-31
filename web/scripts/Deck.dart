@@ -100,7 +100,7 @@ class Deck {
         container.append(image);
         DivElement stats = new DivElement()..text = "$name: ";
         container.append(stats);
-        makeButtons(container, purchasedCards);
+        await makeButtons(container, purchasedCards);
         makeStats(stats); //async but don't wait
         return container;
     }
@@ -157,7 +157,7 @@ class Deck {
     }
 
     Future<List<String>> cards(String reason) async {
-        //print("getting cards for deck $name for reason $reason");
+        print("getting cards for deck $name for reason $reason");
         if(_cards == null) {
             //print("cards for $name is null");
             _cards = await SceneFactory.slurpStringsInFileName(name);
@@ -166,14 +166,14 @@ class Deck {
                 //print("alternian sub decks are ${Deck.alternianSubDecks}");
                 for(String subName in Deck.alternianSubDecks) {
                     List<String> tmp = await SceneFactory.slurpStringsInFileName(subName);
-                    //print("adding ${tmp.length} cards to alternian deck that already has ${_cards.length} for caste $subName");
+                    print("adding ${tmp.length} cards to alternian deck that already has ${_cards.length} for caste $subName");
                     _cards.addAll(tmp);
 
                 }
                 //print("got the sub files for alternia");
             }
         }
-        //print("returning deck $name with ${_cards.length} files");
+        print("returning deck $name with ${_cards.length} files");
         return _cards;
     }
 
