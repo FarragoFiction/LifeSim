@@ -173,9 +173,9 @@ class GenericScene extends Scene {
     }
 
     static GenericScene fromDataString(String string) {
-        string.replaceAll(" ", ""); //no spaces
+        string = string.replaceAll(" ", ""); //no spaces
         List<String> tmp = string.split("$labelPattern");
-        //print("string was $string, tmp is $tmp, label pattern is $labelPattern");
+        print("string was $string, tmp is $tmp, label pattern is $labelPattern");
         String dataWithoutName;
         //works for data strings pre and post labels
         if(tmp.length == 1) {
@@ -183,11 +183,13 @@ class GenericScene extends Scene {
         }else {
             dataWithoutName = tmp[1];
         }
-        //print("dataWithoutName is $dataWithoutName");
+        print("dataWithoutName is $dataWithoutName");
         if(dataWithoutName.isEmpty) {
             return null;
         }
+
         String json = LZString.decompressFromEncodedURIComponent(dataWithoutName);
+        print("json is $json");
         return GenericScene.fromJSON(new JSONObject.fromJSONString(json));
     }
 

@@ -7,7 +7,7 @@ import "package:DollLibCorrect/DollRenderer.dart";
 
 Element div = querySelector("#output");
 
-String target = "alternia";
+String target = "misc";
 
 Future<Null> main() async {
     div.style.width = "100%";
