@@ -249,6 +249,8 @@ class GenericScene extends Scene {
         }else{
             ret.id = GenericScene.nextID;
         }
+        print("card with name ${ret.name} has id ${ret.id}");
+        return ret;
     }
 
         static GenericScene fromJSON(JSONObject json) {
@@ -261,7 +263,6 @@ class GenericScene extends Scene {
         double trigger = double.parse(json["triggerChance"]);
         GenericScene ret = new GenericScene(name, text, bg, null, triggerChance: trigger);
 
-        print("card with name $name has id ${ret.id}");
         ret.source = json["source"];
 
         String scenesToUnlockString = json["scenesToUnlock"];

@@ -239,7 +239,7 @@ class Deck {
         for(GenericScene scene in chosen) {
             print("drawing card for $scene");
             await animateBoosterCard(scene,container);
-            await new Future.delayed(const Duration(seconds: 1), () => print("next"));
+            await new Future.delayed(const Duration(milliseconds: 500), () => print("next"));
             //new Timer(new Duration(milliseconds: 1000), () => animateBoosterCard(scene,container));
         }
         makeRefreshButton(container);
