@@ -303,7 +303,7 @@ class Deck {
         return ret;
     }
 
-    static Future<Null> drawDecksToSelect(Element container) async{
+    static Future<Null> drawDecksToSelect(Element container, Map<String, GenericScene> chosenScenes) async{
         //get all decks
         Map<String, Deck> decks = Deck.allDecks();
         for(Deck d in decks.values) {

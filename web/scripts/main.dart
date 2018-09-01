@@ -198,7 +198,7 @@ Future<Null> displayDeckLibrary() async {
   buttonHolder.append(button);
   cardLibraryDiv.append(buttonHolder);
 
-  Deck.drawDecksToSelect(cardLibraryDiv);
+  Deck.drawDecksToSelect(cardLibraryDiv, chosenScenes);
 
 
 }
