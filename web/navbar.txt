@@ -9,7 +9,7 @@
   <li class="dropdown menuButtonPureCSS">
                 <a href="javascript:void(0)" class="dropbtn">Get Cards</a>
                     <div class="dropdown-content">
-                        <a href="collectScenes.html">Collect Cards</a>
+                        <a href="collectScenes.html">Free Cards</a>
                         <a href="shop.html">Buy Cardpacks</a>
 
   </li>

@@ -1,3 +1,4 @@
+import 'Deck.dart';
 import 'dart:html';
 import "LifeSimLib.dart";
 
@@ -55,7 +56,8 @@ void main() {
   story.append(coinToss);
 
   displayProtagLoader();
-  displayCardLibrary();
+  displayDeckLibrary();
+  //displayCardLibrary();
   //pickCardsRandomly();
  // start();
 }
@@ -178,6 +180,22 @@ void selectRandomCards() {
       canvas.classes.remove('selectedCard');
     }
   }
+}
+
+Future<Null> displayDeckLibrary() async {
+  await Loader.preloadManifest();
+  DivElement buttonHolder = new DivElement();
+  ButtonElement button = new ButtonElement();
+  button.style.display = "block";
+  button.text = "Start Life With Selected Cards";
+  button.onClick.listen((e) => grabSelectedCardsAndStart());
+
+  buttonHolder.append(button);
+  cardLibraryDiv.append(buttonHolder);
+
+  Deck.drawDecksToSelect(cardLibraryDiv);
+
+
 }
 
 //as opposed to a library card

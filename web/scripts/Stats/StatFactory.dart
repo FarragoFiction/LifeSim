@@ -189,7 +189,7 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         CORRUPTIONCOEFFICIENT = new Stat("CORRUPTION COEFFICIENT","","They had eldritch power.",0,new Colour.fromStyleString("#501855"));
         BLASPHEMOXY = new Stat("BLASPHEMOXY","","They ran head first into blasphemies.",0,new Colour.fromStyleString("#131313"),666);
         SEINFIELDSCALAGE = new Stat("SEINFIELD SCALAGE","","They had traits in common with Jerry Seinfield.",0,new Colour.fromStyleString("#182855"),9);
-        BREADCRAFT  = new Stat("BREADCRAFT","","They had very warm hands.",0,new Colour.fromStyleString("#553a18"));
+        BREADCRAFT  = new Stat("BREADCRAFT","","They had very warm hands.",0,new Colour.fromStyleString("#553a18"),3);
         SNEAKAPACITY = new Stat("SNEAKAPACITY","","They had were a sneak thief.",0,new Colour.fromStyleString("#182855"));
         PANACHE = new Stat("PANACHE","","They had a certain je ne sais quoi.",0,new Colour.fromStyleString("#987d9f"));
         DOMINANCE = new Stat("DOMINANCE","","They dominated the playing field.",0,new Colour.fromStyleString("#00ff00"));

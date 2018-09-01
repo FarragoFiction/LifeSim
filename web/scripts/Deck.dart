@@ -153,6 +153,36 @@ class Deck {
         });
     }
 
+    Future<Null> makeSelectButtons(Element container) async {
+        List<String> c = await cards("getting buttons"); //make sure its init
+
+        ButtonElement allCards = new ButtonElement()..text = "Select All Cards";
+        InputElement amountElement = new InputElement()..type="range";
+        amountElement.min = "0";
+        amountElement.max = "${c.length}";
+        amountElement.value = "${c.length}";
+        ButtonElement randomCards = new ButtonElement()..text = "Select ${amountElement.value} Random Cards";
+
+        container.append(allCards);
+        container.append(amountElement);
+        container.append(randomCards);
+
+        //TODO detect selected from something OTHER than on screen images
+
+        allCards.onClick.listen((Event e){
+            //select all
+        });
+
+        amountElement.onChange.listen((Event e){
+            randomCards.text = "Select ${amountElement.value} Random Cards";
+        });
+
+        randomCards.onClick.listen((Event e){
+            int amount = int.parse(amountElement.value);
+        });
+    }
+
+
 
 
     ImageElement get image {
@@ -265,6 +295,26 @@ class Deck {
             ret.add(GenericScene.fromDataString(rand.pickFrom(c)));
         }
         return ret;
+    }
+
+    static Future<Null> drawDecksToSelect(Element container) async{
+        //get all decks
+        Map<String, Deck> decks = Deck.allDecks();
+        for(Deck d in decks.values) {
+            print("loaded deck ${d.name}");
+            await d.makeSelectElement(container);
+        }
+    }
+
+    Future<Null> makeSelectElement(Element decks)  async{
+        DivElement container = new DivElement()..classes.add("deck");
+        decks.append(container);
+        ImageElement tmp = await image;
+        container.append(tmp);
+        DivElement stats = new DivElement()..text = "$name: ";
+        container.append(stats);
+        await makeSelectButtons(container);
+        return container;
     }
 
 

@@ -32,7 +32,7 @@ Future<Null> start() async {
 
 void displayBox() {
   DivElement container = new DivElement();
-  container.text = "Any scenes you find throughout farrago fiction will automatically show up here.  You can enter them manually here, too. I wonder how you find their dataStrings to do this?";
+  container.text = "Any scenes you find throughout Farrago Fiction will automatically show up here.  You can enter them manually here, too. I wonder how you find their dataStrings to do this???";
   DivElement subContainer = new DivElement();
   TextAreaElement box = new TextAreaElement();
   subContainer.append(box);
