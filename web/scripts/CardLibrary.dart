@@ -136,6 +136,7 @@ abstract class CardLibrary {
             sceneArray.add(s.toDataString());
         }
         window.localStorage[CARDSAVESTRING] = sceneArray.toString();
+        savedID = GenericScene.nextID-1;
     }
 
     static void clearLibrary() {

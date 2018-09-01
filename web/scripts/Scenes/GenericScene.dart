@@ -14,7 +14,6 @@ class GenericScene extends Scene {
         }
         int ret = _nextID;
         _nextID ++;
-        CardLibrary.savedID = _nextID;
         return ret;
     }
 
@@ -231,6 +230,8 @@ class GenericScene extends Scene {
         GenericScene ret = new GenericScene(name, text, bg, null, triggerChance: trigger);
         if(json["id"] != null){
             ret.id = int.parse(json["id"]);
+            //if you find a card bigger than you, then do shit
+            if(nextID < ret.id) _nextID = ret.id +1;
         }else{
             ret.id = GenericScene.nextID;
         }
