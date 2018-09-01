@@ -30,6 +30,7 @@ class Deck {
                 GenericScene gs = scene as GenericScene;
                 String sceneString = GenericScene.dataStringWithoutLabel(gs.toDataString());
                 for(String string in cardsInMe) {
+                    //print("string is $string");
                     String cardInDeckString = GenericScene.dataStringWithoutLabel(string);
                     if(cardInDeckString.contains(sceneString)) {
                         //print("found scene $gs in deck $name");

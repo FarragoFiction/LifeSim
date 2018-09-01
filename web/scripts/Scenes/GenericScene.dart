@@ -202,7 +202,7 @@ class GenericScene extends Scene {
         }
         //print("dataWithoutName is $dataWithoutName");
         if(dataWithoutName.isEmpty) {
-            return null;
+            throw("Couldn't find data in $string, parts were $tmp. ");
         }
         return dataWithoutName;
     }
@@ -234,6 +234,7 @@ class GenericScene extends Scene {
         }else{
             ret.id = GenericScene.nextID;
         }
+        print("card with name $name has id ${ret.id}");
         ret.source = json["source"];
 
         String scenesToUnlockString = json["scenesToUnlock"];
