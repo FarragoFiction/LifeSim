@@ -176,6 +176,17 @@ class GenericScene extends Scene {
     }
 
 
+    String toDataStringWithID() {
+        String json = toJSONWithID().toString();
+        //return LZString.compressToEncodedURIComponent(json);
+        String label = "$name($source)";
+        label = label.replaceAll(" ", "_"); //no spaces
+        label = label.replaceAll(",", ""); //no commas
+        //print("to data string label is $label");
+        return  "$label$labelPattern${LZString.compressToEncodedURIComponent(toJSONWithID().toString())}";
+
+    }
+
     String toDataString() {
         String json = toJSON().toString();
         //return LZString.compressToEncodedURIComponent(json);
@@ -206,6 +217,16 @@ class GenericScene extends Scene {
         return dataWithoutName;
     }
 
+    static GenericScene fromDataStringWithID(String string) {
+        String dataWithoutName = dataStringWithoutLabel(string);
+        if(dataWithoutName == null) throw("ERROR: Could Not Find Data");
+
+        String json = LZString.decompressFromEncodedURIComponent(dataWithoutName);
+        //print("json is $json");
+        return GenericScene.fromJSONWithID(new JSONObject.fromJSONString(json));
+    }
+
+    //default is no id
     static GenericScene fromDataString(String string) {
         String dataWithoutName = dataStringWithoutLabel(string);
         if(dataWithoutName == null) throw("ERROR: Could Not Find Data");
@@ -219,7 +240,18 @@ class GenericScene extends Scene {
         return GenericScene.fromDataString(toDataString());
     }
 
-    static GenericScene fromJSON(JSONObject json) {
+    static GenericScene fromJSONWithID(JSONObject json) {
+        GenericScene ret = fromJSON(json);
+        if(json["id"] != null){
+            ret.id = int.parse(json["id"]);
+            //if you find a card bigger than you, then do shit
+            if(nextID < ret.id) _nextID = ret.id +1;
+        }else{
+            ret.id = GenericScene.nextID;
+        }
+    }
+
+        static GenericScene fromJSON(JSONObject json) {
         //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
         //print("the json object is $json");
         String name = json["name"];
@@ -228,13 +260,7 @@ class GenericScene extends Scene {
         String bg = json["backgroundName"];
         double trigger = double.parse(json["triggerChance"]);
         GenericScene ret = new GenericScene(name, text, bg, null, triggerChance: trigger);
-        if(json["id"] != null){
-            ret.id = int.parse(json["id"]);
-            //if you find a card bigger than you, then do shit
-            if(nextID < ret.id) _nextID = ret.id +1;
-        }else{
-            ret.id = GenericScene.nextID;
-        }
+
         print("card with name $name has id ${ret.id}");
         ret.source = json["source"];
 
@@ -302,13 +328,19 @@ class GenericScene extends Scene {
         }
     }
 
+    JSONObject toJSONWithID() {
+        JSONObject json = toJSON();
+        if(id != null) json["id"] = "$id";
+
+        return json;
+    }
+
     JSONObject toJSON() {
         JSONObject json = new JSONObject();
         //    GenericScene(String this.name, List<SVP> this.resultStats, String this.text, String this.backgroundName, Entity owner, List<Scene> this.scenesToUnlock, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser }) : super(owner) {
         json["source"] = source;
         json["name"] = name;
         json["text"] = text;
-        json["id"] = "$id";
         json["backgroundName"] = backgroundName;
         json["triggerChance"] = "$triggerChance";
         List<JSONObject> sceneArray = new List<JSONObject>();

@@ -30,10 +30,15 @@ class Deck {
                 GenericScene gs = scene as GenericScene;
                 String sceneString = GenericScene.dataStringWithoutLabel(gs.toDataString());
                 for(String string in cardsInMe) {
-                    //print("string is $string");
                     String cardInDeckString = GenericScene.dataStringWithoutLabel(string);
-                    if(cardInDeckString.contains(sceneString)) {
-                        //print("found scene $gs in deck $name");
+                    if(name == "sburb") {
+                        print("${gs
+                            .name} string is $cardInDeckString in deck $name");
+                        print("owned card is $sceneString");
+                    }
+
+                    if(cardInDeckString.contains(sceneString) || cardInDeckString == sceneString) {
+                        print("found scene $gs in deck $name");
                         ret.add(gs);
                         break;
                     }
@@ -41,7 +46,7 @@ class Deck {
                 //print("$gs is not in deck $name");
             }
         }
-        //print("found ${ret.length} cards in deck $name");
+        print("found ${ret.length} owned cards in deck $name, out of ${myCards.length} cards owned total");
         return ret;
     }
 

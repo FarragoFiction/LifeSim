@@ -120,7 +120,7 @@ abstract class CardLibrary {
         for(String d in subsets) {
           //print("dynamic thing is  $d");
             if(d.isNotEmpty && d != " ") {
-                GenericScene g = (GenericScene.fromDataString(d));
+                GenericScene g = (GenericScene.fromDataStringWithID(d));
                 if(g != null) _genericCards.add(g);
             }
         }
@@ -133,7 +133,7 @@ abstract class CardLibrary {
         List<String> sceneArray = new List<String>();
         List genericScenes = genericCards;
         for(GenericScene s in genericScenes) {
-            sceneArray.add(s.toDataString());
+            sceneArray.add(s.toDataStringWithID());
         }
         window.localStorage[CARDSAVESTRING] = sceneArray.toString();
         savedID = GenericScene.nextID-1;
