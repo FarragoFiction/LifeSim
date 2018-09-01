@@ -10,6 +10,9 @@ class BeCulled extends Scene {
     @override
     Colour cardColor = StatFactory.AGE.color;
 
+    @override
+    int id = -134;
+
 
     String backgroundName = "AlterniaCulled.png";
     BeCulled(owner) : super(owner);

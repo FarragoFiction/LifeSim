@@ -10,6 +10,9 @@ class Die extends Scene {
     @override
     Colour cardColor = StatFactory.AGE.color;
 
+    @override
+    int id = -138;
+
 
     String backgroundName = "SomeoneFuckinDied.png";
     Die(owner) : super(owner);

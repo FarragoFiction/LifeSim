@@ -11,6 +11,9 @@ class GetASpouse extends Scene {
     @override
     String name = "Get a Spouse";
 
+    @override
+    int id = -140;
+
     String backgroundName = "ThisIsLoveIGuess.png";
     GetASpouse(owner) : super(owner);
     //should be bottom in list, only acitvates if nothing better to do.

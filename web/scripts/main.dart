@@ -6,7 +6,7 @@ import "LifeSimLib.dart";
 World world;
 List<Scene> sceneCards = new List<Scene>();
 
-Map<String,Scene> chosenScenes = new Map<String,Scene>();
+Map<int,Scene> chosenScenes = new Map<int,Scene>();
 Random rand;
 Element div = querySelector("#output");
 Element cardLibraryDiv;
@@ -189,16 +189,20 @@ void selectRandomCards() {
 
 Future<Null> displayDeckLibrary() async {
   await Loader.preloadManifest();
+  DivElement selectedHolder = new DivElement()..text = "0 Cards Selected";
+
   DivElement buttonHolder = new DivElement();
   ButtonElement button = new ButtonElement();
   button.style.display = "block";
   button.text = "Start Life With Selected Cards";
   button.onClick.listen((e) => grabSelectedCardsAndStart());
 
+
   buttonHolder.append(button);
+  cardLibraryDiv.append(selectedHolder);
   cardLibraryDiv.append(buttonHolder);
 
-  Deck.drawDecksToSelect(cardLibraryDiv, chosenScenes);
+  Deck.drawDecksToSelect(cardLibraryDiv, selectedHolder, chosenScenes);
 
 
 }

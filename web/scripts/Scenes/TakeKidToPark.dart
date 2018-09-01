@@ -11,6 +11,9 @@ class TakeKidToPark extends Scene {
     @override
     Colour cardColor = StatFactory.PARENTRITUDE.color;
 
+    @override
+    int id = -143;
+
 
     String backgroundName = "Perk.png";
     TakeKidToPark(owner) : super(owner);

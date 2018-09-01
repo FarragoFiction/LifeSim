@@ -10,6 +10,9 @@ class GoToSchool extends Scene {
     @override
     Colour cardColor = StatFactory.GRADEMOXY.color;
 
+    @override
+    int id = -142;
+
     String backgroundName = "Skule.png";
     @override
     double triggerChance = 0.75;

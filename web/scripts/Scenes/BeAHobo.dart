@@ -9,6 +9,9 @@ class BeAHobo extends Scene {
     @override
     Colour cardColor = StatFactory.SMELLWAVES.color;
 
+    @override
+    int id = -133;
+
 
     @override
     double triggerChance = 0.9;

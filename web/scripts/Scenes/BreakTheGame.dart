@@ -13,6 +13,9 @@ class BreakTheGame extends Scene {
     @override
     String name = "Break the Game";
 
+    @override
+    int id = -136;
+
     String backgroundName = "404pagebecauseecch.png";
     BreakTheGame(owner) : super(owner);
 

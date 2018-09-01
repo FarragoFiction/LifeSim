@@ -9,6 +9,9 @@ class BeBorn extends Scene {
     @override
     Colour cardColor = StatFactory.LIFESAUCE.color;
 
+    @override
+    int id = -134;
+
   @override
   bool triggered() {
       if(owner.hasStat(StatFactory.AGE) && StatFactory.AGE.value == 0) return true;

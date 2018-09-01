@@ -9,6 +9,9 @@ class DickAround extends Scene {
     @override
     Colour cardColor = StatFactory.JOBFLAKES.color;
 
+    @override
+    int id = -137;
+
 
     String backgroundName = "WongleWork.png";
     DickAround(owner) : super(owner);

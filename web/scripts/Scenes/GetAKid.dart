@@ -10,6 +10,9 @@ class GetAKid extends Scene {
     @override
     String name = "Become a Parent";
 
+    @override
+    int id = -139;
+
 
     double triggerChance = 0.2;
 

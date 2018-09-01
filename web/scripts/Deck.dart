@@ -21,6 +21,16 @@ class Deck {
     String name;
     AudioElement soundEffects = new AudioElement();
 
+    //slightly different behavior for random deck
+    Future<List<Scene>> get cardsOwnedForSelection async {
+        List<Scene> ret = new List<GenericScene>();
+        if(name == RANDOMDECK) {
+            return CardLibrary.cards;
+        }else {
+            return await cardsOwned;
+        }
+    }
+
     Future<List<GenericScene>> get cardsOwned async {
         List<Scene> myCards = new List<Scene>.from(CardLibrary.cards);
         List<GenericScene> ret = new List<GenericScene>();
@@ -159,7 +169,7 @@ class Deck {
         });
     }
 
-    Future<Null> makeSelectButtons(Element container) async {
+    Future<Null> makeSelectButtons(Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
         List<String> c = await cards("getting buttons"); //make sure its init
 
         ButtonElement allCards = new ButtonElement()..text = "Select All Cards";
@@ -177,6 +187,7 @@ class Deck {
 
         allCards.onClick.listen((Event e){
             //select all
+            selectAllCards(container, selectedStatsHolder, chosenScenes);
         });
 
         amountElement.onChange.listen((Event e){
@@ -186,6 +197,16 @@ class Deck {
         randomCards.onClick.listen((Event e){
             int amount = int.parse(amountElement.value);
         });
+    }
+
+    Future<Null> selectAllCards(Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
+        List<Scene> all = await cardsOwnedForSelection;
+        for(Scene s in all) {
+            //this way automatically avoids caring about repeats
+            chosenScenes[s.id] = s;
+        }
+        selectedStatsHolder.text = "${chosenScenes.keys.length} Cards Selected";
+
     }
 
 
@@ -303,23 +324,23 @@ class Deck {
         return ret;
     }
 
-    static Future<Null> drawDecksToSelect(Element container, Map<String, GenericScene> chosenScenes) async{
+    static Future<Null> drawDecksToSelect(Element container, Element selectedHolder, Map<int, Scene> chosenScenes) async{
         //get all decks
         Map<String, Deck> decks = Deck.allDecks();
         for(Deck d in decks.values) {
             print("loaded deck ${d.name}");
-            await d.makeSelectElement(container);
+            await d.makeSelectElement(container, selectedHolder, chosenScenes);
         }
     }
 
-    Future<Null> makeSelectElement(Element decks)  async{
+    Future<Null> makeSelectElement(Element decks, Element selectedStatsHolder, Map<int, Scene> chosenScenes)  async{
         DivElement container = new DivElement()..classes.add("deck");
         decks.append(container);
         ImageElement tmp = await image;
         container.append(tmp);
         DivElement stats = new DivElement()..text = "$name: ";
         container.append(stats);
-        await makeSelectButtons(container);
+        await makeSelectButtons(container, selectedStatsHolder, chosenScenes);
         return container;
     }
 

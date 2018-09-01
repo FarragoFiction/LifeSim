@@ -17,8 +17,7 @@ class GenericScene extends Scene {
         return ret;
     }
 
-    //must be unique.
-    int id;
+
 
     @override
     String backgroundName;

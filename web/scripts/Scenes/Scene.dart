@@ -7,7 +7,8 @@ abstract class Scene {
 
     String source = "Included in Base Game";
 
-
+//must be unique.
+    int id;
 
     String name = "???";
     //for scenes with random in them. they can override this if they want

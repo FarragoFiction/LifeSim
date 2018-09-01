@@ -10,6 +10,9 @@ class GoOnDates extends Scene {
     @override
     String name = "Go on Dates";
 
+    @override
+    int id = -141;
+
     String backgroundName = "Shittydanceparty.png";
     GoOnDates(owner) : super(owner);
 
