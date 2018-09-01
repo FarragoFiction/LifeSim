@@ -170,9 +170,12 @@ class Deck {
     }
 
     Future<Null> makeSelectButtons(Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
-        List<String> c = await cards("getting buttons"); //make sure its init
+        List<Scene> c = await cardsOwnedForSelection; //make sure its init
 
         ButtonElement allCards = new ButtonElement()..text = "Select All Cards";
+        ButtonElement removeCards = new ButtonElement()..text = "Remove All Cards";
+
+        DivElement wrapper = new DivElement();
         InputElement amountElement = new InputElement()..type="range";
         amountElement.min = "0";
         amountElement.max = "${c.length}";
@@ -180,15 +183,23 @@ class Deck {
         ButtonElement randomCards = new ButtonElement()..text = "Select ${amountElement.value} Random Cards";
 
         container.append(allCards);
-        container.append(amountElement);
-        container.append(randomCards);
+        container.append(removeCards);
 
-        //TODO detect selected from something OTHER than on screen images
+        wrapper.append(amountElement);
+        wrapper.append(randomCards);
+        container.append(wrapper);
+
 
         allCards.onClick.listen((Event e){
             //select all
             selectedStatsHolder.text = "Thinking...";
             selectAllCards(container, selectedStatsHolder, chosenScenes);
+        });
+
+        removeCards.onClick.listen((Event e){
+            //select all
+            selectedStatsHolder.text = "Thinking...";
+            unselectAllCards(container, selectedStatsHolder, chosenScenes);
         });
 
         amountElement.onChange.listen((Event e){
@@ -207,6 +218,16 @@ class Deck {
         for(Scene s in all) {
             //this way automatically avoids caring about repeats
             chosenScenes[s.id] = s;
+        }
+        selectedStatsHolder.text = "${chosenScenes.keys.length} Cards Selected";
+
+    }
+
+    Future<Null> unselectAllCards(Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
+        List<Scene> all = await cardsOwnedForSelection;
+        for(Scene s in all) {
+            //this way automatically avoids caring about repeats
+            chosenScenes.remove(s.id);
         }
         selectedStatsHolder.text = "${chosenScenes.keys.length} Cards Selected";
 
