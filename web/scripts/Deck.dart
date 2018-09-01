@@ -187,6 +187,7 @@ class Deck {
 
         allCards.onClick.listen((Event e){
             //select all
+            selectedStatsHolder.text = "Thinking...";
             selectAllCards(container, selectedStatsHolder, chosenScenes);
         });
 
