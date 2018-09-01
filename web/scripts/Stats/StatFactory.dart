@@ -2,6 +2,7 @@ import "../LifeSimLib.dart";
 
 abstract class StatFactory {
   static Stat SMELLWAVES;
+  static Stat GARLICITUDE;
   static Stat ESTEEM;
   static Stat GNOSIS;
   static Stat GRADEMOXY;
@@ -196,6 +197,7 @@ Sesquipedalian Loquaciousness: one to ten, ultramarine
         IMAGINATION = new Stat("IMAGINATION","","They were very imaginative.",0,new Colour.fromStyleString("#00ff00"));
         SQUIDDLESENSE = new Stat("SQUIDDLESENSE","","They were very otherworldly.",0,new Colour.fromStyleString("#77bcba"));
         LEVEL = new Stat("LEVEL","","They were high level.",0,new Colour.fromStyleString("#000000"),3);
+        GARLICITUDE  = new Stat("GARLICITUDE","","They never stopped adding garlic to food. Never.",0,new Colour.fromStyleString("#ccccaa"),3);
         POSITIVITY = new Stat("POSITIVITY","","They were a very helpful and supportive person.",0,new Colour.fromStyleString("#ffff00"),3);
 
 
