@@ -6,6 +6,17 @@ class GenericScene extends Scene {
 
     static String get labelPattern => ":___";
 
+    static int _nextID = 0;
+
+    static  int get nextID {
+        int ret = _nextID;
+        _nextID ++;
+        return ret;
+    }
+
+    //must be unique.
+    int id;
+
     @override
     String backgroundName;
 
@@ -210,9 +221,15 @@ class GenericScene extends Scene {
         //print("the json object is $json");
         String name = json["name"];
         String text = json["text"];
+
         String bg = json["backgroundName"];
         double trigger = double.parse(json["triggerChance"]);
         GenericScene ret = new GenericScene(name, text, bg, null, triggerChance: trigger);
+        if(json["id"] != null){
+            ret.id = int.parse(json["id"]);
+        }else{
+            ret.id = GenericScene.nextID;
+        }
         ret.source = json["source"];
 
         String scenesToUnlockString = json["scenesToUnlock"];
@@ -285,6 +302,7 @@ class GenericScene extends Scene {
         json["source"] = source;
         json["name"] = name;
         json["text"] = text;
+        json["id"] = "$id";
         json["backgroundName"] = backgroundName;
         json["triggerChance"] = "$triggerChance";
         List<JSONObject> sceneArray = new List<JSONObject>();

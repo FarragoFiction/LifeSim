@@ -30,7 +30,7 @@ void main() {
   cardLibraryDiv = new DivElement();
   cardLibraryDiv.style.width = "100%";
   cardLibraryDiv.id = "cardLibrary"; //for humans
-  cardLibraryDiv.text = "Choose Scenes to be possible in the Life of your Protagonist. Choose however many you want. Just remember that if you have too many, none will really finish.";
+  cardLibraryDiv.text = "";
 
   preStory = new DivElement();
   preStory.id  = "preStory";
@@ -139,6 +139,7 @@ void initCardLibrary() {
   //sceneCards = new List.from(CardLibrary.cardsWithSearchTerm("thot"));
 }
 
+//TODO redo this entierly, no more cards on screen
 void grabSelectedCardsAndStart() {
   print("before selecting., there are ${chosenScenes}");
 
