@@ -33,7 +33,7 @@ abstract class CardLibrary {
 
     static int get money {
         if(window.localStorage.containsKey(MONEYSTRING)){
-            return int.parse(window.localStorage[MONEYSTRING])+4037;
+            return int.parse(window.localStorage[MONEYSTRING]);
         }else {
             return 4037;
         }

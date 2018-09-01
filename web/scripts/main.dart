@@ -6,7 +6,7 @@ import "LifeSimLib.dart";
 World world;
 List<Scene> sceneCards = new List<Scene>();
 
-List<Scene> chosenScenes = new List<Scene>();
+Map<String,Scene> chosenScenes = new Map<String,Scene>();
 Random rand;
 Element div = querySelector("#output");
 Element cardLibraryDiv;
@@ -39,7 +39,7 @@ void main() {
   story.id = "story";
   story.style.width = "1000px";
 
-  Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes);
+  Entity protagonist = new Entity("${Entity.randomFirstName(rand)}","${Entity.randomLastName(rand)}", new SuperbSuckDoll(), rand, chosenScenes.values);
 
   world = new World(rand, protagonist, story);
 
@@ -124,7 +124,6 @@ void doCoinToss() {
   world.protagonist.rand = world.rand;
   coinToss.append(img);
   //shuffled after aligning to one of two timelines
-  chosenScenes = world.shuffleDeck(chosenScenes);
 }
 
 Future<Null> loadProtagDoll() async {
@@ -140,14 +139,19 @@ void initCardLibrary() {
 }
 
 //TODO redo this entierly, no more cards on screen
-void grabSelectedCardsAndStart() {
+void grabSelectedCardsAndStartOld() {
   print("before selecting., there are ${chosenScenes}");
 
   List<Element> selected = querySelectorAll(".selectedCard");
   for(Element e in selected) {
     int id = int.parse(e.id.replaceAll("card", ""));
-    chosenScenes.add(sceneCards[id]);
+    //chosenScenes.add(sceneCards[id]);
   }
+  start();
+}
+
+void grabSelectedCardsAndStart() {
+  print("before selecting., there are ${chosenScenes.values.length}");
   start();
 }
 
@@ -286,17 +290,7 @@ void searchCards() {
 
 }
 
-void pickCardsRandomly() {
-  initCardLibrary();
 
-  chosenScenes = new List<Scene>();
-  for(int i=0; i<10; i++) {
-    Scene chosen = rand.pickFrom(sceneCards);
-    //print("adding a ${chosen.name} to the deck");
-    chosenScenes.add(chosen);
-  }
-  //print("after adding, there are ${chosenScenes}");
-}
 
 void start() {
   div.style.width = "1000px";
@@ -304,8 +298,12 @@ void start() {
   doCoinToss();
   preStory.style.display = "none";
 
-  //print("before showing., there are ${chosenScenes}");
-  world.protagonist.addAllHighPriorityScenes(chosenScenes);
-  world.showDeck(chosenScenes);
+  //print("before showing., there are ${chosenScenes}
+  //shuffling post coin toss means the order is coin toss aligned
+  List<Scene> tmp = new List<Scene>.from(chosenScenes.values);
+  tmp = world.shuffleDeck(tmp);
+
+  world.protagonist.addAllHighPriorityScenes(tmp);
+  world.showDeck(tmp);
   world.tick();
 }
