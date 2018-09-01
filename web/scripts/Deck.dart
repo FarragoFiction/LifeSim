@@ -197,12 +197,26 @@ class Deck {
 
         randomCards.onClick.listen((Event e){
             int amount = int.parse(amountElement.value);
+            selectedStatsHolder.text = "Thinking...";
+            selectRandomCards(amount, container, selectedStatsHolder, chosenScenes);
         });
     }
 
     Future<Null> selectAllCards(Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
         List<Scene> all = await cardsOwnedForSelection;
         for(Scene s in all) {
+            //this way automatically avoids caring about repeats
+            chosenScenes[s.id] = s;
+        }
+        selectedStatsHolder.text = "${chosenScenes.keys.length} Cards Selected";
+
+    }
+
+    Future<Null> selectRandomCards(int amount, Element container, Element selectedStatsHolder, Map<int, Scene> chosenScenes) async {
+        List<Scene> all = await cardsOwnedForSelection;
+        all.shuffle();
+        for(int i = 0; i<amount; i++) {
+            Scene s = all[i];
             //this way automatically avoids caring about repeats
             chosenScenes[s.id] = s;
         }
