@@ -8,6 +8,7 @@ abstract class CardLibrary {
 
     static List<GenericScene> _genericCards;
     static List<Scene> _regularCards;
+    static String IDCOUNT = "LIFESIMIDCOUNT";
     static String CARDSAVESTRING = "LIFESIMCARDLIBRARY";
     static String FOUNDCARDSSTRING = "LIFESIMFOUNDCARDS";
     //will be a set.
@@ -38,9 +39,21 @@ abstract class CardLibrary {
         }
     }
 
+    static int get savedID {
+        if(window.localStorage.containsKey(IDCOUNT)){
+            return int.parse(window.localStorage[IDCOUNT]);
+        }else {
+            return 0;
+        }
+    }
+
     static set money(int value) {
         window.localStorage[MONEYSTRING] = "$value";
         syncMoney();
+    }
+
+    static set savedID(int value) {
+        window.localStorage[IDCOUNT] = "$value";
     }
 
     static void clearViewedScenes(){

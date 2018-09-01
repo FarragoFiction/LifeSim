@@ -6,11 +6,15 @@ class GenericScene extends Scene {
 
     static String get labelPattern => ":___";
 
-    static int _nextID = 0;
+    static int _nextID = -1;
 
     static  int get nextID {
+        if(_nextID <0) {
+            _nextID = CardLibrary.savedID;
+        }
         int ret = _nextID;
         _nextID ++;
+        CardLibrary.savedID = _nextID;
         return ret;
     }
 
