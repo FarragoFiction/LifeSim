@@ -57,7 +57,7 @@ void main() {
 
   displayProtagLoader();
   displayDeckLibrary();
-  //displayCardLibrary();
+  displayCardLibrary();
   //pickCardsRandomly();
  // start();
 }
@@ -145,12 +145,14 @@ void grabSelectedCardsAndStartOld() {
   List<Element> selected = querySelectorAll(".selectedCard");
   for(Element e in selected) {
     int id = int.parse(e.id.replaceAll("card", ""));
-    //chosenScenes.add(sceneCards[id]);
+    chosenScenes[id] =sceneCards[id];
   }
-  start();
+  //start();
 }
 
+//combination of old and new, for now
 void grabSelectedCardsAndStart() {
+  grabSelectedCardsAndStartOld();
   print("before selecting., there are ${chosenScenes.values.length}");
   start();
 }
