@@ -1,6 +1,7 @@
 import "../LifeSimLib.dart";
 import "dart:convert";
-
+import "package:CommonLib/Colours.dart";
+import "package:CommonLib/Compression.dart";
 
 class GenericScene extends Scene {
 
@@ -16,8 +17,6 @@ class GenericScene extends Scene {
         _nextID ++;
         return ret;
     }
-
-f
 
     @override
     String backgroundName;
@@ -278,52 +277,52 @@ f
     }
 
     void loadScenesToUnlock(String weirdString) {
-        List<dynamic> what = JSON.decode(weirdString);
+        List<dynamic> what = json.decode(weirdString);
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
-            j.json = d;
+            j.jsonData = d;
             scenesToUnlock.add(GenericScene.fromJSON(j));
         }
     }
 
     void loadResultsSVPs(String weirdString) {
-        List<dynamic> what = JSON.decode(weirdString);
+        List<dynamic> what = json.decode(weirdString);
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
-            j.json = d;
+            j.jsonData = d;
             resultStats.add(SVP.fromJSON(j));
         }
     }
 
     void loadGreaterTriggers(String weirdString) {
-        List<dynamic> what = JSON.decode(weirdString);
+        List<dynamic> what = json.decode(weirdString);
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
-            j.json = d;
+            j.jsonData = d;
             triggerStatsGreater.add(SVP.fromJSON(j));
         }
     }
 
 
     void loadLesserTriggers(String weirdString) {
-        List<dynamic> what = JSON.decode(weirdString);
+        List<dynamic> what = json.decode(weirdString);
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
-            j.json = d;
+            j.jsonData = d;
             triggerStatsLesser.add(SVP.fromJSON(j));
         }
     }
 
     void loadEqualTriggers(String weirdString) {
-        List<dynamic> what = JSON.decode(weirdString);
+        List<dynamic> what = json.decode(weirdString);
         for(dynamic d in what) {
             //print("dynamic json thing is  $d");
             JSONObject j = new JSONObject();
-            j.json = d;
+            j.jsonData = d;
             triggerStatsEqual.add(SVP.fromJSON(j));
         }
     }

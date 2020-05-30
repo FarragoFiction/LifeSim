@@ -6,11 +6,11 @@ import 'dart:collection';
 import 'dart:convert';
 
 class JSONObject extends Object with MapMixin<String,String>{
-    Map<String, String> json = new Map<String,String>();
+    Map<String, String> jsonData = new Map<String,String>();
     JSONObject();
 
     JSONObject.fromJSONString(String j){
-        json  = JSON.decode(j);
+        jsonData  = json.decode(j);
     }
 
     static Set<int> jsonStringToIntSet(String str) {
@@ -80,29 +80,29 @@ class JSONObject extends Object with MapMixin<String,String>{
 
     @override
     String toString() {
-        return JSON.encode(json);
+        return json.encode(jsonData);
     }
 
   @override
   String operator [](Object key) {
-    return json[key];
+    return jsonData[key];
   }
 
   @override
   void operator []=(String key, String value) {
-    json[key] = value;
+    jsonData[key] = value;
   }
 
   @override
   void clear() {
-    json.clear();
+    jsonData.clear();
   }
 
   @override
-  Iterable<String> get keys => json.keys;
+  Iterable<String> get keys => jsonData.keys;
 
   @override
   String remove(Object key) {
-   json.remove(key);
+   jsonData.remove(key);
   }
 }

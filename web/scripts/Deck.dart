@@ -377,7 +377,7 @@ class Deck {
         DivElement stats = new DivElement()..text = "$name: ";
         container.append(stats);
         await makeSelectButtons(container, selectedStatsHolder, chosenScenes);
-        return container;
+        //return container;
     }
 
 

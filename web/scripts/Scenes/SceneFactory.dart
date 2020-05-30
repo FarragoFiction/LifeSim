@@ -1,4 +1,5 @@
 import "../LifeSimLib.dart";
+import "package:LoaderLib/Loader.dart";
 
 abstract class SceneFactory {
 

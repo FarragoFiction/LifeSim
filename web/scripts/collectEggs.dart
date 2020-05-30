@@ -18,7 +18,6 @@ void main() {
 }
 
 Future<Null> start() async {
-  await Loader.preloadManifest();
   div = querySelector("#output");
   StatFactory.initAllStats();
   SceneFactory.initScenes();

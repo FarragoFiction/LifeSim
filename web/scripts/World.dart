@@ -1,4 +1,5 @@
 import "LifeSimLib.dart";
+import "package:LoaderLib/Loader.dart";
 /*
     The world has a protogaonist. That's....actually kind of it. Each month it asks the protagonist what they want to do.
     ONLY the protagonist can do everything. Everyone else is supporting chars, thought they still age, too.
@@ -17,7 +18,6 @@ class World {
     //where do i draw to?
     Element div;
     List<Entity> sideChars = new List<Entity>();
-    bool loadedManifest = false;
 
     World(Random this.rand, Entity this.protagonist, Element this.div) {
         window.onError.listen((e) {
@@ -41,11 +41,6 @@ class World {
 
     Entity makeKid() {
         return new Entity(Entity.randomChildName(protagonist.rand),protagonist.lastName, new SuperbSuckDoll(rand), rand, <Scene>[]);
-    }
-
-    Future<Null> preloadManifest() async {
-        await Loader.preloadManifest();
-        loadedManifest = true;
     }
 
      List<Scene> shuffleDeck(List<Scene> scenes) {
@@ -73,7 +68,6 @@ class World {
     }
 
     Future<Null> tick() async {
-        if(!loadedManifest) await preloadManifest();
         print("tick!");
         if(!ended && age < maxAge) {
             await protagonist.tick(div, this);

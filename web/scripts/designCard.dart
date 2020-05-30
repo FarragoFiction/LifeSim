@@ -59,8 +59,6 @@ void drawCard(String source) {
 //his.name, String this.text, String this.backgroundName, Entity owner, {double this.triggerChance: 0.5,List<SVP> this.triggerStatsGreater,List<SVP> this.triggerStatsLesser, List<SVP>this.triggerStatsEqual, List<SVP> this.resultStats,List<GenericScene> this.scenesToUnlock }) : super(owner) {
 
 Future<Null> drawControls() async {
-    await Loader.preloadManifest();
-
     todo("have ability to save data strings to file for later use");
     DivElement controls = new DivElement();
     controls.classes.add("controls");

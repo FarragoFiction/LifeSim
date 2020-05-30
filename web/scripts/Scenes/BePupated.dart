@@ -1,5 +1,5 @@
 import "../LifeSimLib.dart";
-
+import "package:CommonLib/Colours.dart";
 
 class BePupated extends Scene {
     String backgroundName = "AlterniaBroodingCaverns.png";

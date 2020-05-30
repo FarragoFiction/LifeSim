@@ -2,6 +2,8 @@ import "dart:html";
 import "package:DollLibCorrect/DollRenderer.dart";
 import "dart:async";
 import "../LifeSimLib.dart";
+import "package:CommonLib/Colours.dart";
+import "package:LoaderLib/Loader.dart";
 
 abstract class Scene {
 

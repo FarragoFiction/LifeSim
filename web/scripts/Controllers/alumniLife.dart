@@ -4,6 +4,7 @@ import 'dart:async';
 import "package:BlackJack/BlackJack.dart";
 import "dart:math" as Math;
 import "package:DollLibCorrect/DollRenderer.dart";
+import "package:CommonLib/Random.dart";
 
 World world;
 Element div = querySelector("#output");
@@ -94,7 +95,7 @@ Entity loadAlumni() {
     }catch(e) {
         window.alert("error loading alumni. Something went wrong:  $e ");
     }
-
+    return null;
 }
 
 /*   static String PATIENCE = "patience";

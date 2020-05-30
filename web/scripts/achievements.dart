@@ -26,7 +26,6 @@ void main() {
 }
 
 Future<Null> displayAchievements() async {
-  await Loader.preloadManifest();
   Set<String> scenes = CardLibrary.viewedScenes;
   List<String> debug = new List<String>();
   if(scenes.isEmpty) {

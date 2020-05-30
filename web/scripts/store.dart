@@ -7,6 +7,7 @@ import 'Stats/StatFactory.dart';
 import 'dart:async';
 import 'dart:html';
 import 'navbar.dart';
+import "package:LoaderLib/Loader.dart";
 
 import 'package:RenderingLib/RendereringLib.dart';
 
@@ -15,7 +16,6 @@ import 'package:RenderingLib/RendereringLib.dart';
 DivElement output = querySelector("#output");
 Future<Null> main() async{
     loadNavbar();
-    await Loader.preloadManifest();
     StatFactory.initAllStats();
     SceneFactory.initScenes();
     sellAll();

@@ -1,4 +1,5 @@
 import "../LifeSimLib.dart";
+import "package:CommonLib/Colours.dart";
 
 abstract class StatFactory {
   static Stat SMELLWAVES;

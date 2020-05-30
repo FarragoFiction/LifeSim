@@ -1,5 +1,6 @@
 import "LifeSimLib.dart";
 import "dart:convert";
+import "package:CommonLib/Utility.dart" as Util;
 
 /**
  * handles saving and loading the card library. static.
@@ -102,8 +103,8 @@ abstract class CardLibrary {
 
     static Set<Scene> cardsWithSearchTerm(String term) {
         // (GenericScene scene) => scene.toJson();
-        Set<Scene> ret = Search.textSearch(genericCards,term,(Scene scene) => (scene as GenericScene).toJSON().toString());
-        ret.addAll(Search.textSearch(regularCards,term,(Scene scene) => scene.description));
+        Set<Scene> ret = Util.Search.textSearch(genericCards,term,(Scene scene) => (scene as GenericScene).toJSON().toString());
+        ret.addAll(Util.Search.textSearch(regularCards,term,(Scene scene) => scene.description));
         return ret;
     }
 

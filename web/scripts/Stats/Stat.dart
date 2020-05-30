@@ -1,4 +1,5 @@
 import "../LifeSimLib.dart";
+import "package:CommonLib/Colours.dart";
 
 class Stat implements Comparable<Stat> {
 

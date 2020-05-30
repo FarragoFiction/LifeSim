@@ -6,7 +6,7 @@ import "LifeSimLib.dart";
 World world;
 List<Scene> sceneCards = new List<Scene>();
 
-Map<int,Scene> chosenScenes = new Map<int,Scene>();
+Map<int,Scene> chosenScenes = <int,Scene>{};
 Random rand;
 Element div = querySelector("#output");
 Element cardLibraryDiv;
@@ -19,7 +19,8 @@ List<CanvasElement> cardCanvases = new List<CanvasElement>();
 TextInputElement search;
 
 
-void main() {
+Future<void> main() async {
+  await Doll.loadFileData();
   div.style.width = "100%";
   loadNavbar();
   StatFactory.initAllStats();
@@ -190,7 +191,6 @@ void selectRandomCards() {
 }
 
 Future<Null> displayDeckLibrary() async {
-  await Loader.preloadManifest();
   DivElement selectedHolder = new DivElement()..text = "0 Cards Selected";
 
   DivElement buttonHolder = new DivElement();
@@ -211,7 +211,6 @@ Future<Null> displayDeckLibrary() async {
 
 //as opposed to a library card
 Future<Null> displayCardLibrary() async {
-  await Loader.preloadManifest();
   DivElement buttonHolder = new DivElement();
   ButtonElement button = new ButtonElement();
   button.style.display = "block";

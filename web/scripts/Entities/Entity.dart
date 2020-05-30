@@ -1,5 +1,6 @@
 import "../LifeSimLib.dart";
 import '../Scenes/BePupated.dart';
+import "package:CommonLib/Random.dart";
 
 
 class Entity {
@@ -32,7 +33,7 @@ class Entity {
 
     String epilogue = "";
 
-    Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, List<Scene> nonDefaultScenes) {
+    Entity(String this.firstName, String this.lastName, Doll this.doll, Random this.rand, Iterable<Scene> nonDefaultScenes) {
         //all entities have these three scenes no matter what
         print("new entity");
         scenes.add(new Die(this));
@@ -84,13 +85,13 @@ class Entity {
         return rand.pickFrom(lastNames);
     }
 
-    void addAllNewStats(List<SVP> newStats) {
+    void addAllNewStats(Iterable<SVP> newStats) {
         for(SVP s in newStats) {
             addStatNow(s.stat, s.value);
         }
     }
 
-    void addAllHighPriorityScenes(List<Scene>priorityScenes) {
+    void addAllHighPriorityScenes(Iterable<Scene>priorityScenes) {
         for(Scene s in priorityScenes) {
             s.owner = this;
         }

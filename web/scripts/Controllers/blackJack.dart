@@ -4,6 +4,7 @@ import 'dart:async';
 import "package:BlackJack/BlackJack.dart";
 import "dart:math" as Math;
 import "package:DollLibCorrect/DollRenderer.dart";
+import "package:LoaderLib/Loader.dart";
 
 BlackJackGame game;
 Element div;
@@ -83,7 +84,6 @@ Future<Null> start() async{
     clearDiv();
 
     CardLibrary.money = CardLibrary.money + -1* bet;
-    await Loader.preloadManifest();
     await drawHooker();
     game = new BlackJackGame(Card.getFreshDeck(),div, finishGame);
     game.dealer.name = "Hooker";

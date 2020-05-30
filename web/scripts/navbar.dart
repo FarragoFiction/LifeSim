@@ -1,12 +1,14 @@
 import 'dart:html';
 import "CardLibrary.dart";
 import "package:DollLibCorrect/DollRenderer.dart";
+import "package:CommonLib/Utility.dart" as Util;
 
 String simulatedParamsGlobalVar = "";
 
 //just loads the navbar.text into the appropriate div.
-void loadNavbar() {
-    HttpRequest.getString(PathUtils.adjusted("navbar.txt")).then(onNavbarLoaded);
+Future<void> loadNavbar() async {
+    final String stuff = await HttpRequest.getString(Util.PathUtils.adjusted("navbar.txt"));
+    onNavbarLoaded(stuff);
 }
 
 void storeCard(String card) {
@@ -22,7 +24,7 @@ void storeCard(String card) {
 
 void onNavbarLoaded(String data) {
     // PL: oh boy fixing those urls
-    int subdirs = PathUtils.getPathDepth();
+    int subdirs = Util.PathUtils.getPathDepth();
     data = data.replaceAllMapped(new RegExp("(href|src) ?= ?([\"'])(?!https?:)"), (Match m) => "${m.group(1)} = ${m.group(2)}${"../"*subdirs}");
 
     querySelector("#navbar").appendHtml(data, treeSanitizer: NodeTreeSanitizer.trusted);
